@@ -1,6 +1,6 @@
 ## Oversight.io
 
-An ode to the oversight community inside the United States government.
+An ode to the oversight community of the United States government.
 
 A small website (in progress!) at http://oversight.io, dedicated to showcasing the work and amplifying the impact of the United States government's extensive oversight apparatus.
 
