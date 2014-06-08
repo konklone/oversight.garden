@@ -28,5 +28,11 @@
   "bugs": {
     "url": "https://github.com/konklone/oversight/issues"
   },
-  "homepage": "https://github.com/konklone/oversight"
+  "homepage": "https://github.com/konklone/oversight",
+  "dependencies": {
+    "express": "4.x",
+    "body-parser": "*",
+    "method-override": "*",
+    "errorhandler": "*"
+  }
 }
