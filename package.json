@@ -1,0 +1,32 @@
+{
+  "name": "oversight",
+  "version": "0.0.1",
+  "description": "An ode to the oversight community of the United States government.",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/konklone/oversight.git"
+  },
+  "keywords": [
+    "oversight",
+    "government",
+    "foia",
+    "inspector general",
+    "reports",
+    "express"
+  ],
+  "author": {
+    "name": "Eric Mill",
+    "email": "eric@konklone.com",
+    "url": "https://konklone.com"
+  },
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/konklone/oversight/issues"
+  },
+  "homepage": "https://github.com/konklone/oversight"
+}
