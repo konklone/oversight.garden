@@ -30,9 +30,15 @@
   },
   "homepage": "https://github.com/konklone/oversight",
   "dependencies": {
+    "elasticsearch": "2.x",
+
     "express": "4.x",
     "body-parser": "*",
     "method-override": "*",
-    "errorhandler": "*"
+    "errorhandler": "*",
+
+    "glob": "*",
+    "async": "*",
+    "minimist": "*"
   }
 }
