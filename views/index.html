@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<title>
+  Oversight.io | Celebrating the US government's oversight community.
+</title>
+</head>
+<body>
+
+<h1>Oversight.io</h1>
+
+<% if (results) { %>
+  <ul>
+    <% for (var i=0; i<results.length; i++) { %>
+      <% report = results[i]._source %>
+      <li><%= report.title %></li>
+    <% } %>
+  </ul>
+<% } else { %>
+  <p>
+    No results right now.
+  </p>
+<% } %>
+
+</body>
+</html>
