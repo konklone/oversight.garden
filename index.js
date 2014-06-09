@@ -9,6 +9,7 @@ var port = parseInt(process.argv[2], 10);
 if (isNaN(port)) port = 3000;
 
 // app middleware/settings
+app.engine('.html', require('ejs').__express);
 app.enable('trust proxy')
   .use(require('body-parser')())
   .use(require('method-override')())

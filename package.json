@@ -16,8 +16,7 @@
     "government",
     "foia",
     "inspector general",
-    "reports",
-    "express"
+    "reports"
   ],
   "author": {
     "name": "Eric Mill",
@@ -33,6 +32,7 @@
     "elasticsearch": "2.x",
 
     "express": "4.x",
+    "ejs": "*",
     "body-parser": "*",
     "method-override": "*",
     "errorhandler": "*",
