@@ -69,10 +69,16 @@ function run(options) {
     var inspector = details.inspector,
         year = details.year,
         report_id = details.report_id;
-
     console.log("[" + inspector + "][" + year + "][" + report_id + "]");
+
+    console.log("\tLoading JSON from disk...")
     var datafile = path.join(config.inspectors.data, inspector, year.toString(), report_id, "report.json");
     var data = JSON.parse(fs.readFileSync(datafile));
+
+    console.log("\tLoading text from disk...")
+    var textfile = path.join(config.inspectors.data, inspector, year.toString(), report_id, "report.txt");
+    if (fs.existsSync(textfile))
+      data.text = fs.readFileSync(textfile).toString();
 
     // Actually load into Elasticsearch
     console.log("\tIndexing into Elasticsearch...");
@@ -82,7 +88,11 @@ function run(options) {
       id: report_id,
       body: data
     }, function(err) {
-      if (err) console.log("\tEr what!!");
+      if (err) {
+        console.log("\tEr what!!");
+        console.log("\t" + err);
+        process.exit(1);
+      }
 
       done();
     });
