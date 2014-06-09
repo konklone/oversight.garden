@@ -29,8 +29,10 @@ function run(options) {
   var this_year = new Date().getYear() + 1900;
   var since = options.since ? parseInt(options.since) : this_year;
   var only_id = options.report_id;
+  var inspectors = options.inspectors ? options.inspectors.split(",") : null;
 
   console.log("Loading all reports since " + since + ".");
+  if (inspectors) console.log("Limiting to: " + inspectors);
 
   var fetch = [];
   var count = 0;
@@ -48,6 +50,7 @@ function run(options) {
 
         var should_skip = (
           (year < since) ||
+          (inspectors && (inspectors.indexOf(inspector) < 0)) ||
           (only_id && (only_id != report_id)) ||
           (limit && (count >= limit))
         );
