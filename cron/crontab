@@ -1,0 +1,4 @@
+
+
+# gather inspector general reports, then load them
+40 * * * * /home/unitedstates/oversight/current/config/cron/inspectors-general.sh

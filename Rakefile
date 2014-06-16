@@ -1,0 +1,1 @@
+load "tasks/elasticsearch.rake"

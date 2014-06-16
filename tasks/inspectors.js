@@ -6,9 +6,9 @@
  * and all available reports in that year.
  *
  * Supported options:
- *   year: limit to single year. defaults to current.
+ *   since: limit to all since a given year. defaults to current year.
  *   inspectors: limit to list of inspector slugs (comma-separated)
- *   report_id: limit to individual report ID (faster combined with --years)
+ *   report_id: limit to individual report ID (combine with --since if needed)
  *   limit: cut off after N reports, useful for debugging
  */
 
@@ -17,7 +17,7 @@ var fs = require('fs'),
     async = require('async'),
     glob = require('glob');
 
-var config = require("../config"),
+var config = require("../config/config"),
     elasticsearch = require("elasticsearch"),
     es = new elasticsearch.Client({
       host: config.elasticsearch,
@@ -83,11 +83,14 @@ function run(options) {
     if (fs.existsSync(textfile))
       data.text = fs.readFileSync(textfile).toString();
 
+    // and this is for IG reports
+    data.source = "igs";
+
     // Actually load into Elasticsearch
     console.log("\tIndexing into Elasticsearch...");
     es.index({
       index: 'oversight',
-      type: 'ig_reports',
+      type: 'reports',
       id: report_id,
       body: data
     }, function(err) {
