@@ -76,7 +76,9 @@ function run(options) {
 
     console.log("\tLoading JSON from disk...")
     var datafile = path.join(config.inspectors.data, inspector, year.toString(), report_id, "report.json");
-    var data = JSON.parse(fs.readFileSync(datafile));
+    var json = fs.readFileSync(datafile);
+    if (!json) return done();
+    var data = JSON.parse(json);
 
     console.log("\tLoading text from disk...")
     var textfile = path.join(config.inspectors.data, inspector, year.toString(), report_id, "report.txt");
