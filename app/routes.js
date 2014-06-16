@@ -15,7 +15,7 @@ module.exports = {
       res.render("index.html", {
         results: results,
         query: req.param("query")
-      })
+      });
     }, function(err) {
       console.log("Noooo!");
       res.render("index.html", {
@@ -23,9 +23,30 @@ module.exports = {
         query: null
       });
     })
+  },
+
+  report: function(req, res) {
+    get(req.param("report_id")).then(function(result) {
+      res.render("report.html", {
+        report: result._source
+      });
+    }, function(err) {
+      console.log("Nooooo! " + err);
+      res.render("report.html", {
+        report: null
+      });
+    })
   }
 
 };
+
+function get(id) {
+  return es.get({
+    index: 'oversight',
+    type: 'reports',
+    id: id
+  });
+}
 
 function search(query) {
   return es.search({

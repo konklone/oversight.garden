@@ -25,6 +25,7 @@ else
 // helpers and routes
 app.locals.helpers = require("./app/helpers");
 app.get('/', routes.index);
+app.get('/report/:inspector/:report_id', routes.report);
 
 
 // boot it up!
