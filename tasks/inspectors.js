@@ -109,8 +109,13 @@ function run(options) {
   async.eachSeries(fetch, loadReport, function(err) {
     if (err) console.log("Error doing things!!");
 
-    console.log("All done.")
-    process.exit(0);
+    console.log("Refreshing index.")
+    es.indices.refresh(function(err) {
+      if (err) console.log("Error: " + err);
+
+      console.log("All done.")
+      process.exit(0);
+    });
   });
 }
 
