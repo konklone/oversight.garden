@@ -30,7 +30,7 @@
   <strong>Searching for "<%= query %>"...</strong>
 <% } %>
 
-<% if (results) { %>
+<% if (results && results.length > 0) { %>
   <ul>
     <% for (var i=0; i<results.length; i++) { %>
       <% report = results[i]._source %>
