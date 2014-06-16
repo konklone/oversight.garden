@@ -1,4 +1,4 @@
-var routes = require("./routes");
+var routes = require("./app/routes");
 
 var express = require('express');
 var app = express();
@@ -22,7 +22,8 @@ else
   app.use(require('errorhandler')())
 
 
-// routes
+// helpers and routes
+app.locals.helpers = require("./app/helpers");
 app.get('/', routes.index);
 
 

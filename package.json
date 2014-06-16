@@ -2,7 +2,7 @@
   "name": "oversight",
   "version": "0.0.1",
   "description": "An ode to the oversight community of the United States government.",
-  "main": "index.js",
+  "main": "app.js",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
