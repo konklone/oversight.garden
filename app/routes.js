@@ -8,11 +8,12 @@ var config = require("../config/config"),
 
 
 module.exports = {
-  index: function(req, res) {
 
-    search(req.param("query")).then(function(results) {
+  // The homepage. A temporary search page.
+  index: function(req, res) {
+    search(req.param("query") || "*").then(function(results) {
       res.render("index.html", {
-        results: results.hits.hits,
+        results: results,
         query: req.param("query")
       })
     }, function(err) {
@@ -31,6 +32,8 @@ function search(query) {
     index: 'oversight',
     type: 'reports',
     body: {
+      "from": 0,
+      "size": 10,
       "query": {
         "filtered": {
           "query": {
