@@ -17,7 +17,7 @@ var fs = require('fs'),
     async = require('async'),
     glob = require('glob');
 
-var config = require("../config"),
+var config = require("../config/config"),
     elasticsearch = require("elasticsearch"),
     es = new elasticsearch.Client({
       host: config.elasticsearch,
@@ -83,11 +83,14 @@ function run(options) {
     if (fs.existsSync(textfile))
       data.text = fs.readFileSync(textfile).toString();
 
+    // and this is for IG reports
+    data.source = "igs";
+
     // Actually load into Elasticsearch
     console.log("\tIndexing into Elasticsearch...");
     es.index({
       index: 'oversight',
-      type: 'ig_reports',
+      type: 'reports',
       id: report_id,
       body: data
     }, function(err) {

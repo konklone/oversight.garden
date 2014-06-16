@@ -29,7 +29,7 @@ module.exports = {
 function search(query) {
   return es.search({
     index: 'oversight',
-    type: 'ig_reports',
+    type: 'reports',
     body: {
       "query": {
         "filtered": {
