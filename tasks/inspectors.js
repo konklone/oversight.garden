@@ -6,9 +6,9 @@
  * and all available reports in that year.
  *
  * Supported options:
- *   year: limit to single year. defaults to current.
+ *   since: limit to all since a given year. defaults to current year.
  *   inspectors: limit to list of inspector slugs (comma-separated)
- *   report_id: limit to individual report ID (faster combined with --years)
+ *   report_id: limit to individual report ID (combine with --since if needed)
  *   limit: cut off after N reports, useful for debugging
  */
 
