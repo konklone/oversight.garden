@@ -1,3 +1,20 @@
+<!--
+  Oversight.io, an ode the US government's oversight community.
+
+  Built and maintained by Eric Mill. (@konklone, konklone.com)
+
+  A Node app, with Express for a web server, and Elasticsearch
+  for persistence. Open source, under a GPLv3 license:
+  https://github.com/konklone/oversight
+
+  This app would be entirely impossible without the public domain,
+  volunteer-driven project to gather IG reports in bulk:
+  https://github.com/unitedstates/inspectors-general
+
+  Thanks to Lindsay Young, Travis Briggs, David Cook, Steve Pulec,
+  Andrew Dai, and any contributors to that project not listed here.
+-->
+
 <!doctype html>
 <html>
 <head>
@@ -21,6 +38,19 @@
     No results right now.
   </p>
 <% } %>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-252618-18', 'oversight.io');
+  ga('send', 'pageview');
+
+  // Anonymize user IPs (cut off the last triplet). Privacy first.
+  ga('set', 'anonymizeIp', true);
+</script>
 
 </body>
 </html>
