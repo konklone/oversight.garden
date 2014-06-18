@@ -13,7 +13,8 @@ username = "unitedstates"
 home = "/home/unitedstates/oversight"
 logs = "/home/unitedstates/oversight/"
 shared_path = "%s/shared" % home
-version_path = "%s/versions/%s" % (home, time.strftime("%Y%m%d%H%M%S"))
+versions_path = "%s/versions" % home
+version_path = "%s/%s" % (versions_path, time.strftime("%Y%m%d%H%M%S"))
 current_path = "%s/current" % home
 
 # how many old releases to be kept at deploy-time
