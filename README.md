@@ -1,12 +1,12 @@
 ## Oversight.io
 
-An ode to the oversight community of the United States government.
+Bringing into sight the work of the United States government's oversight community.
 
-A small website (in progress!) at http://oversight.io, dedicated to showcasing the work and amplifying the impact of the United States government's extensive oversight apparatus.
+A small website (in progress!) at [oversight.io](http://oversight.io).
 
 ### Getting started
 
-Hey, there's no code yet! But it'll be an [Express](http://expressjs.com/) app, in [Node](http://nodejs.org/).
+It's an [Express 4.x app](http://expressjs.com) in [Node](http://nodejs.org/) (JavaScript). It uses [Elasticsearch](http://elasticsearch.org/) as a search engine. Install all those things.
 
 ### License
 
