@@ -1,78 +1,30 @@
 <% include layout/header.html %>
 
 <section class="search">
-  <form action="/" method="get">
-  <input type="text" name="query" placeholder="Search oversight reports..." />
-  <input type="submit" value="Go" />
+  <form action="/reports" method="get">
+    <input type="text" id="query" name="query" placeholder="Oversight.io" />
   </form>
+  <p>
+    Bringing into sight the US government's oversight community.
+  </p>
 </section>
 
-<br/>
-
-<section class="results">
-  <% if (results) { %>
-
-    <% if (query) { %>
-      <strong>Results for "<%= query %>".</strong>
-    <% } %>
-    (found <%= results.hits.total %> results in <%= results.took %>ms)
-
-    <% hits = results.hits.hits %>
-    <% if (hits.length > 0) { %>
-      <ul>
-        <% for (var i=0; i<hits.length; i++) { %>
-          <% report = hits[i]._source %>
-          <% highlight = hits[i].highlight %>
-          <li>
-            <h2>
-              <a href="/report/<%= report.inspector %>/<%= report.report_id %>">
-                <%= report.title %>
-              </a>
-            </h2>
-            <h4>
-              <a href="<%= report.inspector_url %>">
-                <%= report.agency_name %></a>
-              &mdash;
-              <%= report.published_on %>
-            </h4>
-            <p>
-              <% if (highlight && highlight.text) { %>
-                <%- helpers.truncate(highlight.text[0], 500) %>
-              <% } else if (highlight && highlight.summary) { %>
-                <%- helpers.truncate(highlight.summary[0], 500) %>
-              <% } else { %>
-                No excerpt available.
-              <% } %>
-            </p>
-            <div class="links">
-              <% if (report.url) { %>
-                <a href="<%= report.url %>">Full Report</a>
-                <% if (report.file_type == "pdf") { %>
-                  (PDF)
-                <% } %>
-              <% } else if (report.unreleased) { %>
-                <% if (report.missing) { %>
-                  Unreleased/Missing
-                <% } else { %>
-                  Unreleased
-                <% } %>
-              <% } %>
-
-              <% if (report.landing_url) { %>
-                <a href="<%= report.landing_url %>">Summary</a>
-              <% } %>
-            </div>
-          </li>
-        <% } %>
-      </ul>
-    <% } else { %>
-      <p>
-        No results right now.
-      </p>
-    <% } %>
-  <% } else { %>
-    Error performing the search!
-  <% } %>
+<section class="currently">
+  Currently searching 16,276 inspector general reports.
+  <a class="browse" href="/reports">&rarr; browse them all</a>
 </section>
+
+<footer class="about">
+  <p>
+    Oversight.io is a project of <a href="https://twitter.com/konklone">Eric Mill</a> (<a href="mailto:eric@konklone.com">eric@konklone.com</a>), and <a href="https://github.com/konklone/oversight.io">its code</a> is free and open source. Writing is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY 4.0</a>.
+  </p>
+  <p>
+    All report information comes directly from official government websites, and as such is in the public domain in the United States. Reports are collected through <a href="https://github.com/unitedstates/inspectors-general">unitedstates/inspectors-general</a>, itself a public domain, volunteer-driven project</a>.
+  </p>
+</footer>
+
+<script>
+  document.getElementById("query").focus();
+</script>
 
 <% include layout/footer.html %>
