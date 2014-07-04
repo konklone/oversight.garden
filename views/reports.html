@@ -1,0 +1,66 @@
+<section class="results">
+  <% if (results) { %>
+
+    <% if (query) { %>
+      <strong>Results for "<%= query %>".</strong>
+    <% } %>
+
+    (found <%= results.hits.total %> results in <%= results.took %>ms)
+
+    <% hits = results.hits.hits %>
+    <% if (hits.length > 0) { %>
+      <ul>
+        <% for (var i=0; i<hits.length; i++) { %>
+          <% report = hits[i]._source %>
+          <% highlight = hits[i].highlight %>
+          <li>
+            <h2>
+              <a href="/report/<%= report.inspector %>/<%= report.report_id %>">
+                <%= report.title %>
+              </a>
+            </h2>
+            <h4>
+              <a href="<%= report.inspector_url %>">
+                <%= report.agency_name %></a>
+              &mdash;
+              <%= report.published_on %>
+            </h4>
+            <p>
+              <% if (highlight && highlight.text) { %>
+                <%- helpers.truncate(highlight.text[0], 500) %>
+              <% } else if (highlight && highlight.summary) { %>
+                <%- helpers.truncate(highlight.summary[0], 500) %>
+              <% } else { %>
+                No excerpt available.
+              <% } %>
+            </p>
+            <div class="links">
+              <% if (report.url) { %>
+                <a href="<%= report.url %>">Full Report</a>
+                <% if (report.file_type == "pdf") { %>
+                  (PDF)
+                <% } %>
+              <% } else if (report.unreleased) { %>
+                <% if (report.missing) { %>
+                  Unreleased/Missing
+                <% } else { %>
+                  Unreleased
+                <% } %>
+              <% } %>
+
+              <% if (report.landing_url) { %>
+                <a href="<%= report.landing_url %>">Summary</a>
+              <% } %>
+            </div>
+          </li>
+        <% } %>
+      </ul>
+    <% } else { %>
+      <p>
+        No results right now.
+      </p>
+    <% } %>
+  <% } else { %>
+    Error performing the search!
+  <% } %>
+</section>
