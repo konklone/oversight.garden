@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /**
  * Load data from unitedstates/inspectors-general into Elasticsearch.
  *
