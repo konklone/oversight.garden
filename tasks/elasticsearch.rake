@@ -1,6 +1,4 @@
-task :environment do
-  # require './config/environment'
-end
+# Elasticsearch index management.
 
 namespace :elasticsearch do
 
