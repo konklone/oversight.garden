@@ -31,7 +31,7 @@
 <meta name="twitter:creator:id" content="5232171" />
 <meta name="twitter:site" content="@konklone" />
 <meta name="twitter:site:id" content="5232171" />
-<meta name="twitter:url" content="http://oversight.io" />
+<meta name="twitter:url" content="https://oversight.io" />
 
 <link rel="vcs-git" href="https://github.com/konklone/oversight.io" title="code for oversight.io" />
 
@@ -40,8 +40,35 @@
 </title>
 
 <link rel="shortcut icon" href="/favicon.png" />
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans|Average' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="/css/html5-reset.css" />
-<link rel="stylesheet" type="text/css" href="/css/main.css" />
+<link rel="stylesheet" type="text/css" href="/css/main.css?<%= (new Date()).getTime() %>" />
 
 </head>
 <body>
+
+<header><div class="inner">
+  <div>
+    <h1>
+      Oversight.io
+    </h1>
+
+    <form action="/reports" method="get">
+      <input type="search" id="query" name="query" placeholder="Oversight.io"
+      <% if ((typeof(query) != "undefined") && query) { %>
+        value="<%= query %>"
+      <% } %>
+      />
+    </form>
+  </div>
+
+  <p>
+  Searching
+  <a class="browse" href="/reports">
+  16,276 reports</a>
+  from various <a href="https://github.com/unitedstates/inspectors-general#inspectors-general">inspectors general</a>
+  in the US federal government.
+  </p>
+
+</div></header>

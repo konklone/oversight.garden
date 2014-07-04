@@ -11,14 +11,19 @@ module.exports = {
 
   // The homepage. A temporary search page.
   index: function(req, res) {
+    res.render("index.html");
+  },
+
+  // search/results
+  reports: function(req, res) {
     search(req.param("query") || "*").then(function(results) {
-      res.render("index.html", {
+      res.render("reports.html", {
         results: results,
         query: req.param("query")
       });
     }, function(err) {
       console.log("Noooo!");
-      res.render("index.html", {
+      res.render("reports.html", {
         results: null,
         query: null
       });
@@ -59,7 +64,7 @@ function search(query) {
         "filtered": {
           "query": {
             "query_string": {
-            "query": query,
+            "query": "\"" + query + "\"",
             "default_operator": "AND",
             "use_dis_max": true,
             "fields": ["text", "title", "summary"]
@@ -73,7 +78,9 @@ function search(query) {
       "highlight": {
         "fields": {
           "*": {}
-        }
+        },
+        "order": "score",
+        "fragment_size": 500
       },
       "_source": ["report_id", "year", "inspector", "agency", "title", "agency_name", "url", "landing_url", "inspector_url", "published_on", "type"]
     }

@@ -1,40 +1,43 @@
 <% include layout/header.html %>
 
-<% if (report) { %>
+<section class="report"><div class="inner">
+  <% if (report) { %>
 
-  <h2>
-  <%= report.title %>
-  </h2>
+    <h2>
+    <%= report.title %>
+    </h2>
 
-  <h4>
-    <a href="<%= report.inspector_url %>">
-      <%= report.agency_name %></a>
-    &mdash;
-    <%= report.published_on %>
-  </h4>
+    <h4>
+      <a href="<%= report.inspector_url %>">
+        <%= report.agency_name %></a>
+      &mdash;
+      <%= report.published_on %>
+    </h4>
 
-  <p>
-    <% if (report.url) { %>
-      Below is a hideous rendition of the
-      <a href="<%= report.url %>">original report</a>.
-      <% if (report.file_type == "pdf") { %>
-        (PDF)
+    <p>
+      <% if (report.url) { %>
+        Below is a hideous rendition of the
+        <a href="<%= report.url %>">original report</a>.
+        <% if (report.file_type == "pdf") { %>
+          (PDF)
+        <% } %>
+      <% } else if (report.unreleased) { %>
+        This report is unreleased, or missing. Visit its
+        <a href="<%= report.landing_url %>">landing page</a>
+        for more detail.
       <% } %>
-    <% } else if (report.unreleased) { %>
-      This report is unreleased, or missing. Visit its
-      <a href="<%= report.landing_url %>">landing page</a>
-      for more detail.
-    <% } %>
-  </p>
+    </p>
 
-  <% if (report.text) { %>
-    <section class="text">
-    <pre><%= report.text %></pre>
-    </section>
+    <% if (report.text) { %>
+      <section class="text">
+      <pre><%= report.text %></pre>
+      </section>
+    <% } %>
+
+  <% } else { %>
+    Error loading report.
   <% } %>
 
-<% } else { %>
-  Error loading report.
-<% } %>
+</div></section>
 
 <% include layout/footer.html %>

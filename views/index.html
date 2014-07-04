@@ -1,27 +1,5 @@
 <% include layout/header.html %>
 
-<section class="search">
-  <form action="/reports" method="get">
-    <input type="text" id="query" name="query" placeholder="Oversight.io" />
-  </form>
-  <p>
-    Bringing into sight the US government's oversight community.
-  </p>
-</section>
-
-<section class="currently">
-  Currently searching 16,276 inspector general reports.
-  <a class="browse" href="/reports">&rarr; browse them all</a>
-</section>
-
-<footer class="about">
-  <p>
-    Oversight.io is a project of <a href="https://twitter.com/konklone">Eric Mill</a> (<a href="mailto:eric@konklone.com">eric@konklone.com</a>), and <a href="https://github.com/konklone/oversight.io">its code</a> is free and open source. Writing is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY 4.0</a>.
-  </p>
-  <p>
-    All report information comes directly from official government websites, and as such is in the public domain in the United States. Reports are collected through <a href="https://github.com/unitedstates/inspectors-general">unitedstates/inspectors-general</a>, itself a public domain, volunteer-driven project</a>.
-  </p>
-</footer>
 
 <script>
   document.getElementById("query").focus();

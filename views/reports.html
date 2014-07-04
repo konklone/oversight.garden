@@ -1,11 +1,16 @@
-<section class="results">
+<% include layout/header.html %>
+
+<section class="reports"><div class="inner">
   <% if (results) { %>
 
-    <% if (query) { %>
-      <strong>Results for "<%= query %>".</strong>
-    <% } %>
 
-    (found <%= results.hits.total %> results in <%= results.took %>ms)
+    <strong>
+    <% if (query) { %>
+      <%= results.hits.total %> reports matching "<%= query %>".
+    <% } else { %>
+      <%= results.hits.total %> reports.
+    <% } %>
+    </strong>
 
     <% hits = results.hits.hits %>
     <% if (hits.length > 0) { %>
@@ -27,16 +32,19 @@
             </h4>
             <p>
               <% if (highlight && highlight.text) { %>
-                <%- helpers.truncate(highlight.text[0], 500) %>
+                …<%- helpers.truncate(highlight.text[0], 500) %>…
               <% } else if (highlight && highlight.summary) { %>
-                <%- helpers.truncate(highlight.summary[0], 500) %>
+                …<%- helpers.truncate(highlight.summary[0], 500) %>…
               <% } else { %>
                 No excerpt available.
               <% } %>
             </p>
             <div class="links">
               <% if (report.url) { %>
-                <a href="<%= report.url %>">Full Report</a>
+                Read the
+                <a href="<%= report.url %>">
+                  full report.
+                </a>
                 <% if (report.file_type == "pdf") { %>
                   (PDF)
                 <% } %>
@@ -63,4 +71,6 @@
   <% } else { %>
     Error performing the search!
   <% } %>
-</section>
+</div></section>
+
+<% include layout/footer.html %>
