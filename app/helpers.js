@@ -7,6 +7,10 @@ module.exports = {
       return text.substr(0, limit);
     else
       return text;
+  },
+
+  escape_attribute: function(text) {
+    return text.replace(/\"/g, "&quot;");
   }
 
 }
