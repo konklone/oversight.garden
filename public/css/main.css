@@ -23,19 +23,21 @@ header, section, footer {
 /* colors and shapes */
 
 body {
-  color: #f5f5f5;
-  background-color: #141;
+  color: #0a0a0a;
+  background-color: #f5f5f5;
 }
 
 header, .reports, .report {
   padding-top: 20px; padding-bottom: 20px;
 
-  color: #0a0a0a;
-  background-color: #f5f5f5;
+
 }
 
 footer {
   font-size: 13px;
+
+  background-color: #141;
+  color: #f5f5f5;
 } footer p {margin: 5px 0;}
 /*footer .even-inner {
   padding: 10px 30px;
@@ -84,7 +86,7 @@ h1 {font-size: 18px; display: none;}
 
 .reports ul, .reports li {list-style-type: none;}
 .reports li {
-  margin: 20px 0;
+  margin: 40px 0;
 }
 
 .reports li h2 {
@@ -106,4 +108,29 @@ h1 {font-size: 18px; display: none;}
 
 .reports li .links {
   font-size: 12px;
+}
+
+/** landing page **/
+
+.report h2, .report h4 {display: block;}
+.report h2 {
+  font-size: 30px;
+  line-height: 41px;
+}
+
+.report h4 {
+  font-size: 18px;
+  line-height: 30px;
+  margin-top: 10px;
+}
+
+.report p {
+  font-size: 18px;
+  margin-top: 30px;
+}
+
+.report .text {
+  border: 1px solid #888;
+  margin: 40px 0;
+  padding: 40px;
 }

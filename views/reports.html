@@ -29,6 +29,27 @@
                 <%= report.agency_name %></a>
               &mdash;
               <%= report.published_on %>
+              <% if (report.url) { %>
+                &mdash;
+                <a href="<%= report.url %>">
+                  Full report
+                </a>
+                <% if (report.file_type == "pdf") { %>
+                  (PDF)
+                <% } %>
+              <% } else if (report.unreleased) { %>
+                &mdash;
+                <% if (report.missing) { %>
+                  Unreleased/Missing
+                <% } else { %>
+                  Unreleased
+                <% } %>
+              <% } %>
+
+              <% if (report.landing_url) { %>
+                &mdash;
+                <a href="<%= report.landing_url %>">Summary</a>
+              <% } %>
             </h4>
             <p>
               <% if (highlight && highlight.text) { %>
@@ -39,27 +60,6 @@
                 No excerpt available.
               <% } %>
             </p>
-            <div class="links">
-              <% if (report.url) { %>
-                Read the
-                <a href="<%= report.url %>">
-                  full report.
-                </a>
-                <% if (report.file_type == "pdf") { %>
-                  (PDF)
-                <% } %>
-              <% } else if (report.unreleased) { %>
-                <% if (report.missing) { %>
-                  Unreleased/Missing
-                <% } else { %>
-                  Unreleased
-                <% } %>
-              <% } %>
-
-              <% if (report.landing_url) { %>
-                <a href="<%= report.landing_url %>">Summary</a>
-              <% } %>
-            </div>
           </li>
         <% } %>
       </ul>

@@ -82,7 +82,7 @@ function search(query) {
         "order": "score",
         "fragment_size": 500
       },
-      "_source": ["report_id", "year", "inspector", "agency", "title", "agency_name", "url", "landing_url", "inspector_url", "published_on", "type"]
+      "_source": ["report_id", "year", "inspector", "agency", "title", "agency_name", "url", "landing_url", "inspector_url", "published_on", "type", "file_type"]
     }
   });
 }

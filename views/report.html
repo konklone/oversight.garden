@@ -8,15 +8,16 @@
     </h2>
 
     <h4>
+      Published by the
       <a href="<%= report.inspector_url %>">
-        <%= report.agency_name %></a>
-      &mdash;
-      <%= report.published_on %>
+        <%= report.agency_name %> OIG</a>
+      on
+      <%= report.published_on %>.
     </h4>
 
     <p>
       <% if (report.url) { %>
-        Below is a hideous rendition of the
+        Below is a raw (and likely hideous) rendition of the
         <a href="<%= report.url %>">original report</a>.
         <% if (report.file_type == "pdf") { %>
           (PDF)
