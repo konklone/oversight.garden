@@ -16,7 +16,13 @@ module.exports = {
 
   // search/results
   reports: function(req, res) {
-    search(req.param("query") || "*").then(function(results) {
+    var query;
+    if (req.param("query"))
+      query = "\"" + req.param("query") + "\"";
+    else
+      query = "*";
+
+    search(query).then(function(results) {
       res.render("reports.html", {
         results: results,
         query: req.param("query")
@@ -64,7 +70,7 @@ function search(query) {
         "filtered": {
           "query": {
             "query_string": {
-            "query": "\"" + query + "\"",
+            "query": query,
             "default_operator": "AND",
             "use_dis_max": true,
             "fields": ["text", "title", "summary"]

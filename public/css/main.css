@@ -99,6 +99,10 @@ h1 {font-size: 18px; display: none;}
   text-decoration: underline
 }
 
+.reports li h4 {
+  margin: 10px 0;
+}
+
 .reports li p {
   background-color: #e5e5e5;
   padding: 5px 10px;
