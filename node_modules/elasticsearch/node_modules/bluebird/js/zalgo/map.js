@@ -21,156 +21,129 @@
  * 
  */
 "use strict";
-module.exports = function(Promise, PromiseArray, INTERNAL, apiRejection) {
-
-var all = Promise.all;
+module.exports = function(Promise, PromiseArray, apiRejection, cast, INTERNAL) {
 var util = require("./util.js");
-var canAttach = require("./errors.js").canAttach;
-var isArray = util.isArray;
-var _cast = Promise._cast;
+var tryCatch3 = util.tryCatch3;
+var errorObj = util.errorObj;
+var PENDING = {};
+var EMPTY_ARRAY = [];
 
-function unpack(values) {
-    return Promise$_Map(values, this[0], this[1], this[2]);
+function MappingPromiseArray(promises, fn, limit, _filter) {
+    this.constructor$(promises);
+    this._callback = fn;
+    this._preservedValues = _filter === INTERNAL
+        ? new Array(this.length())
+        : null;
+    this._limit = limit;
+    this._inFlight = 0;
+    this._queue = limit >= 1 ? [] : EMPTY_ARRAY;
+    this._init$(void 0, -2);
 }
+util.inherits(MappingPromiseArray, PromiseArray);
 
-function Promise$_Map(promises, fn, useBound, ref) {
-    if (typeof fn !== "function") {
-        return apiRejection("fn must be a function");
-    }
+MappingPromiseArray.prototype._init = function MappingPromiseArray$_init() {};
 
-    var receiver = void 0;
-    if (useBound === true) {
-        if (promises._isBound()) {
-            receiver = promises._boundTo;
+MappingPromiseArray.prototype._promiseFulfilled =
+function MappingPromiseArray$_promiseFulfilled(value, index) {
+    var values = this._values;
+    if (values === null) return;
+
+    var length = this.length();
+    var preservedValues = this._preservedValues;
+    var limit = this._limit;
+    if (values[index] === PENDING) {
+        values[index] = value;
+        if (limit >= 1) {
+            this._inFlight--;
+            this._drainQueue();
+            if (this._isResolved()) return;
         }
-    }
-    else if (useBound !== false) {
-        receiver = useBound;
-    }
-
-    var shouldUnwrapItems = ref !== void 0;
-    if (shouldUnwrapItems) ref.ref = promises;
-
-    if (promises instanceof Promise) {
-        var pack = [fn, receiver, ref];
-        return promises._then(unpack, void 0, void 0, pack, void 0);
-    }
-    else if (!isArray(promises)) {
-        return apiRejection("expecting an array, a promise or a thenable");
-    }
-
-    var promise = new Promise(INTERNAL);
-    if (receiver !== void 0) promise._setBoundTo(receiver);
-    promise._setTrace(void 0);
-
-    var mapping = new Mapping(promise,
-                                fn,
-                                promises,
-                                receiver,
-                                shouldUnwrapItems);
-    mapping.init();
-    return promise;
-}
-
-var pending = {};
-function Mapping(promise, callback, items, receiver, shouldUnwrapItems) {
-    this.shouldUnwrapItems = shouldUnwrapItems;
-    this.index = 0;
-    this.items = items;
-    this.callback = callback;
-    this.receiver = receiver;
-    this.promise = promise;
-    this.result = new Array(items.length);
-}
-util.inherits(Mapping, PromiseArray);
-
-Mapping.prototype.init = function Mapping$init() {
-    var items = this.items;
-    var len = items.length;
-    var result = this.result;
-    var isRejected = false;
-    for (var i = 0; i < len; ++i) {
-        var maybePromise = _cast(items[i], void 0);
-        if (maybePromise instanceof Promise) {
-            if (maybePromise.isPending()) {
-                result[i] = pending;
-                maybePromise._proxyPromiseArray(this, i);
-            }
-            else if (maybePromise.isFulfilled()) {
-                result[i] = maybePromise.value();
-            }
-            else {
-                maybePromise._unsetRejectionIsUnhandled();
-                if (!isRejected) {
-                    this.reject(maybePromise.reason());
-                    isRejected = true;
-                }
-            }
-        }
-        else {
-            result[i] = maybePromise;
-        }
-    }
-    if (!isRejected) this.iterate();
-};
-
-Mapping.prototype.isResolved = function Mapping$isResolved() {
-    return this.promise === null;
-};
-
-Mapping.prototype._promiseProgressed =
-function Mapping$_promiseProgressed(value) {
-    if (this.isResolved()) return;
-    this.promise._progress(value);
-};
-
-Mapping.prototype._promiseFulfilled =
-function Mapping$_promiseFulfilled(value, index) {
-    if (this.isResolved()) return;
-    this.result[index] = value;
-    if (this.shouldUnwrapItems) this.items[index] = value;
-    if (this.index === index) this.iterate();
-};
-
-Mapping.prototype._promiseRejected =
-function Mapping$_promiseRejected(reason) {
-    this.reject(reason);
-};
-
-Mapping.prototype.reject = function Mapping$reject(reason) {
-    if (this.isResolved()) return;
-    var trace = canAttach(reason) ? reason : new Error(reason + "");
-    this.promise._attachExtraTrace(trace);
-    this.promise._reject(reason, trace);
-};
-
-Mapping.prototype.iterate = function Mapping$iterate() {
-    var i = this.index;
-    var items = this.items;
-    var result = this.result;
-    var len = items.length;
-    var result = this.result;
-    var receiver = this.receiver;
-    var callback = this.callback;
-
-    for (; i < len; ++i) {
-        var value = result[i];
-        if (value === pending) {
-            this.index = i;
+    } else {
+        if (limit >= 1 && this._inFlight >= limit) {
+            values[index] = value;
+            this._queue.push(index);
             return;
         }
-        try { result[i] = callback.call(receiver, value, i, len); }
-        catch (e) { return this.reject(e); }
+        if (preservedValues !== null) preservedValues[index] = value;
+
+        var callback = this._callback;
+        var receiver = this._promise._boundTo;
+        var ret = tryCatch3(callback, receiver, value, index, length);
+        if (ret === errorObj) return this._reject(ret.e);
+
+        var maybePromise = cast(ret, void 0);
+        if (maybePromise instanceof Promise) {
+            if (maybePromise.isPending()) {
+                if (limit >= 1) this._inFlight++;
+                values[index] = PENDING;
+                return maybePromise._proxyPromiseArray(this, index);
+            } else if (maybePromise.isFulfilled()) {
+                ret = maybePromise.value();
+            } else {
+                maybePromise._unsetRejectionIsUnhandled();
+                return this._reject(maybePromise.reason());
+            }
+        }
+        values[index] = ret;
     }
-    this.promise._follow(all(result));
-    this.items = this.result = this.callback = this.promise = null;
+    var totalResolved = ++this._totalResolved;
+    if (totalResolved >= length) {
+        if (preservedValues !== null) {
+            this._filter(values, preservedValues);
+        } else {
+            this._resolve(values);
+        }
+
+    }
 };
 
-Promise.prototype.map = function Promise$map(fn, ref) {
-    return Promise$_Map(this, fn, true, ref);
+MappingPromiseArray.prototype._drainQueue =
+function MappingPromiseArray$_drainQueue() {
+    var queue = this._queue;
+    var limit = this._limit;
+    var values = this._values;
+    while (queue.length > 0 && this._inFlight < limit) {
+        var index = queue.pop();
+        this._promiseFulfilled(values[index], index);
+    }
 };
 
-Promise.map = function Promise$Map(promises, fn, ref) {
-    return Promise$_Map(promises, fn, false, ref);
+MappingPromiseArray.prototype._filter =
+function MappingPromiseArray$_filter(booleans, values) {
+    var len = values.length;
+    var ret = new Array(len);
+    var j = 0;
+    for (var i = 0; i < len; ++i) {
+        if (booleans[i]) ret[j++] = values[i];
+    }
+    ret.length = j;
+    this._resolve(ret);
 };
+
+MappingPromiseArray.prototype.preservedValues =
+function MappingPromiseArray$preserveValues() {
+    return this._preservedValues;
+};
+
+function map(promises, fn, options, _filter) {
+    var limit = typeof options === "object" && options !== null
+        ? options.concurrency
+        : 0;
+    limit = typeof limit === "number" &&
+        isFinite(limit) && limit >= 1 ? limit : 0;
+    return new MappingPromiseArray(promises, fn, limit, _filter);
+}
+
+Promise.prototype.map = function Promise$map(fn, options) {
+    if (typeof fn !== "function") return apiRejection("fn must be a function");
+
+    return map(this, fn, options, null).promise();
+};
+
+Promise.map = function Promise$Map(promises, fn, options, _filter) {
+    if (typeof fn !== "function") return apiRejection("fn must be a function");
+    return map(promises, fn, options, _filter).promise();
+};
+
+
 };

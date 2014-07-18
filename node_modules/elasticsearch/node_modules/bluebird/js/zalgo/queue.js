@@ -27,27 +27,8 @@ function arrayCopy(src, srcIndex, dst, dstIndex, len) {
     }
 }
 
-function pow2AtLeast(n) {
-    n = n >>> 0;
-    n = n - 1;
-    n = n | (n >> 1);
-    n = n | (n >> 2);
-    n = n | (n >> 4);
-    n = n | (n >> 8);
-    n = n | (n >> 16);
-    return n + 1;
-}
-
-function getCapacity(capacity) {
-    if (typeof capacity !== "number") return 16;
-    return pow2AtLeast(
-        Math.min(
-            Math.max(16, capacity), 1073741824)
-   );
-}
-
 function Queue(capacity) {
-    this._capacity = getCapacity(capacity);
+    this._capacity = capacity;
     this._length = 0;
     this._front = 0;
     this._makeCapacity();
@@ -122,8 +103,7 @@ Queue.prototype._resizeTo = function Queue$_resizeTo(capacity) {
     this._front = 0;
     if (oldFront + length <= oldCapacity) {
         arrayCopy(oldQueue, oldFront, this, 0, length);
-    }
-    else {        var lengthBeforeWrapping =
+    } else {        var lengthBeforeWrapping =
             length - ((oldFront + length) & (oldCapacity - 1));
 
         arrayCopy(oldQueue, oldFront, this, 0, lengthBeforeWrapping);

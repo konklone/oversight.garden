@@ -21,7 +21,7 @@
  * 
  */
 "use strict";
-module.exports = function(Promise, isPromiseArrayProxy) {
+module.exports = function(Promise, PromiseArray) {
 var util = require("./util.js");
 var async = require("./async.js");
 var errors = require("./errors.js");
@@ -40,8 +40,9 @@ Promise.prototype._progress = function Promise$_progress(progressValue) {
 
 Promise.prototype._progressHandlerAt =
 function Promise$_progressHandlerAt(index) {
-    if (index === 0) return this._progressHandler0;
-    return this[index + 2 - 5];
+    return index === 0
+        ? this._progressHandler0
+        : this[(index << 2) + index - 5 + 2];
 };
 
 Promise.prototype._doProgressWith =
@@ -51,10 +52,7 @@ function Promise$_doProgressWith(progression) {
     var promise = progression.promise;
     var receiver = progression.receiver;
 
-    this._pushContext();
     var ret = tryCatch1(handler, receiver, progressValue);
-    this._popContext();
-
     if (ret === errorObj) {
         if (ret.e != null &&
             ret.e.name !== "StopProgressPropagation") {
@@ -63,11 +61,9 @@ function Promise$_doProgressWith(progression) {
             promise._attachExtraTrace(trace);
             promise._progress(ret.e);
         }
-    }
-    else if (ret instanceof Promise) {
+    } else if (ret instanceof Promise) {
         ret._then(promise._progress, null, null, promise, void 0);
-    }
-    else {
+    } else {
         promise._progress(ret);
     }
 };
@@ -78,18 +74,16 @@ function Promise$_progressUnchecked(progressValue) {
     if (!this.isPending()) return;
     var len = this._length();
     var progress = this._progress;
-    for (var i = 0; i < len; i += 5) {
+    for (var i = 0; i < len; i++) {
         var handler = this._progressHandlerAt(i);
         var promise = this._promiseAt(i);
         if (!(promise instanceof Promise)) {
             var receiver = this._receiverAt(i);
             if (typeof handler === "function") {
                 handler.call(receiver, progressValue, promise);
-            }
-            else if (receiver instanceof Promise && receiver._isProxied()) {
+            } else if (receiver instanceof Promise && receiver._isProxied()) {
                 receiver._progressUnchecked(progressValue);
-            }
-            else if (isPromiseArrayProxy(receiver, promise)) {
+            } else if (receiver instanceof PromiseArray) {
                 receiver._promiseProgressed(progressValue, promise);
             }
             continue;
@@ -102,8 +96,7 @@ function Promise$_progressUnchecked(progressValue) {
                 receiver: this._receiverAt(i),
                 value: progressValue
             });
-        }
-        else {
+        } else {
             async.invoke(progress, promise, progressValue);
         }
     }

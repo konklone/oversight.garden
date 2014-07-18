@@ -21,12 +21,11 @@
  * 
  */
 "use strict";
-module.exports = function(Promise, NEXT_FILTER) {
+module.exports = function(Promise, NEXT_FILTER, cast) {
 var util = require("./util.js");
 var wrapsPrimitiveReceiver = util.wrapsPrimitiveReceiver;
 var isPrimitive = util.isPrimitive;
 var thrower = util.thrower;
-
 
 function returnThis() {
     return this;
@@ -48,8 +47,7 @@ function promisedFinally(ret, reasonOrValue, isFulfilled) {
     var then;
     if (wrapsPrimitiveReceiver && isPrimitive(reasonOrValue)) {
         then = isFulfilled ? return$(reasonOrValue) : throw$(reasonOrValue);
-    }
-    else {
+    } else {
         then = isFulfilled ? returnThis : throwThis;
     }
     return ret._then(then, thrower, void 0, reasonOrValue, void 0);
@@ -64,7 +62,7 @@ function finallyHandler(reasonOrValue) {
                     : handler();
 
     if (ret !== void 0) {
-        var maybePromise = Promise._cast(ret, void 0);
+        var maybePromise = cast(ret, void 0);
         if (maybePromise instanceof Promise) {
             return promisedFinally(maybePromise, reasonOrValue,
                                     promise.isFulfilled());
@@ -74,8 +72,7 @@ function finallyHandler(reasonOrValue) {
     if (promise.isRejected()) {
         NEXT_FILTER.e = reasonOrValue;
         return NEXT_FILTER;
-    }
-    else {
+    } else {
         return reasonOrValue;
     }
 }
@@ -89,7 +86,7 @@ function tapHandler(value) {
                     : handler(value);
 
     if (ret !== void 0) {
-        var maybePromise = Promise._cast(ret, void 0);
+        var maybePromise = cast(ret, void 0);
         if (maybePromise instanceof Promise) {
             return promisedFinally(maybePromise, value, true);
         }
