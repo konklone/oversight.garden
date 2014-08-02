@@ -21,15 +21,17 @@
  * 
  */
 "use strict";
-var global = require("./global.js");
-var setTimeout = function(fn, ms) {
-    var $_len = arguments.length;var args = new Array($_len - 2); for(var $_i = 2; $_i < $_len; ++$_i) {args[$_i - 2] = arguments[$_i];}
-    global.setTimeout(function(){
-        fn.apply(void 0, args);
+var _setTimeout = function(fn, ms) {
+    var len = arguments.length;
+    var arg0 = arguments[2];
+    var arg1 = arguments[3];
+    var arg2 = len >= 5 ? arguments[4] : void 0;
+    setTimeout(function() {
+        fn(arg0, arg1, arg2);
     }, ms);
 };
 
-module.exports = function(Promise, INTERNAL) {
+module.exports = function(Promise, INTERNAL, cast) {
 var util = require("./util.js");
 var errors = require("./errors.js");
 var apiRejection = require("./errors_api_rejection")(Promise);
@@ -43,7 +45,7 @@ var afterTimeout = function Promise$_afterTimeout(promise, message, ms) {
     var err = new TimeoutError(message);
     errors.markAsOriginatingFromRejection(err);
     promise._attachExtraTrace(err);
-    promise._rejectUnchecked(err);
+    promise._cancel(err);
 };
 
 var afterDelay = function Promise$_afterDelay(value, promise) {
@@ -56,26 +58,18 @@ var delay = Promise.delay = function Promise$Delay(value, ms) {
         value = void 0;
     }
     ms = +ms;
-    var maybePromise = Promise._cast(value, void 0);
+    var maybePromise = cast(value, void 0);
     var promise = new Promise(INTERNAL);
 
     if (maybePromise instanceof Promise) {
-        if (maybePromise._isBound()) {
-            promise._setBoundTo(maybePromise._boundTo);
-        }
-        if (maybePromise._cancellable()) {
-            promise._setCancellable();
-            promise._cancellationParent = maybePromise;
-        }
-        promise._setTrace(maybePromise);
+        promise._propagateFrom(maybePromise, 7);
         promise._follow(maybePromise);
         return promise.then(function(value) {
             return Promise.delay(value, ms);
         });
-    }
-    else {
+    } else {
         promise._setTrace(void 0);
-        setTimeout(afterDelay, ms, value, promise);
+        _setTimeout(afterDelay, ms, value, promise);
     }
     return promise;
 };
@@ -88,16 +82,10 @@ Promise.prototype.timeout = function Promise$timeout(ms, message) {
     ms = +ms;
 
     var ret = new Promise(INTERNAL);
-    ret._setTrace(this);
-
-    if (this._isBound()) ret._setBoundTo(this._boundTo);
-    if (this._cancellable()) {
-        ret._setCancellable();
-        ret._cancellationParent = this;
-    }
+    ret._propagateFrom(this, 7);
     ret._follow(this);
-    setTimeout(afterTimeout, ms, ret, message, ms);
-    return ret;
+    _setTimeout(afterTimeout, ms, ret, message, ms);
+    return ret.cancellable();
 };
 
 };

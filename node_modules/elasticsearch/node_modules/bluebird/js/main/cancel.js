@@ -23,10 +23,11 @@
 "use strict";
 module.exports = function(Promise, INTERNAL) {
 var errors = require("./errors.js");
+var canAttach = errors.canAttach;
 var async = require("./async.js");
 var CancellationError = errors.CancellationError;
 
-Promise.prototype._cancel = function Promise$_cancel() {
+Promise.prototype._cancel = function Promise$_cancel(reason) {
     if (!this.isCancellable()) return this;
     var parent;
     var promiseToReject = this;
@@ -34,14 +35,16 @@ Promise.prototype._cancel = function Promise$_cancel() {
         parent.isCancellable()) {
         promiseToReject = parent;
     }
-    var err = new CancellationError();
-    promiseToReject._attachExtraTrace(err);
-    promiseToReject._rejectUnchecked(err);
+    promiseToReject._attachExtraTrace(reason);
+    promiseToReject._rejectUnchecked(reason);
 };
 
-Promise.prototype.cancel = function Promise$cancel() {
+Promise.prototype.cancel = function Promise$cancel(reason) {
     if (!this.isCancellable()) return this;
-    async.invokeLater(this._cancel, this, void 0);
+    reason = reason !== void 0
+        ? (canAttach(reason) ? reason : new Error(reason + ""))
+        : new CancellationError();
+    async.invokeLater(this._cancel, this, reason);
     return this;
 };
 
@@ -54,10 +57,9 @@ Promise.prototype.cancellable = function Promise$cancellable() {
 
 Promise.prototype.uncancellable = function Promise$uncancellable() {
     var ret = new Promise(INTERNAL);
-    ret._setTrace(this);
+    ret._propagateFrom(this, 2 | 4);
     ret._follow(this);
     ret._unsetCancellable();
-    if (this._isBound()) ret._setBoundTo(this._boundTo);
     return ret;
 };
 

@@ -25,13 +25,14 @@ var schedule = require("./schedule.js");
 var Queue = require("./queue.js");
 var errorObj = require("./util.js").errorObj;
 var tryCatch1 = require("./util.js").tryCatch1;
-var process = require("./global.js").process;
+var _process = typeof process !== "undefined" ? process : void 0;
 
 function Async() {
     this._isTickUsed = false;
+    this._schedule = schedule;
     this._length = 0;
-    this._lateBuffer = new Queue();
-    this._functionBuffer = new Queue(25000 * 3);
+    this._lateBuffer = new Queue(16);
+    this._functionBuffer = new Queue(65536);
     var self = this;
     this.consumeFunctionBuffer = function Async$consumeFunctionBuffer() {
         self._consumeFunctionBuffer();
@@ -43,20 +44,20 @@ Async.prototype.haveItemsQueued = function Async$haveItemsQueued() {
 };
 
 Async.prototype.invokeLater = function Async$invokeLater(fn, receiver, arg) {
-    if (process !== void 0 &&
-        process.domain != null &&
+    if (_process !== void 0 &&
+        _process.domain != null &&
         !fn.domain) {
-        fn = process.domain.bind(fn);
+        fn = _process.domain.bind(fn);
     }
     this._lateBuffer.push(fn, receiver, arg);
     this._queueTick();
 };
 
 Async.prototype.invoke = function Async$invoke(fn, receiver, arg) {
-    if (process !== void 0 &&
-        process.domain != null &&
+    if (_process !== void 0 &&
+        _process.domain != null &&
         !fn.domain) {
-        fn = process.domain.bind(fn);
+        fn = _process.domain.bind(fn);
     }
     var functionBuffer = this._functionBuffer;
     functionBuffer.push(fn, receiver, arg);
@@ -67,7 +68,7 @@ Async.prototype.invoke = function Async$invoke(fn, receiver, arg) {
 Async.prototype._consumeFunctionBuffer =
 function Async$_consumeFunctionBuffer() {
     var functionBuffer = this._functionBuffer;
-    while(functionBuffer.length() > 0) {
+    while (functionBuffer.length() > 0) {
         var fn = functionBuffer.shift();
         var receiver = functionBuffer.shift();
         var arg = functionBuffer.shift();
@@ -88,8 +89,7 @@ Async.prototype._consumeLateBuffer = function Async$_consumeLateBuffer() {
             this._queueTick();
             if (fn.domain != null) {
                 fn.domain.emit("error", res.e);
-            }
-            else {
+            } else {
                 throw res.e;
             }
         }
@@ -98,7 +98,7 @@ Async.prototype._consumeLateBuffer = function Async$_consumeLateBuffer() {
 
 Async.prototype._queueTick = function Async$_queue() {
     if (!this._isTickUsed) {
-        schedule(this.consumeFunctionBuffer);
+        this._schedule(this.consumeFunctionBuffer);
         this._isTickUsed = true;
     }
 };

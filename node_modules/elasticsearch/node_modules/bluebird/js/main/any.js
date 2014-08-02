@@ -21,17 +21,10 @@
  * 
  */
 "use strict";
-module.exports = function(Promise, Promise$_CreatePromiseArray, PromiseArray) {
-
-var SomePromiseArray = require("./some_promise_array.js")(PromiseArray);
-function Promise$_Any(promises, useBound) {
-    var ret = Promise$_CreatePromiseArray(
-        promises,
-        SomePromiseArray,
-        useBound === true && promises._isBound()
-            ? promises._boundTo
-            : void 0
-   );
+module.exports = function(Promise) {
+var SomePromiseArray = Promise._SomePromiseArray;
+function Promise$_Any(promises) {
+    var ret = new SomePromiseArray(promises);
     var promise = ret.promise();
     if (promise.isRejected()) {
         return promise;
@@ -43,11 +36,11 @@ function Promise$_Any(promises, useBound) {
 }
 
 Promise.any = function Promise$Any(promises) {
-    return Promise$_Any(promises, false);
+    return Promise$_Any(promises);
 };
 
 Promise.prototype.any = function Promise$any() {
-    return Promise$_Any(this, true);
+    return Promise$_Any(this);
 };
 
 };

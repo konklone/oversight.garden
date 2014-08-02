@@ -21,44 +21,88 @@
  * 
  */
 "use strict";
-module.exports = function(Promise, PromiseArray) {
-var PropertiesPromiseArray = require("./properties_promise_array.js")(
-    Promise, PromiseArray);
+module.exports = function(Promise, PromiseArray, cast) {
 var util = require("./util.js");
 var apiRejection = require("./errors_api_rejection")(Promise);
 var isObject = util.isObject;
+var es5 = require("./es5.js");
 
-function Promise$_Props(promises, useBound) {
+function PropertiesPromiseArray(obj) {
+    var keys = es5.keys(obj);
+    var len = keys.length;
+    var values = new Array(len * 2);
+    for (var i = 0; i < len; ++i) {
+        var key = keys[i];
+        values[i] = obj[key];
+        values[i + len] = key;
+    }
+    this.constructor$(values);
+}
+util.inherits(PropertiesPromiseArray, PromiseArray);
+
+PropertiesPromiseArray.prototype._init =
+function PropertiesPromiseArray$_init() {
+    this._init$(void 0, -3) ;
+};
+
+PropertiesPromiseArray.prototype._promiseFulfilled =
+function PropertiesPromiseArray$_promiseFulfilled(value, index) {
+    if (this._isResolved()) return;
+    this._values[index] = value;
+    var totalResolved = ++this._totalResolved;
+    if (totalResolved >= this._length) {
+        var val = {};
+        var keyOffset = this.length();
+        for (var i = 0, len = this.length(); i < len; ++i) {
+            val[this._values[i + keyOffset]] = this._values[i];
+        }
+        this._resolve(val);
+    }
+};
+
+PropertiesPromiseArray.prototype._promiseProgressed =
+function PropertiesPromiseArray$_promiseProgressed(value, index) {
+    if (this._isResolved()) return;
+
+    this._promise._progress({
+        key: this._values[index + this.length()],
+        value: value
+    });
+};
+
+PropertiesPromiseArray.prototype.shouldCopyValues =
+function PropertiesPromiseArray$_shouldCopyValues() {
+    return false;
+};
+
+PropertiesPromiseArray.prototype.getActualLength =
+function PropertiesPromiseArray$getActualLength(len) {
+    return len >> 1;
+};
+
+function Promise$_Props(promises) {
     var ret;
-    var castValue = Promise._cast(promises, void 0);
+    var castValue = cast(promises, void 0);
 
     if (!isObject(castValue)) {
         return apiRejection("cannot await properties of a non-object");
+    } else if (castValue instanceof Promise) {
+        ret = castValue._then(Promise.props, void 0, void 0, void 0, void 0);
+    } else {
+        ret = new PropertiesPromiseArray(castValue).promise();
     }
-    else if (castValue instanceof Promise) {
-        ret = castValue._then(Promise.props, void 0, void 0,
-                        void 0, void 0);
-    }
-    else {
-        ret = new PropertiesPromiseArray(
-            castValue,
-            useBound === true && castValue._isBound()
-                        ? castValue._boundTo
-                        : void 0
-       ).promise();
-        useBound = false;
-    }
-    if (useBound === true && castValue._isBound()) {
-        ret._setBoundTo(castValue._boundTo);
+
+    if (castValue instanceof Promise) {
+        ret._propagateFrom(castValue, 4);
     }
     return ret;
 }
 
 Promise.prototype.props = function Promise$props() {
-    return Promise$_Props(this, true);
+    return Promise$_Props(this);
 };
 
 Promise.props = function Promise$Props(promises) {
-    return Promise$_Props(promises, false);
+    return Promise$_Props(promises);
 };
 };

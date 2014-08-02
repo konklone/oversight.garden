@@ -59,6 +59,7 @@ Promise.prototype.value = function Promise$value() {
 };
 
 PromiseInspection.prototype.error =
+PromiseInspection.prototype.reason =
 Promise.prototype.reason = function Promise$reason() {
     if (!this.isRejected()) {
         throw new TypeError("cannot get rejection reason of a non-rejected promise");
@@ -69,10 +70,6 @@ Promise.prototype.reason = function Promise$reason() {
 PromiseInspection.prototype.isResolved =
 Promise.prototype.isResolved = function Promise$isResolved() {
     return (this._bitField & 402653184) > 0;
-};
-
-Promise.prototype.inspect = function Promise$inspect() {
-    return new PromiseInspection(this);
 };
 
 Promise.PromiseInspection = PromiseInspection;

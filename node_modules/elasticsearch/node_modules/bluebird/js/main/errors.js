@@ -21,24 +21,22 @@
  * 
  */
 "use strict";
-var global = require("./global.js");
 var Objectfreeze = require("./es5.js").freeze;
 var util = require("./util.js");
 var inherits = util.inherits;
 var notEnumerableProp = util.notEnumerableProp;
-var Error = global.Error;
 
 function markAsOriginatingFromRejection(e) {
     try {
-        notEnumerableProp(e, "isAsync", true);
+        notEnumerableProp(e, "isOperational", true);
     }
     catch(ignore) {}
 }
 
 function originatesFromRejection(e) {
     if (e == null) return false;
-    return ((e instanceof RejectionError) ||
-        e["isAsync"] === true);
+    return ((e instanceof OperationalError) ||
+        e["isOperational"] === true);
 }
 
 function isError(obj) {
@@ -62,52 +60,85 @@ function subError(nameProperty, defaultMessage) {
     return SubError;
 }
 
-var TypeError = global.TypeError;
-if (typeof TypeError !== "function") {
-    TypeError = subError("TypeError", "type error");
-}
-var RangeError = global.RangeError;
-if (typeof RangeError !== "function") {
-    RangeError = subError("RangeError", "range error");
-}
+var _TypeError, _RangeError;
 var CancellationError = subError("CancellationError", "cancellation error");
 var TimeoutError = subError("TimeoutError", "timeout error");
+var AggregateError = subError("AggregateError", "aggregate error");
+try {
+    _TypeError = TypeError;
+    _RangeError = RangeError;
+} catch(e) {
+    _TypeError = subError("TypeError", "type error");
+    _RangeError = subError("RangeError", "range error");
+}
 
-function RejectionError(message) {
-    this.name = "RejectionError";
+var methods = ("join pop push shift unshift slice filter forEach some " +
+    "every map indexOf lastIndexOf reduce reduceRight sort reverse").split(" ");
+
+for (var i = 0; i < methods.length; ++i) {
+    if (typeof Array.prototype[methods[i]] === "function") {
+        AggregateError.prototype[methods[i]] = Array.prototype[methods[i]];
+    }
+}
+
+AggregateError.prototype.length = 0;
+AggregateError.prototype["isOperational"] = true;
+var level = 0;
+AggregateError.prototype.toString = function() {
+    var indent = Array(level * 4 + 1).join(" ");
+    var ret = "\n" + indent + "AggregateError of:" + "\n";
+    level++;
+    indent = Array(level * 4 + 1).join(" ");
+    for (var i = 0; i < this.length; ++i) {
+        var str = this[i] === this ? "[Circular AggregateError]" : this[i] + "";
+        var lines = str.split("\n");
+        for (var j = 0; j < lines.length; ++j) {
+            lines[j] = indent + lines[j];
+        }
+        str = lines.join("\n");
+        ret += str + "\n";
+    }
+    level--;
+    return ret;
+};
+
+function OperationalError(message) {
+    this.name = "OperationalError";
     this.message = message;
     this.cause = message;
-    this.isAsync = true;
+    this["isOperational"] = true;
 
     if (message instanceof Error) {
         this.message = message.message;
         this.stack = message.stack;
-    }
-    else if (Error.captureStackTrace) {
+    } else if (Error.captureStackTrace) {
         Error.captureStackTrace(this, this.constructor);
     }
 
 }
-inherits(RejectionError, Error);
+inherits(OperationalError, Error);
 
 var key = "__BluebirdErrorTypes__";
-var errorTypes = global[key];
+var errorTypes = Error[key];
 if (!errorTypes) {
     errorTypes = Objectfreeze({
         CancellationError: CancellationError,
         TimeoutError: TimeoutError,
-        RejectionError: RejectionError
+        OperationalError: OperationalError,
+        RejectionError: OperationalError,
+        AggregateError: AggregateError
     });
-    notEnumerableProp(global, key, errorTypes);
+    notEnumerableProp(Error, key, errorTypes);
 }
 
 module.exports = {
     Error: Error,
-    TypeError: TypeError,
-    RangeError: RangeError,
+    TypeError: _TypeError,
+    RangeError: _RangeError,
     CancellationError: errorTypes.CancellationError,
-    RejectionError: errorTypes.RejectionError,
+    OperationalError: errorTypes.OperationalError,
     TimeoutError: errorTypes.TimeoutError,
+    AggregateError: errorTypes.AggregateError,
     originatesFromRejection: originatesFromRejection,
     markAsOriginatingFromRejection: markAsOriginatingFromRejection,
     canAttach: canAttach

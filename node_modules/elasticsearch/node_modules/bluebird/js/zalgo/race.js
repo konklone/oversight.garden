@@ -21,7 +21,7 @@
  * 
  */
 "use strict";
-module.exports = function(Promise, INTERNAL) {
+module.exports = function(Promise, INTERNAL, cast) {
 var apiRejection = require("./errors_api_rejection.js")(Promise);
 var isArray = require("./util.js").isArray;
 
@@ -33,25 +33,19 @@ var raceLater = function Promise$_raceLater(promise) {
 
 var hasOwn = {}.hasOwnProperty;
 function Promise$_Race(promises, parent) {
-    var maybePromise = Promise._cast(promises, void 0);
+    var maybePromise = cast(promises, void 0);
 
     if (maybePromise instanceof Promise) {
         return raceLater(maybePromise);
-    }
-    else if (!isArray(promises)) {
+    } else if (!isArray(promises)) {
         return apiRejection("expecting an array, a promise or a thenable");
     }
 
     var ret = new Promise(INTERNAL);
-    ret._setTrace(parent);
     if (parent !== void 0) {
-        if (parent._isBound()) {
-            ret._setBoundTo(parent._boundTo);
-        }
-        if (parent._cancellable()) {
-            ret._setCancellable();
-            ret._cancellationParent = parent;
-        }
+        ret._propagateFrom(parent, 7);
+    } else {
+        ret._setTrace(void 0);
     }
     var fulfill = ret._fulfill;
     var reject = ret._reject;
@@ -62,13 +56,7 @@ function Promise$_Race(promises, parent) {
             continue;
         }
 
-        Promise.cast(val)._then(
-            fulfill,
-            reject,
-            void 0,
-            ret,
-            null
-       );
+        Promise.cast(val)._then(fulfill, reject, void 0, ret, null);
     }
     return ret;
 }

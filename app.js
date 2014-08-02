@@ -11,7 +11,8 @@ if (isNaN(port)) port = 3000;
 // app middleware/settings
 app.engine('.html', require('ejs').__express);
 app.enable('trust proxy')
-  .use(require('body-parser')())
+  .use(require('body-parser').json())
+  .use(require('body-parser').urlencoded({extended: false}))
   .use(require('method-override')())
   .use(function(req,res,next){
     res.locals.req = req;

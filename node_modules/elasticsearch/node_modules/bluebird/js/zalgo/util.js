@@ -21,7 +21,6 @@
  * 
  */
 "use strict";
-var global = require("./global.js");
 var es5 = require("./es5.js");
 var haveGetters = (function(){
     try {
@@ -38,30 +37,10 @@ var haveGetters = (function(){
     }
 
 })();
-
-var canEvaluate = (function() {
-    if (typeof window !== "undefined" && window !== null &&
-        typeof window.document !== "undefined" &&
-        typeof navigator !== "undefined" && navigator !== null &&
-        typeof navigator.appName === "string" &&
-        window === global) {
-        return false;
-    }
-    return true;
-})();
-
-function deprecated(msg) {
-    if (typeof console !== "undefined" && console !== null &&
-        typeof console.warn === "function") {
-        console.warn("Bluebird: " + msg);
-    }
-}
-
+var canEvaluate = typeof navigator == "undefined";
 var errorObj = {e: {}};
 function tryCatch1(fn, receiver, arg) {
-    try {
-        return fn.call(receiver, arg);
-    }
+    try { return fn.call(receiver, arg); }
     catch (e) {
         errorObj.e = e;
         return errorObj;
@@ -69,9 +48,23 @@ function tryCatch1(fn, receiver, arg) {
 }
 
 function tryCatch2(fn, receiver, arg, arg2) {
-    try {
-        return fn.call(receiver, arg, arg2);
+    try { return fn.call(receiver, arg, arg2); }
+    catch (e) {
+        errorObj.e = e;
+        return errorObj;
     }
+}
+
+function tryCatch3(fn, receiver, arg, arg2, arg3) {
+    try { return fn.call(receiver, arg, arg2, arg3); }
+    catch (e) {
+        errorObj.e = e;
+        return errorObj;
+    }
+}
+
+function tryCatch4(fn, receiver, arg, arg2, arg3, arg4) {
+    try { return fn.call(receiver, arg, arg2, arg3, arg4); }
     catch (e) {
         errorObj.e = e;
         return errorObj;
@@ -79,9 +72,7 @@ function tryCatch2(fn, receiver, arg, arg2) {
 }
 
 function tryCatchApply(fn, args, receiver) {
-    try {
-        return fn.apply(receiver, args);
-    }
+    try { return fn.apply(receiver, args); }
     catch (e) {
         errorObj.e = e;
         return errorObj;
@@ -138,6 +129,18 @@ function withAppended(target, appendee) {
     return ret;
 }
 
+function getDataPropertyOrDefault(obj, key, defaultValue) {
+    if (es5.isES5) {
+        var desc = Object.getOwnPropertyDescriptor(obj, key);
+        if (desc != null) {
+            return desc.get == null && desc.set == null
+                    ? desc.value
+                    : defaultValue;
+        }
+    } else {
+        return {}.hasOwnProperty.call(obj, key) ? obj[key] : void 0;
+    }
+}
 
 function notEnumerableProp(obj, name, value) {
     if (isPrimitive(obj)) return obj;
@@ -160,6 +163,59 @@ function thrower(r) {
     throw r;
 }
 
+var inheritedDataKeys = (function() {
+    if (es5.isES5) {
+        return function(obj, opts) {
+            var ret = [];
+            var visitedKeys = Object.create(null);
+            var getKeys = Object(opts).includeHidden
+                ? Object.getOwnPropertyNames
+                : Object.keys;
+            while (obj != null) {
+                var keys;
+                try {
+                    keys = getKeys(obj);
+                } catch (e) {
+                    return ret;
+                }
+                for (var i = 0; i < keys.length; ++i) {
+                    var key = keys[i];
+                    if (visitedKeys[key]) continue;
+                    visitedKeys[key] = true;
+                    var desc = Object.getOwnPropertyDescriptor(obj, key);
+                    if (desc != null && desc.get == null && desc.set == null) {
+                        ret.push(key);
+                    }
+                }
+                obj = es5.getPrototypeOf(obj);
+            }
+            return ret;
+        };
+    } else {
+        return function(obj) {
+            var ret = [];
+            /*jshint forin:false */
+            for (var key in obj) {
+                ret.push(key);
+            }
+            return ret;
+        };
+    }
+
+})();
+
+function isClass(fn) {
+    try {
+        if (typeof fn === "function") {
+            var keys = es5.keys(fn.prototype);
+            return keys.length > 0 &&
+                   !(keys.length === 1 && keys[0] === "constructor");
+        }
+        return false;
+    } catch (e) {
+        return false;
+    }
+}
 
 function toFastProperties(obj) {
     /*jshint -W027*/
@@ -169,7 +225,24 @@ function toFastProperties(obj) {
     eval(obj);
 }
 
+var rident = /^[a-z$_][a-z$_0-9]*$/i;
+function isIdentifier(str) {
+    return rident.test(str);
+}
+
+function filledRange(count, prefix, suffix) {
+    var ret = new Array(count);
+    for(var i = 0; i < count; ++i) {
+        ret[i] = prefix + i + suffix;
+    }
+    return ret;
+}
+
 var ret = {
+    isClass: isClass,
+    isIdentifier: isIdentifier,
+    inheritedDataKeys: inheritedDataKeys,
+    getDataPropertyOrDefault: getDataPropertyOrDefault,
     thrower: thrower,
     isArray: es5.isArray,
     haveGetters: haveGetters,
@@ -177,17 +250,19 @@ var ret = {
     isPrimitive: isPrimitive,
     isObject: isObject,
     canEvaluate: canEvaluate,
-    deprecated: deprecated,
     errorObj: errorObj,
     tryCatch1: tryCatch1,
     tryCatch2: tryCatch2,
+    tryCatch3: tryCatch3,
+    tryCatch4: tryCatch4,
     tryCatchApply: tryCatchApply,
     inherits: inherits,
     withAppended: withAppended,
     asString: asString,
     maybeWrapAsError: maybeWrapAsError,
     wrapsPrimitiveReceiver: wrapsPrimitiveReceiver,
-    toFastProperties: toFastProperties
+    toFastProperties: toFastProperties,
+    filledRange: filledRange
 };
 
 module.exports = ret;

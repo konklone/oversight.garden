@@ -25,7 +25,7 @@ var util = require("./util.js");
 var maybeWrapAsError = util.maybeWrapAsError;
 var errors = require("./errors.js");
 var TimeoutError = errors.TimeoutError;
-var RejectionError = errors.RejectionError;
+var OperationalError = errors.OperationalError;
 var async = require("./async.js");
 var haveGetters = util.haveGetters;
 var es5 = require("./es5.js");
@@ -35,12 +35,11 @@ function isUntypedError(obj) {
         es5.getPrototypeOf(obj) === Error.prototype;
 }
 
-function wrapAsRejectionError(obj) {
+function wrapAsOperationalError(obj) {
     var ret;
     if (isUntypedError(obj)) {
-        ret = new RejectionError(obj);
-    }
-    else {
+        ret = new OperationalError(obj);
+    } else {
         ret = obj;
     }
     errors.markAsOriginatingFromRejection(ret);
@@ -52,18 +51,14 @@ function nodebackForPromise(promise) {
         if (promise === null) return;
 
         if (err) {
-            var wrapped = wrapAsRejectionError(maybeWrapAsError(err));
+            var wrapped = wrapAsOperationalError(maybeWrapAsError(err));
             promise._attachExtraTrace(wrapped);
             promise._reject(wrapped);
-        }
-        else {
-            if (arguments.length > 2) {
-                var $_len = arguments.length;var args = new Array($_len - 1); for(var $_i = 1; $_i < $_len; ++$_i) {args[$_i - 1] = arguments[$_i];}
-                promise._fulfill(args);
-            }
-            else {
-                promise._fulfill(value);
-            }
+        } else if (arguments.length > 2) {
+            var $_len = arguments.length;var args = new Array($_len - 1); for(var $_i = 1; $_i < $_len; ++$_i) {args[$_i - 1] = arguments[$_i];}
+            promise._fulfill(args);
+        } else {
+            promise._fulfill(value);
         }
 
         promise = null;
@@ -103,10 +98,11 @@ PromiseResolver.prototype.toString = function PromiseResolver$toString() {
 
 PromiseResolver.prototype.resolve =
 PromiseResolver.prototype.fulfill = function PromiseResolver$resolve(value) {
-    var promise = this.promise;
-    if ((promise === void 0) || (promise._tryFollow === void 0)) {
+    if (!(this instanceof PromiseResolver)) {
         throw new TypeError("Illegal invocation, resolver resolve/reject must be called within a resolver context. Consider using the promise constructor instead.");
     }
+
+    var promise = this.promise;
     if (promise._tryFollow(value)) {
         return;
     }
@@ -114,10 +110,11 @@ PromiseResolver.prototype.fulfill = function PromiseResolver$resolve(value) {
 };
 
 PromiseResolver.prototype.reject = function PromiseResolver$reject(reason) {
-    var promise = this.promise;
-    if ((promise === void 0) || (promise._attachExtraTrace === void 0)) {
+    if (!(this instanceof PromiseResolver)) {
         throw new TypeError("Illegal invocation, resolver resolve/reject must be called within a resolver context. Consider using the promise constructor instead.");
     }
+
+    var promise = this.promise;
     errors.markAsOriginatingFromRejection(reason);
     var trace = errors.canAttach(reason) ? reason : new Error(reason + "");
     promise._attachExtraTrace(trace);
@@ -129,6 +126,9 @@ PromiseResolver.prototype.reject = function PromiseResolver$reject(reason) {
 
 PromiseResolver.prototype.progress =
 function PromiseResolver$progress(value) {
+    if (!(this instanceof PromiseResolver)) {
+        throw new TypeError("Illegal invocation, resolver resolve/reject must be called within a resolver context. Consider using the promise constructor instead.");
+    }
     async.invoke(this.promise._progress, this.promise, value);
 };
 
