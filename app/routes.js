@@ -11,7 +11,7 @@ module.exports = {
 
   // The homepage. A temporary search page.
   index: function(req, res) {
-    res.render("index.html");
+    res.render("index.html", {});
   },
 
   // search/results
