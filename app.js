@@ -1,5 +1,4 @@
-var routes = require("./app/routes");
-
+// this is an Express app
 var express = require('express');
 var app = express();
 
@@ -30,6 +29,8 @@ else
 // helpers and routes
 app.locals.helpers = require("./app/helpers");
 app.locals.config = require("./config/config");
+
+var routes = require("./app/routes");
 app.get('/', routes.index);
 app.get('/reports', routes.reports);
 app.get('/report/:inspector/:report_id', routes.report);
