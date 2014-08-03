@@ -1,6 +1,6 @@
 <% include layout/header.html %>
 
-<section class="reports"><div class="inner">
+<section class="main reports"><div class="inner">
   <% if (results) { %>
 
 
@@ -15,12 +15,12 @@
       Showing the first 10.
     <% } %>
 
-    <% hits = results.hits.hits %>
+    <% var hits = results.hits.hits; %>
     <% if (hits.length > 0) { %>
       <ul>
         <% for (var i=0; i<hits.length; i++) { %>
-          <% report = hits[i]._source %>
-          <% highlight = hits[i].highlight %>
+          <% var report = hits[i]._source; %>
+          <% var highlight = hits[i].highlight; %>
           <li>
             <h2>
               <a href="/report/<%= report.inspector %>/<%= report.report_id %>">
@@ -35,8 +35,7 @@
               <% if (report.url) { %>
                 &mdash;
                 <a href="<%= report.url %>">
-                  Full report
-                </a>
+                  Full report</a>
                 <% if (report.file_type == "pdf") { %>
                   (PDF)
                 <% } %>
