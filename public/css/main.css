@@ -1,0 +1,167 @@
+
+body {font-family: "Open Sans", "Arial", sans-serif;}
+pre {font-family: "Fira Mono", monospace;}
+
+/* font sizes */
+
+body {font-size: 11pt; line-height: 25px;}
+#query {font-size: 20px;}
+#tlemail {font-size: 11pt;}
+.home .tl .submit {font-size: 11pt;}
+.home .featured h2 {font-weight: bold;}
+
+
+/********* colors ************/
+
+a, a:visited {
+  xcolor: #1a8f1a; /* green */
+
+  color: #3EC04E;
+}
+
+/* green frame */
+header, footer {
+
+}
+header a, footer a,
+header a:visited, footer a:visited {
+
+}
+
+/* light body */
+body {
+  color: #f5f5f5;
+  xbackground-color: #141;
+  xbackground-color: #369ab9;
+  xbackground-color: #135569;
+  background-color: #136932;
+}
+
+section.main {
+  color: #0a0a0a;
+  background-color: #f5f5f5;
+} section.main a, section.main a:visited {
+  color: #297432;
+}
+
+/* callout boxes */
+.home .featured {
+  xbackground-color: #c1ebc1;
+  xbackground-color: #c1ebe6;
+  background-color: #d0ebc1;
+}
+
+
+
+/* layout */
+
+header, section.main, footer {
+
+} .inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+header {padding: 20px 20px;}
+section.main {padding: 30px 20px;}
+footer {padding: 10px 20px;}
+
+footer p {margin: 5px 0;}
+
+
+/* header */
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal; margin: 0; padding: 0;
+  display: inline-block;
+}
+
+h1 {display: none;}
+
+#query {
+  padding: 5px 10px;
+  margin-bottom: 10px;
+}
+
+
+/** home page **/
+
+.home section  {
+  width: 45%;
+  padding-right: 20px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.home .intro p {
+  padding-bottom: 13px;
+}
+
+.home .featured {padding: 10px;}
+.home .featured h4 a.landing {font-weight: bold;}
+.home .featured h2 {margin-bottom: 10px;}
+.home .featured h4 {margin-bottom: 10px;}
+.home .featured p {margin-bottom: 10px;}
+
+.home .featured #tlemail {
+  width: 200px;
+  padding: 2px 5px;
+} .home .tl .submit {padding: 2px 10px;}
+
+
+/** report listings **/
+
+.reports ul, .reports li {list-style-type: none;}
+.reports li {
+  margin: 40px 0;
+}
+
+.reports li h2 {
+  font-size: 20px;
+  line-height: 30px;
+  display: block;
+} .reports li h2 a {
+  text-decoration: none
+} .reports li h2 a:hover {
+  text-decoration: underline
+}
+
+.reports li h4 {
+  margin: 10px 0;
+}
+
+.reports li p {
+  background-color: #e5e5e5;
+  padding: 5px 10px;
+  margin: 10px 0;
+  font-family: Average, serif;
+}
+
+.reports li .links {
+  font-size: 12px;
+}
+
+/** landing page **/
+
+.report h2, .report h4 {display: block;}
+.report h2 {
+  font-size: 30px;
+  line-height: 41px;
+}
+
+.report h4 {
+  font-size: 18px;
+  line-height: 30px;
+  margin-top: 10px;
+}
+
+.report p {
+  font-size: 18px;
+  margin-top: 30px;
+}
+
+.report .text {
+  border: 1px solid #888;
+  margin: 40px 0;
+  padding: 40px;
+}

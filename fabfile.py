@@ -6,12 +6,12 @@ environment = "production"
 env.use_ssh_config = True
 env.hosts = ["unitedstates"]
 
-branch = "master"
+branch = "mvp"
 repo = "git@github.com:konklone/oversight.git"
 
 username = "unitedstates"
 home = "/home/unitedstates/oversight"
-logs = "/home/unitedstates/oversight/"
+logs = "/home/unitedstates/oversight"
 shared_path = "%s/shared" % home
 versions_path = "%s/versions" % home
 version_path = "%s/%s" % (versions_path, time.strftime("%Y%m%d%H%M%S"))

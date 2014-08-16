@@ -11,14 +11,25 @@ module.exports = {
 
   // The homepage. A temporary search page.
   index: function(req, res) {
-    search(req.param("query") || "*").then(function(results) {
-      res.render("index.html", {
+    res.render("index.html", {});
+  },
+
+  // search/results
+  reports: function(req, res) {
+    var query;
+    if (req.param("query"))
+      query = "\"" + req.param("query") + "\"";
+    else
+      query = "*";
+
+    search(query).then(function(results) {
+      res.render("reports.html", {
         results: results,
         query: req.param("query")
       });
     }, function(err) {
       console.log("Noooo!");
-      res.render("index.html", {
+      res.render("reports.html", {
         results: null,
         query: null
       });
@@ -73,9 +84,11 @@ function search(query) {
       "highlight": {
         "fields": {
           "*": {}
-        }
+        },
+        "order": "score",
+        "fragment_size": 500
       },
-      "_source": ["report_id", "year", "inspector", "agency", "title", "agency_name", "url", "landing_url", "inspector_url", "published_on", "type"]
+      "_source": ["report_id", "year", "inspector", "agency", "title", "agency_name", "url", "landing_url", "inspector_url", "published_on", "type", "file_type"]
     }
   });
 }

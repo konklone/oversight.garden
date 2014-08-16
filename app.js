@@ -1,5 +1,4 @@
-var routes = require("./app/routes");
-
+// this is an Express app
 var express = require('express');
 var app = express();
 
@@ -14,6 +13,10 @@ app.enable('trust proxy')
   .use(require('body-parser').json())
   .use(require('body-parser').urlencoded({extended: false}))
   .use(require('method-override')())
+  .use(function(req,res,next){
+    res.locals.req = req;
+    next();
+  })
   .use(express.static(__dirname + '/public'));
 
 // development vs production
@@ -25,7 +28,11 @@ else
 
 // helpers and routes
 app.locals.helpers = require("./app/helpers");
+app.locals.config = require("./config/config");
+
+var routes = require("./app/routes");
 app.get('/', routes.index);
+app.get('/reports', routes.reports);
 app.get('/report/:inspector/:report_id', routes.report);
 
 

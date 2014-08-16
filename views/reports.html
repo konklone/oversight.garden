@@ -1,0 +1,78 @@
+<% include layout/header.html %>
+
+<section class="main reports"><div class="inner">
+  <% if (results) { %>
+
+
+    <strong>
+    <% if (query) { %>
+      <%= results.hits.total %> reports matching "<%= query %>".
+    <% } else { %>
+      <%= results.hits.total %> reports.
+    <% } %>
+    </strong>
+    <% if (results.hits.hits.length == 10) { %>
+      Showing the first 10.
+    <% } %>
+
+    <% var hits = results.hits.hits; %>
+    <% if (hits.length > 0) { %>
+      <ul>
+        <% for (var i=0; i<hits.length; i++) { %>
+          <% var report = hits[i]._source; %>
+          <% var highlight = hits[i].highlight; %>
+          <li>
+            <h2>
+              <a href="/report/<%= report.inspector %>/<%= report.report_id %>">
+                <%= report.title %>
+              </a>
+            </h2>
+            <h4>
+              <a href="<%= report.inspector_url %>">
+                <%= report.agency_name %></a>
+              &mdash;
+              <%= report.published_on %>
+              <% if (report.url) { %>
+                &mdash;
+                <a href="<%= report.url %>">
+                  Full report</a>
+                <% if (report.file_type == "pdf") { %>
+                  (PDF)
+                <% } %>
+              <% } else if (report.unreleased) { %>
+                &mdash;
+                <% if (report.missing) { %>
+                  Unreleased/Missing
+                <% } else { %>
+                  Unreleased
+                <% } %>
+              <% } %>
+
+              <% if (report.landing_url) { %>
+                &mdash;
+                <a href="<%= report.landing_url %>">Summary</a>
+              <% } %>
+            </h4>
+            <% if (highlight && (highlight.text || highlight.summary)) { %>
+              <p>
+                <% if (highlight.text) { %>
+                …<%- helpers.truncate(highlight.text[0], 500) %>…
+                <% } else if (highlight.summary) { %>
+                  …<%- helpers.truncate(highlight.summary[0], 500) %>…
+                <% } %>
+              </p>
+            <% } %>
+          </li>
+        <% } %>
+      </ul>
+    <% } else { %>
+      <p>
+        No results right now.
+      </p>
+    <% } %>
+  <% } else { %>
+    Error performing the search!
+  <% } %>
+</div></section>
+
+<% include layout/footer.html %>

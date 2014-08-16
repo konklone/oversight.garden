@@ -1,5 +1,6 @@
 <!--
-  Oversight.io, an ode the US government's oversight community.
+  Oversight.io,
+  bringing into sight the US government's oversight community.
 
   Built and maintained by Eric Mill. (@konklone, konklone.com)
 
@@ -16,19 +17,70 @@
 -->
 
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-<title>
-  Oversight.io | Celebrating the US government's oversight community.
-</title>
-<style>
-  .warning {border: 1px solid #990000; background-color: #eeeeee; padding: 20px; font-size: 125%;}
-</style>
+
+<% if ((typeof(report) != "undefined") && report) { %>
+  <title>
+    <%= report.agency_name %> | <%= report.title %>
+  </title>
+  <meta name="description" content="<%= helpers.escape_attribute(report.title) %>" />
+  <meta name="og:description" content="<%= helpers.escape_attribute(report.title) %>" />
+<% } else { %>
+  <title>
+    Oversight.io | Bringing into sight the US government's oversight community.
+  </title>
+  <meta name="description" content="Bringing into sight the US government's oversight community." />
+  <meta name="og:description" content="Bringing into sight the US government's oversight community." />
+<% } %>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta property="og:site_name" content="Oversight.io">
+
+
+<meta name="author" content="Eric Mill" />
+
+<meta name="twitter:creator" content="@konklone" />
+<meta name="twitter:creator:id" content="5232171" />
+<meta name="twitter:site" content="@konklone" />
+<meta name="twitter:site:id" content="5232171" />
+<meta name="twitter:url" content="https://oversight.io" />
+
+<link rel="vcs-git" href="https://github.com/konklone/oversight.io" title="code for oversight.io" />
+
+<link rel="shortcut icon" href="/favicon.png" />
+<link rel="canonical" href="https://oversight.io<%= req.originalUrl %>" />
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans|Average|Fira+Mono' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="/css/html5-reset.css" />
+<link rel="stylesheet" type="text/css" href="/css/main.css?<%= (new Date()).getTime() %>" />
+
 </head>
 <body>
 
-<div class="warning">
-  You've come upon a hideous work-in-progress by <a href="https://twitter.com/konklone">@konklone</a>. Do not judge: help <a href="https://github.com/unitedstates/inspectors-general">here</a> or <a href="https://github.com/konklone/oversight">there</a>.
-</div>
+<header><div class="inner">
+  <div>
+    <h1>
+      Oversight.io
+    </h1>
 
-<h1>Oversight.io</h1>
+    <form action="/reports" method="get">
+      <input type="search" id="query" name="query" placeholder="Oversight.io"
+      <% if ((typeof(query) != "undefined") && query) { %>
+        value="<%= query %>"
+      <% } %>
+      />
+    </form>
+  </div>
+
+  <p>
+  Searching
+  <a class="browse" href="/reports">
+  16,200 reports</a>
+  from various <a href="https://github.com/unitedstates/inspectors-general#inspectors-general">inspectors general</a>
+  in the US federal government.
+  </p>
+
+</div></header>

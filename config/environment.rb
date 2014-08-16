@@ -7,7 +7,7 @@ class Report
   index_name "oversight"
   document_type "reports"
 
-  attribute :title
-  attribute :inspector
-  attribute :agency
+  attribute :title, String
+  attribute :inspector, String
+  attribute :agency, String
 end
