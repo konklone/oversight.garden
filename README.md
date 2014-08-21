@@ -52,7 +52,7 @@ bundle install
 Symlink a `data` dir that points to the location of your downloaded inspector general report data from the [unitedstates/inspectors-general](https://github.com/unitedstates/inspectors-general) project.
 
 ```
-ln -s data /path/to/ig/data
+ln -s /path/to/ig/data data
 ```
 
 Then copy the config example file:
