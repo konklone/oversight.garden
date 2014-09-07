@@ -52,7 +52,7 @@ bundle install
 Symlink a `data` dir that points to the location of your downloaded inspector general report data from the [unitedstates/inspectors-general](https://github.com/unitedstates/inspectors-general) project.
 
 ```
-ln -s data /path/to/ig/data
+ln -s /path/to/ig/data data
 ```
 
 Then copy the config example file:
@@ -95,8 +95,10 @@ This defaults to loading every report for the current year. See [the full list o
 
 If this all worked, you should be up and running!
 
-### License
+### Public domain
 
-All code original to this project is released as free, open source software under the [General Public License, Version 3](http://www.gnu.org/licenses/gpl-3.0.txt).
+This project is [dedicated to the public domain](LICENSE). As spelled out in [CONTRIBUTING](CONTRIBUTING.md):
 
-All prose original to this project is released under a <a href="http://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a> license.
+> The project is in the public domain within the United States, and copyright and related rights in the work worldwide are waived through the [CC0 1.0 Universal public domain dedication](http://creativecommons.org/publicdomain/zero/1.0/).
+
+> All contributions to this project will be released under the CC0 dedication. By submitting a pull request, you are agreeing to comply with this waiver of copyright interest.
