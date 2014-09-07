@@ -24,12 +24,14 @@
   <title>
     <%= report.agency_name %> | <%= report.title %>
   </title>
+  <meta name="og:title" content="<%= helpers.escape_attribute(report.agency_name) %> | <%= helpers.escape_attribute(report.title) %>" />
   <meta name="description" content="<%= helpers.escape_attribute(report.title) %>" />
   <meta name="og:description" content="<%= helpers.escape_attribute(report.title) %>" />
 <% } else { %>
   <title>
     Oversight.io | Bringing into sight the US government's oversight community.
   </title>
+  <meta name="og:title" content="Oversight.io">
   <meta name="description" content="Bringing into sight the US government's oversight community." />
   <meta name="og:description" content="Bringing into sight the US government's oversight community." />
 <% } %>
@@ -53,7 +55,9 @@
 <link rel="shortcut icon" href="/favicon.png" />
 <link rel="canonical" href="https://oversight.io<%= req.originalUrl %>" />
 
-<link href='https://fonts.googleapis.com/css?family=Open+Sans|Average|Fira+Mono' rel='stylesheet' type='text/css'>
+<meta name="twitter:card" content="summary" />
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700|Average" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="/css/html5-reset.css" />
 <link rel="stylesheet" type="text/css" href="/css/main.css?<%= (new Date()).getTime() %>" />
 
