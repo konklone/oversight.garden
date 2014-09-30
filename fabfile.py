@@ -18,7 +18,7 @@ version_path = "%s/%s" % (versions_path, time.strftime("%Y%m%d%H%M%S"))
 current_path = "%s/current" % home
 
 # how many old releases to be kept at deploy-time
-keep = 10
+keep = 3
 
 # port in the storm
 port = 3000
