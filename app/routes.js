@@ -3,7 +3,7 @@ var config = require("../config/config"),
     elasticsearch = require("elasticsearch"),
     es = new elasticsearch.Client({
       host: config.elasticsearch,
-      log: 'trace'
+      log: 'info'
     });
 
 
