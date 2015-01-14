@@ -6,7 +6,7 @@ environment = "production"
 env.use_ssh_config = True
 env.hosts = ["unitedstates"]
 
-branch = "mvp"
+branch = "master"
 repo = "git@github.com:konklone/oversight.git"
 
 username = "unitedstates"
