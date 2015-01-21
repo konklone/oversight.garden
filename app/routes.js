@@ -17,8 +17,11 @@ module.exports = {
   // search/results
   reports: function(req, res) {
     var query;
-    if (req.param("query"))
-      query = "\"" + req.param("query") + "\"";
+    if (req.param("query")) {
+      query = req.param("query");
+      if (query.charAt(0) != "\"" || query.charAt(query.length-1) != "\"")
+        query = "\"" + query + "\"";
+    }
     else
       query = "*";
 
