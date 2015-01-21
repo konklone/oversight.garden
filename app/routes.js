@@ -3,7 +3,7 @@ var config = require("../config/config"),
     elasticsearch = require("elasticsearch"),
     es = new elasticsearch.Client({
       host: config.elasticsearch,
-      log: 'info'
+      log: 'debug'
     });
 
 
@@ -22,10 +22,13 @@ module.exports = {
     else
       query = "*";
 
-    search(query).then(function(results) {
+    var page = req.param("page") || 1;
+
+    search(query, page).then(function(results) {
       res.render("reports.html", {
         results: results,
-        query: req.param("query")
+        query: req.param("query"),
+        page: page
       });
     }, function(err) {
       console.log("Noooo!");
@@ -59,13 +62,15 @@ function get(id) {
   });
 }
 
-function search(query) {
+function search(query, page) {
+  var size = 10;
+  var from = (page - 1) * size;
   return es.search({
     index: 'oversight',
     type: 'reports',
     body: {
-      "from": 0,
-      "size": 10,
+      "from": from,
+      "size": size,
       "query": {
         "filtered": {
           "query": {
