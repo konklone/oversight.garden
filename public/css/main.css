@@ -57,10 +57,14 @@ section.main {
 
 header, section.main, footer {
 
-} .inner {
+}
+
+.inner {
   max-width: 800px;
   margin: 0 auto;
 }
+
+
 
 header {padding: 20px 20px;}
 section.main {padding: 30px 20px;}
@@ -76,15 +80,37 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-block;
 }
 
-h1 {display: none;}
+h1 { font-size: 2em; }
+h1 a, h1 a:visited { text-decoration: none; color: white; }
 
 #query {
   padding: 5px 10px;
   margin-bottom: 10px;
 }
 
+/** search bar **/
+
+.search-bar {
+  width: 100%;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 10px;
+  font-size: 2em;
+  text-align: center;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  outline: 0;
+}
 
 /** home page **/
+
+.home .search-bar-container {
+  margin-bottom: 20px;
+}
 
 .home section  {
   width: 45%;
