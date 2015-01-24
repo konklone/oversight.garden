@@ -1,0 +1,7 @@
+<form action="/reports" method="get" class="search-bar">
+  <input type="search" id="query" name="query" placeholder="Search Reports..."
+  <% if ((typeof(query) != "undefined") && query) { %>
+    value="<%= query %>"
+  <% } %>
+  />
+</form>
