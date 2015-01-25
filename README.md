@@ -6,7 +6,7 @@ A small website (in progress!) at [oversight.io](https://oversight.io).
 
 ### Getting started
 
-Oversight.io is primarily a Node application, and uses Ruby for some data manipulation tasks.
+Oversight.io is primarily a **Node** application, and uses **Ruby** for some data manipulation tasks.
 
 Elasticsearch is used for text search *and* as a primary datastore.
 
@@ -23,9 +23,9 @@ Install [Elasticsearch](http://elasticsearch.org/) **version 1.3 and up** by eit
 * [Installing Elasticsearch on Mac OS X](http://stackoverflow.com/a/22855889/16075) through [Homebrew](http://brew.sh/).
 * [Downloading the latest tarball](http://www.elasticsearch.org/download/) and compiling/installing from source.
 
-Install [Ruby](https://www.ruby-lang.org/en/) 2.1.2 by either:
+Install [Ruby](https://www.ruby-lang.org/en/) 2.2 by either:
 
-* Using [rbenv](https://github.com/sstephenson/rbenv) to run `rbenv install 2.1.2`.
+* Using [rbenv](https://github.com/sstephenson/rbenv) to run `rbenv install 2.2.0`.
 * Using [brew](http://brew.sh/) to run `brew install ruby`.
 * Some [other method](https://www.ruby-lang.org/en/installation/). Don't use `apt`, which will install a too-old version of Ruby.
 
