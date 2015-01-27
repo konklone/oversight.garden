@@ -43,7 +43,7 @@ module.exports = {
   },
 
   report: function(req, res) {
-    get(req.query.report_id).then(function(result) {
+    get(req.params.report_id).then(function(result) {
       res.render("report.html", {
         report: result._source
       });
