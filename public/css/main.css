@@ -14,12 +14,12 @@ body {font-size: 11pt; line-height: 25px;}
 /********* colors ************/
 
 a, a:visited {
-  xcolor: #1a8f1a; /* green */
+  xcolor: #002F5E; /* same blue */
 
-  color: #3EC04E;
+  color: #002F5E;
 }
 
-/* green frame */
+/* frame */
 header, footer {
 
 }
@@ -34,21 +34,21 @@ body {
   xbackground-color: #141;
   xbackground-color: #369ab9;
   xbackground-color: #135569;
-  background-color: #136932;
+  background-color: #006EDC;
 }
 
 section.main {
   color: #0a0a0a;
   background-color: #f5f5f5;
 } section.main a, section.main a:visited {
-  color: #297432;
+  color: #002F5E; /* same blue */
 }
 
 /* callout boxes */
 .home .featured {
   xbackground-color: #c1ebc1;
   xbackground-color: #c1ebe6;
-  background-color: #d0ebc1;
+  background-color: #ABDCF5;
 }
 
 
