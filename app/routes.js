@@ -17,20 +17,20 @@ module.exports = {
   // search/results
   reports: function(req, res) {
     var query;
-    if (req.param("query")) {
-      query = req.param("query");
+    if (req.query.query) {
+      query = req.query.query;
       if (query.charAt(0) != "\"" || query.charAt(query.length-1) != "\"")
         query = "\"" + query + "\"";
     }
     else
       query = "*";
 
-    var page = req.param("page") || 1;
+    var page = req.query.page || 1;
 
     search(query, page).then(function(results) {
       res.render("reports.html", {
         results: results,
-        query: req.param("query"),
+        query: req.query.query,
         page: page
       });
     }, function(err) {
@@ -43,7 +43,7 @@ module.exports = {
   },
 
   report: function(req, res) {
-    get(req.param("report_id")).then(function(result) {
+    get(req.query.report_id).then(function(result) {
       res.render("report.html", {
         report: result._source
       });
