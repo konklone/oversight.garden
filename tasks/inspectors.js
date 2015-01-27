@@ -78,6 +78,10 @@ function run(options) {
 
     console.log("\tLoading JSON from disk...")
     var datafile = path.join(config.inspectors.data, inspector, year.toString(), report_id, "report.json");
+    if (!fs.existsSync(datafile)) {
+      console.error("ERROR: JSON missing, report is probably a bad URL.");
+      return done();
+    }
     var json = fs.readFileSync(datafile);
     if (!json || json.length <= 0) return done();
     var data = JSON.parse(json);
