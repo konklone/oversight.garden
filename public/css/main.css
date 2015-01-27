@@ -14,9 +14,7 @@ body {font-size: 11pt; line-height: 25px;}
 /********* colors ************/
 
 a, a:visited {
-  xcolor: #002F5E; /* same blue */
-
-  color: #002F5E;
+  color: #C1BD7C;
 }
 
 /* frame */
@@ -31,24 +29,19 @@ header a:visited, footer a:visited {
 /* light body */
 body {
   color: #f5f5f5;
-  xbackground-color: #141;
-  xbackground-color: #369ab9;
-  xbackground-color: #135569;
-  background-color: #006EDC;
+  background-color: #674430;
 }
 
 section.main {
   color: #0a0a0a;
   background-color: #f5f5f5;
 } section.main a, section.main a:visited {
-  color: #002F5E; /* same blue */
+  color: #9E4432;
 }
 
 /* callout boxes */
 .home .featured {
-  xbackground-color: #c1ebc1;
-  xbackground-color: #c1ebe6;
-  background-color: #ABDCF5;
+  background-color: #E9E6E3;
 }
 
 
