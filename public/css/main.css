@@ -14,7 +14,7 @@ body {font-size: 11pt; line-height: 25px;}
 /********* colors ************/
 
 a, a:visited {
-  color: #C1BD7C;
+  color: #3EC04E;
 }
 
 /* frame */
@@ -29,19 +29,19 @@ header a:visited, footer a:visited {
 /* light body */
 body {
   color: #f5f5f5;
-  background-color: #674430;
+  background-color: #136932;
 }
 
 section.main {
   color: #0a0a0a;
   background-color: #f5f5f5;
 } section.main a, section.main a:visited {
-  color: #9E4432;
+  color: #297432;
 }
 
 /* callout boxes */
 .home .featured {
-  background-color: #E9E6E3;
+  background-color: #d0ebc1;
 }
 
 
