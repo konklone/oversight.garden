@@ -15,15 +15,14 @@
     </strong>
     <% if (page > 1) { %>
       <a href="/reports?<%= helpers.q({page: parseInt(page)-1, query: query}) %>">
-        Previous page
-      </a>
+        Previous page</a>
     <% } %>
     <% if (results.hits.hits.length == 10) { %>
       Page <%= page %>.
       Showing the first 10.
       <a href="/reports?<%= helpers.q({page: parseInt(page)+1, query: query}) %>">
-        Next page
-      </a>
+        Next page</a>
+
     <% } %>
 
     <% var hits = results.hits.hits; %>
@@ -35,8 +34,7 @@
           <li>
             <h2>
               <a href="/report/<%= report.inspector %>/<%= report.report_id %>">
-                <%= report.title %>
-              </a>
+                <%= report.title %></a>
             </h2>
             <h4>
               <a href="<%= report.inspector_url %>">
