@@ -24,7 +24,7 @@
       <% } else { %>
         Showing <%= (page - 1) * 10 + 1 %>-<%= (page - 1) * 10 + results.hits.hits.length %>.
       <% } %>
-      <% if (results.hits.total >= page * 10) { %>
+      <% if (results.hits.total > page * 10) { %>
         <a href="/reports?<%= helpers.q({page: parseInt(page)+1, query: query}) %>">
           Next page</a>
       <% } %>
