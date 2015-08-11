@@ -17,6 +17,16 @@ namespace :elasticsearch do
     index = "oversight"
     index_url = "#{host}/#{index}"
 
+    if force
+      command = "curl -XDELETE '#{index_url}'"
+      puts "running: #{command}"
+      system command
+      puts
+
+      puts "Deleted index"
+      puts
+    end
+
     command = "curl -XPUT '#{index_url}'"
     puts "running: #{command}"
     system command
@@ -25,17 +35,31 @@ namespace :elasticsearch do
     puts "Ensured index exists"
     puts
 
+    command = "curl -XPOST '#{index_url}/_close'"
+    puts "running: #{command}"
+    system command
+    puts
+
+    puts "Closed index"
+    puts
+
+    command = "curl -XPUT '#{index_url}/_settings' -d @config/index.json"
+    puts "running: #{command}"
+    system command
+    puts
+
+    puts "Configured index"
+    puts
+
+    command = "curl -XPOST '#{index_url}/_open'"
+    puts "running: #{command}"
+    system command
+    puts
+
+    puts "Opened index"
+    puts
+
     mappings.each do |mapping|
-      if force
-        command = "curl -XDELETE '#{index_url}/_mapping/#{mapping}/'"
-        puts "running: #{command}"
-        system command
-        puts
-
-        puts "Deleted #{mapping}"
-        puts
-      end
-
       command = "curl -XPUT '#{index_url}/_mapping/#{mapping}' -d @config/mappings/#{mapping}.json"
       puts "running: #{command}"
       system command
