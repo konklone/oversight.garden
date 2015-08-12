@@ -1,0 +1,9 @@
+{
+    "analysis": {
+        "analyzer": {
+            "default": {
+                "type": "english"
+            }
+        }
+    }
+}
