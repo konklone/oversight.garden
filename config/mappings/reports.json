@@ -41,7 +41,7 @@
       },
       "published_on": {
         "type": "date",
-        "format": "dateOptionalTime"
+        "format": "date"
       },
       "year": {
         "type": "short"
@@ -79,14 +79,14 @@
           },
           "creation_date": {
             "type": "date",
-            "format": "dateOptionalTime"
+            "format": "date"
           },
           "keywords": {
             "type": "string"
           },
           "modification_date": {
             "type": "date",
-            "format": "dateOptionalTime"
+            "format": "date"
           },
           "page_count": {
             "type": "short"
