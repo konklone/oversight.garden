@@ -47,7 +47,8 @@
         "type": "short"
       },
       "estimated_date": {
-        "type": "boolean"
+        "type": "boolean",
+        "null_value": false
       },
       "report_id": {
         "type": "string",
@@ -70,7 +71,8 @@
         "index": "not_analyzed"
       },
       "unreleased": {
-        "type": "boolean"
+        "type": "boolean",
+        "null_value": false
       },
       "pdf": {
         "properties": {
