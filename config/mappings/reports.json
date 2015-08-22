@@ -44,7 +44,7 @@
         "format": "dateOptionalTime"
       },
       "year": {
-        "type": "long"
+        "type": "short"
       },
       "estimated_date": {
         "type": "boolean"
@@ -89,7 +89,7 @@
             "format": "dateOptionalTime"
           },
           "page_count": {
-            "type": "long"
+            "type": "short"
           },
           "title": {
             "type": "string"
