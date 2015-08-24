@@ -9,6 +9,9 @@
         "type": "string",
         "term_vector": "with_positions_offsets"
       },
+      "title": {
+        "type": "string"
+      },
       "agency": {
         "type": "string",
         "index": "not_analyzed"
@@ -21,17 +24,31 @@
         "type": "string",
         "index": "not_analyzed"
       },
+      "source": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
       "inspector": {
         "type": "string",
         "index": "not_analyzed"
+      },
+      "topic": {
+        "type": "string"
       },
       "inspector_url": {
         "type": "string",
         "index": "not_analyzed"
       },
       "published_on": {
-        "type": "string",
-        "index": "not_analyzed"
+        "type": "date",
+        "format": "date"
+      },
+      "year": {
+        "type": "short"
+      },
+      "estimated_date": {
+        "type": "boolean",
+        "null_value": false
       },
       "report_id": {
         "type": "string",
@@ -40,6 +57,46 @@
       "type": {
         "type": "string",
         "index": "not_analyzed"
+      },
+      "landing_url": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "url": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "text_url": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "unreleased": {
+        "type": "boolean",
+        "null_value": false
+      },
+      "pdf": {
+        "properties": {
+          "author": {
+            "type": "string"
+          },
+          "creation_date": {
+            "type": "date",
+            "format": "date"
+          },
+          "keywords": {
+            "type": "string"
+          },
+          "modification_date": {
+            "type": "date",
+            "format": "date"
+          },
+          "page_count": {
+            "type": "short"
+          },
+          "title": {
+            "type": "string"
+          }
+        }
       }
     }
   }
