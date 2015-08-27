@@ -9,6 +9,20 @@
         "type": "string",
         "index": "not_analyzed"
       },
+      "audit_id": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "author": {
+        "type": "string"
+      },
+      "categories": {
+        "type": "string"
+      },
+      "congress_id": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
       "estimated_date": {
         "type": "boolean",
         "null_value": false
@@ -28,6 +42,15 @@
       "landing_url": {
         "type": "string",
         "index": "not_analyzed"
+      },
+      "language": {
+        "type": "string"
+      },
+      "location": {
+        "type": "string"
+      },
+      "office": {
+        "type": "string"
       },
       "pdf": {
         "properties": {
@@ -53,6 +76,9 @@
           }
         }
       },
+      "program_area": {
+        "type": "string"
+      },
       "published_on": {
         "type": "date",
         "format": "date"
@@ -61,13 +87,34 @@
         "type": "string",
         "index": "not_analyzed"
       },
+      "response_url": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
       "source": {
         "type": "string",
         "index": "not_analyzed"
       },
+      "state": {
+        "type": "string"
+      },
+      "sub_type": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "subtopic": {
+        "type": "string"
+      },
       "summary": {
         "type": "string",
         "term_vector": "with_positions_offsets"
+      },
+      "summary_only": {
+        "type": "boolean"
+      },
+      "summary_url": {
+        "type": "string",
+        "index": "not_analyzed"
       },
       "text": {
         "type": "string",
@@ -94,6 +141,21 @@
       "url": {
         "type": "string",
         "index": "not_analyzed"
+      },
+      "urls": {
+        "properties": {
+          "file_type": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "indexed": {
+            "type": "boolean"
+          },
+          "url": {
+            "type": "string",
+            "index": "not_analyzed"
+          }
+        }
       },
       "year": {
         "type": "short"
