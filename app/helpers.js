@@ -1,6 +1,7 @@
 // view helpers
 
 var qs = require("querystring");
+var numeral = require("numeral");
 
 module.exports = {
 
@@ -17,6 +18,17 @@ module.exports = {
 
   escape_attribute: function(text) {
     return text.replace(/\"/g, "&quot;");
+  },
+
+  format_number: function(val, default_string) {
+    if (val === null || val === NaN || val === undefined) {
+      return default_string;
+    }
+    try {
+      return numeral(val).format("0,0");
+    } catch (e) {
+      return default_string;
+    }
   }
 
 }

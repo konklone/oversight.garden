@@ -11,7 +11,9 @@ module.exports = {
 
   // The homepage. A temporary search page.
   index: function(req, res) {
-    res.render("index.html", {});
+    res.render("index.html", {
+      reportCount: reportCount
+    });
   },
 
   // search/results
@@ -29,6 +31,7 @@ module.exports = {
 
     search(query, page).then(function(results) {
       res.render("reports.html", {
+        reportCount: reportCount,
         results: results,
         query: req.query.query,
         page: page
@@ -36,6 +39,7 @@ module.exports = {
     }, function(err) {
       console.log("Noooo!");
       res.render("reports.html", {
+        reportCount: reportCount,
         results: null,
         query: null
       });
@@ -45,11 +49,13 @@ module.exports = {
   report: function(req, res) {
     get(req.params.report_id).then(function(result) {
       res.render("report.html", {
+        reportCount: reportCount,
         report: result._source
       });
     }, function(err) {
       console.log("Nooooo! " + err);
       res.render("report.html", {
+        reportCount: reportCount,
         report: null
       });
     })
@@ -100,3 +106,20 @@ function search(query, page) {
     }
   });
 }
+
+var reportCount = null;
+
+function updateReportCount() {
+  es.count({
+    index: 'oversight',
+    type: 'reports'
+  }).then(function(result) {
+    reportCount = result.count;
+  }, function(err) {
+    console.log("Nooooo! " + err);
+    reportCount = null;
+  });
+}
+
+setInterval(updateReportCount, 1000 * 60 * 60);
+updateReportCount();
