@@ -1,17 +1,6 @@
 {
   "reports": {
     "properties": {
-      "summary": {
-        "type": "string",
-        "term_vector": "with_positions_offsets"
-      },
-      "text": {
-        "type": "string",
-        "term_vector": "with_positions_offsets"
-      },
-      "title": {
-        "type": "string"
-      },
       "agency": {
         "type": "string",
         "index": "not_analyzed"
@@ -20,11 +9,25 @@
         "type": "string",
         "index": "not_analyzed"
       },
-      "file_type": {
+      "audit_id": {
         "type": "string",
         "index": "not_analyzed"
       },
-      "source": {
+      "author": {
+        "type": "string"
+      },
+      "categories": {
+        "type": "string"
+      },
+      "congress_id": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "estimated_date": {
+        "type": "boolean",
+        "null_value": false
+      },
+      "file_type": {
         "type": "string",
         "index": "not_analyzed"
       },
@@ -32,29 +35,7 @@
         "type": "string",
         "index": "not_analyzed"
       },
-      "topic": {
-        "type": "string"
-      },
       "inspector_url": {
-        "type": "string",
-        "index": "not_analyzed"
-      },
-      "published_on": {
-        "type": "date",
-        "format": "date"
-      },
-      "year": {
-        "type": "short"
-      },
-      "estimated_date": {
-        "type": "boolean",
-        "null_value": false
-      },
-      "report_id": {
-        "type": "string",
-        "index": "not_analyzed"
-      },
-      "type": {
         "type": "string",
         "index": "not_analyzed"
       },
@@ -62,17 +43,14 @@
         "type": "string",
         "index": "not_analyzed"
       },
-      "url": {
-        "type": "string",
-        "index": "not_analyzed"
+      "language": {
+        "type": "string"
       },
-      "text_url": {
-        "type": "string",
-        "index": "not_analyzed"
+      "location": {
+        "type": "string"
       },
-      "unreleased": {
-        "type": "boolean",
-        "null_value": false
+      "office": {
+        "type": "string"
       },
       "pdf": {
         "properties": {
@@ -97,6 +75,90 @@
             "type": "string"
           }
         }
+      },
+      "program_area": {
+        "type": "string"
+      },
+      "published_on": {
+        "type": "date",
+        "format": "date"
+      },
+      "report_id": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "response_url": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "source": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "state": {
+        "type": "string"
+      },
+      "sub_type": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "subtopic": {
+        "type": "string"
+      },
+      "summary": {
+        "type": "string",
+        "term_vector": "with_positions_offsets"
+      },
+      "summary_only": {
+        "type": "boolean"
+      },
+      "summary_url": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "text": {
+        "type": "string",
+        "term_vector": "with_positions_offsets"
+      },
+      "text_url": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "title": {
+        "type": "string"
+      },
+      "topic": {
+        "type": "string"
+      },
+      "type": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "unreleased": {
+        "type": "boolean",
+        "null_value": false
+      },
+      "url": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "urls": {
+        "properties": {
+          "file_type": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "indexed": {
+            "type": "boolean"
+          },
+          "url": {
+            "type": "string",
+            "index": "not_analyzed"
+          }
+        }
+      },
+      "year": {
+        "type": "short"
       }
     }
   }
