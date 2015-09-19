@@ -8,6 +8,14 @@
         "statutory_reference": "5 U.S.C. App. 3 \uA7 2(A)"
     },
     {
+        "agencies": "Department of the Air Force",
+        "established_year": 1948,
+        "name": "Office of the Inspector General of the Air Force",
+        "nicknames": "Air Force",
+        "slug": "airforce",
+        "statutory_reference": "10 U.S.C. \uA7 8020(a)"
+    },
+    {
         "agencies": ["National Railroad Passenger Corporation"],
         "established_year": 1988,
         "name": "Amtrak Office of the Inspector General",
@@ -38,6 +46,14 @@
         "nicknames": ["NARA"],
         "slug": "archives",
         "statutory_reference": "5 U.S.C. App. 3 \uA7 8G(b)"
+    },
+    {
+        "agencies": ["Department of the Army"],
+        "established_year": 1779,
+        "name": "Office of the Inspector General of the Army",
+        "nicknames": ["Army"],
+        "slug": "army",
+        "statutory_reference": "10 U.S.C. \uA7 3020(a)"
     },
     {
         "agencies": ["Commodity Futures Trading Commission"],
@@ -362,12 +378,28 @@
         "statutory_reference": "5 U.S.C. App. 3 \uA7 8G(b)"
     },
     {
+        "agencies": ["United States Marine Corps"],
+        "established_year": 1945,
+        "name": "Office of the Inspector General of the Marine Corps",
+        "nicknames": ["Marines"],
+        "slug": "marines",
+        "statutory_reference": "10 U.S.C. \uA7 5014"
+    },
+    {
         "agencies": ["National Aeronautics and Space Administration"],
         "established_year": 1978,
         "name": "National Aeronautics and Space Administration, Office of Inspector General",
         "nicknames": ["NASA"],
         "slug": "nasa",
         "statutory_reference": "5 U.S.C. App. 3 \uA7 2(A)"
+    },
+    {
+        "agencies": ["Department of the Navy"],
+        "established_year": 1942,
+        "name": "Office of the Naval Inspector General",
+        "nicknames": "Navy",
+        "slug": "navy",
+        "statutory_reference": "10 U.S.C. \uA7 5020(a)"
     },
     {
         "agencies": ["National Credit Union Administration"],
