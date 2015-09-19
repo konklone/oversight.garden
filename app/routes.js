@@ -47,7 +47,7 @@ module.exports = {
   },
 
   report: function(req, res) {
-    get(req.params.report_id).then(function(result) {
+    get(req.params.inspector, req.params.report_id).then(function(result) {
       res.render("report.html", {
         reportCount: reportCount,
         report: result._source
@@ -63,11 +63,11 @@ module.exports = {
 
 };
 
-function get(id) {
+function get(inspector, report_id) {
   return es.get({
     index: 'oversight',
     type: 'reports',
-    id: id
+    id: inspector + '-' + report_id
   });
 }
 

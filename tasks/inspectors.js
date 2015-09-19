@@ -99,7 +99,7 @@ function run(options) {
     es.index({
       index: 'oversight',
       type: 'reports',
-      id: report_id,
+      id: inspector + '-' + report_id,
       body: data
     }, function(err) {
       if (err) {
