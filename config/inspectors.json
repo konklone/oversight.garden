@@ -1,0 +1,626 @@
+[
+    {
+        "agencies": ["Department of Agriculture"],
+        "established_year": 1978,
+        "name": "Department of Agriculture, Office of Inspector General",
+        "nicknames": ["USDA"],
+        "slug": "agriculture",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 2(A)"
+    },
+    {
+        "agencies": ["National Railroad Passenger Corporation"],
+        "established_year": 1988,
+        "name": "Amtrak Office of the Inspector General",
+        "nicknames": ["Amtrak"],
+        "slug": "amtrak",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 8G(b)"
+    },
+    {
+        "agencies": ["Appalachian Regional Commission"],
+        "established_year": 1988,
+        "name": "Appalachian Regional Commission, Office of Inspector General",
+        "nicknames": ["ARC"],
+        "slug": "arc",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 8G(b)"
+    },
+    {
+        "agencies": ["Architect of the Capitol"],
+        "established_year": 2007,
+        "name": "Architect of the Capitol, Office of Inspector General",
+        "nicknames": [],
+        "slug": "architect",
+        "statutory_reference": "2 U.S.C. \uA7 1808(b)"
+    },
+    {
+        "agencies": ["National Archives and Records Administration"],
+        "established_year": 1998,
+        "name": "National Archives and Records Administration, Office of Inspector General",
+        "nicknames": ["NARA"],
+        "slug": "archives",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 8G(b)"
+    },
+    {
+        "agencies": ["Commodity Futures Trading Commission"],
+        "established_year": 1988,
+        "name": "Commodity Futures Trading Commission, Office of Inspector General",
+        "nicknames": ["CFTC"],
+        "slug": "cftc",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 8G(b)"
+    },
+    {
+        "agencies": ["Central Intelligence Agency"],
+        "established_year": 1989,
+        "name": "Central Intelligence Agency, Office of Inspector General",
+        "nicknames": ["CIA"],
+        "slug": "cia",
+        "statutory_reference": "50 U.S.C. \uA7 3517(a)"
+    },
+    {
+        "agencies": ["Corporation for National and Community Service"],
+        "established_year": 1993,
+        "name": "Corporation for National and Community Service, Office of Inspector General",
+        "nicknames": ["CNCS"],
+        "slug": "cncs",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 2(A)"
+    },
+    {
+        "agencies": ["Department of Commerce"],
+        "established_year": 1978,
+        "name": "Department of Commerce, Office of Inspector General",
+        "nicknames": ["Commerce"],
+        "slug": "commerce",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 2(A)"
+    },
+    {
+        "agencies": ["Corporation for Public Broadcasting"],
+        "established_year": 1988,
+        "name": "Corporation for Public Broadcasting, Office of Inspector General",
+        "nicknames": ["CPB"],
+        "slug": "cpb",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 8G(b)"
+    },
+    {
+        "agencies": ["Consumer Product Safety Commission"],
+        "established_year": 1988,
+        "name": "Consumer Product Safety Commission, Office of Inspector General",
+        "nicknames": ["CPSC"],
+        "slug": "cpsc",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 8G(b)"
+    },
+    {
+        "agencies": ["Denali Commission"],
+        "established_year": 1999,
+        "name": "Denali Commission, Office of Inspector General",
+        "nicknames": ["Denali"],
+        "slug": "denali",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 8G(b)"
+    },
+    {
+        "agencies": ["Department of Homeland Security"],
+        "established_year": 2002,
+        "name": "Department of Homeland Security, Office of Inspector General",
+        "nicknames": ["DHS"],
+        "slug": "dhs",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 2(A)"
+    },
+    {
+        "agencies": ["Defense Intelligence Agency"],
+        "established_year": 2010,
+        "name": "Defense Intelligence Agency, Office of Inspector General",
+        "nicknames": ["DIA"],
+        "slug": "dia",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 8G(b)"
+    },
+    {
+        "agencies": ["Department of Defense"],
+        "established_year": 1982,
+        "name": "Department of Defense, Office of Inspector General",
+        "nicknames": ["DoD"],
+        "slug": "dod",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 2(A)"
+    },
+    {
+        "agencies": ["Department of Justice"],
+        "established_year": 1988,
+        "name": "Department of Justice, Office of Inspector General",
+        "nicknames": ["DOJ"],
+        "slug": "doj",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 2(A)"
+    },
+    {
+        "agencies": ["Department of Transportation"],
+        "established_year": 1978,
+        "name": "Department of Transportation, Office of Inspector General",
+        "nicknames": ["DOT"],
+        "slug": "dot",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 2(A)"
+    },
+    {
+        "agencies": ["Election Assistance Commission"],
+        "established_year": 2005,
+        "name": "Election Assistance Commission, Office of Inspector General",
+        "nicknames": ["EAC"],
+        "slug": "eac",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 8G(b)"
+    },
+    {
+        "agencies": ["Department of Education"],
+        "established_year": 1979,
+        "name": "Department of Education, Office of Inspector General",
+        "nicknames": [],
+        "slug": "education",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 2(A)"
+    },
+    {
+        "agencies": ["Equal Employment Opportunity Commission"],
+        "established_year": 1988,
+        "name": "Equal Employment Opportunity Commission, Office of Inspector General",
+        "nicknames": ["EEOC"],
+        "slug": "eeoc",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 8G(b)"
+    },
+    {
+        "agencies": ["Department of Energy"],
+        "established_year": 1988,
+        "name": "Department of Energy, Office of Inspector General",
+        "nicknames": ["DOE"],
+        "slug": "energy",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 2(A)"
+    },
+    {
+        "agencies": ["Environmental Protection Agency"],
+        "established_year": 1978,
+        "name": "Environmental Protection Agency, Office of Inspector General",
+        "nicknames": ["EPA"],
+        "slug": "epa",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 2(A)"
+    },
+    {
+        "agencies": ["Export-Import Bank of the United States"],
+        "established_year": 2007,
+        "name": "Export-Import Bank of the United States, Office of Inspector General",
+        "nicknames": ["EXIM Bank", "EXIM"],
+        "slug": "exim",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 2(A)"
+    },
+    {
+        "agencies": ["Farm Credit Administration"],
+        "established_year": 1988,
+        "name": "Farm Credit Administration, Office of Inspector General",
+        "nicknames": ["FCA"],
+        "slug": "fca",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 8G(b)"
+    },
+    {
+        "agencies": ["Federal Communications Commission"],
+        "established_year": 1988,
+        "name": "Federal Communications Commission, Office of Inspector General",
+        "nicknames": ["FCC"],
+        "slug": "fcc",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 8G(b)"
+    },
+    {
+        "agencies": ["Federal Deposit Insurance Corporation"],
+        "established_year": 1988,
+        "name": "Federal Deposit Insurance Corporation, Office of Inspector General",
+        "nicknames": ["FDIC"],
+        "slug": "fdic",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 2(A)"
+    },
+    {
+        "agencies": ["Federal Election Commission"],
+        "established_year": 1988,
+        "name": "Federal Election Commission, Office of Inspector General",
+        "nicknames": ["FEC"],
+        "slug": "fec",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 8G(b)"
+    },
+    {
+        "agencies": [
+            "Board of Governors of the Federal Reserve System",
+            "Consumer Financial Protection Bureau"
+        ],
+        "established_year": 1988,
+        "name": "Office of Inspector Generalfor the Board of Governors of the Federal Reserve System and Consumer Financial Protection Bureau",
+        "nicknames": ["Federal Reserve", "Fed", "CFPB"],
+        "slug": "fed",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 8G(b)"
+    },
+    {
+        "agencies": ["Federal Housing Finance Agency"],
+        "established_year": 2010,
+        "name": "Federal Housing Finance Agency, Office of Inspector General",
+        "nicknames": ["FHFA"],
+        "slug": "fhfa",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 2(A)"
+    },
+    {
+        "agencies": ["Federal Labor Relations Authority"],
+        "established_year": 1988,
+        "name": "Federal Labor Relations Authority, Office of Inspector General",
+        "nicknames": ["FLRA"],
+        "slug": "flra",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 8G(b)"
+    },
+    {
+        "agencies": ["Federal Maritime Commission"],
+        "established_year": 1988,
+        "name": "Federal Maritime Commission, Office of Inspector General",
+        "nicknames": ["FMC"],
+        "slug": "fmc",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 8G(b)"
+    },
+    {
+        "agencies": ["Federal Trade Commission"],
+        "established_year": 1988,
+        "name": "Federal Trade Commission, Office of Inspector General",
+        "nicknames": ["FTC"],
+        "slug": "ftc",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 8G(b)"
+    },
+    {
+        "agencies": ["Government Accountability Office"],
+        "established_year": 2008,
+        "name": "Government Accountability Office, Office of Inspector General",
+        "nicknames": ["GAO"],
+        "slug": "gao",
+        "statutory_reference": "31 U.S.C. \uA7 705(a)"
+    },
+    {
+        "agencies": ["Government Publishing Office"],
+        "established_year": 1988,
+        "name": "Government Publishing Office, Office of Inspector General",
+        "nicknames": ["GPO"],
+        "slug": "gpo",
+        "statutory_reference": "44 U.S.C. \uA7 3901"
+    },
+    {
+        "agencies": ["General Services Administration"],
+        "established_year": 1978,
+        "name": "General Services Administration, Office of Inspector General",
+        "nicknames": ["GSA"],
+        "slug": "gsa",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 2(A)"
+    },
+    {
+        "agencies": ["Department of Health and Human Services"],
+        "established_year": 1988,
+        "name": "Department of Health and Human Services, Office of Inspector General",
+        "nicknames": ["HHS"],
+        "slug": "hhs",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 2(A)"
+    },
+    {
+        "agencies": ["House of Representatives"],
+        "established_year": 1992,
+        "name": "House of Representatives, Office of Inspector General",
+        "nicknames": [],
+        "slug": "house",
+        "statutory_reference": "House Rule II, clause 6"
+    },
+    {
+        "agencies": ["Department of Housing and Urban Development"],
+        "established_year": 1978,
+        "name": "Department of Housing and Urban Development, Office of Inspector General",
+        "nicknames": ["HUD"],
+        "slug": "hud",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 2(A)"
+    },
+    {
+        "agencies": [
+            "Office of the Director of National Intelligence",
+            "Central Intelligence Agency",
+            "National Security Agency",
+            "Defense Intelligence Agency",
+            "National Geospatial-Intelligence Agency",
+            "National Reconnaisance Office"
+        ],
+        "established_year": 2010,
+        "name": "Office of the Intelligence Community Inspector General",
+        "nicknames": ["IC IG", "ODNI", "CIA", "NSA", "DIA", "NGA", "NRO"],
+        "slug": "icig",
+        "statutory_reference": "50 U.S.C. \uA7 3033(a)"
+    },
+    {
+        "agencies": ["Department of the Interior"],
+        "established_year": 1978,
+        "name": "Department of the Interior, Office of Inspector General",
+        "nicknames": [],
+        "slug": "interior",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 2(A)"
+    },
+    {
+        "agencies": ["United States International Trade Commission"],
+        "established_year": 1988,
+        "name": "United States International Trade Commission, Office of Inspector General",
+        "nicknames": ["ITC"],
+        "slug": "itc",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 8G(b)"
+    },
+    {
+        "agencies": ["Department of Labor"],
+        "established_year": 1978,
+        "name": "Department of Labor, Office of Inspector General",
+        "nicknames": [],
+        "slug": "labor",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 2(A)"
+    },
+    {
+        "agencies": ["Library of Congress"],
+        "established_year": 2005,
+        "name": "Library of Congress, Office of Inspector General",
+        "nicknames": [],
+        "slug": "loc",
+        "statutory_reference": "2 U.S.C. \uA7 185(b)"
+    },
+    {
+        "agencies": ["Legal Services Corporation"],
+        "established_year": 1988,
+        "name": "Legal Services Corporation, Office of Inspector General",
+        "nicknames": ["LSC"],
+        "slug": "lsc",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 8G(b)"
+    },
+    {
+        "agencies": ["National Aeronautics and Space Administration"],
+        "established_year": 1978,
+        "name": "National Aeronautics and Space Administration, Office of Inspector General",
+        "nicknames": ["NASA"],
+        "slug": "nasa",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 2(A)"
+    },
+    {
+        "agencies": ["National Credit Union Administration"],
+        "established_year": 1988,
+        "name": "National Credit Union Administration, Office of Inspector General",
+        "nicknames": ["NCUA"],
+        "slug": "ncua",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 8G(b)"
+    },
+    {
+        "agencies": ["National Endowment for the Arts"],
+        "established_year": 1988,
+        "name": "National Endowment for the Arts, Office of Inspector General",
+        "nicknames": [],
+        "slug": "nea",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 8G(b)"
+    },
+    {
+        "agencies": ["National Endowment for the Humanities"],
+        "established_year": 1988,
+        "name": "National Endowment for the Humanities",
+        "nicknames": [],
+        "slug": "neh",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 8G(b)"
+    },
+    {
+        "agencies": ["National Geospatial-Intelligence Agency"],
+        "established_year": 2010,
+        "name": "National Geospatial-Intelligence Agency, Office of Inspector General",
+        "nicknames": ["NGA"],
+        "slug": "nga",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 8G(b)"
+    },
+    {
+        "agencies": ["National Labor Relations Board"],
+        "established_year": 1988,
+        "name": "National Labor Relations Board, Office of Inspector General",
+        "nicknames": ["NLRB"],
+        "slug": "nlrb",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 8G(b)"
+    },
+    {
+        "agencies": ["Nuclear Regulatory Commission"],
+        "established_year": 1988,
+        "name": "Nuclear Regulatory Commission, Office of Inspector General",
+        "nicknames": ["NRC"],
+        "slug": "nrc",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 2(A)"
+    },
+    {
+        "agencies": ["National Reconnaisance Office"],
+        "established_year": 2010,
+        "name": "National Reconnaisance Office, Office of Inspector General",
+        "nicknames": ["NRO"],
+        "slug": "nro",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 2(A)"
+    },
+    {
+        "agencies": ["National Security Agency"],
+        "established_year": 2010,
+        "name": "National Security Agency, Office of Inspector General",
+        "nicknames": ["NSA"],
+        "slug": "nsa",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 2(A)"
+    },
+    {
+        "agencies": ["National Science Foundation"],
+        "established_year": 1988,
+        "name": "National Science Foundation, Office of Inspector General",
+        "nicknames": ["NSF"],
+        "slug": "nsf",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 8G(b)"
+    },
+    {
+        "agencies": ["Office of Personnel Management"],
+        "established_year": 1988,
+        "name": "Office of Personnel Management, Office of Inspector General",
+        "nicknames": ["OPM"],
+        "slug": "opm",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 2(A)"
+    },
+    {
+        "agencies": ["Panama Canal Commission"],
+        "established_year": 1988,
+        "name": "Panama Canal Commission, Office of Inspector General",
+        "nicknames": [],
+        "slug": "panama",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 8G(b)"
+    },
+    {
+        "agencies": ["Pension Benefit Guaranty Corporation"],
+        "established_year": 1988,
+        "name": "Pension Benefit Guaranty Corporation",
+        "nicknames": ["PBGC"],
+        "slug": "pbgc",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 8G(b)"
+    },
+    {
+        "agencies": ["Peace Corps"],
+        "established_year": 1988,
+        "name": "Peace Corps, Office of Inspector General",
+        "nicknames": [],
+        "slug": "peacecorps",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 8G(b)"
+    },
+    {
+        "agencies": ["Postal Regulatory Commission"],
+        "established_year": 2007,
+        "name": "Postal Regulatory Commission, Office of Inspector General",
+        "nicknames": [],
+        "slug": "prc",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 8G(b)"
+    },
+    {
+        "agencies": ["Railroad Retirement Board"],
+        "established_year": 1988,
+        "name": "Railroad Retirement Board, Office of Inspector General",
+        "nicknames": ["RRB"],
+        "slug": "rrb",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 2(A)"
+    },
+    {
+        "agencies": ["Resolution Trust Corporation"],
+        "established_year": 1989,
+        "name": "Resolution Trust Corporation, Office of Inspector General",
+        "nicknames": [],
+        "slug": "rtc",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 2(A)"
+    },
+    {
+        "agencies": ["Small Business Administration"],
+        "established_year": 1978,
+        "name": "Small Business Administration, Office of Inspector General",
+        "nicknames": ["SBA"],
+        "slug": "sba",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 2(A)"
+    },
+    {
+        "agencies": ["Securities and Exchange Commission"],
+        "established_year": 1988,
+        "name": "Securities and Exchange Commission, Office of Inspector General",
+        "nicknames": ["SEC"],
+        "slug": "sec",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 8G(b)"
+    },
+    {
+        "agencies": [
+            "Department of State",
+            "Department of Defense"
+        ],
+        "established_year": 2008,
+        "name": "Office of the Special Inspector General for Afghanistan Reconstruction",
+        "nicknames": ["SIGAR"],
+        "slug": "sigar",
+        "statutory_reference": "Pub. L. No. 110-181, \uA7 1229(b)"
+    },
+    {
+        "agencies": [
+            "Department of State",
+            "Department of Defense"
+        ],
+        "established_year": 2003,
+        "name": "Office of the Special Inspector General for Iraq Reconstruction",
+        "nicknames": ["SIGIR"],
+        "slug": "sigir",
+        "statutory_reference": "Pub. L. No. 108-106, \uA7 3001(b)"
+    },
+    {
+        "agencies": ["Department of the Treasury"],
+        "established_year": 2008,
+        "name": "Office of the Special Inspector General for the Troubled Asset Relief Program",
+        "nicknames": ["SIGTARP"],
+        "slug": "sigtarp",
+        "statutory_reference": "12 U.S.C. \uA7 5231(a)"
+    },
+    {
+        "agencies": ["Smithsonian Institution"],
+        "established_year": 1988,
+        "name": "Smithsonian Institute, Office of Inspector General",
+        "nicknames": ["Smithsonian"],
+        "slug": "smithsonian",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 8G(b)"
+    },
+    {
+        "agencies": ["Social Security Administration"],
+        "established_year": 1995,
+        "name": "Social Security Administration, Office of Inspector General",
+        "nicknames": ["SSA"],
+        "slug": "ssa",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 2(A)"
+    },
+    {
+        "agencies": ["Department of State", "Broadcasting Board of Governors"],
+        "established_year": 1987,
+        "name": "Ofice of Inspector General for the U.S. Department of State and the Broadcasting Board of Governors",
+        "nicknames": ["State"],
+        "slug": "state",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 2(A)"
+    },
+    {
+        "agencies": ["Department of the Treasury"],
+        "established_year": 1999,
+        "name": "Office of the Treasury Inspector General for Tax Administration",
+        "nicknames": ["TIGTA"],
+        "slug": "tigta",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 2(B)"
+    },
+    {
+        "agencies": ["Department of the Treasury"],
+        "established_year": 1988,
+        "name": "Office of the Inspector General of the Department of the Treasury",
+        "nicknames": ["Treasury"],
+        "slug": "treasury",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 2(B)"
+    },
+    {
+        "agencies": ["Tennessee Valley Authority"],
+        "established_year": 1988,
+        "name": "Tennessee Valley Authority, Office of Inspector General",
+        "nicknames": ["TVA"],
+        "slug": "tva",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 2(A)"
+    },
+    {
+        "agencies": ["United States Agency for International Development"],
+        "established_year": 1980,
+        "name": "United States Agency for International Development, Office of Inspector General",
+        "nicknames": ["USAID"],
+        "slug": "usaid",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 2(A)"
+    },
+    {
+        "agencies": ["United States Postal Service"],
+        "established_year": 1988,
+        "name": "United States Postal Service, Office of Inspector General",
+        "nicknames": ["USPS"],
+        "slug": "usps",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 8G(b)"
+    },
+    {
+        "agencies": ["Department of Veterans Affairs"],
+        "established_year": 1978,
+        "name": "Department of Veterans Affairs, Office of Inspector General",
+        "nicknames": ["VA"],
+        "slug": "va",
+        "statutory_reference": "5 U.S.C. App. 3 \uA7 2(A)"
+    },
+    {
+        "agencies": ["United States Capitol Police"],
+        "established_year": 2005,
+        "name": "United States Capitol Police, Office of Inspector General",
+        "nicknames": ["U.S. Capitol Police"],
+        "slug": "uscp",
+        "statutory_reference": "2 U.S.C. \uA7 1909(a)"
+    }
+]
