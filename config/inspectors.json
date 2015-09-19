@@ -8,7 +8,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \uA7 2(A)"
     },
     {
-        "agencies": "Department of the Air Force",
+        "agencies": ["Department of the Air Force"],
         "established_year": 1948,
         "name": "Office of the Inspector General of the Air Force",
         "nicknames": "Air Force",
