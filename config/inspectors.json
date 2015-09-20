@@ -2,6 +2,33 @@
     {
         "agencies": ["Department of Agriculture"],
         "established_year": 1978,
+        "homepage_url": "http://www.usda.gov/oig/",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "http://www.usda.gov/oig/hotline.php"
+            },
+            {
+                "type": "fax",
+                "value": "202-690-2474"
+            },
+            {
+                "type": "phone",
+                "value": "800-424-9121"
+            },
+            {
+                "type": "phone",
+                "value": "202-690-1622"
+            },
+            {
+                "type": "tdd",
+                "value": "202-690-1202"
+            },
+            {
+                "type": "mail",
+                "value": "United States Department of Agriculture\nOffice of Inspector General\nPO Box 23399\nWashington, DC 20026-3399"
+            }
+        ],
         "name": "Department of Agriculture, Office of Inspector General",
         "nicknames": ["USDA"],
         "slug": "agriculture",
@@ -10,6 +37,21 @@
     {
         "agencies": ["Department of the Air Force"],
         "established_year": 1948,
+        "homepage_url": "http://www.af.mil/InspectorGeneralComplaints.aspx",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "http://www.af.mil/Portals/1/images/ig/AF-Form_102-Final4.pdf"
+            },
+            {
+                "type": "email",
+                "value": "usaf.ighotline@mail.mil"
+            },
+            {
+                "type": "phone",
+                "value": "800-538-8429"
+            }
+        ],
         "name": "Office of the Inspector General of the Air Force",
         "nicknames": "Air Force",
         "slug": "airforce",
@@ -18,6 +60,21 @@
     {
         "agencies": ["National Railroad Passenger Corporation"],
         "established_year": 1988,
+        "homepage_url": "https://www.amtrakoig.gov/",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://www.amtrakoig.gov/node/21"
+            },
+            {
+                "type": "phone",
+                "value": "800-468-5469"
+            },
+            {
+                "type": "mail",
+                "value": "PO Box 76654\nWashington, DC 20002"
+            }
+        ],
         "name": "Amtrak Office of the Inspector General",
         "nicknames": ["Amtrak"],
         "slug": "amtrak",
@@ -26,6 +83,21 @@
     {
         "agencies": ["Appalachian Regional Commission"],
         "established_year": 1988,
+        "homepage_url": "http://www.arc.gov/oig",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "http://ig.arc.gov/"
+            },
+            {
+                "type": "phone",
+                "value": "800-532-4611"
+            },
+            {
+                "type": "mail",
+                "value": "Office of Inspector General\nAppalachian Regional Commission\n1666 Connecticut Ave, NW, Suite 700\nWashington, DC 20009-1068"
+            }
+        ],
         "name": "Appalachian Regional Commission, Office of Inspector General",
         "nicknames": ["ARC"],
         "slug": "arc",
@@ -34,6 +106,21 @@
     {
         "agencies": ["Architect of the Capitol"],
         "established_year": 2007,
+        "homepage_url": "http://www.aoc.gov/oig/office-inspector-general",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://www.aoc.gov/office-of-inspector-general/hotline-confidential-report"
+            },
+            {
+                "type": "email",
+                "value": "hotline@aoc-oig.org"
+            },
+            {
+                "type": "phone",
+                "value": "877-489-8583"
+            }
+        ],
         "name": "Architect of the Capitol, Office of Inspector General",
         "nicknames": [],
         "slug": "architect",
@@ -42,6 +129,25 @@
     {
         "agencies": ["National Archives and Records Administration"],
         "established_year": 1998,
+        "homepage_url": "https://www.archives.gov/oig/",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://www.archives.gov/oig/referral-form/index.html"
+            },
+            {
+                "type": "phone",
+                "value": "800-786-2551"
+            },
+            {
+                "type": "phone",
+                "value": "301-837-3500"
+            },
+            {
+                "type": "mail",
+                "value": "OIG Hotline\nNARA\nPO Box 1821\nHyattsville, MD 20788-0821"
+            }
+        ],
         "name": "National Archives and Records Administration, Office of Inspector General",
         "nicknames": ["NARA"],
         "slug": "archives",
@@ -50,6 +156,13 @@
     {
         "agencies": ["Department of the Army"],
         "established_year": 1779,
+        "homepage_url": "https://www.daig.pentagon.mil/",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://www.daig.pentagon.mil/complaintForm.aspx"
+            }
+        ],
         "name": "Office of the Inspector General of the Army",
         "nicknames": ["Army"],
         "slug": "army",
@@ -58,6 +171,25 @@
     {
         "agencies": ["Commodity Futures Trading Commission"],
         "established_year": 1988,
+        "homepage_url": "http://www.cftc.gov/About/OfficeoftheInspectorGeneral/index.htm",
+        "hotline": [
+            {
+                "type": "email",
+                "value": "oig@cftc.gov"
+            },
+            {
+                "type": "fax",
+                "value": "202-418-5522"
+            },
+            {
+                "type": "phone",
+                "value": "202-418-5510"
+            },
+            {
+                "type": "mail",
+                "value": "Commodity Futures Trading Commission\nOffice of the Inspector General\nThree Lafayette Centre\n1155 21st Street, NW\nWashington, DC 20581"
+            }
+        ],
         "name": "Commodity Futures Trading Commission, Office of Inspector General",
         "nicknames": ["CFTC"],
         "slug": "cftc",
@@ -66,6 +198,13 @@
     {
         "agencies": ["Central Intelligence Agency"],
         "established_year": 1989,
+        "homepage_url": "https://www.cia.gov/offices-of-cia/inspector-general",
+        "hotline": [
+            {
+                "type": "mail",
+                "value": "Office of Inspector General\nCentral Intelligence Agency\nWashington, DC 20505"
+            }
+        ],
         "name": "Central Intelligence Agency, Office of Inspector General",
         "nicknames": ["CIA"],
         "slug": "cia",
@@ -74,6 +213,17 @@
     {
         "agencies": ["Corporation for National and Community Service"],
         "established_year": 1993,
+        "homepage_url": "http://www.cncsoig.gov/",
+        "hotline": [
+            {
+                "type": "email",
+                "value": "hotline@cncsoig.gov"
+            },
+            {
+                "type": "phone",
+                "value": "800-452-8210"
+            }
+        ],
         "name": "Corporation for National and Community Service, Office of Inspector General",
         "nicknames": ["CNCS"],
         "slug": "cncs",
@@ -82,6 +232,41 @@
     {
         "agencies": ["Department of Commerce"],
         "established_year": 1978,
+        "homepage_url": "https://www.oig.doc.gov/Pages/default.aspx",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://www.oig.doc.gov/Pages/Online-Hotline-Complaint-Form.aspx"
+            },
+            {
+                "type": "email",
+                "value": "Hotline@oig.doc.gov"
+            },
+            {
+                "type": "fax",
+                "value": "855-569-9235"
+            },
+            {
+                "type": "phone",
+                "value": "800-424-5197"
+            },
+            {
+                "type": "phone",
+                "value": "202-482-2495"
+            },
+            {
+                "type": "tdd",
+                "value": "855-860-6950"
+            },
+            {
+                "type": "tdd",
+                "value": "202-482-5923"
+            },
+            {
+                "type": "mail",
+                "value": "Office of Inspector General\nComplaint Intake Unit, Mail Stop 7886\n1401 Constitution Avenue, N.W.\nWashington, DC 20230"
+            }
+        ],
         "name": "Department of Commerce, Office of Inspector General",
         "nicknames": ["Commerce"],
         "slug": "commerce",
@@ -90,6 +275,33 @@
     {
         "agencies": ["Corporation for Public Broadcasting"],
         "established_year": 1988,
+        "homepage_url": "http://www.cpb.org/oig/",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "http://www.cpb.org/oig/contact.php"
+            },
+            {
+                "type": "email",
+                "value": "OIGemail@cpb.org"
+            },
+            {
+                "type": "fax",
+                "value": "202-879-9699"
+            },
+            {
+                "type": "phone",
+                "value": "800-599-2170"
+            },
+            {
+                "type": "phone",
+                "value": "202-879-9728"
+            },
+            {
+                "type": "mail",
+                "value": "Corporation for Public Broadcasting\nOffice of Inspector General\n401 Ninth Street, NW\nWashington, DC 20004-2129"
+            }
+        ],
         "name": "Corporation for Public Broadcasting, Office of Inspector General",
         "nicknames": ["CPB"],
         "slug": "cpb",
@@ -98,6 +310,21 @@
     {
         "agencies": ["Consumer Product Safety Commission"],
         "established_year": 1988,
+        "homepage_url": "https://www.cpsc.gov/en/About-CPSC/Inspector-General/",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://www.cpsc.gov/About-CPSC/Contact-Information/Contact-Specific-Offices-and-Public-Information/Inspector-General/"
+            },
+            {
+                "type": "phone",
+                "value": "301-504-7906"
+            },
+            {
+                "type": "mail",
+                "value": "Office of Inspector General\nConsumer Product Safety Commission\n4330 East-West Highway\nRoom 827\nBethesda, MD 20814"
+            }
+        ],
         "name": "Consumer Product Safety Commission, Office of Inspector General",
         "nicknames": ["CPSC"],
         "slug": "cpsc",
@@ -106,6 +333,41 @@
     {
         "agencies": ["Denali Commission"],
         "established_year": 1999,
+        "homepage_url": "http://oig.denali.gov/",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://www.oig.doc.gov/Pages/Online-Hotline-Complaint-Form.aspx"
+            },
+            {
+                "type": "email",
+                "value": "Hotline@oig.doc.gov"
+            },
+            {
+                "type": "fax",
+                "value": "855-569-9235"
+            },
+            {
+                "type": "phone",
+                "value": "800-424-5197"
+            },
+            {
+                "type": "phone",
+                "value": "202-482-2495"
+            },
+            {
+                "type": "tdd",
+                "value": "855-860-6950"
+            },
+            {
+                "type": "tdd",
+                "value": "202-482-5923"
+            },
+            {
+                "type": "mail",
+                "value": "Office of Inspector General\nComplaint Intake Unit, Mail Stop 7886\n1401 Constitution Avenue, N.W.\nWashington, DC 20230"
+            }
+        ],
         "name": "Denali Commission, Office of Inspector General",
         "nicknames": ["Denali"],
         "slug": "denali",
@@ -114,6 +376,29 @@
     {
         "agencies": ["Department of Homeland Security"],
         "established_year": 2002,
+        "homepage_url": "https://www.oig.dhs.gov/",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://www.oig.dhs.gov/hotline/hotline.php"
+            },
+            {
+                "type": "fax",
+                "value": "202-254-4297"
+            },
+            {
+                "type": "phone",
+                "value": "800-323-8603"
+            },
+            {
+                "type": "tdd",
+                "value": "844-889-4357"
+            },
+            {
+                "type": "mail",
+                "value": "DHS Office of Inspector General/MAIL STOP 0305\nAttn: Office of Integrity & Quality Oversight - Hotline\n245 Murray Lane SW\nWashington, DC 20528-0305"
+            }
+        ],
         "name": "Department of Homeland Security, Office of Inspector General",
         "nicknames": ["DHS"],
         "slug": "dhs",
@@ -122,6 +407,17 @@
     {
         "agencies": ["Defense Intelligence Agency"],
         "established_year": 2010,
+        "homepage_url": "http://www.dia.mil/About/OfficeoftheInspectorGeneral.aspx",
+        "hotline": [
+            {
+                "type": "email",
+                "value": "IG_Hotline@dodiis.mil"
+            },
+            {
+                "type": "phone",
+                "value": "202-231-1000"
+            }
+        ],
         "name": "Defense Intelligence Agency, Office of Inspector General",
         "nicknames": ["DIA"],
         "slug": "dia",
@@ -130,6 +426,41 @@
     {
         "agencies": ["Department of Defense"],
         "established_year": 1982,
+        "homepage_url": "http://www.dodig.mil/",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://www.dodig.mil/hotline/submit_complaint1a.cfm"
+            },
+            {
+                "type": "dsn",
+                "value": "664-8799"
+            },
+            {
+                "type": "dsn",
+                "value": "664-1151"
+            },
+            {
+                "type": "fax",
+                "value": "703-604-8567"
+            },
+            {
+                "type": "phone",
+                "value": "800-424-9098"
+            },
+            {
+                "type": "phone",
+                "value": "877-363-3348"
+            },
+            {
+                "type": "phone",
+                "value": "703-604-8799"
+            },
+            {
+                "type": "mail",
+                "value": "DoD Hotline\nThe Pentagon\nWashington, DC 20301-1900"
+            }
+        ],
         "name": "Department of Defense, Office of Inspector General",
         "nicknames": ["DoD"],
         "slug": "dod",
@@ -138,6 +469,13 @@
     {
         "agencies": ["Department of Justice"],
         "established_year": 1988,
+        "homepage_url": "https://oig.justice.gov/",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://oig.justice.gov/hotline/index.htm"
+            }
+        ],
         "name": "Department of Justice, Office of Inspector General",
         "nicknames": ["DOJ"],
         "slug": "doj",
@@ -146,6 +484,25 @@
     {
         "agencies": ["Department of Transportation"],
         "established_year": 1978,
+        "homepage_url": "https://www.oig.dot.gov/",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://www.oig.dot.gov/hotline"
+            },
+            {
+                "type": "email",
+                "value": "hotline@oig.dot.gov"
+            },
+            {
+                "type": "phone",
+                "value": "800-424-9071"
+            },
+            {
+                "type": "mail",
+                "value": "DOT Inspector General\n1200 New Jersey Ave SE\nWest Bldg 7th Floor\nWashington, DC 20590"
+            }
+        ],
         "name": "Department of Transportation, Office of Inspector General",
         "nicknames": ["DOT"],
         "slug": "dot",
@@ -154,6 +511,29 @@
     {
         "agencies": ["Election Assistance Commission"],
         "established_year": 2005,
+        "homepage_url": "http://www.eac.gov/inspector_general/",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "http://www.eac.gov/inspector_general/fraud_waste_and_abuse_form.aspx"
+            },
+            {
+                "type": "email",
+                "value": "eacoig@eac.gov"
+            },
+            {
+                "type": "fax",
+                "value": "301-734-3115"
+            },
+            {
+                "type": "phone",
+                "value": "866-552-0004"
+            },
+            {
+                "type": "mail",
+                "value": "Office of Inspector General\nThe U.S. Election Assistance Commission\n1335 East West Highway, Suite 4300\nSilver Spring, MD 20910"
+            }
+        ],
         "name": "Election Assistance Commission, Office of Inspector General",
         "nicknames": ["EAC"],
         "slug": "eac",
@@ -162,6 +542,17 @@
     {
         "agencies": ["Department of Education"],
         "established_year": 1979,
+        "homepage_url": "https://www2.ed.gov/about/offices/list/oig/index.html",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://oighotline.ed.gov/Hotline/Instruction.aspx"
+            },
+            {
+                "type": "mail",
+                "value": "U.S. Department of Education\nOffice of Inspector General Hotline\n400 Maryland Ave, S.W.\nWashington, DC 20202-1500"
+            }
+        ],
         "name": "Department of Education, Office of Inspector General",
         "nicknames": [],
         "slug": "education",
@@ -170,6 +561,25 @@
     {
         "agencies": ["Equal Employment Opportunity Commission"],
         "established_year": 1988,
+        "homepage_url": "https://oig.eeoc.gov/",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://oig.eeoc.gov/hotline"
+            },
+            {
+                "type": "fax",
+                "value": "202-663-7204"
+            },
+            {
+                "type": "phone",
+                "value": "800-849-4230"
+            },
+            {
+                "type": "mail",
+                "value": "EEOC Office of Inspector General\nPO Box 77067\nWashington, DC 20013-7067"
+            }
+        ],
         "name": "Equal Employment Opportunity Commission, Office of Inspector General",
         "nicknames": ["EEOC"],
         "slug": "eeoc",
@@ -178,6 +588,33 @@
     {
         "agencies": ["Department of Energy"],
         "established_year": 1988,
+        "homepage_url": "http://energy.gov/ig/office-inspector-general",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "http://energy.gov/ig/complaint-form"
+            },
+            {
+                "type": "email",
+                "value": "ighotline@hq.doe.gov"
+            },
+            {
+                "type": "fax",
+                "value": "202-586-4902"
+            },
+            {
+                "type": "phone",
+                "value": "800-541-1625"
+            },
+            {
+                "type": "phone",
+                "value": "202-586-4073"
+            },
+            {
+                "type": "mail",
+                "value": "U.S. Department of Energy\nOffice of Inspector General\nATTN: IG Hotline\n1000 Independence Avenue, SW\nMail Stop 5D-031\nWashington, DC 20585"
+            }
+        ],
         "name": "Department of Energy, Office of Inspector General",
         "nicknames": ["DOE"],
         "slug": "energy",
@@ -186,6 +623,29 @@
     {
         "agencies": ["Environmental Protection Agency"],
         "established_year": 1978,
+        "homepage_url": "http://www.epa.gov/oig",
+        "hotline": [
+            {
+                "type": "email",
+                "value": "OIG_Hotline@epa.gov"
+            },
+            {
+                "type": "fax",
+                "value": "202-566-2599"
+            },
+            {
+                "type": "phone",
+                "value": "888-546-8740"
+            },
+            {
+                "type": "phone",
+                "value": "202-566-2476"
+            },
+            {
+                "type": "mail",
+                "value": "U.S. Environmental Protection Agency\nOffice of Inspector General Hotline\n1200 Pennsylvania Avenue, NW\nMailcode 2341T\nWashington, DC 20460"
+            }
+        ],
         "name": "Environmental Protection Agency, Office of Inspector General",
         "nicknames": ["EPA"],
         "slug": "epa",
@@ -194,6 +654,21 @@
     {
         "agencies": ["Export-Import Bank of the United States"],
         "established_year": 2007,
+        "homepage_url": "http://www.exim.gov/about/oig",
+        "hotline": [
+            {
+                "type": "email",
+                "value": "IGhotline@exim.gov"
+            },
+            {
+                "type": "phone",
+                "value": "888-644-3946"
+            },
+            {
+                "type": "mail",
+                "value": "Ex-Im Hotline\nOffice of Inspector General\n811 Vermont Avenue, NW\nWashington, DC 20571"
+            }
+        ],
         "name": "Export-Import Bank of the United States, Office of Inspector General",
         "nicknames": ["EXIM Bank", "EXIM"],
         "slug": "exim",
@@ -202,6 +677,29 @@
     {
         "agencies": ["Farm Credit Administration"],
         "established_year": 1988,
+        "homepage_url": "https://www.fca.gov/home/inspector.html",
+        "hotline": [
+            {
+                "type": "email",
+                "value": "fca-ig-hotline@rcn.com"
+            },
+            {
+                "type": "fax",
+                "value": "703-883-4059"
+            },
+            {
+                "type": "phone",
+                "value": "800-437-7322"
+            },
+            {
+                "type": "phone",
+                "value": "703-883-4316"
+            },
+            {
+                "type": "mail",
+                "value": "Office of Inspector General\nFarm Credit Administration\n1501 Farm Credit Drive\nMcLean, VA 22102"
+            }
+        ],
         "name": "Farm Credit Administration, Office of Inspector General",
         "nicknames": ["FCA"],
         "slug": "fca",
@@ -210,6 +708,25 @@
     {
         "agencies": ["Federal Communications Commission"],
         "established_year": 1988,
+        "homepage_url": "https://www.fcc.gov/office-inspector-general",
+        "hotline": [
+            {
+                "type": "email",
+                "value": "Hotline@fcc.gov"
+            },
+            {
+                "type": "phone",
+                "value": "888-863-2244"
+            },
+            {
+                "type": "phone",
+                "value": "202-418-0473"
+            },
+            {
+                "type": "mail",
+                "value": "FCC Inspector General's Hotline\nOffice of Inspector General\nFederal Communications Commission\n445 12th Street, SW\nRoom 2-C762\nWashington, DC 20554"
+            }
+        ],
         "name": "Federal Communications Commission, Office of Inspector General",
         "nicknames": ["FCC"],
         "slug": "fcc",
@@ -218,6 +735,25 @@
     {
         "agencies": ["Federal Deposit Insurance Corporation"],
         "established_year": 1988,
+        "homepage_url": "https://www.fdicig.gov/",
+        "hotline": [
+            {
+                "type": "email",
+                "value": "ighotline@fdic.gov"
+            },
+            {
+                "type": "fax",
+                "value": "703-562-6444"
+            },
+            {
+                "type": "phone",
+                "value": "800-964-3342"
+            },
+            {
+                "type": "mail",
+                "value": "Federal Deposit Insurance Corporation\nOffice of Inspector General Hotline\n3501 Fairfax Drive\nRoom VS-D-9069\nArlington, VA 22226"
+            }
+        ],
         "name": "Federal Deposit Insurance Corporation, Office of Inspector General",
         "nicknames": ["FDIC"],
         "slug": "fdic",
@@ -226,6 +762,25 @@
     {
         "agencies": ["Federal Election Commission"],
         "established_year": 1988,
+        "homepage_url": "http://www.fec.gov/fecig/fecig.shtml",
+        "hotline": [
+            {
+                "type": "email",
+                "value": "oig@fec.gov"
+            },
+            {
+                "type": "fax",
+                "value": "202-501-8134"
+            },
+            {
+                "type": "phone",
+                "value": "202-694-1015"
+            },
+            {
+                "type": "mail",
+                "value": "Federal Election Commission\nOffice of Inspector General\n999 E Street, NW\nRoom 940\nWashington, DC 20463"
+            }
+        ],
         "name": "Federal Election Commission, Office of Inspector General",
         "nicknames": ["FEC"],
         "slug": "fec",
@@ -237,6 +792,33 @@
             "Consumer Financial Protection Bureau"
         ],
         "established_year": 1988,
+        "homepage_url": "https://oig.federalreserve.gov/",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://oig.federalreserve.gov/secure/forms/hotline.aspx"
+            },
+            {
+                "type": "email",
+                "value": "OIGHotline@frb.gov"
+            },
+            {
+                "type": "fax",
+                "value": "202-973-5044"
+            },
+            {
+                "type": "phone",
+                "value": "800-827-3340"
+            },
+            {
+                "type": "phone",
+                "value": "202-452-6400"
+            },
+            {
+                "type": "mail",
+                "value": "OIG Hotline\nBoard of Governors of the Federal Reserve System\n20th Street and Constitution Avenue NW\nMail Stop K-300\nWashington, DC 20551"
+            }
+        ],
         "name": "Office of Inspector Generalfor the Board of Governors of the Federal Reserve System and Consumer Financial Protection Bureau",
         "nicknames": ["Federal Reserve", "Fed", "CFPB"],
         "slug": "fed",
@@ -245,6 +827,25 @@
     {
         "agencies": ["Federal Housing Finance Agency"],
         "established_year": 2010,
+        "homepage_url": "http://fhfaoig.gov/",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "http://fhfaoig.gov/ReportFraud"
+            },
+            {
+                "type": "fax",
+                "value": "202-318-0358"
+            },
+            {
+                "type": "phone",
+                "value": "800-793-7724"
+            },
+            {
+                "type": "mail",
+                "value": "Federal Housing Finance Agency\nOffice of Inspector General\n400 7th Street SW\nWashington, DC 20024"
+            }
+        ],
         "name": "Federal Housing Finance Agency, Office of Inspector General",
         "nicknames": ["FHFA"],
         "slug": "fhfa",
@@ -253,6 +854,33 @@
     {
         "agencies": ["Federal Labor Relations Authority"],
         "established_year": 1988,
+        "homepage_url": "https://www.flra.gov/OIG",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://www.flra.gov/oig-file_a_complaint"
+            },
+            {
+                "type": "email",
+                "value": "dfisher@flra.gov"
+            },
+            {
+                "type": "fax",
+                "value": "202-343-1072"
+            },
+            {
+                "type": "phone",
+                "value": "800-331-3572"
+            },
+            {
+                "type": "phone",
+                "value": "202-218-7755"
+            },
+            {
+                "type": "mail",
+                "value": "Federal Labor Relations Authority\nOffice of Inspector General\n1400 K Street, N.W. Suite 250\nWashington, DC 20424"
+            }
+        ],
         "name": "Federal Labor Relations Authority, Office of Inspector General",
         "nicknames": ["FLRA"],
         "slug": "flra",
@@ -261,6 +889,21 @@
     {
         "agencies": ["Federal Maritime Commission"],
         "established_year": 1988,
+        "homepage_url": "http://www.fmc.gov/bureaus_offices/office_of_inspector_general.aspx",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://www2.fmc.gov/oigcomplaints/"
+            },
+            {
+                "type": "phone",
+                "value": "202-523-5865"
+            },
+            {
+                "type": "mail",
+                "value": "Federal Maritime Commission\nOffice of Inspector General\n800 North Capitol St. NW\nWashington, DC 20573"
+            }
+        ],
         "name": "Federal Maritime Commission, Office of Inspector General",
         "nicknames": ["FMC"],
         "slug": "fmc",
@@ -269,6 +912,25 @@
     {
         "agencies": ["Federal Trade Commission"],
         "established_year": 1988,
+        "homepage_url": "https://www.ftc.gov/about-ftc/office-inspector-general",
+        "hotline": [
+            {
+                "type": "email",
+                "value": "OIG@ftc.gov"
+            },
+            {
+                "type": "fax",
+                "value": "202-326-2034"
+            },
+            {
+                "type": "phone",
+                "value": "202-326-2800"
+            },
+            {
+                "type": "mail",
+                "value": "Federal Trade Commission\nOffice of Inspector General\nRoom CC-5206\n600 Pennsylvania Ave., N.W.\nWashington, DC 20580"
+            }
+        ],
         "name": "Federal Trade Commission, Office of Inspector General",
         "nicknames": ["FTC"],
         "slug": "ftc",
@@ -277,6 +939,17 @@
     {
         "agencies": ["Government Accountability Office"],
         "established_year": 2008,
+        "homepage_url": "http://www.gao.gov/about/workforce/ig.html",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://oig.alertline.com/gcs/welcome"
+            },
+            {
+                "type": "phone",
+                "value": "866-680-7963"
+            }
+        ],
         "name": "Government Accountability Office, Office of Inspector General",
         "nicknames": ["GAO"],
         "slug": "gao",
@@ -285,6 +958,29 @@
     {
         "agencies": ["Government Publishing Office"],
         "established_year": 1988,
+        "homepage_url": "http://www.gpo.gov/oig/",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "http://www.gpo.gov/pdfs/ig/OIG_complaint_form.pdf"
+            },
+            {
+                "type": "email",
+                "value": "gpoighotline@gpo.gov"
+            },
+            {
+                "type": "fax",
+                "value": "202-512-1352"
+            },
+            {
+                "type": "phone",
+                "value": "800-743-7574"
+            },
+            {
+                "type": "mail",
+                "value": "U.S. Government Publishing Office\nOffice of Inspector General Hotline\nPO Box 1790\nWashington, DC 20013-1790"
+            }
+        ],
         "name": "Government Publishing Office, Office of Inspector General",
         "nicknames": ["GPO"],
         "slug": "gpo",
@@ -293,6 +989,29 @@
     {
         "agencies": ["General Services Administration"],
         "established_year": 1978,
+        "homepage_url": "https://www.gsaig.gov/",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://www.gsaig.gov/index.cfm/hotline/-hotline-form/"
+            },
+            {
+                "type": "email",
+                "value": "fraudnet@gsaig.gov"
+            },
+            {
+                "type": "phone",
+                "value": "800-424-5210"
+            },
+            {
+                "type": "phone",
+                "value": "202-501-1780"
+            },
+            {
+                "type": "mail",
+                "value": "GSA/OIG Investigations\nATTENTION: Fraud Hotline\n1800 F Street, N.W.\nWashington, DC 20405"
+            }
+        ],
         "name": "General Services Administration, Office of Inspector General",
         "nicknames": ["GSA"],
         "slug": "gsa",
@@ -301,6 +1020,29 @@
     {
         "agencies": ["Department of Health and Human Services"],
         "established_year": 1988,
+        "homepage_url": "http://oig.hhs.gov/",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://forms.oig.hhs.gov/hotlineoperations/index.aspx"
+            },
+            {
+                "type": "fax",
+                "value": "800-223-8164"
+            },
+            {
+                "type": "phone",
+                "value": "800-447-8477"
+            },
+            {
+                "type": "tdd",
+                "value": "800-377-4950"
+            },
+            {
+                "type": "mail",
+                "value": "US Department of Health and Human Services\nOffice of Inspector General\nATTN: OIG Hotline Operations\nPO Box 23489\nWashington, DC 20026"
+            }
+        ],
         "name": "Department of Health and Human Services, Office of Inspector General",
         "nicknames": ["HHS"],
         "slug": "hhs",
@@ -309,6 +1051,17 @@
     {
         "agencies": ["House of Representatives"],
         "established_year": 1992,
+        "homepage_url": "https://www.house.gov/content/learn/officers_and_organizations/inspector_general.php",
+        "hotline": [
+            {
+                "type": "email",
+                "value": "HouseIG@mail.house.gov"
+            },
+            {
+                "type": "phone",
+                "value": "202-593-0068"
+            }
+        ],
         "name": "House of Representatives, Office of Inspector General",
         "nicknames": [],
         "slug": "house",
@@ -317,6 +1070,29 @@
     {
         "agencies": ["Department of Housing and Urban Development"],
         "established_year": 1978,
+        "homepage_url": "://www.hudoig.gov/",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://www.hudoig.gov/report-fraud/hotline-report-form"
+            },
+            {
+                "type": "email",
+                "value": "HOTLINE@hudoig.gov"
+            },
+            {
+                "type": "fax",
+                "value": "202-708-4829"
+            },
+            {
+                "type": "phone",
+                "value": "800-347-3735"
+            },
+            {
+                "type": "mail",
+                "value": "HUD Inspector General Hotline (GFI)\n451 7th Street, SW\nWashington, DC 20410"
+            }
+        ],
         "name": "Department of Housing and Urban Development, Office of Inspector General",
         "nicknames": ["HUD"],
         "slug": "hud",
@@ -332,6 +1108,21 @@
             "National Reconnaisance Office"
         ],
         "established_year": 2010,
+        "homepage_url": "http://www.dni.gov/index.php/about/organization/office-of-the-intelligence-community-inspector-general-who-we-are",
+        "hotline": [
+            {
+                "type": "fax",
+                "value": "571-204-8088"
+            },
+            {
+                "type": "phone",
+                "value": "855-731-3260"
+            },
+            {
+                "type": "mail",
+                "value": "Office of the Inspector General of the Intelligence Community\nInvestigations Division\nReston 3\nWashington, DC 20511"
+            }
+        ],
         "name": "Office of the Intelligence Community Inspector General",
         "nicknames": ["IC IG", "ODNI", "CIA", "NSA", "DIA", "NGA", "NRO"],
         "slug": "icig",
@@ -340,6 +1131,25 @@
     {
         "agencies": ["Department of the Interior"],
         "established_year": 1978,
+        "homepage_url": "https://www.doioig.gov/",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://forms.doioig.gov/hotlinecomplaint_form.aspx"
+            },
+            {
+                "type": "fax",
+                "value": "703-487-5402"
+            },
+            {
+                "type": "phone",
+                "value": "800-424-5081"
+            },
+            {
+                "type": "mail",
+                "value": "U.S. Department of the Interior\nOffice of Inspector General\n1849 C Street, NW., MS-4428\nWashington, DC 20240\nATTN: Hotline Operations"
+            }
+        ],
         "name": "Department of the Interior, Office of Inspector General",
         "nicknames": [],
         "slug": "interior",
@@ -348,6 +1158,21 @@
     {
         "agencies": ["United States International Trade Commission"],
         "established_year": 1988,
+        "homepage_url": "http://www.usitc.gov/oig.htm",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "http://www.usitc.gov/oig/hotline/ig_hotline"
+            },
+            {
+                "type": "email",
+                "value": "OIGHotline@usitc.gov"
+            },
+            {
+                "type": "phone",
+                "value": "202-205-6542"
+            }
+        ],
         "name": "United States International Trade Commission, Office of Inspector General",
         "nicknames": ["ITC"],
         "slug": "itc",
@@ -356,6 +1181,29 @@
     {
         "agencies": ["Department of Labor"],
         "established_year": 1978,
+        "homepage_url": "https://www.oig.dol.gov/",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://www.oig.dol.gov/hotline.htm"
+            },
+            {
+                "type": "fax",
+                "value": "202-693-7020"
+            },
+            {
+                "type": "phone",
+                "value": "800-347-3756"
+            },
+            {
+                "type": "phone",
+                "value": "202-693-6999"
+            },
+            {
+                "type": "mail",
+                "value": "Attention: Hotline\nOffice of Inspector General\nU.S. Department of Labor\n200 Constitution Avenue, N.W.\nRoom S-5506\nWashington, DC 20210"
+            }
+        ],
         "name": "Department of Labor, Office of Inspector General",
         "nicknames": [],
         "slug": "labor",
@@ -364,6 +1212,17 @@
     {
         "agencies": ["Library of Congress"],
         "established_year": 2005,
+        "homepage_url": "https://www.loc.gov/about/office-of-the-inspector-general/",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://www.loc.gov/about/office-of-the-inspector-general/contact-us/"
+            },
+            {
+                "type": "phone",
+                "value": "202-707-6306"
+            }
+        ],
         "name": "Library of Congress, Office of Inspector General",
         "nicknames": [],
         "slug": "loc",
@@ -372,6 +1231,33 @@
     {
         "agencies": ["Legal Services Corporation"],
         "established_year": 1988,
+        "homepage_url": "https://www.oig.lsc.gov/",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://www.oig.lsc.gov/hotline_form/hotline.aspx"
+            },
+            {
+                "type": "email",
+                "value": "hotline@oig.lsc.gov"
+            },
+            {
+                "type": "fax",
+                "value": "202-337-7155"
+            },
+            {
+                "type": "phone",
+                "value": "800-678-8868"
+            },
+            {
+                "type": "phone",
+                "value": "202-295-1670"
+            },
+            {
+                "type": "mail",
+                "value": "PO Box 3699\nWashington, DC 20027"
+            }
+        ],
         "name": "Legal Services Corporation, Office of Inspector General",
         "nicknames": ["LSC"],
         "slug": "lsc",
@@ -380,6 +1266,21 @@
     {
         "agencies": ["United States Marine Corps"],
         "established_year": 1945,
+        "homepage_url": "http://www.hqmc.marines.mil/igmc/UnitHome.aspx",
+        "hotline": [
+            {
+                "type": "email",
+                "value": "orgmb.igmc.hotline@usmc.mil"
+            },
+            {
+                "type": "fax",
+                "value": "703-604-7021"
+            },
+            {
+                "type": "mail",
+                "value": "HQMC, Inspector General of the Marine Corps (IGMC) Code IGA\nWashington, DC 20380-1775"
+            }
+        ],
         "name": "Office of the Inspector General of the Marine Corps",
         "nicknames": ["Marines"],
         "slug": "marines",
@@ -388,6 +1289,29 @@
     {
         "agencies": ["National Aeronautics and Space Administration"],
         "established_year": 1978,
+        "homepage_url": "https://oig.nasa.gov/",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://oig.nasa.gov/cyberhotline.html"
+            },
+            {
+                "type": "fax",
+                "value": "202-358-3914"
+            },
+            {
+                "type": "phone",
+                "value": "800-424-9183"
+            },
+            {
+                "type": "tdd",
+                "value": "800-535-8134"
+            },
+            {
+                "type": "mail",
+                "value": "NASA Office of Inspector General\nPO Box 23089\nL'Enfant Plaza Station\nWashington, DC 20026"
+            }
+        ],
         "name": "National Aeronautics and Space Administration, Office of Inspector General",
         "nicknames": ["NASA"],
         "slug": "nasa",
@@ -396,6 +1320,13 @@
     {
         "agencies": ["Department of the Navy"],
         "established_year": 1942,
+        "homepage_url": "http://www.secnav.navy.mil/ig/Pages/Home.aspx",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "http://www.secnav.navy.mil/ig/Pages/ComplaintProcedure.aspx"
+            }
+        ],
         "name": "Office of the Naval Inspector General",
         "nicknames": "Navy",
         "slug": "navy",
@@ -404,6 +1335,29 @@
     {
         "agencies": ["National Credit Union Administration"],
         "established_year": 1988,
+        "homepage_url": "http://www.ncua.gov/about/Leadership/Pages/page_oig.aspx",
+        "hotline": [
+            {
+                "type": "email",
+                "value": "OIGmail@ncua.gov"
+            },
+            {
+                "type": "fax",
+                "value": "703-518-6670"
+            },
+            {
+                "type": "phone",
+                "value": "800-778-4806"
+            },
+            {
+                "type": "phone",
+                "value": "703-518-6357"
+            },
+            {
+                "type": "mail",
+                "value": "National Credit Union Administration\nOffice of Inspector General\nPO Box 25705\nAlexandria, VA 22313-5705"
+            }
+        ],
         "name": "National Credit Union Administration, Office of Inspector General",
         "nicknames": ["NCUA"],
         "slug": "ncua",
@@ -412,6 +1366,33 @@
     {
         "agencies": ["National Endowment for the Arts"],
         "established_year": 1988,
+        "homepage_url": "http://arts.gov/oig",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://apps.nea.gov/oighotline/"
+            },
+            {
+                "type": "email",
+                "value": "oig@arts.gov"
+            },
+            {
+                "type": "fax",
+                "value": "202-682-5649"
+            },
+            {
+                "type": "phone",
+                "value": "877-535-7448"
+            },
+            {
+                "type": "phone",
+                "value": "202-682-5479"
+            },
+            {
+                "type": "mail",
+                "value": "NEA Office of Inspector General\n400 7th Street, SW\nWashington, DC 20506\nATTN: OIG Hotline"
+            }
+        ],
         "name": "National Endowment for the Arts, Office of Inspector General",
         "nicknames": [],
         "slug": "nea",
@@ -420,6 +1401,25 @@
     {
         "agencies": ["National Endowment for the Humanities"],
         "established_year": 1988,
+        "homepage_url": "http://www.neh.gov/about/oig",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "http://www.neh.gov/about/oig/hotline-form"
+            },
+            {
+                "type": "email",
+                "value": "oig@neh.gov"
+            },
+            {
+                "type": "phone",
+                "value": "877-786-7598"
+            },
+            {
+                "type": "mail",
+                "value": "Office of Inspector General\nNational Endowment for the Humanities\n400 7th Street SW\nWashington, DC 20506"
+            }
+        ],
         "name": "National Endowment for the Humanities",
         "nicknames": [],
         "slug": "neh",
@@ -428,6 +1428,13 @@
     {
         "agencies": ["National Geospatial-Intelligence Agency"],
         "established_year": 2010,
+        "homepage_url": "https://www.nga.mil/About/Pages/InspectorGeneral.aspx",
+        "hotline": [
+            {
+                "type": "email",
+                "value": "IG@nga.mil"
+            }
+        ],
         "name": "National Geospatial-Intelligence Agency, Office of Inspector General",
         "nicknames": ["NGA"],
         "slug": "nga",
@@ -436,6 +1443,29 @@
     {
         "agencies": ["National Labor Relations Board"],
         "established_year": 1988,
+        "homepage_url": "https://www.nlrb.gov/who-we-are/inspector-general",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://www.nlrb.gov/who-we-are/inspector-general/inspector-general-hotline"
+            },
+            {
+                "type": "email",
+                "value": "OIGHOTLINE@nlrb.gov"
+            },
+            {
+                "type": "phone",
+                "value": "800-736-2983"
+            },
+            {
+                "type": "phone",
+                "value": "202-273-1960"
+            },
+            {
+                "type": "mail",
+                "value": "David P. Berry, Inspector General\nNational Labor Relations Board\n1099 14th Street NW, Suite 9820\nWashington, DC 20573"
+            }
+        ],
         "name": "National Labor Relations Board, Office of Inspector General",
         "nicknames": ["NLRB"],
         "slug": "nlrb",
@@ -444,6 +1474,25 @@
     {
         "agencies": ["Nuclear Regulatory Commission"],
         "established_year": 1988,
+        "homepage_url": "http://www.nrc.gov/insp-gen.html",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://forms.nrc.gov/insp-gen/complaint.html"
+            },
+            {
+                "type": "phone",
+                "value": "800-233-3497"
+            },
+            {
+                "type": "tdd",
+                "value": "800-270-2787"
+            },
+            {
+                "type": "mail",
+                "value": "U.S. Nuclear Regulatory Commission\nOffice of the Inspector General\nHotline Program\nMail Stop O5-E13\n11555 Rockville Pike\nRockville, MD 20852"
+            }
+        ],
         "name": "Nuclear Regulatory Commission, Office of Inspector General",
         "nicknames": ["NRC"],
         "slug": "nrc",
@@ -452,6 +1501,21 @@
     {
         "agencies": ["National Reconnaisance Office"],
         "established_year": 2010,
+        "homepage_url": "http://www.nro.gov/offices/oig/index.html",
+        "hotline": [
+            {
+                "type": "email",
+                "value": "nro_oig@nro.mil"
+            },
+            {
+                "type": "phone",
+                "value": "703-808-1644"
+            },
+            {
+                "type": "mail",
+                "value": "NRO OIG\n14675 Lee Road\nChantilly, VA 20151"
+            }
+        ],
         "name": "National Reconnaisance Office, Office of Inspector General",
         "nicknames": ["NRO"],
         "slug": "nro",
@@ -460,6 +1524,21 @@
     {
         "agencies": ["National Security Agency"],
         "established_year": 2010,
+        "homepage_url": "https://www.nsa.gov/about/oig/",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://www.nsa.gov/about/oig/oig_hotline_form.cfm"
+            },
+            {
+                "type": "phone",
+                "value": "301-688-6327"
+            },
+            {
+                "type": "mail",
+                "value": "National Security Agency\nATTN: Office of the Inspector General Hotline\n9800 Savage Rd.\nFt. George G. Meade, MD 20755\nSuite 6247"
+            }
+        ],
         "name": "National Security Agency, Office of Inspector General",
         "nicknames": ["NSA"],
         "slug": "nsa",
@@ -468,6 +1547,37 @@
     {
         "agencies": ["National Science Foundation"],
         "established_year": 1988,
+        "homepage_url": "https://www.nsf.gov/oig/",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://www.nsf.gov/oig/report-fraud/form.jsp"
+            },
+            {
+                "type": "email",
+                "value": "oig@nsf.gov"
+            },
+            {
+                "type": "fax",
+                "value": "703-292-9158"
+            },
+            {
+                "type": "phone",
+                "value": "800-428-2189"
+            },
+            {
+                "type": "phone",
+                "value": "703-292-7100"
+            },
+            {
+                "type": "phone",
+                "value": "703-328-3932"
+            },
+            {
+                "type": "mail",
+                "value": "4201 Wilson Boulevard, Suite 1135\nArlington, VA 22230\nATTN: OIG Hotline"
+            }
+        ],
         "name": "National Science Foundation, Office of Inspector General",
         "nicknames": ["NSF"],
         "slug": "nsf",
@@ -476,6 +1586,21 @@
     {
         "agencies": ["Office of Personnel Management"],
         "established_year": 1988,
+        "homepage_url": "https://www.opm.gov/our-inspector-general/",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://www.opm.gov/our-inspector-general/hotline-to-report-fraud-waste-or-abuse/complaint-form/"
+            },
+            {
+                "type": "phone",
+                "value": "877-499-7295"
+            },
+            {
+                "type": "mail",
+                "value": "OPM Office of the Inspector General\n1900 E Street NW Room #6400\NWashington, DC 20415-1100"
+            }
+        ],
         "name": "Office of Personnel Management, Office of Inspector General",
         "nicknames": ["OPM"],
         "slug": "opm",
@@ -484,6 +1609,9 @@
     {
         "agencies": ["Panama Canal Commission"],
         "established_year": 1988,
+        "homepage_url": null,
+        "hotline": [
+        ],
         "name": "Panama Canal Commission, Office of Inspector General",
         "nicknames": [],
         "slug": "panama",
@@ -492,6 +1620,25 @@
     {
         "agencies": ["Pension Benefit Guaranty Corporation"],
         "established_year": 1988,
+        "homepage_url": "http://oig.pbgc.gov/",
+        "hotline": [
+            {
+                "type": "email",
+                "value": "oighotline@pbgc.gov"
+            },
+            {
+                "type": "fax",
+                "value": "202-326-4129"
+            },
+            {
+                "type": "phone",
+                "value": "800-303-9737"
+            },
+            {
+                "type": "mail",
+                "value": "Pension Benefit Guaranty Corporation\nOffice of Inspector General Hotline\nPO Box 34713\nWashington, DC 20043-4177"
+            }
+        ],
         "name": "Pension Benefit Guaranty Corporation",
         "nicknames": ["PBGC"],
         "slug": "pbgc",
@@ -500,6 +1647,33 @@
     {
         "agencies": ["Peace Corps"],
         "established_year": 1988,
+        "homepage_url": "http://www.peacecorps.gov/about/inspgen/",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "http://www.peacecorps.gov/about/leadership/inspgen/contact/"
+            },
+            {
+                "type": "email",
+                "value": "OIG@peacecorps.gov"
+            },
+            {
+                "type": "fax",
+                "value": "202-692-2901"
+            },
+            {
+                "type": "phone",
+                "value": "800-233-5874"
+            },
+            {
+                "type": "phone",
+                "value": "202-692-2915"
+            },
+            {
+                "type": "mail",
+                "value": "Peace Corps\nOffice of Inspector General\nPO Box 57129\nWashington, DC 20037-7129"
+            }
+        ],
         "name": "Peace Corps, Office of Inspector General",
         "nicknames": [],
         "slug": "peacecorps",
@@ -508,6 +1682,25 @@
     {
         "agencies": ["Postal Regulatory Commission"],
         "established_year": 2007,
+        "homepage_url": "http://www.prc.gov/offices/oig",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "http://www.prc.gov/contact-oig"
+            },
+            {
+                "type": "email",
+                "value": "PRC-IG@prc.gov"
+            },
+            {
+                "type": "phone",
+                "value": "202-789-6817"
+            },
+            {
+                "type": "mail",
+                "value": "PRC Office of Inspector General\nPO Box 50264\nWashington, DC 20091"
+            }
+        ],
         "name": "Postal Regulatory Commission, Office of Inspector General",
         "nicknames": [],
         "slug": "prc",
@@ -516,6 +1709,25 @@
     {
         "agencies": ["Railroad Retirement Board"],
         "established_year": 1988,
+        "homepage_url": "http://www.rrb.gov/oig/",
+        "hotline": [
+            {
+                "type": "email",
+                "value": "hotline@oig.rrb.gov"
+            },
+            {
+                "type": "fax",
+                "value": "312-751-4342"
+            },
+            {
+                "type": "phone",
+                "value": "800-772-4258"
+            },
+            {
+                "type": "mail",
+                "value": "RRB-OIG Hotline Officer\n844 North Rush Street, 4th Floor\nChicago, IL 60611-2092"
+            }
+        ],
         "name": "Railroad Retirement Board, Office of Inspector General",
         "nicknames": ["RRB"],
         "slug": "rrb",
@@ -524,6 +1736,9 @@
     {
         "agencies": ["Resolution Trust Corporation"],
         "established_year": 1989,
+        "homepage_url": null,
+        "hotline": [
+        ],
         "name": "Resolution Trust Corporation, Office of Inspector General",
         "nicknames": [],
         "slug": "rtc",
@@ -532,6 +1747,17 @@
     {
         "agencies": ["Small Business Administration"],
         "established_year": 1978,
+        "homepage_url": "https://www.sba.gov/office-of-inspector-general",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://eweb1.sba.gov/oigcss/client/dsp_welcome.cfm"
+            },
+            {
+                "type": "phone",
+                "value": "800-767-0385"
+            }
+        ],
         "name": "Small Business Administration, Office of Inspector General",
         "nicknames": ["SBA"],
         "slug": "sba",
@@ -542,6 +1768,17 @@
         "established_year": 1988,
         "name": "Securities and Exchange Commission, Office of Inspector General",
         "nicknames": ["SEC"],
+        "homepage_url": "http://www.sec.gov/oig",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "http://www.reportlineweb.com/sec_oig"
+            },
+            {
+                "type": "phone",
+                "value": "877-442-0854"
+            }
+        ],
         "slug": "sec",
         "statutory_reference": "5 U.S.C. App. 3 \uA7 8G(b)"
     },
@@ -551,6 +1788,37 @@
             "Department of Defense"
         ],
         "established_year": 2008,
+        "homepage_url": "https://www.sigar.mil/",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://www.sigar.mil/investigations/hotline/index.aspx?SSR=3&SubSSR=17&WP=Hotline"
+            },
+            {
+                "type": "email",
+                "value": "sigar.hotline@mail.mil"
+            },
+            {
+                "type": "email",
+                "value": "sigarhotline@state.gov"
+            },
+            {
+                "type": "phone",
+                "value": "866-329-8893"
+            },
+            {
+                "type": "phone",
+                "value": "0700107300"
+            },
+            {
+                "type": "dsn",
+                "value": "318-237-3912 x7303"
+            },
+            {
+                "type": "dsn",
+                "value": "94-312-664-0378"
+            }
+        ],
         "name": "Office of the Special Inspector General for Afghanistan Reconstruction",
         "nicknames": ["SIGAR"],
         "slug": "sigar",
@@ -562,6 +1830,9 @@
             "Department of Defense"
         ],
         "established_year": 2003,
+        "homepage_url": "http://www.sigir.mil/",
+        "hotline": [
+        ],
         "name": "Office of the Special Inspector General for Iraq Reconstruction",
         "nicknames": ["SIGIR"],
         "slug": "sigir",
@@ -570,6 +1841,25 @@
     {
         "agencies": ["Department of the Treasury"],
         "established_year": 2008,
+        "homepage_url": "https://www.sigtarp.gov/Pages/home.aspx",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://www.sigtarp.gov/Pages/crimetips.aspx"
+            },
+            {
+                "type": "fax",
+                "value": "202-622-4559"
+            },
+            {
+                "type": "phone",
+                "value": "877-744-2009"
+            },
+            {
+                "type": "mail",
+                "value": "Office of the Special Inspector General\nFor the Troubled Asset Relief Program\nHotline\n1801 L St. NW, 4th Floor\nWashington, DC 20220"
+            }
+        ],
         "name": "Office of the Special Inspector General for the Troubled Asset Relief Program",
         "nicknames": ["SIGTARP"],
         "slug": "sigtarp",
@@ -578,6 +1868,29 @@
     {
         "agencies": ["Smithsonian Institution"],
         "established_year": 1988,
+        "homepage_url": "http://www.si.edu/OIG",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "http://www.si.edu/OIG/HotlineForm"
+            },
+            {
+                "type": "email",
+                "value": "oighotline@oig.si.edu"
+            },
+            {
+                "type": "fax",
+                "value": "202-633-7079"
+            },
+            {
+                "type": "phone",
+                "value": "202-252-0321"
+            },
+            {
+                "type": "mail",
+                "value": "Office of the Inspector General\nSmithsonian Institution\nMRC 524\nPO Box 37012\nWashington, DC 20013-7012"
+            }
+        ],
         "name": "Smithsonian Institute, Office of Inspector General",
         "nicknames": ["Smithsonian"],
         "slug": "smithsonian",
@@ -586,6 +1899,29 @@
     {
         "agencies": ["Social Security Administration"],
         "established_year": 1995,
+        "homepage_url": "http://oig.ssa.gov",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://www.socialsecurity.gov/fraudreport/oig/public_fraud_reporting/form.htm"
+            },
+            {
+                "type": "fax",
+                "value": "410-597-0118"
+            },
+            {
+                "type": "phone",
+                "value": "800-269-0271"
+            },
+            {
+                "type": "tdd",
+                "value": "866-501-2101"
+            },
+            {
+                "type": "mail",
+                "value": "Social Security Fraud Hotline\nPO Box 17785\nBaltimore, MD 21235"
+            }
+        ],
         "name": "Social Security Administration, Office of Inspector General",
         "nicknames": ["SSA"],
         "slug": "ssa",
@@ -594,6 +1930,25 @@
     {
         "agencies": ["Department of State", "Broadcasting Board of Governors"],
         "established_year": 1987,
+        "homepage_url": "https://oig.state.gov/",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://oig.state.gov/hotline-form"
+            },
+            {
+                "type": "email",
+                "value": "OIGHotline@state.gov"
+            },
+            {
+                "type": "phone",
+                "value": "800-409-9926"
+            },
+            {
+                "type": "phone",
+                "value": "202-647-3320"
+            }
+        ],
         "name": "Ofice of Inspector General for the U.S. Department of State and the Broadcasting Board of Governors",
         "nicknames": ["State"],
         "slug": "state",
@@ -602,6 +1957,29 @@
     {
         "agencies": ["Department of the Treasury"],
         "established_year": 1999,
+        "homepage_url": "https://www.treasury.gov/tigta/",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://www.treasury.gov/tigta/contact_report.shtml"
+            },
+            {
+                "type": "email",
+                "value": "Complaints@tigta.treas.gov"
+            },
+            {
+                "type": "fax",
+                "value": "202-927-7018"
+            },
+            {
+                "type": "phone",
+                "value": "800-366-4484"
+            },
+            {
+                "type": "mail",
+                "value": "Treasury Inspector General for Tax Administration\nHotline\nPO Box 589\nBen Franklin Station\nWashington, DC 20044-0589"
+            }
+        ],
         "name": "Office of the Treasury Inspector General for Tax Administration",
         "nicknames": ["TIGTA"],
         "slug": "tigta",
@@ -610,6 +1988,17 @@
     {
         "agencies": ["Department of the Treasury"],
         "established_year": 1988,
+        "homepage_url": "http://www.treasury.gov/about/organizational-structure/ig/",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://www.treasury.gov/about/organizational-structure/ig/Pages/OigOnlineHotlineForm.aspx"
+            },
+            {
+                "type": "phone",
+                "value": "800-359-3898"
+            }
+        ],
         "name": "Office of the Inspector General of the Department of the Treasury",
         "nicknames": ["Treasury"],
         "slug": "treasury",
@@ -618,6 +2007,17 @@
     {
         "agencies": ["Tennessee Valley Authority"],
         "established_year": 1988,
+        "homepage_url": "http://oig.tva.gov/",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "http://www.oigempowerline.com/"
+            },
+            {
+                "type": "phone",
+                "value": "855-882-8585"
+            }
+        ],
         "name": "Tennessee Valley Authority, Office of Inspector General",
         "nicknames": ["TVA"],
         "slug": "tva",
@@ -626,14 +2026,59 @@
     {
         "agencies": ["United States Agency for International Development"],
         "established_year": 1980,
+        "homepage_url": "https://oig.usaid.gov/",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://oig.usaid.gov/content/hotline-report-fraud-waste-and-abuse"
+            }
+        ],
         "name": "United States Agency for International Development, Office of Inspector General",
         "nicknames": ["USAID"],
         "slug": "usaid",
         "statutory_reference": "5 U.S.C. App. 3 \uA7 2(A)"
     },
     {
+        "agencies": ["United States Capitol Police"],
+        "established_year": 2005,
+        "homepage_url": "http://www.uscapitolpolice.gov/oig.php",
+        "hotline": [
+            {
+                "type": "email",
+                "value": "OIG@uscp.gov"
+            },
+            {
+                "type": "phone",
+                "value": "1-866-906-2446"
+            },
+            {
+                "type": "mail",
+                "value": "Office of Inspector General\nUnited States Capitol Police\n119 D Street, N.E.\nWashington, DC 20510"
+            }
+        ],
+        "name": "United States Capitol Police, Office of Inspector General",
+        "nicknames": ["U.S. Capitol Police"],
+        "slug": "uscp",
+        "statutory_reference": "2 U.S.C. \uA7 1909(a)"
+    },
+    {
         "agencies": ["United States Postal Service"],
         "established_year": 1988,
+        "homepage_url": "https://uspsoig.gov/",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://uspsoig.gov/form/new-complaint-form"
+            },
+            {
+                "type": "phone",
+                "value": "888-877-7644"
+            },
+            {
+                "type": "mail",
+                "value": "ATTN: Hotline\n1735 N Lynn Street\nArlington, VA 22209"
+            }
+        ],
         "name": "United States Postal Service, Office of Inspector General",
         "nicknames": ["USPS"],
         "slug": "usps",
@@ -642,17 +2087,32 @@
     {
         "agencies": ["Department of Veterans Affairs"],
         "established_year": 1978,
+        "homepage_url": "http://www.va.gov/oig",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "http://www.va.gov/oig/hotline/complainant-release-preference.asp"
+            },
+            {
+                "type": "email",
+                "value": "vaoighotline@va.gov"
+            },
+            {
+                "type": "fax",
+                "value": "202-495-5861"
+            },
+            {
+                "type": "phone",
+                "value": "800-488-8244"
+            },
+            {
+                "type": "mail",
+                "value": "VA Inspector General Hotline (53E)\n810 Vermont Ave., NW\nWashington, DC 20420"
+            }
+        ],
         "name": "Department of Veterans Affairs, Office of Inspector General",
         "nicknames": ["VA"],
         "slug": "va",
         "statutory_reference": "5 U.S.C. App. 3 \uA7 2(A)"
-    },
-    {
-        "agencies": ["United States Capitol Police"],
-        "established_year": 2005,
-        "name": "United States Capitol Police, Office of Inspector General",
-        "nicknames": ["U.S. Capitol Police"],
-        "slug": "uscp",
-        "statutory_reference": "2 U.S.C. \uA7 1909(a)"
     }
 ]
