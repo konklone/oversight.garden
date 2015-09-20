@@ -32,6 +32,7 @@
         ],
         "name": "Department of Agriculture, Office of Inspector General",
         "nicknames": ["USDA"],
+        "publishes_reports": true,
         "slug": "agriculture",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
@@ -56,6 +57,7 @@
         ],
         "name": "Office of the Inspector General of the Air Force",
         "nicknames": "Air Force",
+        "publishes_reports": false,
         "slug": "airforce",
         "statutory_reference": "10 U.S.C. \u00A7 8020(a)"
     },
@@ -80,6 +82,7 @@
         ],
         "name": "Amtrak Office of the Inspector General",
         "nicknames": ["Amtrak"],
+        "publishes_reports": true,
         "slug": "amtrak",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
@@ -104,6 +107,7 @@
         ],
         "name": "Appalachian Regional Commission, Office of Inspector General",
         "nicknames": ["ARC"],
+        "publishes_reports": true,
         "slug": "arc",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
@@ -128,6 +132,7 @@
         ],
         "name": "Architect of the Capitol, Office of Inspector General",
         "nicknames": [],
+        "publishes_reports": false,
         "slug": "architect",
         "statutory_reference": "2 U.S.C. \u00A7 1808(b)"
     },
@@ -156,6 +161,7 @@
         ],
         "name": "National Archives and Records Administration, Office of Inspector General",
         "nicknames": ["NARA"],
+        "publishes_reports": true,
         "slug": "archives",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
@@ -172,6 +178,7 @@
         ],
         "name": "Office of the Inspector General of the Army",
         "nicknames": ["Army"],
+        "publishes_reports": false,
         "slug": "army",
         "statutory_reference": "10 U.S.C. \u00A7 3020(a)"
     },
@@ -200,6 +207,7 @@
         ],
         "name": "Commodity Futures Trading Commission, Office of Inspector General",
         "nicknames": ["CFTC"],
+        "publishes_reports": true,
         "slug": "cftc",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
@@ -216,6 +224,7 @@
         ],
         "name": "Central Intelligence Agency, Office of Inspector General",
         "nicknames": ["CIA"],
+        "publishes_reports": false,
         "slug": "cia",
         "statutory_reference": "50 U.S.C. \u00A7 3517(a)"
     },
@@ -236,6 +245,7 @@
         ],
         "name": "Corporation for National and Community Service, Office of Inspector General",
         "nicknames": ["CNCS"],
+        "publishes_reports": true,
         "slug": "cncs",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
@@ -280,6 +290,7 @@
         ],
         "name": "Department of Commerce, Office of Inspector General",
         "nicknames": ["Commerce"],
+        "publishes_reports": true,
         "slug": "commerce",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
@@ -316,6 +327,7 @@
         ],
         "name": "Corporation for Public Broadcasting, Office of Inspector General",
         "nicknames": ["CPB"],
+        "publishes_reports": true,
         "slug": "cpb",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
@@ -340,6 +352,7 @@
         ],
         "name": "Consumer Product Safety Commission, Office of Inspector General",
         "nicknames": ["CPSC"],
+        "publishes_reports": true,
         "slug": "cpsc",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
@@ -384,6 +397,7 @@
         ],
         "name": "Denali Commission, Office of Inspector General",
         "nicknames": ["Denali"],
+        "publishes_reports": true,
         "slug": "denali",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
@@ -416,6 +430,7 @@
         ],
         "name": "Department of Homeland Security, Office of Inspector General",
         "nicknames": ["DHS"],
+        "publishes_reports": true,
         "slug": "dhs",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
@@ -436,6 +451,7 @@
         ],
         "name": "Defense Intelligence Agency, Office of Inspector General",
         "nicknames": ["DIA"],
+        "publishes_reports": false,
         "slug": "dia",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
@@ -480,6 +496,7 @@
         ],
         "name": "Department of Defense, Office of Inspector General",
         "nicknames": ["DoD"],
+        "publishes_reports": true,
         "slug": "dod",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
@@ -496,6 +513,7 @@
         ],
         "name": "Department of Justice, Office of Inspector General",
         "nicknames": ["DOJ"],
+        "publishes_reports": true,
         "slug": "doj",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
@@ -524,6 +542,7 @@
         ],
         "name": "Department of Transportation, Office of Inspector General",
         "nicknames": ["DOT"],
+        "publishes_reports": true,
         "slug": "dot",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
@@ -556,6 +575,7 @@
         ],
         "name": "Election Assistance Commission, Office of Inspector General",
         "nicknames": ["EAC"],
+        "publishes_reports": true,
         "slug": "eac",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
@@ -576,6 +596,7 @@
         ],
         "name": "Department of Education, Office of Inspector General",
         "nicknames": [],
+        "publishes_reports": true,
         "slug": "education",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
@@ -604,6 +625,7 @@
         ],
         "name": "Equal Employment Opportunity Commission, Office of Inspector General",
         "nicknames": ["EEOC"],
+        "publishes_reports": true,
         "slug": "eeoc",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
@@ -640,6 +662,7 @@
         ],
         "name": "Department of Energy, Office of Inspector General",
         "nicknames": ["DOE"],
+        "publishes_reports": true,
         "slug": "energy",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
@@ -672,6 +695,7 @@
         ],
         "name": "Environmental Protection Agency, Office of Inspector General",
         "nicknames": ["EPA"],
+        "publishes_reports": true,
         "slug": "epa",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
@@ -696,6 +720,7 @@
         ],
         "name": "Export-Import Bank of the United States, Office of Inspector General",
         "nicknames": ["EXIM Bank", "EXIM"],
+        "publishes_reports": true,
         "slug": "exim",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
@@ -728,6 +753,7 @@
         ],
         "name": "Farm Credit Administration, Office of Inspector General",
         "nicknames": ["FCA"],
+        "publishes_reports": true,
         "slug": "fca",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
@@ -756,6 +782,7 @@
         ],
         "name": "Federal Communications Commission, Office of Inspector General",
         "nicknames": ["FCC"],
+        "publishes_reports": true,
         "slug": "fcc",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
@@ -784,6 +811,7 @@
         ],
         "name": "Federal Deposit Insurance Corporation, Office of Inspector General",
         "nicknames": ["FDIC"],
+        "publishes_reports": true,
         "slug": "fdic",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
@@ -812,6 +840,7 @@
         ],
         "name": "Federal Election Commission, Office of Inspector General",
         "nicknames": ["FEC"],
+        "publishes_reports": true,
         "slug": "fec",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
@@ -851,6 +880,7 @@
         ],
         "name": "Office of Inspector Generalfor the Board of Governors of the Federal Reserve System and Consumer Financial Protection Bureau",
         "nicknames": ["Federal Reserve", "Fed", "CFPB"],
+        "publishes_reports": true,
         "slug": "fed",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
@@ -879,6 +909,7 @@
         ],
         "name": "Federal Housing Finance Agency, Office of Inspector General",
         "nicknames": ["FHFA"],
+        "publishes_reports": true,
         "slug": "fhfa",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
@@ -915,6 +946,7 @@
         ],
         "name": "Federal Labor Relations Authority, Office of Inspector General",
         "nicknames": ["FLRA"],
+        "publishes_reports": true,
         "slug": "flra",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
@@ -939,6 +971,7 @@
         ],
         "name": "Federal Maritime Commission, Office of Inspector General",
         "nicknames": ["FMC"],
+        "publishes_reports": true,
         "slug": "fmc",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
@@ -967,6 +1000,7 @@
         ],
         "name": "Federal Trade Commission, Office of Inspector General",
         "nicknames": ["FTC"],
+        "publishes_reports": true,
         "slug": "ftc",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
@@ -987,6 +1021,7 @@
         ],
         "name": "Government Accountability Office, Office of Inspector General",
         "nicknames": ["GAO"],
+        "publishes_reports": true,
         "slug": "gao",
         "statutory_reference": "31 U.S.C. \u00A7 705(a)"
     },
@@ -1019,6 +1054,7 @@
         ],
         "name": "Government Publishing Office, Office of Inspector General",
         "nicknames": ["GPO"],
+        "publishes_reports": true,
         "slug": "gpo",
         "statutory_reference": "44 U.S.C. \u00A7 3901"
     },
@@ -1051,6 +1087,7 @@
         ],
         "name": "General Services Administration, Office of Inspector General",
         "nicknames": ["GSA"],
+        "publishes_reports": true,
         "slug": "gsa",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
@@ -1083,6 +1120,7 @@
         ],
         "name": "Department of Health and Human Services, Office of Inspector General",
         "nicknames": ["HHS"],
+        "publishes_reports": true,
         "slug": "hhs",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
@@ -1103,6 +1141,7 @@
         ],
         "name": "House of Representatives, Office of Inspector General",
         "nicknames": [],
+        "publishes_reports": true,
         "slug": "house",
         "statutory_reference": "House Rule II, clause 6"
     },
@@ -1135,6 +1174,7 @@
         ],
         "name": "Department of Housing and Urban Development, Office of Inspector General",
         "nicknames": ["HUD"],
+        "publishes_reports": true,
         "slug": "hud",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
@@ -1166,6 +1206,7 @@
         ],
         "name": "Office of the Intelligence Community Inspector General",
         "nicknames": ["IC IG", "ODNI", "CIA", "NSA", "DIA", "NGA", "NRO"],
+        "publishes_reports": true,
         "slug": "icig",
         "statutory_reference": "50 U.S.C. \u00A7 3033(a)"
     },
@@ -1194,6 +1235,7 @@
         ],
         "name": "Department of the Interior, Office of Inspector General",
         "nicknames": [],
+        "publishes_reports": true,
         "slug": "interior",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
@@ -1218,6 +1260,7 @@
         ],
         "name": "United States International Trade Commission, Office of Inspector General",
         "nicknames": ["ITC"],
+        "publishes_reports": true,
         "slug": "itc",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
@@ -1250,6 +1293,7 @@
         ],
         "name": "Department of Labor, Office of Inspector General",
         "nicknames": [],
+        "publishes_reports": true,
         "slug": "labor",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
@@ -1270,6 +1314,7 @@
         ],
         "name": "Library of Congress, Office of Inspector General",
         "nicknames": [],
+        "publishes_reports": true,
         "slug": "loc",
         "statutory_reference": "2 U.S.C. \u00A7 185(b)"
     },
@@ -1306,6 +1351,7 @@
         ],
         "name": "Legal Services Corporation, Office of Inspector General",
         "nicknames": ["LSC"],
+        "publishes_reports": true,
         "slug": "lsc",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
@@ -1330,6 +1376,7 @@
         ],
         "name": "Office of the Inspector General of the Marine Corps",
         "nicknames": ["Marines"],
+        "publishes_reports": false,
         "slug": "marines",
         "statutory_reference": "10 U.S.C. \u00A7 5014"
     },
@@ -1362,6 +1409,7 @@
         ],
         "name": "National Aeronautics and Space Administration, Office of Inspector General",
         "nicknames": ["NASA"],
+        "publishes_reports": true,
         "slug": "nasa",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
@@ -1378,6 +1426,7 @@
         ],
         "name": "Office of the Naval Inspector General",
         "nicknames": "Navy",
+        "publishes_reports": false,
         "slug": "navy",
         "statutory_reference": "10 U.S.C. \u00A7 5020(a)"
     },
@@ -1410,6 +1459,7 @@
         ],
         "name": "National Credit Union Administration, Office of Inspector General",
         "nicknames": ["NCUA"],
+        "publishes_reports": true,
         "slug": "ncua",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
@@ -1446,6 +1496,7 @@
         ],
         "name": "National Endowment for the Arts, Office of Inspector General",
         "nicknames": [],
+        "publishes_reports": true,
         "slug": "nea",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
@@ -1474,6 +1525,7 @@
         ],
         "name": "National Endowment for the Humanities",
         "nicknames": [],
+        "publishes_reports": true,
         "slug": "neh",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
@@ -1490,6 +1542,7 @@
         ],
         "name": "National Geospatial-Intelligence Agency, Office of Inspector General",
         "nicknames": ["NGA"],
+        "publishes_reports": false,
         "slug": "nga",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
@@ -1522,6 +1575,7 @@
         ],
         "name": "National Labor Relations Board, Office of Inspector General",
         "nicknames": ["NLRB"],
+        "publishes_reports": true,
         "slug": "nlrb",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
@@ -1550,6 +1604,7 @@
         ],
         "name": "Nuclear Regulatory Commission, Office of Inspector General",
         "nicknames": ["NRC"],
+        "publishes_reports": true,
         "slug": "nrc",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
@@ -1574,6 +1629,7 @@
         ],
         "name": "National Reconnaisance Office, Office of Inspector General",
         "nicknames": ["NRO"],
+        "publishes_reports": false,
         "slug": "nro",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
@@ -1598,6 +1654,7 @@
         ],
         "name": "National Security Agency, Office of Inspector General",
         "nicknames": ["NSA"],
+        "publishes_reports": false,
         "slug": "nsa",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
@@ -1638,6 +1695,7 @@
         ],
         "name": "National Science Foundation, Office of Inspector General",
         "nicknames": ["NSF"],
+        "publishes_reports": true,
         "slug": "nsf",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
@@ -1662,6 +1720,7 @@
         ],
         "name": "Office of Personnel Management, Office of Inspector General",
         "nicknames": ["OPM"],
+        "publishes_reports": true,
         "slug": "opm",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
@@ -1674,6 +1733,7 @@
         ],
         "name": "Panama Canal Commission, Office of Inspector General",
         "nicknames": [],
+        "publishes_reports": false,
         "slug": "panama",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
@@ -1702,6 +1762,7 @@
         ],
         "name": "Pension Benefit Guaranty Corporation",
         "nicknames": ["PBGC"],
+        "publishes_reports": true,
         "slug": "pbgc",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
@@ -1738,6 +1799,7 @@
         ],
         "name": "Peace Corps, Office of Inspector General",
         "nicknames": [],
+        "publishes_reports": true,
         "slug": "peacecorps",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
@@ -1766,6 +1828,7 @@
         ],
         "name": "Postal Regulatory Commission, Office of Inspector General",
         "nicknames": [],
+        "publishes_reports": true,
         "slug": "prc",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
@@ -1794,6 +1857,7 @@
         ],
         "name": "Railroad Retirement Board, Office of Inspector General",
         "nicknames": ["RRB"],
+        "publishes_reports": true,
         "slug": "rrb",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
@@ -1806,6 +1870,7 @@
         ],
         "name": "Resolution Trust Corporation, Office of Inspector General",
         "nicknames": [],
+        "publishes_reports": false,
         "slug": "rtc",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
@@ -1826,6 +1891,7 @@
         ],
         "name": "Small Business Administration, Office of Inspector General",
         "nicknames": ["SBA"],
+        "publishes_reports": true,
         "slug": "sba",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
@@ -1835,6 +1901,7 @@
         "established_year": 1988,
         "name": "Securities and Exchange Commission, Office of Inspector General",
         "nicknames": ["SEC"],
+        "publishes_reports": true,
         "homepage_url": "http://www.sec.gov/oig",
         "hotline": [
             {
@@ -1889,6 +1956,7 @@
         ],
         "name": "Office of the Special Inspector General for Afghanistan Reconstruction",
         "nicknames": ["SIGAR"],
+        "publishes_reports": true,
         "slug": "sigar",
         "statutory_reference": "Pub. L. No. 110-181, \u00A7 1229(b)"
     },
@@ -1904,6 +1972,7 @@
         ],
         "name": "Office of the Special Inspector General for Iraq Reconstruction",
         "nicknames": ["SIGIR"],
+        "publishes_reports": true,
         "slug": "sigir",
         "statutory_reference": "Pub. L. No. 108-106, \u00A7 3001(b)"
     },
@@ -1932,6 +2001,7 @@
         ],
         "name": "Office of the Special Inspector General for the Troubled Asset Relief Program",
         "nicknames": ["SIGTARP"],
+        "publishes_reports": true,
         "slug": "sigtarp",
         "statutory_reference": "12 U.S.C. \u00A7 5231(a)"
     },
@@ -1964,6 +2034,7 @@
         ],
         "name": "Smithsonian Institute, Office of Inspector General",
         "nicknames": ["Smithsonian"],
+        "publishes_reports": true,
         "slug": "smithsonian",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
@@ -1996,6 +2067,7 @@
         ],
         "name": "Social Security Administration, Office of Inspector General",
         "nicknames": ["SSA"],
+        "publishes_reports": true,
         "slug": "ssa",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
@@ -2024,6 +2096,7 @@
         ],
         "name": "Ofice of Inspector General for the U.S. Department of State and the Broadcasting Board of Governors",
         "nicknames": ["State"],
+        "publishes_reports": true,
         "slug": "state",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
@@ -2056,6 +2129,7 @@
         ],
         "name": "Office of the Treasury Inspector General for Tax Administration",
         "nicknames": ["TIGTA"],
+        "publishes_reports": true,
         "slug": "tigta",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(B)"
     },
@@ -2076,6 +2150,7 @@
         ],
         "name": "Office of the Inspector General of the Department of the Treasury",
         "nicknames": ["Treasury"],
+        "publishes_reports": true,
         "slug": "treasury",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(B)"
     },
@@ -2096,6 +2171,7 @@
         ],
         "name": "Tennessee Valley Authority, Office of Inspector General",
         "nicknames": ["TVA"],
+        "publishes_reports": true,
         "slug": "tva",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
@@ -2112,6 +2188,7 @@
         ],
         "name": "United States Agency for International Development, Office of Inspector General",
         "nicknames": ["USAID"],
+        "publishes_reports": true,
         "slug": "usaid",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
@@ -2136,6 +2213,7 @@
         ],
         "name": "United States Capitol Police, Office of Inspector General",
         "nicknames": ["U.S. Capitol Police"],
+        "publishes_reports": false,
         "slug": "uscp",
         "statutory_reference": "2 U.S.C. \u00A7 1909(a)"
     },
@@ -2160,6 +2238,7 @@
         ],
         "name": "United States Postal Service, Office of Inspector General",
         "nicknames": ["USPS"],
+        "publishes_reports": true,
         "slug": "usps",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
@@ -2192,6 +2271,7 @@
         ],
         "name": "Department of Veterans Affairs, Office of Inspector General",
         "nicknames": ["VA"],
+        "publishes_reports": true,
         "slug": "va",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     }
