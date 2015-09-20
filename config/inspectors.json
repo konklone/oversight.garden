@@ -1,5 +1,6 @@
 [
     {
+        "active": true,
         "agencies": ["Department of Agriculture"],
         "established_year": 1978,
         "homepage_url": "http://www.usda.gov/oig/",
@@ -35,6 +36,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
     {
+        "active": true,
         "agencies": ["Department of the Air Force"],
         "established_year": 1948,
         "homepage_url": "http://www.af.mil/InspectorGeneralComplaints.aspx",
@@ -58,6 +60,7 @@
         "statutory_reference": "10 U.S.C. \u00A7 8020(a)"
     },
     {
+        "active": true,
         "agencies": ["National Railroad Passenger Corporation"],
         "established_year": 1988,
         "homepage_url": "https://www.amtrakoig.gov/",
@@ -81,6 +84,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
     {
+        "active": true,
         "agencies": ["Appalachian Regional Commission"],
         "established_year": 1988,
         "homepage_url": "http://www.arc.gov/oig",
@@ -104,6 +108,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
     {
+        "active": true,
         "agencies": ["Architect of the Capitol"],
         "established_year": 2007,
         "homepage_url": "http://www.aoc.gov/oig/office-inspector-general",
@@ -127,6 +132,7 @@
         "statutory_reference": "2 U.S.C. \u00A7 1808(b)"
     },
     {
+        "active": true,
         "agencies": ["National Archives and Records Administration"],
         "established_year": 1998,
         "homepage_url": "https://www.archives.gov/oig/",
@@ -154,6 +160,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
     {
+        "active": true,
         "agencies": ["Department of the Army"],
         "established_year": 1779,
         "homepage_url": "https://www.daig.pentagon.mil/",
@@ -169,6 +176,7 @@
         "statutory_reference": "10 U.S.C. \u00A7 3020(a)"
     },
     {
+        "active": true,
         "agencies": ["Commodity Futures Trading Commission"],
         "established_year": 1988,
         "homepage_url": "http://www.cftc.gov/About/OfficeoftheInspectorGeneral/index.htm",
@@ -196,6 +204,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
     {
+        "active": true,
         "agencies": ["Central Intelligence Agency"],
         "established_year": 1989,
         "homepage_url": "https://www.cia.gov/offices-of-cia/inspector-general",
@@ -211,6 +220,7 @@
         "statutory_reference": "50 U.S.C. \u00A7 3517(a)"
     },
     {
+        "active": true,
         "agencies": ["Corporation for National and Community Service"],
         "established_year": 1993,
         "homepage_url": "http://www.cncsoig.gov/",
@@ -230,6 +240,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
     {
+        "active": true,
         "agencies": ["Department of Commerce"],
         "established_year": 1978,
         "homepage_url": "https://www.oig.doc.gov/Pages/default.aspx",
@@ -273,6 +284,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
     {
+        "active": true,
         "agencies": ["Corporation for Public Broadcasting"],
         "established_year": 1988,
         "homepage_url": "http://www.cpb.org/oig/",
@@ -308,6 +320,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
     {
+        "active": true,
         "agencies": ["Consumer Product Safety Commission"],
         "established_year": 1988,
         "homepage_url": "https://www.cpsc.gov/en/About-CPSC/Inspector-General/",
@@ -331,6 +344,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
     {
+        "active": true,
         "agencies": ["Denali Commission"],
         "established_year": 1999,
         "homepage_url": "http://oig.denali.gov/",
@@ -374,6 +388,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
     {
+        "active": true,
         "agencies": ["Department of Homeland Security"],
         "established_year": 2002,
         "homepage_url": "https://www.oig.dhs.gov/",
@@ -405,6 +420,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
     {
+        "active": true,
         "agencies": ["Defense Intelligence Agency"],
         "established_year": 2010,
         "homepage_url": "http://www.dia.mil/About/OfficeoftheInspectorGeneral.aspx",
@@ -424,6 +440,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
     {
+        "active": true,
         "agencies": ["Department of Defense"],
         "established_year": 1982,
         "homepage_url": "http://www.dodig.mil/",
@@ -467,6 +484,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
     {
+        "active": true,
         "agencies": ["Department of Justice"],
         "established_year": 1988,
         "homepage_url": "https://oig.justice.gov/",
@@ -482,6 +500,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
     {
+        "active": true,
         "agencies": ["Department of Transportation"],
         "established_year": 1978,
         "homepage_url": "https://www.oig.dot.gov/",
@@ -509,6 +528,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
     {
+        "active": true,
         "agencies": ["Election Assistance Commission"],
         "established_year": 2005,
         "homepage_url": "http://www.eac.gov/inspector_general/",
@@ -540,6 +560,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
     {
+        "active": true,
         "agencies": ["Department of Education"],
         "established_year": 1979,
         "homepage_url": "https://www2.ed.gov/about/offices/list/oig/index.html",
@@ -559,6 +580,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
     {
+        "active": true,
         "agencies": ["Equal Employment Opportunity Commission"],
         "established_year": 1988,
         "homepage_url": "https://oig.eeoc.gov/",
@@ -586,6 +608,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
     {
+        "active": true,
         "agencies": ["Department of Energy"],
         "established_year": 1988,
         "homepage_url": "http://energy.gov/ig/office-inspector-general",
@@ -621,6 +644,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
     {
+        "active": true,
         "agencies": ["Environmental Protection Agency"],
         "established_year": 1978,
         "homepage_url": "http://www.epa.gov/oig",
@@ -652,6 +676,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
     {
+        "active": true,
         "agencies": ["Export-Import Bank of the United States"],
         "established_year": 2007,
         "homepage_url": "http://www.exim.gov/about/oig",
@@ -675,6 +700,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
     {
+        "active": true,
         "agencies": ["Farm Credit Administration"],
         "established_year": 1988,
         "homepage_url": "https://www.fca.gov/home/inspector.html",
@@ -706,6 +732,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
     {
+        "active": true,
         "agencies": ["Federal Communications Commission"],
         "established_year": 1988,
         "homepage_url": "https://www.fcc.gov/office-inspector-general",
@@ -733,6 +760,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
     {
+        "active": true,
         "agencies": ["Federal Deposit Insurance Corporation"],
         "established_year": 1988,
         "homepage_url": "https://www.fdicig.gov/",
@@ -760,6 +788,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
     {
+        "active": true,
         "agencies": ["Federal Election Commission"],
         "established_year": 1988,
         "homepage_url": "http://www.fec.gov/fecig/fecig.shtml",
@@ -787,6 +816,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
     {
+        "active": true,
         "agencies": [
             "Board of Governors of the Federal Reserve System",
             "Consumer Financial Protection Bureau"
@@ -825,6 +855,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
     {
+        "active": true,
         "agencies": ["Federal Housing Finance Agency"],
         "established_year": 2010,
         "homepage_url": "http://fhfaoig.gov/",
@@ -852,6 +883,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
     {
+        "active": true,
         "agencies": ["Federal Labor Relations Authority"],
         "established_year": 1988,
         "homepage_url": "https://www.flra.gov/OIG",
@@ -887,6 +919,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
     {
+        "active": true,
         "agencies": ["Federal Maritime Commission"],
         "established_year": 1988,
         "homepage_url": "http://www.fmc.gov/bureaus_offices/office_of_inspector_general.aspx",
@@ -910,6 +943,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
     {
+        "active": true,
         "agencies": ["Federal Trade Commission"],
         "established_year": 1988,
         "homepage_url": "https://www.ftc.gov/about-ftc/office-inspector-general",
@@ -937,6 +971,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
     {
+        "active": true,
         "agencies": ["Government Accountability Office"],
         "established_year": 2008,
         "homepage_url": "http://www.gao.gov/about/workforce/ig.html",
@@ -956,6 +991,7 @@
         "statutory_reference": "31 U.S.C. \u00A7 705(a)"
     },
     {
+        "active": true,
         "agencies": ["Government Publishing Office"],
         "established_year": 1988,
         "homepage_url": "http://www.gpo.gov/oig/",
@@ -987,6 +1023,7 @@
         "statutory_reference": "44 U.S.C. \u00A7 3901"
     },
     {
+        "active": true,
         "agencies": ["General Services Administration"],
         "established_year": 1978,
         "homepage_url": "https://www.gsaig.gov/",
@@ -1018,6 +1055,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
     {
+        "active": true,
         "agencies": ["Department of Health and Human Services"],
         "established_year": 1988,
         "homepage_url": "http://oig.hhs.gov/",
@@ -1049,6 +1087,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
     {
+        "active": true,
         "agencies": ["House of Representatives"],
         "established_year": 1992,
         "homepage_url": "https://www.house.gov/content/learn/officers_and_organizations/inspector_general.php",
@@ -1068,6 +1107,7 @@
         "statutory_reference": "House Rule II, clause 6"
     },
     {
+        "active": true,
         "agencies": ["Department of Housing and Urban Development"],
         "established_year": 1978,
         "homepage_url": "://www.hudoig.gov/",
@@ -1099,6 +1139,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
     {
+        "active": true,
         "agencies": [
             "Office of the Director of National Intelligence",
             "Central Intelligence Agency",
@@ -1129,6 +1170,7 @@
         "statutory_reference": "50 U.S.C. \u00A7 3033(a)"
     },
     {
+        "active": true,
         "agencies": ["Department of the Interior"],
         "established_year": 1978,
         "homepage_url": "https://www.doioig.gov/",
@@ -1156,6 +1198,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
     {
+        "active": true,
         "agencies": ["United States International Trade Commission"],
         "established_year": 1988,
         "homepage_url": "http://www.usitc.gov/oig.htm",
@@ -1179,6 +1222,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
     {
+        "active": true,
         "agencies": ["Department of Labor"],
         "established_year": 1978,
         "homepage_url": "https://www.oig.dol.gov/",
@@ -1210,6 +1254,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
     {
+        "active": true,
         "agencies": ["Library of Congress"],
         "established_year": 2005,
         "homepage_url": "https://www.loc.gov/about/office-of-the-inspector-general/",
@@ -1229,6 +1274,7 @@
         "statutory_reference": "2 U.S.C. \u00A7 185(b)"
     },
     {
+        "active": true,
         "agencies": ["Legal Services Corporation"],
         "established_year": 1988,
         "homepage_url": "https://www.oig.lsc.gov/",
@@ -1264,6 +1310,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
     {
+        "active": true,
         "agencies": ["United States Marine Corps"],
         "established_year": 1945,
         "homepage_url": "http://www.hqmc.marines.mil/igmc/UnitHome.aspx",
@@ -1287,6 +1334,7 @@
         "statutory_reference": "10 U.S.C. \u00A7 5014"
     },
     {
+        "active": true,
         "agencies": ["National Aeronautics and Space Administration"],
         "established_year": 1978,
         "homepage_url": "https://oig.nasa.gov/",
@@ -1318,6 +1366,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
     {
+        "active": true,
         "agencies": ["Department of the Navy"],
         "established_year": 1942,
         "homepage_url": "http://www.secnav.navy.mil/ig/Pages/Home.aspx",
@@ -1333,6 +1382,7 @@
         "statutory_reference": "10 U.S.C. \u00A7 5020(a)"
     },
     {
+        "active": true,
         "agencies": ["National Credit Union Administration"],
         "established_year": 1988,
         "homepage_url": "http://www.ncua.gov/about/Leadership/Pages/page_oig.aspx",
@@ -1364,6 +1414,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
     {
+        "active": true,
         "agencies": ["National Endowment for the Arts"],
         "established_year": 1988,
         "homepage_url": "http://arts.gov/oig",
@@ -1399,6 +1450,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
     {
+        "active": true,
         "agencies": ["National Endowment for the Humanities"],
         "established_year": 1988,
         "homepage_url": "http://www.neh.gov/about/oig",
@@ -1426,6 +1478,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
     {
+        "active": true,
         "agencies": ["National Geospatial-Intelligence Agency"],
         "established_year": 2010,
         "homepage_url": "https://www.nga.mil/About/Pages/InspectorGeneral.aspx",
@@ -1441,6 +1494,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
     {
+        "active": true,
         "agencies": ["National Labor Relations Board"],
         "established_year": 1988,
         "homepage_url": "https://www.nlrb.gov/who-we-are/inspector-general",
@@ -1472,6 +1526,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
     {
+        "active": true,
         "agencies": ["Nuclear Regulatory Commission"],
         "established_year": 1988,
         "homepage_url": "http://www.nrc.gov/insp-gen.html",
@@ -1499,6 +1554,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
     {
+        "active": true,
         "agencies": ["National Reconnaisance Office"],
         "established_year": 2010,
         "homepage_url": "http://www.nro.gov/offices/oig/index.html",
@@ -1522,6 +1578,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
     {
+        "active": true,
         "agencies": ["National Security Agency"],
         "established_year": 2010,
         "homepage_url": "https://www.nsa.gov/about/oig/",
@@ -1545,6 +1602,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
     {
+        "active": true,
         "agencies": ["National Science Foundation"],
         "established_year": 1988,
         "homepage_url": "https://www.nsf.gov/oig/",
@@ -1584,6 +1642,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
     {
+        "active": true,
         "agencies": ["Office of Personnel Management"],
         "established_year": 1988,
         "homepage_url": "https://www.opm.gov/our-inspector-general/",
@@ -1607,6 +1666,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
     {
+        "active": false,
         "agencies": ["Panama Canal Commission"],
         "established_year": 1988,
         "homepage_url": null,
@@ -1618,6 +1678,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
     {
+        "active": true,
         "agencies": ["Pension Benefit Guaranty Corporation"],
         "established_year": 1988,
         "homepage_url": "http://oig.pbgc.gov/",
@@ -1645,6 +1706,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
     {
+        "active": true,
         "agencies": ["Peace Corps"],
         "established_year": 1988,
         "homepage_url": "http://www.peacecorps.gov/about/inspgen/",
@@ -1680,6 +1742,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
     {
+        "active": true,
         "agencies": ["Postal Regulatory Commission"],
         "established_year": 2007,
         "homepage_url": "http://www.prc.gov/offices/oig",
@@ -1707,6 +1770,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
     {
+        "active": true,
         "agencies": ["Railroad Retirement Board"],
         "established_year": 1988,
         "homepage_url": "http://www.rrb.gov/oig/",
@@ -1734,6 +1798,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
     {
+        "active": false,
         "agencies": ["Resolution Trust Corporation"],
         "established_year": 1989,
         "homepage_url": null,
@@ -1745,6 +1810,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
     {
+        "active": true,
         "agencies": ["Small Business Administration"],
         "established_year": 1978,
         "homepage_url": "https://www.sba.gov/office-of-inspector-general",
@@ -1764,6 +1830,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
     {
+        "active": true,
         "agencies": ["Securities and Exchange Commission"],
         "established_year": 1988,
         "name": "Securities and Exchange Commission, Office of Inspector General",
@@ -1783,6 +1850,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
     {
+        "active": true,
         "agencies": [
             "Department of State",
             "Department of Defense"
@@ -1825,6 +1893,7 @@
         "statutory_reference": "Pub. L. No. 110-181, \u00A7 1229(b)"
     },
     {
+        "active": false,
         "agencies": [
             "Department of State",
             "Department of Defense"
@@ -1839,6 +1908,7 @@
         "statutory_reference": "Pub. L. No. 108-106, \u00A7 3001(b)"
     },
     {
+        "active": true,
         "agencies": ["Department of the Treasury"],
         "established_year": 2008,
         "homepage_url": "https://www.sigtarp.gov/Pages/home.aspx",
@@ -1866,6 +1936,7 @@
         "statutory_reference": "12 U.S.C. \u00A7 5231(a)"
     },
     {
+        "active": true,
         "agencies": ["Smithsonian Institution"],
         "established_year": 1988,
         "homepage_url": "http://www.si.edu/OIG",
@@ -1897,6 +1968,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
     {
+        "active": true,
         "agencies": ["Social Security Administration"],
         "established_year": 1995,
         "homepage_url": "http://oig.ssa.gov",
@@ -1928,6 +2000,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
     {
+        "active": true,
         "agencies": ["Department of State", "Broadcasting Board of Governors"],
         "established_year": 1987,
         "homepage_url": "https://oig.state.gov/",
@@ -1955,6 +2028,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
     {
+        "active": true,
         "agencies": ["Department of the Treasury"],
         "established_year": 1999,
         "homepage_url": "https://www.treasury.gov/tigta/",
@@ -1986,6 +2060,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(B)"
     },
     {
+        "active": true,
         "agencies": ["Department of the Treasury"],
         "established_year": 1988,
         "homepage_url": "http://www.treasury.gov/about/organizational-structure/ig/",
@@ -2005,6 +2080,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(B)"
     },
     {
+        "active": true,
         "agencies": ["Tennessee Valley Authority"],
         "established_year": 1988,
         "homepage_url": "http://oig.tva.gov/",
@@ -2024,6 +2100,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
     {
+        "active": true,
         "agencies": ["United States Agency for International Development"],
         "established_year": 1980,
         "homepage_url": "https://oig.usaid.gov/",
@@ -2039,6 +2116,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
     {
+        "active": true,
         "agencies": ["United States Capitol Police"],
         "established_year": 2005,
         "homepage_url": "http://www.uscapitolpolice.gov/oig.php",
@@ -2062,6 +2140,7 @@
         "statutory_reference": "2 U.S.C. \u00A7 1909(a)"
     },
     {
+        "active": true,
         "agencies": ["United States Postal Service"],
         "established_year": 1988,
         "homepage_url": "https://uspsoig.gov/",
@@ -2085,6 +2164,7 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
     },
     {
+        "active": true,
         "agencies": ["Department of Veterans Affairs"],
         "established_year": 1978,
         "homepage_url": "http://www.va.gov/oig",
