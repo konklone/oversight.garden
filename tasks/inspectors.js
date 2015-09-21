@@ -76,7 +76,7 @@ function run(options) {
         report_id = details.report_id;
     console.log("[" + inspector + "][" + year + "][" + report_id + "]");
 
-    console.log("\tLoading JSON from disk...")
+    console.log("\tLoading JSON from disk...");
     var datafile = path.join(config.inspectors.data, inspector, year.toString(), report_id, "report.json");
     if (!fs.existsSync(datafile)) {
       console.error("ERROR: JSON missing, report is probably a bad URL.");
@@ -86,7 +86,7 @@ function run(options) {
     if (!json || json.length <= 0) return done();
     var data = JSON.parse(json);
 
-    console.log("\tLoading text from disk...")
+    console.log("\tLoading text from disk...");
     var textfile = path.join(config.inspectors.data, inspector, year.toString(), report_id, "report.txt");
     if (fs.existsSync(textfile))
       data.text = fs.readFileSync(textfile).toString();
@@ -115,11 +115,11 @@ function run(options) {
   async.eachSeries(fetch, loadReport, function(err) {
     if (err) console.log("Error doing things!!");
 
-    console.log("Refreshing index.")
+    console.log("Refreshing index.");
     es.indices.refresh(function(err) {
       if (err) console.log("Error: " + err);
 
-      console.log("All done.")
+      console.log("All done.");
       process.exit(0);
     });
   });
