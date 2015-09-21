@@ -56,7 +56,7 @@
             }
         ],
         "name": "Office of the Inspector General of the Air Force",
-        "nicknames": "Air Force",
+        "nicknames": ["Air Force"],
         "publishes_reports": false,
         "slug": "airforce",
         "statutory_reference": "10 U.S.C. \u00A7 8020(a)"
@@ -1425,7 +1425,7 @@
             }
         ],
         "name": "Office of the Naval Inspector General",
-        "nicknames": "Navy",
+        "nicknames": ["Navy"],
         "publishes_reports": false,
         "slug": "navy",
         "statutory_reference": "10 U.S.C. \u00A7 5020(a)"
