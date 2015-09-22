@@ -1,2 +1,5 @@
 language: bash
 script: bash tasks/pre-commit
+sudo: false
+notifications:
+  email: false
