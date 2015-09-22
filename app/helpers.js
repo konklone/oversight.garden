@@ -21,7 +21,7 @@ module.exports = {
   },
 
   format_number: function(val, default_string) {
-    if (val === null || val === NaN || val === undefined) {
+    if (val === null || isNaN(val) || val === undefined) {
       return default_string;
     }
     try {
@@ -31,4 +31,4 @@ module.exports = {
     }
   }
 
-}
+};

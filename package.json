@@ -40,5 +40,9 @@
     "glob": "*",
     "async": "*",
     "minimist": "*"
+  },
+  "devDependencies": {
+    "jshint": "*",
+    "tv4": "*"
   }
 }

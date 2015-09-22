@@ -43,7 +43,7 @@ module.exports = {
         results: null,
         query: null
       });
-    })
+    });
   },
 
   report: function(req, res) {
@@ -58,7 +58,7 @@ module.exports = {
         reportCount: reportCount,
         report: null
       });
-    })
+    });
   }
 
 };

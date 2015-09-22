@@ -21,9 +21,9 @@ app.enable('trust proxy')
 
 // development vs production
 if (env == "development")
-  app.use(require('errorhandler')({dumpExceptions: true, showStack: true}))
+  app.use(require('errorhandler')({dumpExceptions: true, showStack: true}));
 else
-  app.use(require('errorhandler')())
+  app.use(require('errorhandler')());
 
 
 // helpers and routes
