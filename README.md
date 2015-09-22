@@ -1,4 +1,4 @@
-## Oversight.io
+## Oversight.io  
 
 Bringing into sight the work of the United States government's oversight community.
 
