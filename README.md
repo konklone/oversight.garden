@@ -95,6 +95,9 @@ This defaults to loading every report for the current year. See [the full list o
 
 If this all worked, you should be up and running!
 
+### Git hooks
+If you're contributing to the project, you can run the same syntax checks locally that would get run on Travis. Once you have cloned the project, run `tasks/install-git-hooks.sh`. This will create a symbolic link at `.git/hooks/pre-commit` that points to `tasks/pre-commit`. From then on, Git will execute syntax checks whenever you run `git commit`. If there is an issue, the script will abort the commit and print an error message. If you need to bypass the syntax checks for any reason, use `git commit --no-verify`.
+
 ### Public domain
 
 This project is [dedicated to the public domain](LICENSE). As spelled out in [CONTRIBUTING](CONTRIBUTING.md):
