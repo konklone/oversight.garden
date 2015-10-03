@@ -9,8 +9,8 @@
 
     <h4>
       Published by the
-      <a href="<%= report.inspector_url %>">
-        <%= report.agency_name %> OIG</a>
+      <a href="/inspector/<%= report.inspector %>">
+        <%= helpers.inspector_info(report.inspector).name %></a>
       on
       <%= report.published_on %>.
     </h4>

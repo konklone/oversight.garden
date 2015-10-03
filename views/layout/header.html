@@ -22,9 +22,9 @@
 
 <% if ((typeof(report) != "undefined") && report) { %>
   <title>
-    <%= report.agency_name %> | <%= report.title %>
+    <%= helpers.inspector_info(report.inspector).name %> | <%= report.agency_name %> | <%= report.title %>
   </title>
-  <meta name="og:title" content="<%= helpers.escape_attribute(report.agency_name) %> | <%= helpers.escape_attribute(report.title) %>" />
+  <meta name="og:title" content="<%= helpers.escape_attribute(helpers.inspector_info(report.inspector).name) %> | <%= helpers.escape_attribute(report.agency_name) %> | <%= helpers.escape_attribute(report.title) %>" />
   <meta name="description" content="<%= helpers.escape_attribute(report.title) %>" />
   <meta name="og:description" content="<%= helpers.escape_attribute(report.title) %>" />
 <% } else { %>

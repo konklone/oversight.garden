@@ -43,8 +43,10 @@
                 <%= report.title %></a>
             </h2>
             <h4>
-              <a href="<%= report.inspector_url %>">
-                <%= report.agency_name %></a>
+              <a href="/inspector/<%= report.inspector %>">
+                <%= helpers.inspector_info(report.inspector).name %></a>
+              &mdash;
+              <%= report.agency_name %>
               &mdash;
               <%= report.published_on %>
               <% if (report.url) { %>

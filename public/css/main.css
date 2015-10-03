@@ -160,7 +160,7 @@ h1 a, h1 a:visited { text-decoration: none; color: white; }
   font-size: 12px;
 }
 
-/** landing page **/
+/** report landing page **/
 
 .report h2, .report h4 {display: block;}
 .report h2 {
@@ -183,4 +183,10 @@ h1 a, h1 a:visited { text-decoration: none; color: white; }
   border: 1px solid #888;
   margin: 40px 0;
   padding: 40px;
+}
+
+/** inspector page **/
+
+.inspector {
+  /* TODO */
 }

@@ -1,0 +1,36 @@
+<% include layout/header.html %>
+
+<section class="main inspector"><div class="inner">
+  <% if (metadata) { %>
+    <pre>
+Infodump style!
+Active: <%= metadata.active %>
+Agencies: <%= metadata.agencies.join(", ") %>
+Established year: <%= metadata.established_year %>
+Homepage URL: <%= metadata.homepage_url %>
+Name: <%= metadata.name %>
+Nicknames: <%= metadata.nicknames.join(", ") %>
+Publishes reports: <%= metadata.publishes_reports %>
+Slug: <%= metadata.slug %>
+Statutory reference: <%= metadata.statutory_reference %>
+    </pre>
+    <% if (results.hits.total > 0) { %>
+      Most recent reports
+      <ul>
+      <% var hits = results.hits.hits; %>
+      <% for (var i = 0; i < hits.length; i++) { %>
+        <% var report = hits[i]._source; %>
+        <li>
+        <%= report.title %>
+        </li>
+      <% } %>
+      </ul>
+    <% } else { %>
+      No recent reports
+    <% } %>
+  <% } else { %>
+    Error loading inspector information.
+  <% } %>
+</div></section>
+
+<% include layout/footer.html %>

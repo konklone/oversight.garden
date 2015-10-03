@@ -3,6 +3,14 @@
 var qs = require("querystring");
 var numeral = require("numeral");
 
+var inspectorMetadataList = require("../config/inspectors");
+var inspectorMetadata = {};
+for (var i = 0; i < inspectorMetadataList.length; i++) {
+  var obj = inspectorMetadataList[i];
+  inspectorMetadata[obj.slug] = obj;
+}
+
+
 module.exports = {
 
   truncate: function(text, limit) {
@@ -29,6 +37,16 @@ module.exports = {
     } catch (e) {
       return default_string;
     }
-  }
+  },
+
+  inspector_info: function(slug) {
+    if (slug in inspectorMetadata) {
+      return inspectorMetadata[slug];
+    } else {
+      return null;
+    }
+  },
+
+  inspector_list: inspectorMetadataList,
 
 };
