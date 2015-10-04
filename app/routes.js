@@ -48,14 +48,28 @@ module.exports = {
     });
   },
 
+  inspectors: function(req, res) {
+    res.render("inspectors.html", {
+      reportCount: reportCount,
+      inspectorReportCounts: inspectorReportCounts
+    });
+  },
+
   inspector: function(req, res) {
     var metadata = helpers.inspector_info(req.params.inspector);
     if (metadata) {
+      var inspectorReportCount;
+      if (inspectorReportCounts) {
+        inspectorReportCount = inspectorReportCounts[req.params.inspector] || 0;
+      } else {
+        inspectorReportCount = null;
+      }
       search("*", req.params.inspector, 1).then(function(results) {
         res.render("inspector.html", {
           reportCount: reportCount,
           inspector: req.params.inspector,
           metadata: metadata,
+          inspectorReportCount: inspectorReportCount,
           results: results
         });
       }, function(err) {
@@ -147,18 +161,43 @@ function search(query, inspector, page) {
 }
 
 var reportCount = null;
+var inspectorReportCounts = null;
 
-function updateReportCount() {
+function updateReportCounts() {
   es.count({
-    index: 'oversight',
-    type: 'reports'
+    index: "oversight",
+    type: "reports"
   }).then(function(result) {
     reportCount = result.count;
   }, function(err) {
     console.log("Nooooo! " + err);
     reportCount = null;
   });
+  es.search({
+    index: "oversight",
+    type: "reports",
+    searchType: "count",
+    body: {
+      aggregations: {
+        inspector_agg: {
+          terms: {
+            field: "inspector",
+            size: 0
+          }
+        }
+      }
+    }
+  }).then(function(result) {
+    var buckets = result.aggregations.inspector_agg.buckets;
+    inspectorReportCounts = {};
+    for (var i = 0; i < buckets.length; i++) {
+      inspectorReportCounts[buckets[i].key] = buckets[i].doc_count;
+    }
+  }, function(err) {
+    console.log("Nooooo! " + err);
+    inspectorReportCounts = null;
+  });
 }
 
-setInterval(updateReportCount, 1000 * 60 * 60);
-updateReportCount();
+setInterval(updateReportCounts, 1000 * 60 * 60);
+updateReportCounts();

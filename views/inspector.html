@@ -13,6 +13,7 @@ Nicknames: <%= metadata.nicknames.join(", ") %>
 Publishes reports: <%= metadata.publishes_reports %>
 Slug: <%= metadata.slug %>
 Statutory reference: <%= metadata.statutory_reference %>
+<% if (inspectorReportCount !== null) { %>Report count: <%= inspectorReportCount %><% } %>
     </pre>
     <% if (results.hits.total > 0) { %>
       Most recent reports
