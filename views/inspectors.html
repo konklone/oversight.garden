@@ -1,15 +1,22 @@
 <% include layout/header.html %>
 
 <section class="main inspectors"><div class="inner">
-  <h2>This is a list of inspectors general</h2>
+  <h2>Inspectors General</h2>
   <ul>
     <% for (var i = 0; i < helpers.inspector_list.length; i++) { %>
     <% var inspector = helpers.inspector_list[i]; %>
+    <% var attr_slug = helpers.escape_attribute(inspector.slug); %>
     <li>
-      <a href="/inspector/<%= helpers.escape_attribute(inspector.slug) %>"><%= inspector.name %></a>
-      <% if (inspectorReportCounts !== null) { %>
-      (<%= inspectorReportCounts[inspector.slug] || 0 %> reports)
-      <% } %>
+      <img src="/images/inspectors/<%= attr_slug %>.png">
+      <div class="inspector-info">
+        <a href="/inspector/<%= attr_slug %>" class="inspector-link"><%= inspector.name %></a>
+        <a href="TODO"><%= (inspectorReportCounts && inspectorReportCounts[inspector.slug]) || 0 %> reports</a>
+        <% if (!inspector.active) { %>
+        <span class="tag inactive" title="This inspector general has been disbanded or disestablished.">Inactive</span>
+        <% } else if (!inspector.publishes_reports) { %>
+        <span class="tag foia-only" title="This inspector general does not proactively publish its reports. Any reports listed here have been acquired through the FOIA process and republished.">FOIA only</span>
+        <% } %>
+      </div>
     </li>
     <% } %>
   </ul>

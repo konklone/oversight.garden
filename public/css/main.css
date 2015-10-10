@@ -193,6 +193,29 @@ h1 a, h1 a:visited { text-decoration: none; color: white; }
 
 /** inspector list **/
 
-.inspectors {
-  /* TODO */
+.inspectors ul, .inspectors li {list-style-type: none;}
+.inspectors .li {
+  margin: 40px 0;
+}
+
+.inspectors .inspector-info {
+  display: inline-block;
+}
+
+.inspectors .inspector-link {
+  display: block;
+}
+
+.tag {
+  border-radius: 10px;
+  padding: 5px;
+  margin: 10px;
+}
+
+.tag.inactive {
+  background-color: #cccccc;
+}
+
+.tag.foia-only {
+  background-color: #ff2222;
 }

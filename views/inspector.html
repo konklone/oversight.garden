@@ -2,33 +2,57 @@
 
 <section class="main inspector"><div class="inner">
   <% if (metadata) { %>
-    <pre>
-Infodump style!
-Active: <%= metadata.active %>
-Agencies: <%= metadata.agencies.join(", ") %>
-Established year: <%= metadata.established_year %>
-Homepage URL: <%= metadata.homepage_url %>
-Name: <%= metadata.name %>
-Nicknames: <%= metadata.nicknames.join(", ") %>
-Publishes reports: <%= metadata.publishes_reports %>
-Slug: <%= metadata.slug %>
-Statutory reference: <%= metadata.statutory_reference %>
-<% if (inspectorReportCount !== null) { %>Report count: <%= inspectorReportCount %><% } %>
-    </pre>
-    <% if (results.hits.total > 0) { %>
-      Most recent reports
-      <ul>
-      <% var hits = results.hits.hits; %>
-      <% for (var i = 0; i < hits.length; i++) { %>
-        <% var report = hits[i]._source; %>
-        <li>
-        <%= report.title %>
-        </li>
+    <div>
+      <img src="/images/inspectors/<%= helpers.escape_attribute(metadata.slug) %>.png">
+      <h2><%= metadata.name %></h2>
+    </div>
+    <div>
+      Established in <%= metadata.established_year %>,
+      <% if (metadata.active) { %>
+      currently active
+      <% } else { %>
+      not currently active
       <% } %>
-      </ul>
+    </div>
+    <div>
+      <% var agencies_with_the = metadata.agencies.map(function(s){return "the " + s;}); %>
+      Oversees <%= helpers.join_and(agencies_with_the) %>
+    </div>
+    <div>
+      Homepage: <a href="<%= helpers.escape_attribute(metadata.homepage_url) %>"><%= metadata.homepage_url %></a>
+    </div>
+    <div>
+      <% if (metadata.publishes_reports) { %>
+        Publishes reports online
+      <% } else { %>
+        Does not publish reports
+      <% } %>
+    </div>
+    <div>
+      Statutory reference: <%= metadata.statutory_reference %>
+    </div>
+    <div>
+    <% if (!inspectorReportCount || !results.hits.total) { %>
+    No reports were found.
     <% } else { %>
-      No recent reports
+    <%= results.hits.total %> most recent reports (of <%= inspectorReportCount %>)
+    <ul>
+    <% var hits = results.hits.hits; %>
+    <% for (var i = 0; i < hits.length; i++) { %>
+      <% var report = hits[i]._source; %>
+      <li>
+      <%= report.title %>
+      <%= report.published_on %>
+      <% if (report.url) { %>
+      <%= report.url %>
+      <%= report.file_type.toUpperCase() %>
+      <% } %>
+      </li>
     <% } %>
+    </ul>
+    <a href="TODO">View more reports</a>
+    <% } %>
+    </div>
   <% } else { %>
     Error loading inspector information.
   <% } %>
