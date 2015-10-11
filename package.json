@@ -39,7 +39,8 @@
 
     "glob": "*",
     "async": "*",
-    "minimist": "*"
+    "minimist": "*",
+    "request": "*"
   },
   "devDependencies": {
     "jshint": "*",
