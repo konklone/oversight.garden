@@ -2,5 +2,6 @@
 /todo.txt
 config.js
 /data
+/images-original
 *.log
 *.pyc
