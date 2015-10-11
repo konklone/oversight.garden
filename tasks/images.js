@@ -148,7 +148,12 @@ async.eachSeries(inspectors, function(inspector, done) {
       var extension = path.extname(urls[slug]);
       original = slug + "-original" + extension;
       var file = fs.createWriteStream(path.resolve(originals_dir, original));
-      var r = request(urls[slug]);
+      var r = request({
+        url: urls[slug],
+        headers: {
+          'User-Agent': 'oversight.io'
+        }
+      });
       r.pipe(file);
       r.on("error", function(e) {
         fs.unlink(file);
