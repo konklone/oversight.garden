@@ -5,11 +5,10 @@
   <ul>
     <% for (var i = 0; i < helpers.inspector_list.length; i++) { %>
     <% var inspector = helpers.inspector_list[i]; %>
-    <% var attr_slug = helpers.escape_attribute(inspector.slug); %>
     <li>
-      <img src="/images/inspectors/<%= attr_slug %>.png">
+      <img src="/images/inspectors/<%= inspector.slug %>.png">
       <div class="inspector-info">
-        <a href="/inspector/<%= attr_slug %>" class="inspector-link"><%= inspector.name %></a>
+        <a href="/inspector/<%= inspector.slug %>" class="inspector-link"><%= inspector.name %></a>
         <a href="TODO"><%= (inspectorReportCounts && inspectorReportCounts[inspector.slug]) || 0 %> reports</a>
         <% if (!inspector.active) { %>
         <span class="tag inactive" title="This inspector general has been disbanded or disestablished.">Inactive</span>

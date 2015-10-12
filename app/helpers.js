@@ -24,10 +24,6 @@ module.exports = {
     return qs.stringify(object);
   },
 
-  escape_attribute: function(text) {
-    return text.replace(/\"/g, "&quot;");
-  },
-
   format_number: function(val, default_string) {
     if (val === null || isNaN(val) || val === undefined) {
       return default_string;

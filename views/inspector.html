@@ -3,7 +3,7 @@
 <section class="main inspector"><div class="inner">
   <% if (metadata) { %>
     <div>
-      <img src="/images/inspectors/<%= helpers.escape_attribute(metadata.slug) %>.png">
+      <img src="/images/inspectors/<%= metadata.slug %>.png">
       <h2><%= metadata.name %></h2>
     </div>
     <div>
@@ -19,7 +19,7 @@
       Oversees <%= helpers.join_and(agencies_with_the) %>
     </div>
     <div>
-      Homepage: <a href="<%= helpers.escape_attribute(metadata.homepage_url) %>"><%= metadata.homepage_url %></a>
+      Homepage: <a href="<%= metadata.homepage_url %>"><%= metadata.homepage_url %></a>
     </div>
     <div>
       <% if (metadata.publishes_reports) { %>
