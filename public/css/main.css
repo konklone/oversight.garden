@@ -187,8 +187,10 @@ h1 a, h1 a:visited { text-decoration: none; color: white; }
 
 /** inspector page **/
 
-.inspector {
-  /* TODO */
+.inspector .infobox {
+  background-color: #d0ebc1;
+  padding: 20px;
+  margin-bottom: 40px;
 }
 
 /** inspector list **/
