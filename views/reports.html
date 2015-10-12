@@ -7,11 +7,11 @@
 
 
     <strong>
-    <% if (query) { %>
-      <%= results.hits.total %> reports matching "<%= query %>".
-    <% } else { %>
-      <%= results.hits.total %> reports.
-    <% } %>
+      <% if (query) { %>
+        <%= results.hits.total %> reports matching "<%= query %>".
+      <% } else { %>
+        <%= results.hits.total %> reports.
+      <% } %>
     </strong>
     <% if (page > 1) { %>
       <a href="/reports?<%= helpers.q({page: parseInt(page)-1, query: query}) %>">
@@ -73,7 +73,7 @@
             <% if (highlight && (highlight.text || highlight.summary)) { %>
               <p>
                 <% if (highlight.text) { %>
-                …<%- helpers.truncate(highlight.text[0], 500) %>…
+                  …<%- helpers.truncate(highlight.text[0], 500) %>…
                 <% } else if (highlight.summary) { %>
                   …<%- helpers.truncate(highlight.summary[0], 500) %>…
                 <% } %>
