@@ -96,6 +96,7 @@ function search(query, page) {
         "published_on": "desc"
       }],
       "highlight": {
+        "encoder": "html",
         "pre_tags": ["<b>"],
         "post_tags": ["</b>"],
         "fields": {
