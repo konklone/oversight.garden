@@ -149,7 +149,7 @@ async.eachSeries(inspectors, function(inspector, done) {
   if (!original) {
     if (slug in urls) {
       console.log(slug + ": downloading image from " + urls[slug]);
-      var extension = path.extname(urls[slug]);
+      var extension = path.extname(urls[slug]).toLowerCase();
       original = slug + "-original" + extension;
       var file = fs.createWriteStream(path.resolve(originals_dir, original));
       var r = request({
