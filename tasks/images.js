@@ -115,6 +115,8 @@ function convert_file(slug, original, done) {
       path.resolve(originals_dir, original),
       "-resize",
       "100x100",
+      "-background",
+      "none",
       "-gravity",
       "center",
       "-extent",
