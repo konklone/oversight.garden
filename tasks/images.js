@@ -79,6 +79,7 @@ var urls = {
     tva: "https://upload.wikimedia.org/wikipedia/commons/f/f4/US-TennesseeValleyAuthority-Logo.svg",
     usaid: "https://upload.wikimedia.org/wikipedia/commons/1/17/USAID-Identity.svg",
     uscp: "https://pbs.twimg.com/profile_images/95405530/uscp_patch.JPG",
+    usps: "https://pbs.twimg.com/profile_images/460880152520454144/90ieWtNy.png",
 };
 
 var root = path.resolve(__dirname, "..");
