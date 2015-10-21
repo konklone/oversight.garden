@@ -11,6 +11,7 @@ var inspectors = require("../config/inspectors.json");
 var urls = {
     agriculture: "https://upload.wikimedia.org/wikipedia/commons/0/0e/USDA_logo.svg",
     airforce: "https://upload.wikimedia.org/wikipedia/commons/6/69/USAF_logo.png",
+    amtrak: "https://pbs.twimg.com/profile_images/460870025516048384/qb-Dz6jD.jpeg",
     architect: "https://upload.wikimedia.org/wikipedia/commons/a/a5/US-ArchitectOfTheCapitol-2010Logo.svg",
     archives: "https://upload.wikimedia.org/wikipedia/commons/f/f4/NARA_Logo_created_2010.svg",
     army: "https://upload.wikimedia.org/wikipedia/commons/1/19/Emblem_of_the_United_States_Department_of_the_Army.svg",
@@ -152,6 +153,9 @@ async.eachSeries(inspectors, function(inspector, done) {
     if (slug in urls) {
       console.log(slug + ": downloading image from " + urls[slug]);
       var extension = path.extname(urls[slug]).toLowerCase();
+      if (extension == ".jpeg") {
+        extension = ".jpg";
+      }
       original = slug + "-original" + extension;
       var file = fs.createWriteStream(path.resolve(originals_dir, original));
       var r = request({
