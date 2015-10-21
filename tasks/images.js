@@ -54,6 +54,7 @@ var urls = {
     nasa: "https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg",
     navy: "https://upload.wikimedia.org/wikipedia/commons/0/09/Seal_of_the_United_States_Department_of_the_Navy.svg",
     ncua: "https://upload.wikimedia.org/wikipedia/commons/b/b8/US-NationalCreditUnionAdmin-Seal.svg",
+    nea: "https://upload.wikimedia.org/wikipedia/commons/e/ed/NEA_logo.jpg",
     neh: "http://www.neh.gov/files/neh_logo_stckd.jpg",
     nga: "https://upload.wikimedia.org/wikipedia/commons/9/9f/US-NationalGeospatialIntelligenceAgency-2008Seal.svg",
     nlrb: "https://upload.wikimedia.org/wikipedia/commons/b/be/National_Labor_Relations_Board_logo_-_color.jpg",
