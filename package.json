@@ -43,6 +43,7 @@
     "minimist": "*"
   },
   "devDependencies": {
+    "intercept-stdout": "*",
     "jshint": "*",
     "tv4": "*"
   }
