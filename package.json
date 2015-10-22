@@ -36,6 +36,7 @@
     "body-parser": "*",
     "method-override": "*",
     "errorhandler": "*",
+    "numeral": "*",
 
     "glob": "*",
     "async": "*",
@@ -43,6 +44,7 @@
     "request": "*"
   },
   "devDependencies": {
+    "intercept-stdout": "*",
     "jshint": "*",
     "tv4": "*"
   }
