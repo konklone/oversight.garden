@@ -138,6 +138,9 @@ function search(query, inspector, page) {
       "published_on": "desc"
     }],
     "highlight": {
+      "encoder": "html",
+      "pre_tags": ["<b>"],
+      "post_tags": ["</b>"],
       "fields": {
         "*": {}
       },
@@ -146,6 +149,7 @@ function search(query, inspector, page) {
     },
     "_source": ["report_id", "year", "inspector", "agency", "title", "agency_name", "url", "landing_url", "inspector_url", "published_on", "type", "file_type"]
   };
+
   if (inspector) {
     body.query.filtered.filter = {
       "term": {
@@ -153,6 +157,7 @@ function search(query, inspector, page) {
       }
     };
   }
+
   return es.search({
     index: 'oversight',
     type: 'reports',
