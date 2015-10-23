@@ -36,6 +36,7 @@ module.exports = {
         reportCount: reportCount,
         results: results,
         query: req.query.query,
+        inspector: inspector,
         page: page
       });
     }, function(err) {
