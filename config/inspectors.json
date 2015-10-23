@@ -878,7 +878,7 @@
                 "value": "OIG Hotline\nBoard of Governors of the Federal Reserve System\n20th Street and Constitution Avenue NW\nMail Stop K-300\nWashington, DC 20551"
             }
         ],
-        "name": "Office of Inspector Generalfor the Board of Governors of the Federal Reserve System and Consumer Financial Protection Bureau",
+        "name": "Office of Inspector General for the Board of Governors of the Federal Reserve System and Consumer Financial Protection Bureau",
         "nicknames": ["Federal Reserve", "Fed", "CFPB"],
         "publishes_reports": true,
         "slug": "fed",

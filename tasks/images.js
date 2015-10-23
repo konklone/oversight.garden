@@ -27,6 +27,7 @@ var urls = {
     doj: "https://upload.wikimedia.org/wikipedia/commons/5/54/Seal_of_the_United_States_Department_of_Justice.svg",
     dot: "https://upload.wikimedia.org/wikipedia/commons/3/3c/US-DeptOfTransportation-Seal.svg",
     eac: "https://upload.wikimedia.org/wikipedia/commons/3/3a/US-ElectionAssistanceCommission-Seal.svg",
+    education: "https://pbs.twimg.com/profile_images/615220699108638720/Z3hown48.png",
     eeoc: "https://upload.wikimedia.org/wikipedia/commons/b/b7/US-EEOC-Seal.svg",
     energy: "https://upload.wikimedia.org/wikipedia/commons/b/bf/US-DeptOfEnergy-Seal.svg",
     epa: "https://upload.wikimedia.org/wikipedia/commons/1/14/Environmental_Protection_Agency_logo.svg",
@@ -81,6 +82,7 @@ var urls = {
     usaid: "https://upload.wikimedia.org/wikipedia/commons/1/17/USAID-Identity.svg",
     uscp: "https://pbs.twimg.com/profile_images/95405530/uscp_patch.JPG",
     usps: "https://pbs.twimg.com/profile_images/460880152520454144/90ieWtNy.png",
+    va: "https://upload.wikimedia.org/wikipedia/commons/0/05/Seal_of_the_U.S._Department_of_Veterans_Affairs.svg",
 };
 
 var root = path.resolve(__dirname, "..");
