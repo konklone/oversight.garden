@@ -28,9 +28,10 @@ module.exports = {
     else
       query = "*";
 
+    var inspector = req.query.inspector || null;
     var page = req.query.page || 1;
 
-    search(query, null, page).then(function(results) {
+    search(query, inspector, page).then(function(results) {
       res.render("reports.html", {
         reportCount: reportCount,
         results: results,

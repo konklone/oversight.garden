@@ -9,7 +9,7 @@
         <img src="/images/inspectors/<%= inspector.slug %>.png" height="100" width="100">
         <div class="inspector-info">
           <a href="/inspector/<%= inspector.slug %>" class="inspector-link"><%= inspector.name %></a>
-          <a href="TODO"><%= (inspectorReportCounts && inspectorReportCounts[inspector.slug]) || 0 %> reports</a>
+          <a href="/reports?inspector=<%= inspector.slug %>"><%= (inspectorReportCounts && inspectorReportCounts[inspector.slug]) || 0 %> reports</a>
           <% if (!inspector.active) { %>
             <span class="tag inactive" title="This inspector general has been disbanded or disestablished.">Inactive</span>
           <% } else if (!inspector.publishes_reports) { %>
