@@ -37,11 +37,11 @@
       <% if (!inspectorReportCount || !results.hits.total) { %>
         No reports were found.
       <% } else { %>
+        <% var hits = results.hits.hits; %>
         <strong>
-          <%= results.hits.total %> most recent reports (of <%= inspectorReportCount %>)
+          <%= hits.length %> most recent reports (of <%= inspectorReportCount %>)
         </strong>
         <ul>
-          <% var hits = results.hits.hits; %>
           <% for (var i = 0; i < hits.length; i++) { %>
             <% var report = hits[i]._source; %>
             <li>
