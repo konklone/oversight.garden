@@ -160,7 +160,7 @@ h1 a, h1 a:visited { text-decoration: none; color: white; }
   font-size: 12px;
 }
 
-/** landing page **/
+/** report landing page **/
 
 .report h2, .report h4 {display: block;}
 .report h2 {
@@ -183,4 +183,60 @@ h1 a, h1 a:visited { text-decoration: none; color: white; }
   border: 1px solid #888;
   margin: 40px 0;
   padding: 40px;
+}
+
+/** inspector page **/
+
+.inspector .infobox {
+  background-color: #d0ebc1;
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+.inspector .infobox h2 {
+  max-width: 600px;
+  font-weight: bold;
+  font-size: 20px;
+  vertical-align: top;
+}
+
+/** inspector list **/
+
+.inspectors ul, .inspectors li {list-style-type: none;}
+.inspectors li {
+  margin: 40px 0;
+}
+
+.inspectors h2 {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.inspectors li div {
+  vertical-align: top;
+  max-width: 600px;
+}
+
+.inspectors .inspector-info {
+  display: inline-block;
+}
+
+.inspectors .inspector-link {
+  display: block;
+}
+
+/** tags **/
+
+.tag {
+  border-radius: 10px;
+  padding: 5px;
+  margin: 10px;
+}
+
+.tag.inactive {
+  background-color: #cccccc;
+}
+
+.tag.foia-only {
+  background-color: #ff2222;
 }

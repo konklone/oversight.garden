@@ -22,11 +22,11 @@
 
 <% if ((typeof(report) != "undefined") && report) { %>
   <title>
-    <%= report.agency_name %> | <%= report.title %>
+    <%= helpers.inspector_info(report.inspector).name %> | <%= report.agency_name %> | <%= report.title %>
   </title>
-  <meta name="og:title" content="<%= helpers.escape_attribute(report.agency_name) %> | <%= helpers.escape_attribute(report.title) %>" />
-  <meta name="description" content="<%= helpers.escape_attribute(report.title) %>" />
-  <meta name="og:description" content="<%= helpers.escape_attribute(report.title) %>" />
+  <meta name="og:title" content="<%= helpers.inspector_info(report.inspector).name %> | <%= report.agency_name %> | <%= report.title %>" />
+  <meta name="description" content="<%= report.title %>" />
+  <meta name="og:description" content="<%= report.title %>" />
 <% } else { %>
   <title>
     Oversight.io | Bringing into sight the US government's oversight community.
@@ -74,8 +74,8 @@
   <p>
   Searching
   <a class="browse" href="/reports">
-  <%= helpers.format_number(reportCount, 'over 40,000') %> reports</a>
-  from various <a href="https://github.com/unitedstates/inspectors-general#inspectors-general">inspectors general</a>
+    <%= helpers.format_number(reportCount, 'over 40,000') %> reports</a>
+  from various <a href="/inspectors">inspectors general</a>
   in the US federal government.
   </p>
 

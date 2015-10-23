@@ -40,7 +40,8 @@
 
     "glob": "*",
     "async": "*",
-    "minimist": "*"
+    "minimist": "*",
+    "request": "*"
   },
   "devDependencies": {
     "intercept-stdout": "*",

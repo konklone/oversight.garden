@@ -7,14 +7,14 @@
 
 
     <strong>
-    <% if (query) { %>
-      <%= results.hits.total %> reports matching "<%= query %>".
-    <% } else { %>
-      <%= results.hits.total %> reports.
-    <% } %>
+      <% if (query) { %>
+        <%= results.hits.total %> reports matching "<%= query %>".
+      <% } else { %>
+        <%= results.hits.total %> reports.
+      <% } %>
     </strong>
     <% if (page > 1) { %>
-      <a href="/reports?<%= helpers.q({page: parseInt(page)-1, query: query}) %>">
+      <a href="/reports?<%= helpers.q({page: parseInt(page)-1, query: query, inspector: inspector}) %>">
         Previous page</a>
     <% } %>
     <% if (results.hits.total > results.hits.hits.length) { %>
@@ -25,7 +25,7 @@
         Showing <%= (page - 1) * 10 + 1 %>-<%= (page - 1) * 10 + results.hits.hits.length %>.
       <% } %>
       <% if (results.hits.total > page * 10) { %>
-        <a href="/reports?<%= helpers.q({page: parseInt(page)+1, query: query}) %>">
+        <a href="/reports?<%= helpers.q({page: parseInt(page)+1, query: query, inspector: inspector}) %>">
           Next page</a>
       <% } %>
 
@@ -43,8 +43,10 @@
                 <%= report.title %></a>
             </h2>
             <h4>
-              <a href="<%= report.inspector_url %>">
-                <%= report.agency_name %></a>
+              <a href="/inspector/<%= report.inspector %>">
+                <%= helpers.inspector_info(report.inspector).name %></a>
+              &mdash;
+              <%= report.agency_name %>
               &mdash;
               <%= report.published_on %>
               <% if (report.url) { %>
@@ -71,7 +73,7 @@
             <% if (highlight && (highlight.text || highlight.summary)) { %>
               <p>
                 <% if (highlight.text) { %>
-                …<%- highlight.text[0] %>…
+                  …<%- highlight.text[0] %>…
                 <% } else if (highlight.summary) { %>
                   …<%- highlight.summary[0] %>…
                 <% } %>
