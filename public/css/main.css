@@ -87,7 +87,7 @@ h1 a, h1 a:visited { text-decoration: none; color: white; }
   width: 100%;
 }
 
-.search-bar input {
+.search-bar input[type='search'] {
   width: 100%;
   padding: 10px;
   font-size: 2em;

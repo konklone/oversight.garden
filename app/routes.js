@@ -13,7 +13,8 @@ module.exports = {
   // The homepage. A temporary search page.
   index: function(req, res) {
     res.render("index.html", {
-      reportCount: reportCount
+      reportCount: reportCount,
+      inspector: null
     });
   },
 

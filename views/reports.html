@@ -8,9 +8,17 @@
 
     <strong>
       <% if (query) { %>
-        <%= results.hits.total %> reports matching "<%= query %>".
+        <% if (inspector) { %>
+          <%= results.hits.total %> reports matching "<%= query %>" from <a href="/inspector/<%= inspector %>"><%= helpers.inspector_info(inspector).short_name %></a>.
+        <% } else { %>
+          <%= results.hits.total %> reports matching "<%= query %>".
+        <% } %>
       <% } else { %>
-        <%= results.hits.total %> reports.
+        <% if (inspector) { %>
+          <%= results.hits.total %> reports from <a href="/inspector/<%= inspector %>"><%= helpers.inspector_info(inspector).short_name %></a>.
+        <% } else { %>
+          <%= results.hits.total %> reports.
+        <% } %>
       <% } %>
     </strong>
     <% if (page > 1) { %>
