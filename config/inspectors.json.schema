@@ -95,14 +95,11 @@
             "name": {
                 "type": "string"
             },
-            "nicknames": {
-                "type": "array",
-                "items": {
-                    "type": "string"
-                }
-            },
             "publishes_reports": {
                 "type": "boolean"
+            },
+            "short_name": {
+                "type": "string"
             },
             "slug": {
                 "type": "string",
@@ -119,8 +116,8 @@
             "homepage_url",
             "hotline",
             "name",
-            "nicknames",
             "publishes_reports",
+            "short_name",
             "slug",
             "statutory_reference"
         ]
