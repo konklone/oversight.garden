@@ -36,6 +36,11 @@ function find_real_line(error, source) {
   return templateLineNumber;
 }
 
+if (process.argv.length <= 2) {
+  console.error("Error: No files were specified on the command line");
+  process.exit(1);
+}
+
 var exit_code = 0;
 
 async.eachSeries(process.argv.slice(2),
