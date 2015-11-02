@@ -9,6 +9,8 @@ var jshint = require("jshint").JSHINT;
 var jshint_options = {
   "-W032": true,  // Don't warn about extra semicolons
   "-W085": true,  // Don't warn about use of with
+  "laxcomma": true,  // Don't warn about newlines before commas
+  "asi": true,  // Don't warn about missing semicolons
 };
 
 function find_real_line(error, source) {
