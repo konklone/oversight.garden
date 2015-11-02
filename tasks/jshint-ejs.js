@@ -8,7 +8,9 @@ var jshint = require("jshint").JSHINT;
 
 var jshint_options = {
   "-W032": true,  // Don't warn about extra semicolons
-  "-W085": true,  // Don't warn about use of with
+  "withstmt": true,  // Don't warn about use of with
+  "laxcomma": true,  // Don't warn about newlines before commas
+  "asi": true,  // Don't warn about missing semicolons
 };
 
 function find_real_line(error, source) {
@@ -32,6 +34,11 @@ function find_real_line(error, source) {
     throw new Error("Could not find line number marker");
   }
   return templateLineNumber;
+}
+
+if (process.argv.length <= 2) {
+  console.error("Error: No files were specified on the command line");
+  process.exit(1);
 }
 
 var exit_code = 0;
