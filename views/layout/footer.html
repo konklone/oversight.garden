@@ -1,7 +1,7 @@
 <footer class="about"><div class="inner">
   <!-- <div class="even-inner"> -->
   <p>
-    Oversight.io is a project of <a href="https://twitter.com/konklone">Eric Mill</a> and <a href="https://github.com/konklone/oversight.io">its code</a> is free and open source. Original writing licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY 4.0</a>.
+    Oversight.io is a project of <a href="https://twitter.com/konklone">Eric Mill</a>, <a href="https://twitter.com/divergentdave">Dave Cook</a>, and all of its other <a href="https://github.com/konklone/oversight.io/graphs/contributors">volunteer contributors</a>. <a href="https://github.com/konklone/oversight.io">This site's code</a> is free and open source. Original writing licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY 4.0</a>.
   </p><p>
     Reports are collected through a <a href="https://github.com/unitedstates/inspectors-general">public domain, volunteer-driven project</a></a>. If you know some Python, lend a hand!
   </p><p>
@@ -18,10 +18,12 @@
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-252618-18', 'oversight.io');
-  ga('send', 'pageview');
 
   // Anonymize user IPs (cut off the last triplet). Privacy first.
   ga('set', 'anonymizeIp', true);
+  ga('set', 'forceSSL', true);
+
+  ga('send', 'pageview');
 </script>
 
 </body>
