@@ -81,15 +81,18 @@
             <% if (highlight && (highlight.text || highlight.summary)) { %>
               <p>
                 <% if (highlight.text) { %>
-                  …<%- highlight.text[0] %>…
+                  …<%- helpers.strip_ff(highlight.text[0]) %>…
                 <% } else if (highlight.summary) { %>
-                  …<%- highlight.summary[0] %>…
+                  …<%- helpers.strip_ff(highlight.summary[0]) %>…
                 <% } %>
               </p>
             <% } %>
           </li>
         <% } %>
       </ul>
+      <a href="<%= req.originalUrl.replace("/reports", "/reports.xml") %>">
+        <img src="/images/feed-icon.png" alt="Atom feed of search results" title="Atom Feed">
+      </a>
     <% } else { %>
       <p>
         No results right now.
