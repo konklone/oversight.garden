@@ -50,6 +50,36 @@ module.exports = {
     });
   },
 
+  reports_xml: function(req, res) {
+    var query;
+    if (req.query.query) {
+      query = req.query.query;
+      if (query.charAt(0) != "\"" || query.charAt(query.length-1) != "\"")
+        query = "\"" + query + "\"";
+    }
+    else
+      query = "*";
+
+    var inspector = req.query.inspector || null;
+    var page = req.query.page || 1;
+
+    search(query, inspector, page).then(function(results) {
+      res.type("atom");
+      res.render("reports.xml.ejs", {
+        results: results,
+        query: req.query.query,
+        inspector: inspector,
+        page: page,
+        self_url: req.url
+      });
+    }, function(err) {
+      console.log("Noooo!");
+      res.status(500);
+      res.type("atom");
+      res.send("Server error");
+    });
+  },
+
   inspectors: function(req, res) {
     res.render("inspectors.html", {
       reportCount: reportCount,
