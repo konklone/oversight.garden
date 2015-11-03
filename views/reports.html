@@ -82,6 +82,9 @@
           </li>
         <% } %>
       </ul>
+      <a href="<%= req.originalUrl.replace("/reports", "/reports.xml") %>">
+        <img src="/images/feed-icon.png" alt="Atom feed of search results" title="Atom Feed">
+      </a>
     <% } else { %>
       <p>
         No results right now.
