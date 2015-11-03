@@ -34,9 +34,9 @@
 <% if (highlight && (highlight.text || highlight.summary)) { -%>
 <content type="html"><![CDATA[
 <% if (highlight.text) { -%>
-<%- highlight.text[0] %>
+<%- helpers.strip_ff(highlight.text[0]) %>
 <% } else if (highlight.summary) { -%>
-<%- highlight.summary[0] %>
+<%- helpers.strip_ff(highlight.summary[0]) %>
 <% } -%>
 ]]></content>
 <% } -%>

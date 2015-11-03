@@ -50,4 +50,9 @@ module.exports = {
     }
   },
 
+  // Remove form feed characters from a string
+  strip_ff: function(string) {
+    return string.replace(/\x0c/g, '');
+  }
+
 };
