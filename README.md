@@ -58,10 +58,10 @@ ln -s /path/to/ig/data data
 Then copy the config example file:
 
 ```
-cp config/config.js.example config/config.js
+cp config/config.yaml.example config/config.yaml
 ```
 
-You probably don't need to make any changes to `config.js`. It looks for Elasticsearch at `http://localhost:9200` by default, and for IG report data in the `data` directory you symlinked above.
+You probably don't need to make any changes to `config.yaml`. It looks for Elasticsearch at `http://localhost:9200` by default, and for IG report data in the `data` directory you symlinked above.
 
 #### Running the app
 
@@ -97,6 +97,13 @@ If this all worked, you should be up and running!
 
 ### Git hooks
 If you're contributing to the project, you can run the same syntax checks locally that would get run on Travis. Once you have cloned the project, run `tasks/install-git-hooks.sh`. This will create a symbolic link at `.git/hooks/pre-commit` that points to `tasks/pre-commit`. From then on, Git will execute syntax checks whenever you run `git commit`. If there is an issue, the script will abort the commit and print an error message. If you need to bypass the syntax checks for any reason, use `git commit --no-verify`.
+
+### Sitemap
+Sitemaps can be generated with the following rake task:
+
+```
+rake sitemap:generate
+```
 
 ### Public domain
 

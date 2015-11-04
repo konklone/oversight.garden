@@ -1,6 +1,7 @@
 .DS_Store
 /todo.txt
-config.js
+config.yaml
 /data
+/public/sitemap
 *.log
 *.pyc

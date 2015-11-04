@@ -1,0 +1,8 @@
+# inspectors-general data directory, defaults to ./data
+inspectors:
+  data: data
+
+# elasticsearch server address
+elasticsearch:
+  host: 127.0.0.1
+  port: 9200
