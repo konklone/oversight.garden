@@ -4,12 +4,24 @@ namespace :sitemap do
     require 'big_sitemap'
     require 'json'
     require "cgi"
+
+    ping_google = (!$config['sitemap'].nil?) && ($config['sitemap']['ping_google'] ? true : false)
+    ping_bing = (!$config['sitemap'].nil?) && ($config['sitemap']['ping_bing'] ? true : false)
+    ping_yahoo = (!$config['sitemap'].nil?) && ($config['sitemap']['ping_yahoo'] ? true : false)
+    yahoo_app_id = ($config['sitemap'].nil?) ? nil : $config['sitemap']['yahoo_app_id']
+    ping_ask = (!$config['sitemap'].nil?) && ($config['sitemap']['ping_ask'] ? true : false)
+    ping_yandex = (!$config['sitemap'].nil?) && ($config['sitemap']['ping_yandex'] ? true : false)
+
     BigSitemap.generate(
       base_url: "https://oversight.io/",
       document_root: "public/sitemap",
       url_path: "sitemap",
-      ping_google: false,  # TODO: add option to ping, add more crawlers
-      ping_bing: false) do
+      ping_google: ping_google,
+      ping_bing: ping_bing,
+      ping_yahoo: ping_yahoo,
+      yahoo_app_id: yahoo_app_id,
+      ping_ask: ping_ask,
+      ping_yandex: ping_yandex) do
 
       # Add homepage and list of inspectors
       add "/", change_frequency: "weekly"
