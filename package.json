@@ -30,18 +30,17 @@
   "homepage": "https://github.com/konklone/oversight",
   "dependencies": {
     "elasticsearch": "8.x",
-
     "express": "4.x",
     "ejs": "*",
     "body-parser": "*",
     "method-override": "*",
     "errorhandler": "*",
     "numeral": "*",
-
     "glob": "*",
     "async": "*",
     "minimist": "*",
-    "request": "*"
+    "request": "*",
+    "js-yaml": "*"
   },
   "devDependencies": {
     "intercept-stdout": "*",

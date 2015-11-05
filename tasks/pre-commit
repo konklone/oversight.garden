@@ -27,6 +27,7 @@ fi
 ruby -c Gemfile >/dev/null
 ruby -c config/environment.rb >/dev/null
 ruby -c tasks/elasticsearch.rake >/dev/null
-node_modules/jshint/bin/jshint app.js app/helpers.js app/routes.js config/config.js.example tasks/inspectors.js tasks/validate-json.js tasks/jshint-ejs.js tasks/images.js
+ruby -c tasks/sitemap.rake >/dev/null
+node_modules/jshint/bin/jshint app.js app/helpers.js app/routes.js config/config.js tasks/inspectors.js tasks/validate-json.js tasks/jshint-ejs.js tasks/images.js
 tasks/validate-json.js
 tasks/jshint-ejs.js views/layout/footer.html views/layout/header.html views/partials/search.html views/index.html views/inspector.html views/inspectors.html views/report.html views/reports.html views/reports.xml.ejs

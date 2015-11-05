@@ -1,0 +1,17 @@
+# inspectors-general data directory, defaults to ./data
+inspectors:
+  data: data
+
+# elasticsearch server address
+elasticsearch:
+  host: 127.0.0.1
+  port: 9200
+
+# automatically ping search engines after generating the sitemap
+sitemap:
+  ping_google: false
+  ping_bing: false
+  ping_yahoo: false
+  yahoo_app_id:
+  ping_ask: false
+  ping_yandex: false

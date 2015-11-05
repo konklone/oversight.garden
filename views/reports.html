@@ -47,7 +47,7 @@
           <% var highlight = hits[i].highlight; %>
           <li>
             <h2>
-              <a href="/report/<%= report.inspector %>/<%= report.report_id %>">
+              <a href="/report/<%= report.inspector %>/<%= encodeURIComponent(report.report_id) %>">
                 <%= report.title %></a>
             </h2>
             <h4>
