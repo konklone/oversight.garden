@@ -1206,7 +1206,7 @@
         ],
         "name": "Office of the Intelligence Community Inspector General",
         "publishes_reports": true,
-        "short_name": "Intelligence Community Inspector General",
+        "short_name": "Intelligence Community IG",
         "slug": "icig",
         "statutory_reference": "50 U.S.C. \u00A7 3033(a)"
     },
@@ -1956,7 +1956,7 @@
         ],
         "name": "Office of the Special Inspector General for Afghanistan Reconstruction",
         "publishes_reports": true,
-        "short_name": "Special Inspector General for Afghanistan Reconstruction",
+        "short_name": "Special IG for Afghanistan Reconstruction",
         "slug": "sigar",
         "statutory_reference": "Pub. L. No. 110-181, \u00A7 1229(b)"
     },
@@ -1972,7 +1972,7 @@
         ],
         "name": "Office of the Special Inspector General for Iraq Reconstruction",
         "publishes_reports": true,
-        "short_name": "Special Inspector General for Iraq Reconstruction",
+        "short_name": "Special IG for Iraq Reconstruction",
         "slug": "sigir",
         "statutory_reference": "Pub. L. No. 108-106, \u00A7 3001(b)"
     },
@@ -2001,7 +2001,7 @@
         ],
         "name": "Office of the Special Inspector General for the Troubled Asset Relief Program",
         "publishes_reports": true,
-        "short_name": "Special Inspector General for TARP",
+        "short_name": "Special IG for TARP",
         "slug": "sigtarp",
         "statutory_reference": "12 U.S.C. \u00A7 5231(a)"
     },
@@ -2129,7 +2129,7 @@
         ],
         "name": "Office of the Treasury Inspector General for Tax Administration",
         "publishes_reports": true,
-        "short_name": "Treasury Inspector General for Tax Administration",
+        "short_name": "Treasury IG for Tax Administration",
         "slug": "tigta",
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(B)"
     },
