@@ -28,7 +28,7 @@ def checkout():
   run('git clone -q -b %s %s %s' % (branch, repo, version_path))
 
 def links():
-  run("ln -s %s/config.js %s/config/config.js" % (shared_path, version_path))
+  run("ln -s %s/config.yaml %s/config/config.yaml" % (shared_path, version_path))
 
 # install node (and ruby?) dependencies
 def dependencies():
