@@ -1,2 +1,4 @@
+Sitemap: https://oversight.io/sitemap/sitemap_index.xml.gz
+
 User-agent: *
 Allow: /
