@@ -1,11 +1,15 @@
-// this is an Express app
+var config = require("./config/config");
 var express = require('express');
 var app = express();
 
 // environment and port
 var env = process.env.NODE_ENV || 'development';
-var port = parseInt(process.argv[2], 10);
-if (isNaN(port)) port = 3000;
+var port;
+if (config && config.http && config.http.port) {
+  port = config.http.port;
+} else {
+  port = 3000;
+}
 
 // app middleware/settings
 app.engine('.html', require('ejs').__express);
