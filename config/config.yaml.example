@@ -7,6 +7,10 @@ elasticsearch:
   host: 127.0.0.1
   port: 9200
 
+# http server exposed by the app
+http:
+  port: 3000
+
 # automatically ping search engines after generating the sitemap
 sitemap:
   ping_google: false

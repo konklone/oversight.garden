@@ -20,9 +20,6 @@ current_path = "%s/current" % home
 # how many old releases to be kept at deploy-time
 keep = 3
 
-# port in the storm
-port = 3000
-
 # can be run only as part of deploy
 def checkout():
   run('git clone -q -b %s %s %s' % (branch, repo, version_path))
@@ -51,13 +48,13 @@ def cleanup():
 ## can be run on their own
 
 def start():
-  run("cd %s && NODE_ENV=%s forever -l %s/forever.log -a start app.js -p %i" % (current_path, environment, logs, port))
+  run("cd %s && NODE_ENV=%s forever -l %s/forever.log -a start app.js" % (current_path, environment, logs))
 
 def stop():
-  run("forever stop app.js -p %i" % port)
+  run("forever stop app.js")
 
 def restart():
-  run("forever restart app.js -p %i" % port)
+  run("forever restart app.js")
 
 def deploy():
   execute(checkout)
