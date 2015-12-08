@@ -46,7 +46,9 @@ module.exports = {
       res.render("reports.html", {
         reportCount: reportCount,
         results: null,
-        query: null
+        query: null,
+        inspector: inspector,
+        page: null
       });
     });
   },
@@ -76,7 +78,7 @@ module.exports = {
     }, function(err) {
       console.log("Noooo!");
       res.status(500);
-      res.type("atom");
+      res.type("text");
       res.send("Server error");
     });
   },
@@ -111,6 +113,7 @@ module.exports = {
           reportCount: reportCount,
           inspector: req.params.inspector,
           metadata: metadata,
+          inspectorReportCount: inspectorReportCount,
           results: []
         });
       });
