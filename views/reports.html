@@ -28,11 +28,11 @@
     <% if (results.hits.total > results.hits.hits.length) { %>
       Page <%= page %>.
       <% if (page == 1) { %>
-        Showing the first 10.
+        Showing the first <%= size %>.
       <% } else { %>
-        Showing <%= (page - 1) * 10 + 1 %>-<%= (page - 1) * 10 + results.hits.hits.length %>.
+        Showing <%= (page - 1) * size + 1 %>-<%= (page - 1) * size + results.hits.hits.length %>.
       <% } %>
-      <% if (results.hits.total > page * 10) { %>
+      <% if (results.hits.total > page * size) { %>
         <a href="/reports?<%= helpers.q({page: parseInt(page)+1, query: query, inspector: inspector}) %>">
           Next page</a>
       <% } %>
