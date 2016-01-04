@@ -1,4 +1,5 @@
 language: bash
+install: npm install
 script: bash tasks/pre-commit
 sudo: false
 notifications:

@@ -5,3 +5,4 @@ config.yaml
 /public/sitemap
 *.log
 *.pyc
+/node_modules
