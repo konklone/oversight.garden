@@ -7,6 +7,9 @@ var config = require("../config/config"),
       log: 'debug'
     });
 
+// Number of reports per request for web page results and RSS results
+var HTML_SIZE = 10;
+var XML_SIZE = 50;
 
 module.exports = {
 
@@ -32,13 +35,14 @@ module.exports = {
     var inspector = req.query.inspector || null;
     var page = req.query.page || 1;
 
-    search(query, inspector, page).then(function(results) {
+    search(query, inspector, page, HTML_SIZE).then(function(results) {
       res.render("reports.html", {
         reportCount: reportCount,
         results: results,
         query: req.query.query,
         inspector: inspector,
-        page: page
+        page: page,
+        size: HTML_SIZE
       });
     }, function(err) {
       console.log("Noooo!");
@@ -66,13 +70,14 @@ module.exports = {
     var inspector = req.query.inspector || null;
     var page = req.query.page || 1;
 
-    search(query, inspector, page).then(function(results) {
+    search(query, inspector, page, XML_SIZE).then(function(results) {
       res.type("atom");
       res.render("reports.xml.ejs", {
         results: results,
         query: req.query.query,
         inspector: inspector,
         page: page,
+        size: XML_SIZE,
         self_url: req.url
       });
     }, function(err) {
@@ -99,7 +104,7 @@ module.exports = {
       } else {
         inspectorReportCount = null;
       }
-      search("*", req.params.inspector, 1).then(function(results) {
+      search("*", req.params.inspector, 1, HTML_SIZE).then(function(results) {
         res.render("inspector.html", {
           reportCount: reportCount,
           inspector: req.params.inspector,
@@ -152,8 +157,7 @@ function get(inspector, report_id) {
   });
 }
 
-function search(query, inspector, page) {
-  var size = 10;
+function search(query, inspector, page, size) {
   var from = (page - 1) * size;
   var body = {
     "from": from,
