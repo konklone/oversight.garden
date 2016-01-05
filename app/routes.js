@@ -3,7 +3,10 @@ var config = require("../config/config"),
     helpers = require("./helpers"),
     elasticsearch = require("elasticsearch"),
     es = new elasticsearch.Client({
-      host: config.elasticsearch,
+      host: {
+        host: config.elasticsearch.host,
+        port: config.elasticsearch.port
+      },
       log: 'debug'
     });
 
@@ -151,7 +154,7 @@ module.exports = {
 
 function get(inspector, report_id) {
   return es.get({
-    index: 'oversight',
+    index: config.elasticsearch.index,
     type: 'reports',
     id: inspector + '-' + report_id
   });
@@ -199,7 +202,7 @@ function search(query, inspector, page, size) {
   }
 
   return es.search({
-    index: 'oversight',
+    index: config.elasticsearch.index,
     type: 'reports',
     body: body
   });
@@ -210,7 +213,7 @@ var inspectorReportCounts = null;
 
 function updateReportCounts() {
   es.count({
-    index: "oversight",
+    index: config.elasticsearch.index,
     type: "reports"
   }).then(function(result) {
     reportCount = result.count;
@@ -219,7 +222,7 @@ function updateReportCounts() {
     reportCount = null;
   });
   es.search({
-    index: "oversight",
+    index: config.elasticsearch.index,
     type: "reports",
     searchType: "count",
     body: {

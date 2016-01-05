@@ -22,8 +22,10 @@ var fs = require('fs'),
 var config = require("../config/config"),
     elasticsearch = require("elasticsearch"),
     es = new elasticsearch.Client({
-      host: config.elasticsearch,
-      // log: 'trace'
+      host: {
+        host: config.elasticsearch.host,
+        port: config.elasticsearch.port
+      }
     });
 
 function run(options) {
@@ -97,7 +99,7 @@ function run(options) {
     // Actually load into Elasticsearch
     console.log("\tIndexing into Elasticsearch...");
     es.index({
-      index: 'oversight',
+      index: config.elasticsearch.index,
       type: 'reports',
       id: inspector + '-' + report_id,
       body: data

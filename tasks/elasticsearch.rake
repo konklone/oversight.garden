@@ -14,7 +14,7 @@ namespace :elasticsearch do
     mappings = single ? [single] : Dir.glob('config/mappings/*.json').map {|dir| File.basename dir, File.extname(dir)}
 
     host = ENV['host'] || "http://localhost:9200"
-    index = "oversight"
+    index = $config['elasticsearch']['index']
     index_url = "#{host}/#{index}"
 
     if force
