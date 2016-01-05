@@ -1,5 +1,9 @@
 # Elasticsearch index management.
 
+require 'bundler/setup'
+require 'elasticsearch'
+require 'json'
+
 namespace :elasticsearch do
 
   desc "Initialize ES mappings"
@@ -13,57 +17,53 @@ namespace :elasticsearch do
 
     mappings = single ? [single] : Dir.glob('config/mappings/*.json').map {|dir| File.basename dir, File.extname(dir)}
 
+    settings = JSON.parse(File.read('config/index.json'))
+
     host = ENV['host'] || "http://localhost:9200"
     index = "oversight"
     index_url = "#{host}/#{index}"
 
+    client = Elasticsearch::Client.new url: host, log: true, index: index
+
     if force
-      command = "curl -XDELETE '#{index_url}'"
-      puts "running: #{command}"
-      system command
-      puts
+      client.indices.delete index: index
 
       puts "Deleted index"
       puts
     end
 
-    command = "curl -XPUT '#{index_url}'"
-    puts "running: #{command}"
-    system command
-    puts
+    if !client.indices.exists index: index
+      client.indices.create index: index
+      client.cluster.health wait_for_status: 'green'
 
-    puts "Ensured index exists"
-    puts
+      puts "Created index"
+      puts
+    else
+      puts "Index already exists"
+      puts
+    end
 
-    command = "curl -XPOST '#{index_url}/_close'"
-    puts "running: #{command}"
-    system command
-    puts
+    client.indices.close index: index
 
     puts "Closed index"
     puts
 
-    command = "curl -XPUT '#{index_url}/_settings' -d @config/index.json"
-    puts "running: #{command}"
-    system command
-    puts
+    begin
+      client.indices.put_settings index: index, body: settings
 
-    puts "Configured index"
-    puts
+      puts "Configured index"
+      puts
+    ensure
+      client.indices.open index: index
 
-    command = "curl -XPOST '#{index_url}/_open'"
-    puts "running: #{command}"
-    system command
-    puts
-
-    puts "Opened index"
-    puts
+      puts "Opened index"
+      puts
+    end
 
     mappings.each do |mapping|
-      command = "curl -XPUT '#{index_url}/_mapping/#{mapping}' -d @config/mappings/#{mapping}.json"
-      puts "running: #{command}"
-      system command
-      puts
+      mapping_raw = File.read("config/mappings/#{mapping}.json")
+      mapping_config = JSON.parse(mapping_raw)
+      client.indices.put_mapping index: index, type: mapping, body: mapping_config
 
       puts "Created #{mapping}"
       puts
