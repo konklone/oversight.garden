@@ -1,0 +1,279 @@
+                                                                  Denali Commission
+                                                                  Office of Inspector General
+                                                                  Anchorage, AK 99501
+
+
+
+
+November 13, 2015
+
+MEMORANDUM FOR:                Denali Commission Commissioners
+
+
+
+FROM:                          David Sheppard
+                               Inspector General
+
+SUBJECT:                       FY 2015 Financial Statements
+                               Final Report No. DCOIG-16-001-A
+
+I am pleased to provide you with the attached audit report in which SB & Company, LLC, an
+independent public accounting firm, presented an unmodified opinion on the Denali
+Commission’s fiscal year 2015 financial statements. However, a significant deficiency was
+identified in internal control. SB & Company performed the audit in accordance with U.S.
+generally accepted government auditing standards and Office of Management and Budget
+Bulletin 15-02, Audit Requirements for Federal Financial Statements.
+
+In its audit of the Commission, SB & Company
+
+   •   identified a significant deficiency in internal control over financial reporting due to
+       inadequate segregation of duties;
+   •   identified no instances of noncompliance or other matters that are required to be reported
+       under Government Auditing Standards or OMB audit guidance;
+   •   determined that the financial statements were fairly presented in all material respects and
+       in conformity with U.S. generally accepted accounting principles.
+
+My office oversaw the audit performance, including the review of SB & Company’s report and
+related documentation and inquiries of its representatives. Our review disclosed no instances
+where SB & Company did not comply, in all material respects, with U.S. generally accepted
+government auditing standards. As differentiated from an audit in accordance with these
+standards, our review was not intended to enable us to express any opinion on the Commission’s
+financial statements. Therefore, we do not express any opinion on the Commission’s financial
+statements, conclusions about the effectiveness of internal control, or conclusions on compliance
+with laws, regulations, contracts, and grant agreements. SB & Company is solely responsible for
+the attached audit report, dated November 13, 2015, and the conclusions expressed in it.
+
+We appreciate the cooperation and courtesies the Commission extended to both SB & Company
+and my office during the audit. If you wish to discuss the contents of this report, please call me at
+(206) 220-7970.
+Attachment
+
+cc:   Corrine Eilo, Chief Financial Officer, Denali Commission
+      David Smith, Acting Inspector General, U.S. Department of Commerce
+                        REPORT OF INDEPENDENT PUBLIC ACCOUNTANTS
+
+    To the Office of the Inspector General and the Denali Commission
+
+    Report on the Financial Statements
+
+    We have audited the accompanying balance sheets of the Denali Commission (the Commission) as of
+    September 30, 2015 and 2014 and the related statements of net cost, changes in net position and
+    budgetary resources for the years then ended and the related notes to the financial statements, which
+    collectively comprise the Commission’s basic financial statements as listed in the table of contents.
+
+    Management’s Responsibility for the Financial Statements
+
+    The Commission’s management is responsible for the preparation and fair presentation of these financial
+    statements in accordance with accounting principles generally accepted in the United States of America; this
+    includes the design, implementation, and maintenance of internal control relevant to the preparation and fair
+    presentation of financial statements that are free from material misstatement, whether due to fraud or error.
+
+    Auditor’s Responsibility
+
+    Our responsibility is to express opinions on these financial statements based on our audits. We conducted our
+    audits in accordance with auditing standards generally accepted in the United States of America; standards
+    applicable to financial audits contained in Government Auditing Standards, issued by the Comptroller General
+    of the United States; and Office of Management and Budget (OMB) Bulletin No. 14-02, Audit Requirements
+    for Federal Financial Statements. Those standards and OMB Bulletin No. 14-02 require that we plan and
+    perform the audit to obtain reasonable assurance about whether the financial statements are free from material
+    misstatement.
+
+    An audit involves performing procedures to obtain audit evidence about the amounts and disclosures in the
+    financial statements. The procedures selected depend on the auditor’s judgment, including the assessment of
+    the risks of material misstatement of the financial statements, whether due to fraud or error. In making those
+    risk assessments, the auditor considers internal control relevant to the entity’s preparation and fair presentation
+    of the financial statements in order to design audit procedures that are appropriate in the circumstances, but not
+    for the purpose of expressing an opinion on the effectiveness of the entity’s internal control. Accordingly, we
+    express no such opinion. An audit also includes evaluating the appropriateness of accounting policies used and
+    the reasonableness of significant accounting estimates made by management, as well as evaluating the overall
+    presentation of the financial statements. We believe that the audit evidence we have obtained is sufficient and
+    appropriate to provide a basis for our audit opinions.
+
+     Opinions
+
+    In our opinion the financial statements referred to above present fairly, in all material respects, the
+    financial position of the Commission as of September 30, 2015 and 2014, and its net cost, changes in net
+    position, and budgetary resources for the years then ended in accordance with accounting principles
+    generally accepted in the United States of America.
+
+
+
+
+200 International Circle • Suite 5500 • Hunt Valley • Maryland 21030 • P 410.584.0060 • F 410.584.0061
+Other Matters
+
+Required Supplementary Information
+
+Accounting principles generally accepted in the United States of America require that the Management’s
+Discussion and Analysis as listed in the table of contents be presented to supplement the basic financial
+statements. Such information, although not a part of the basic financial statements, is required by the
+Federal Accounting Standards Advisory Board and OMB Circular A-136, Financial Reporting
+Requirements. This required information is the responsibility of management. We have applied certain
+limited procedures to the required supplementary information in accordance with auditing standards
+generally accepted in the United States of America, which consisted of inquiries of management about the
+methods of preparing the information and comparing the information for consistency with management’s
+responses to our inquiries, the basic financial statements, and other knowledge we obtained during our
+audit of the basic financial statements. We do not express an opinion or provide any assurance on the
+information because the limited procedures do not provide us with sufficient evidence to express an
+opinion or provide any assurance.
+
+Other Information
+
+Our audit was conducted for the purpose of forming opinions on the financial statements that collectively
+comprise the Commission’s basic financial statements. The other information as listed in the table of
+contents is presented for the purposes of additional analysis and is not a required part of the basic
+financial statements. The other information has not been subjected to the auditing procedures applied in
+the audit of the basic financial statements, and accordingly, we do not express an opinion or provide any
+assurance on it.
+
+Other Reporting Required By Government Auditing Standards
+
+In accordance with Government Auditing Standards, we also have issued our report dated November 13,
+2015 on our consideration of the Commission’s internal control over financial reporting and over
+compliance, and on our tests of its compliance with certain provisions of laws, regulations, contracts, and
+grant agreements. The purpose of that report is to describe the scope and results of our testing of that and
+not to provide an opinion on internal control over financial reporting or on compliance. That report is an
+integral part of an audit performed in accordance with Government Auditing Standards in considering the
+Commission’s internal control and compliance.
+
+
+
+Hunt Valley, Maryland
+November 13, 2015
+
+
+
+
+                                                     2
+  INDEPENDENT PUBLIC ACCOUNTANTS’ REPORT ON INTERNAL CONTROL
+ OVER FINANCIAL REPORTING AND ON COMPLIANCE AND OTHER MATTERS
+     BASED ON AN AUDIT OF FINANCIAL STATEMENTS PERFORMED IN
+         ACCORDANCE WITH GOVERNMENT AUDITING STANDARDS
+
+To the Office of the Inspector General and the Denali Commission
+
+We have audited in accordance with the auditing standards generally accepted in the United States of
+America; the standards applicable to financial audits contained in Government Auditing Standards issued
+by the Comptroller General of the United States; and Office of Management and Budget (OMB) Bulletin
+No. 14-02, Audit Requirements for Federal Financial Statements the financial statements of the Denali
+Commission (the Commission) as of and for the year ended September 30, 2015, and the related notes to
+the financial statements which collectively comprise the Commission’s basic financial statements, and
+have issued our report thereon dated November 13, 2015.
+
+Internal Control Over Financial Reporting
+
+In planning and performing our audit of the financial statements, we considered the Commission’s
+internal control over financial reporting and compliance (internal control) to determine the audit
+procedures that are appropriate in the circumstances for the purpose of expressing our opinions on the
+financial statements, but not for the purpose of expressing an opinion on the effectiveness of the
+Commission’s internal control. Accordingly, we do not express an opinion on the effectiveness of the
+Commission’s internal control.
+
+A deficiency in internal control exists when the design or operation of a control does not allow
+management or employees, in the normal course of performing their assigned functions, to prevent, or
+detect and correct, misstatements on a timely basis. A material weakness is a deficiency, or a combination
+of deficiencies, in internal control, such that there is a reasonable possibility that a material misstatement
+of the entity’s financial statements will not be prevented, or detected and corrected on a timely basis. A
+significant deficiency is a deficiency, or a combination of deficiencies, in internal control that is less
+severe than a material weakness, yet important enough to merit attention by those charged with
+governance.
+
+Our consideration of internal control over financial reporting was for the limited purpose described in the
+first paragraph of this section and was not designed to identify all deficiencies in internal control over
+financial reporting that might be material weaknesses or significant deficiencies and therefore, material
+weaknesses or significant deficiencies may exist that were not identified. Given these limitations, during
+our audit we did not identify any deficiencies in internal control over financial reporting that we consider
+to be material weaknesses. However, material weaknesses may exist that have not been identified. We did
+identify certain deficiencies in internal control, described in the accompanying schedule of findings that
+we consider to be a significant deficiency as 2015-01.
+
+
+
+
+                                                      3
+Limitation of Internal Control
+
+Because of inherent limitations in internal control, misstatements due to error or fraud, losses, or
+noncompliance may nevertheless occur and not be detected. We also caution that projecting our
+evaluation to future periods is subject to the risk that controls may become inadequate because of changes
+in conditions, or that the degree of compliance with controls may deteriorate.
+
+Compliance and Other Matters
+
+As part of obtaining reasonable assurance about whether the Commission’s financial statements are free
+from material misstatement, we performed tests of its compliance with certain provisions of laws,
+regulations, contracts, and grant agreements, noncompliance with which could have a direct and material
+effect on the determination of financial statement amounts. However, providing an opinion on compliance
+with those provisions was not an objective of our audit, and accordingly, we do not express such an
+opinion. We did not test compliance with all laws and regulations applicable to the Commission. We
+limited our tests of compliance to those provisions of laws and regulations OMB audit guidance requires
+that we test that we deemed applicable to the financial statements for the fiscal year ended September 30,
+2015. We caution that noncompliance may have occurred and may not have been detected by these tests,
+and that such testing may not be sufficient for other purposes. The results of our tests disclosed no
+instances of noncompliance or other matters that are required to be reported under Government Auditing
+Standards or OMB audit guidance.
+
+Commission’s Response to Finding
+
+The Commission’s response to the finding identified in our audit is described in the accompanying
+schedule of findings. The Commission’s response was not subjected to the auditing procedures applied in
+the audit of the financial statements and, accordingly, we express no opinion on it.
+
+Purpose of this Report
+
+The purpose of this report is solely to describe the scope of our testing of internal control and compliance
+and the results of that testing, and not to provide an opinion on the effectiveness of the entity’s internal
+control or on compliance. This report is an integral part of an audit performed in accordance with
+Government Auditing Standards in considering the entity’s internal control and compliance.
+Accordingly, this communication is not suitable for any other purpose
+
+
+
+Hunt Valley, Maryland
+November 13, 2015
+
+
+
+
+                                                     4
+                                          Schedule of Findings
+
+
+Finding 2015                 Significant deficiency in Internal Control Over Financial
+                             Reporting—Inadequate Segregation of Duties
+
+Criteria                     During the 2015 year end close process, management did not adhere
+                             to existing policies and procedures to update, maintain, and review
+                             schedules tracking grant payables and reconciling such balances to
+                             amounts recorded in the financial statements. As a result, an audit
+                             entry of approximately $1.3 million was required to be recorded to
+                             properly state the financial statements.
+
+Condition                    During the year ended September 30, 2015, there was transition in
+                             personnel responsible for recordation of grant payables. Due to
+                             limited number of personnel, the reconciliation to grant confirm
+                             information received from grantees was not fully reviewed.
+
+Cause                        The entity’s limited size and staffing resources have made it difficult
+                             for management to provide sufficient staffing to reconcile and
+                             review all financial transactions.
+
+Effect or Potential Effect   Without sufficient review procedures, the risk significantly increases
+                             that errors related to grant expenditures and related payables could
+                             occur and not be detected on a timely basis.
+
+Recommendation               Management and the board should consider a formal evaluation of
+                             the number of personnel and related training in financial reporting
+                             positions, with a particular focus on grant activity at year end. In
+                             response to this, consideration should be given to implementing
+                             controls that mitigate the risks associated with understatement of the
+                             grant payable liabilities including training and enhanced review
+                             procedures.
+
+Responsible Official’s       The Denali Commission concurs with this finding.
+Response
+
+
+
+
+                                                     5
