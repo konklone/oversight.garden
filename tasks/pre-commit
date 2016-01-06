@@ -20,7 +20,7 @@ else # Running locally
     # Redirect output to stderr.
     exec 1>&2
 
-    # Check for whitespace errors (ignoring node_modules)
+    # Check for whitespace errors (ignoring node_modules and data_sample)
     git diff-index --check --cached $against -- app config cron public tasks views .gitignore .ruby-version CONTRIBUTING.md Gemfile Gemfile.lock LICENES README.md Rakefile app.js fabfile.py package.json
 fi
 

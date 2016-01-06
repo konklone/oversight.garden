@@ -1,6 +1,6 @@
 .DS_Store
 /todo.txt
-config.yaml
+/config/config.yaml
 /data
 /public/sitemap
 *.log
