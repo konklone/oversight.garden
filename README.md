@@ -4,6 +4,8 @@ Bringing into sight the work of the United States government's oversight communi
 
 A small website (in progress!) at [oversight.io](https://oversight.io).
 
+[![Build Status](https://travis-ci.org/konklone/oversight.io.svg?branch=master)](https://travis-ci.org/konklone/oversight.io)
+
 ### Getting started
 
 Oversight.io is primarily a **Node** application, and uses **Ruby** for some data manipulation tasks.
