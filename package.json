@@ -45,6 +45,7 @@
   "devDependencies": {
     "intercept-stdout": "*",
     "jshint": "*",
+    "mocha": "^2.3.4",
     "tv4": "*",
     "webdriverio": "^3.4.0"
   }
