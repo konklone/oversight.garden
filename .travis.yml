@@ -6,6 +6,8 @@ before_install:
 install:
   - npm install
   - bundle install --jobs=3 --retry=3 --deployment
+before_script:
+  - phantomjs --webdriver=4444 &
 script:
   - bash tasks/pre-commit
   - bash tasks/tests
