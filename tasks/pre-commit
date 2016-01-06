@@ -21,13 +21,13 @@ else # Running locally
     exec 1>&2
 
     # Check for whitespace errors (ignoring node_modules and data_sample)
-    git diff-index --check --cached $against -- app config cron public tasks views .gitignore .ruby-version CONTRIBUTING.md Gemfile Gemfile.lock LICENES README.md Rakefile app.js fabfile.py package.json
+    git diff-index --check --cached $against -- app config cron public tasks test views .gitignore .ruby-version .travis.yml CONTRIBUTING.md Gemfile Gemfile.lock LICENSE README.md Rakefile app.js fabfile.py package.json npm-shrinkwrap.json
 fi
 
 ruby -c Gemfile >/dev/null
 ruby -c config/environment.rb >/dev/null
 ruby -c tasks/elasticsearch.rake >/dev/null
 ruby -c tasks/sitemap.rake >/dev/null
-node_modules/jshint/bin/jshint app.js app/helpers.js app/routes.js config/config.js tasks/inspectors.js tasks/validate-json.js tasks/jshint-ejs.js tasks/images.js
+node_modules/jshint/bin/jshint app.js app/*.js config/config.js tasks/*.js test/*.js
 tasks/validate-json.js
 tasks/jshint-ejs.js views/layout/footer.html views/layout/header.html views/partials/search.html views/index.html views/inspector.html views/inspectors.html views/report.html views/reports.html views/reports.xml.ejs

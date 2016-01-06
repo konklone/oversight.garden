@@ -20,4 +20,4 @@ after(function(done) {
 
 exports.getBaseURL = function() {
   return baseURL;
-}
+};
