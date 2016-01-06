@@ -9,7 +9,7 @@ install:
 script:
   - bash tasks/pre-commit
   - bash tasks/tests
-  - rake sitemap:generate
+  - rake sitemap:generate config=test/config.yaml
 sudo: false
 notifications:
   email: false
