@@ -1,4 +1,6 @@
-language: bash
+language: node_js
+node_js:
+  - "4.2"
 services:
   - elasticsearch
 before_install:
