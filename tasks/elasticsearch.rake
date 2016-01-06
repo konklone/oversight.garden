@@ -25,13 +25,6 @@ namespace :elasticsearch do
 
     client = Elasticsearch::Client.new url: host, log: true, index: index
 
-    if force
-      client.indices.delete index: index
-
-      puts "Deleted index"
-      puts
-    end
-
     if !client.indices.exists index: index
       client.indices.create index: index
       client.cluster.health wait_for_status: 'green'
@@ -39,8 +32,15 @@ namespace :elasticsearch do
       puts "Created index"
       puts
     else
-      puts "Index already exists"
-      puts
+      if force
+        client.indices.delete index: index
+
+        puts "Deleted index"
+        puts
+      else
+        puts "Index already exists"
+        puts
+      end
     end
 
     client.indices.close index: index
