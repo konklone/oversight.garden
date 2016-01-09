@@ -2,6 +2,7 @@
 var config = require("../config/config"),
     helpers = require("./helpers"),
     elasticsearch = require("elasticsearch"),
+    fs = require("fs"),
     es = new elasticsearch.Client({
       host: config.elasticsearch,
       log: 'debug'
@@ -17,6 +18,7 @@ module.exports = {
   index: function(req, res) {
     res.render("index.html", {
       reportCount: reportCount,
+      cssTimestamp: cssTimestamp,
       inspector: null
     });
   },
@@ -38,6 +40,7 @@ module.exports = {
     search(query, inspector, page, HTML_SIZE).then(function(results) {
       res.render("reports.html", {
         reportCount: reportCount,
+        cssTimestamp: cssTimestamp,
         results: results,
         query: req.query.query,
         inspector: inspector,
@@ -49,6 +52,7 @@ module.exports = {
       res.status(500);
       res.render("reports.html", {
         reportCount: reportCount,
+        cssTimestamp: cssTimestamp,
         results: null,
         query: null,
         inspector: inspector,
@@ -91,6 +95,7 @@ module.exports = {
   inspectors: function(req, res) {
     res.render("inspectors.html", {
       reportCount: reportCount,
+      cssTimestamp: cssTimestamp,
       inspectorReportCounts: inspectorReportCounts
     });
   },
@@ -107,6 +112,7 @@ module.exports = {
       search("*", req.params.inspector, 1, HTML_SIZE).then(function(results) {
         res.render("inspector.html", {
           reportCount: reportCount,
+          cssTimestamp: cssTimestamp,
           inspector: req.params.inspector,
           metadata: metadata,
           inspectorReportCount: inspectorReportCount,
@@ -116,6 +122,7 @@ module.exports = {
         console.log("Noooo!");
         res.render("inspector.html", {
           reportCount: reportCount,
+          cssTimestamp: cssTimestamp,
           inspector: req.params.inspector,
           metadata: metadata,
           inspectorReportCount: inspectorReportCount,
@@ -126,6 +133,7 @@ module.exports = {
       res.status(404);
       res.render("inspector.html", {
         reportCount: reportCount,
+        cssTimestamp: cssTimestamp,
         metadata: null
       });
     }
@@ -135,6 +143,7 @@ module.exports = {
     get(req.params.inspector, req.params.report_id).then(function(result) {
       res.render("report.html", {
         reportCount: reportCount,
+        cssTimestamp: cssTimestamp,
         report: result._source
       });
     }, function(err) {
@@ -142,6 +151,7 @@ module.exports = {
       res.status(500);
       res.render("report.html", {
         reportCount: reportCount,
+        cssTimestamp: cssTimestamp,
         report: null
       });
     });
@@ -246,3 +256,11 @@ function updateReportCounts() {
 
 setInterval(updateReportCounts, 1000 * 60 * 60);
 updateReportCounts();
+
+var cssTimestamp = process.hrtime();
+fs.watch("public/css/all.min.css", {
+  persistent: false,
+  recursive: false
+}, function(ev, filename) {
+  cssTimestamp = process.hrtime();
+});
