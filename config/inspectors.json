@@ -1149,7 +1149,7 @@
         "active": true,
         "agencies": ["Department of Housing and Urban Development"],
         "established_year": 1978,
-        "homepage_url": "://www.hudoig.gov/",
+        "homepage_url": "https://www.hudoig.gov/",
         "hotline": [
             {
                 "type": "url",
