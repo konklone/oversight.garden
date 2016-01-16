@@ -63,7 +63,7 @@
 
 <link rel="stylesheet" type="text/css" href="/css/fonts.css" />
 <link rel="stylesheet" type="text/css" href="/css/html5-reset.css" />
-<link rel="stylesheet" type="text/css" href="/css/main.css?<%= cssTimestamp %>" />
+<link rel="stylesheet" type="text/css" href="/css/main.css?<%= helpers.boot_time %>" />
 
 </head>
 <body>
@@ -78,7 +78,7 @@
   <p>
   Searching
   <a class="browse" href="/reports">
-    <%= helpers.format_number(reportCount, 'over 40,000') %> reports</a>
+    <%= helpers.format_number(helpers.counts.reports, 'over 40,000') %> reports</a>
   from various <a href="/inspectors">inspectors general</a>
   in the US federal government.
   </p>
