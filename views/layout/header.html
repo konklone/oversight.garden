@@ -55,6 +55,7 @@
 
 <link rel="shortcut icon" href="/favicon.png" />
 <link rel="canonical" href="https://oversight.io<%= req.originalUrl %>" />
+
 <% if (req.originalUrl.startsWith("/reports")) { -%>
   <link rel="alternate" type="application/atom+xml" title="Search Results" href="<%= req.originalUrl.replace("/reports", "/reports.xml") %>" />
 <% } -%>

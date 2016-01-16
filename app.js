@@ -1,6 +1,8 @@
 var config = require("./config/config");
-var express = require('express');
+var express = require('express'),
+    path = require("path");
 var app = express();
+var sass = require('node-sass-middleware');
 
 // environment and port
 var env = process.env.NODE_ENV || 'development';
@@ -16,11 +18,18 @@ app.enable('trust proxy')
   .use(require('body-parser').json())
   .use(require('body-parser').urlencoded({extended: false}))
   .use(require('method-override')())
+  .use(sass({
+    src: __dirname + "/sass",
+    dest: __dirname + "/public",
+    debug: true
+  }))
   .use(function(req,res,next){
     res.locals.req = req;
     next();
-  })
-  .use(express.static(__dirname + '/public'));
+  });
+
+app.use(express.static(__dirname + '/public'));
+
 
 // development vs production
 if (env == "development")

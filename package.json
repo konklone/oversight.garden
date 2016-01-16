@@ -5,7 +5,8 @@
   "main": "app.js",
   "private": true,
   "scripts": {
-    "test": "tasks/tests"
+    "test": "tasks/tests",
+    "clean": "touch public/css/main.css && rm public/css/main.css"
   },
   "repository": {
     "type": "git",
@@ -29,18 +30,19 @@
   },
   "homepage": "https://github.com/konklone/oversight",
   "dependencies": {
-    "elasticsearch": "8.x",
-    "express": "4.x",
-    "ejs": "*",
-    "body-parser": "*",
-    "method-override": "*",
-    "errorhandler": "*",
-    "numeral": "*",
-    "glob": "*",
     "async": "*",
+    "body-parser": "*",
+    "ejs": "*",
+    "elasticsearch": "8.x",
+    "errorhandler": "*",
+    "express": "4.x",
+    "glob": "*",
+    "js-yaml": "*",
+    "method-override": "*",
     "minimist": "*",
-    "request": "*",
-    "js-yaml": "*"
+    "node-sass-middleware": "^0.9.7",
+    "numeral": "*",
+    "request": "*"
   },
   "devDependencies": {
     "intercept-stdout": "*",
