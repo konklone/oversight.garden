@@ -1,0 +1,20 @@
+{
+  "agency": "amtrak",
+  "agency_name": "Amtrak",
+  "file_type": "pdf",
+  "inspector": "amtrak",
+  "inspector_url": "https://www.amtrakoig.gov/",
+  "pdf": {
+    "author": "gideonj",
+    "creation_date": "2010-06-18",
+    "modification_date": "2010-06-18",
+    "page_count": 7,
+    "title": "Microsoft Word - Selected Audit Reports Issued in FY2006.doc"
+  },
+  "published_on": "2006-09-30",
+  "report_id": "ASFY06",
+  "title": "Selected Audit Reports Issued in FY2006",
+  "type": "audit",
+  "url": "https://www.amtrakoig.gov/sites/default/files/reports/SelectedAuditReportsIssuedinFY2006.pdf",
+  "year": 2006
+}

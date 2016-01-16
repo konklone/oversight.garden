@@ -20,17 +20,10 @@ namespace :elasticsearch do
     settings = JSON.parse(File.read('config/index.json'))
 
     host = ENV['host'] || "http://localhost:9200"
-    index = "oversight"
+    index = $config['elasticsearch']['index']
     index_url = "#{host}/#{index}"
 
     client = Elasticsearch::Client.new url: host, log: true, index: index
-
-    if force
-      client.indices.delete index: index
-
-      puts "Deleted index"
-      puts
-    end
 
     if !client.indices.exists index: index
       client.indices.create index: index
@@ -39,8 +32,15 @@ namespace :elasticsearch do
       puts "Created index"
       puts
     else
-      puts "Index already exists"
-      puts
+      if force
+        client.indices.delete index: index
+
+        puts "Deleted index"
+        puts
+      else
+        puts "Index already exists"
+        puts
+      end
     end
 
     client.indices.close index: index

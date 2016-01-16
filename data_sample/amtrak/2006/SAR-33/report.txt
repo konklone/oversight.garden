@@ -1,0 +1,1294 @@
+NATIONAL RAILROAD PASSENGER CORPORATION
+                        Office of the Inspector General
+
+
+
+
+                                                OCTOBER 1, 2005 – MARCH 31, 2006
+
+
+                                   Semiannual Report
+                                         to Congress
+Acela Regional | West Mystic, CT
+NATIONAL RAILROAD PASSENGER CORPORATION
+
+                              Office of the Inspector General
+
+
+
+
+                                                    Semiannual Report
+                                                          to Congress
+
+
+
+
+                                                                                   REPORT NO. 33
+                                                                OCTOBER 1, 2005 – MARCH 31, 2006
+                                            NATIONAL RAILROAD PASSENGER CORPORATION
+                                                 Office of the Inspector General, 10 G Street, NE, 3W-300, Washington, DC 20002-4285
+
+
+
+
+April 30, 2006
+
+Honorable David Laney
+Chairman
+Amtrak Board of Directors
+
+Dear Mr. Chairman:
+
+This report, submitted pursuant to the Inspector General Act, summarizes the more significant
+audits, evaluations, and investigations for the six-month period ending March 31, 2006.
+
+In the past six months, we have continued to work with the Board and management to identify
+areas for improvement in Amtrak’s programs and operations. In particular, we have committed
+to assisting the corporation in furthering its published strategic reform initiatives.
+
+We issued 21 audit reports in the last two quarters, including performing information tech-
+nology security reviews, compliance with environmental regulations, and compliance with sole
+source procurement requirements. We also continued our review of Amtrak’s efforts to
+strengthen internal controls around financial statement reporting, and we made additional
+recommendations to the Finance department to strengthen further their control environment.
+
+Our investigators and special agents opened 75 new cases in the past six months and closed
+134 cases; 319 investigations remain active as of March 31. Amtrak and the Department of
+Justice settled a long-standing contract fraud case for $24.75 million; this settlement was
+achieved only through the hard work of several dedicated OIG staff and OIG counsel. We
+have eight criminal and civil fraud cases pending with Federal prosecutors.
+
+The OIG Inspections and Evaluations team has been working with senior managers to improve
+Amtrak’s Acela operations and has been actively participating in the Acela Oversight
+Committee. We conducted a review of the root causes for on-time performance delays, and we
+have facilitated the introduction of reliability-centered maintenance for the Acela trainsets. In
+addition, at your request, we have also worked with management to have them prepare a more
+comprehensive fleet management plan.
+Honorable David Laney
+April 30, 2006
+Page 2
+
+
+
+
+We are continuing our review of police and security operations, and we are evaluating the progress
+made by the company in responding to the recommendations included in our June 2004 RAND-led
+security report. We plan to augment the capabilities of the OIG security oversight group before the
+end of the fiscal year, and we have also engaged Lawrence Livermore National Laboratories to assist
+us in reviewing specific vulnerabilities at major Amtrak stations.
+
+I appreciate your and the Board’s continued support of the OIG’s oversight efforts.
+
+Respectfully,
+
+
+
+
+Fred E. Weiderhold
+Inspector General
+                                                                                                   Table of Contents
+Inspector General Viewpoint                                                                   Inspections and Evaluations
+Mid-Year Performance . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1            Significant Inspections and Evaluations . . . . . . . . . . . . . . . . 13
+Management Challenges . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1
+
+                                                                                              Counter Terrorism and Intelligence
+Amtrak Profile                                                                                Significant Counter Terrorism and Intelligence Efforts . . . . 16
+Background . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+OIG Profile . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+                                                                                              Other OIG Activities
+                                                                                              Coordination with Independent Public Accountants . . . . . . 17
+OIG Joint Department Efforts                                                                  Self-Insured Health Care Plans . . . . . . . . . . . . . . . . . . . . . . . 17
+Northeast Corridor Improvement Project . . . . . . . . . . . . . . . . 4                      Teammate Implementation . . . . . . . . . . . . . . . . . . . . . . . . . . 17
+Acela Brake Investigation . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+
+                                                                                              Appendices
+Office of Audits                                                                              1. Audit Reports Issued with Questioned Costs . . . . . . . . . 20
+Significant Audits . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5      2. Audit Reports Issued with Funds
+Unresolved Audit Issues . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 8              to be Put to Better Use . . . . . . . . . . . . . . . . . . . . . . . . . . 21
+Management Responses Over Six Months Old for                                                  3. Detailed Listing of All Issued Audit Reports . . . . . . . . . 22
+Which Corrective Action Has Not Been Completed . . . . . . . 8                                4. Summary of Reports to President of Amtrak
+Audit Statistics . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9       Concerning Information or Assistance
+                                                                                                 Unreasonably Refused or Not Provided . . . . . . . . . . . . . 23
+                                                                                              5. Review of Legislation and Regulations . . . . . . . . . . . . . 24
+Office of Investigations                                                                      6. Glossary of Audit Terms and Abbreviations . . . . . . . . . 25
+Case Handling . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
+Sources of Allegations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
+Hotline Statistics . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
+                                                                                              Reporting Requirements Index
+                                                                                              Reporting Requirements Index . . . . . . . . . . . . . . . . . . . . . . . 26
+Case Status of Investigations . . . . . . . . . . . . . . . . . . . . . . . . 10
+Significant Investigations . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
+Funds Recovered or Discontinued . . . . . . . . . . . . . . . . . . . . 11
+Efficiency and Effectiveness . . . . . . . . . . . . . . . . . . . . . . . . 11
+Classification of Cases Opened During this Period . . . . . . . 12
+Prosecutive Referrals . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 12
+Revenue Protection Efforts . . . . . . . . . . . . . . . . . . . . . . . . . . 12
+                                      Inspector General Viewpoint
+MID-YEAR PERFORMANCE
+Amtrak completed its first two quarters, through March 31,
+2006, slightly ahead of budget projections for both revenues and
+expenses. Ticket-related and state support revenues were $729.6
+million, $12.2 million better than budget. Operating expenses
+were $1.2 billion, $14.4 million better than budget. Adjusted
+losses for the company were $611.3 million, with a total favor-
+able budget variance of $60.4 million. When compared to FY
+2005, Amtrak was $33.8 million favorable to the prior year.
+Total ridership was 11.56 million, slightly better than projected,
+with 26.2 cents revenue per passenger mile.
+Amtrak’s system-wide on-time performance continued to suffer,
+primarily as the result of poor support from the underlying
+freight carriers, slipping from 72.2 percent in FY 2005 to 67.9
+percent YTD for FY 2006. Some train performance reached all-
+                                                                      Vermonter | Farmland in Vermont
+time lows, with Amtrak’s popular Auto Train service achieving
+only a 17.9 percent on-time performance, and in the West,
+Amtrak’s Coast Starlight service posting an even worse perfor-        Officer, David L. Gunn, left the company, and an interim CEO
+mance of 2.6 percent. Recent on-time performance posted by            was appointed. Major organizational changes were, appropriately,
+Amtrak’s Acela trains was better, with Amtrak achieving its 90        placed on hold while the search for a new CEO is underway. The
+percent on-time performance goals in March 2006. Both areas           OIG believes there are opportunities to improve the organizational
+of on-time performance are important for the company to               structure and to reallocate resources more effectively. A set of
+manage. However, Amtrak has far less control over the freight         recommendations for an improved organizational structure and re-
+carriers’ dispatching, and no say-so in its day-to-day operations.    alignment will be made in the next few months.
+Amtrak must rely upon its individual railroad contracts with the
+carriers and upon the requirement that passenger trains should        Regarding the second initiative, providing regular performance
+receive some priority over freight.                                   reporting, Amtrak has been publishing its Monthly Performance
+                                                                      Reports, containing voluminous performance data, and providing
+                                                                      copies to the Federal Railroad Administration and making the
+MANAGEMENT CHALLENGES                                                 reports available on its company web site. From an OIG perspec-
+In April 2005, as a part of Amtrak’s FY 2006 Grant and                tive, the frequency and volume of data reported are excessive and,
+Legislative Request, Amtrak’s Board of Directors set out a            to the extent that there may be information that places Amtrak at
+Strategic Reform Plan for the company, outlining various initia-      a competitive disadvantage, the reporting requirements should be
+tives for structural, operating, and legislative reforms. Almost      re-examined. Additionally, as the GAO noted in its December
+one year later, some movement towards those reforms has been          2005 report (GAO-06-145), “Systemic Problems Require Actions
+made, but there is still considerable work ahead in defining          to Improve Efficiency, Effectiveness, and Accountability,”
+Amtrak’s progress in its strategic planning and the value and         Amtrak needs to report “outcomes” in its efforts to improve its
+contributions of its business operations.                             business operations, not just outputs and results.
+
+As a part of the Board’s structural initiatives, the Board recom-     Amtrak has not adopted a ‘zero-based’ budgeting approach to its
+mended to management that it cut layers of management,                business lines as of this reporting period. The OIG has observed
+provide regular performance reporting, institute zero-based           that Amtrak has long followed a more traditional ‘priority incre-
+budgeting, and focus the company on ‘core’ operations and             mental budgeting’ model. This model builds a budget based
+rebuilding of assets.                                                 upon current year revenues and expenses, and then projects
+                                                                      incremental changes based on economic conditions (inflation
+With respect to the first initiative, calling for cutting layers of   added to the expense base), market demand forecasts (drivers for
+management, Amtrak’s basic organization has not been signifi-         the revenue base), and anticipated federal appropriations
+cantly modified over the past year, and headcount has remained        (servicing much of the capital program needs).
+relatively flat. In November 2005, Amtrak’s Chief Executive
+
+                                                                                                        Inspector General Viewpoint   1
+Amtrak has been very busy over the past several years making
+substantial investments in its infrastructure, particularly for its
+Northeast Corridor rail assets. Year-to-date for the six-month
+period, Amtrak has spent over $258 million in general capital,
+with $150 million spent by Amtrak Engineering ($65 million for
+track/interlocking, $26 million for the New York Fire, Life,
+Safety project, $12 million for signal work, $12 million for
+bridges, and the balance for other projects), and $88 million
+spent by the Mechanical Department for rolling stock ($29
+million for the bi-level Superliner refurbishments, $26 million
+for the Amfleet equipment, and $22 million for locomotive
+repair and overhauls). While the OIG agrees that many of the
+capital investments appear reasonable and necessary, we are
+encouraging the company to use more asset-based metrics in its
+performance analyses. We have not yet seen the company
+demonstrate in its longer term planning the expected return on
+investment benefits from the ‘state-of-good’ repair program. We        Empire Builder | Glacier National Park, MT
+agree with the GAO that Amtrak needs to link its considerable
+capital spending programs to a better documented and justified
+                                                                       management on its other recommendations to consider the
+strategic plan.
+                                                                       appropriateness of maintenance outsourcing.
+Amtrak has invested resources and made some progress on its
+                                                                       Amtrak has fallen behind in meeting its load factor goals through
+operating initiatives, but these efforts have not yet reached to the
+                                                                       March 2006. The projected average load factor goal through
+bottom line. Amtrak has instituted a serious review of its food
+                                                                       March 2006 was 53.2 percent, but the actual average load factor
+and beverage operations and has begun making changes to its
+                                                                       was 45.2 percent. Total passenger miles were slightly higher
+Northeast Corridor and long-distance dining and lounge
+                                                                       than projected. The OIG has commented in the past on the need
+services. Beginning in January 2006, Amtrak extended its modi-
+                                                                       for Amtrak to become more aggressive in its marketing, espe-
+fied dining services pilot to four of Amtrak’s sixteen
+                                                                       cially with respect to international sales. Amtrak has not yet
+long-distance train routes. This program reduces on-board
+                                                                       leveraged its revenue and yield management programs, and more
+staffing needs through position consolidation and implements a
+                                                                       should be done in these areas.
+modified, more standardized menu, emphasizing more pre-
+prepared main courses. Staffing levels on Acela Club services          In March 2006, Amtrak submitted its Grant and Legislative
+were also modified to match ridership and use of the First Class       Request for FY 2007. The reauthorization issues identified by
+Car. The OIG considers these efforts a good first step to reigning     the company include the need to establish a stable, multi-year
+in food and beverage expenses, but we continue to encourage the        source for capital programs, and the need to set a framework by
+company to pursue contracting out options where feasible as            which competition can be introduced into intercity rail passenger
+well as seeking other productivity improvements.                       services. The company desires a federal capital match program
+                                                                       that resembles programs used for other transportation modes
+The OIG has encouraged Amtrak to consider greater use of
+                                                                       (aviation, transit), and recommends starting with an 80-20
+outsourcing and facility consolidation, especially with respect to
+                                                                       matching program for participating states and localities. While
+the servicing, maintenance, and overhaul of its rolling stock and
+                                                                       there is a pending Senate passed reauthorization bill (S. 1516), it
+major equipment components. Last year, we recommended that
+                                                                       is not certain that this bill will be advanced before the end of the
+Amtrak consider consolidating its maintenance activities for its
+                                                                       current Congressional session.
+primary locomotive, the P-42, from five maintenance locations
+to possibly two locations. We also recommended that Amtrak             The OIG not only supports the company’s legislative requests,
+consider what other large Class I railroads have done to               but we believe there are important provisions within S. 1516 that
+outsource locomotive maintenance to the equipment manufac-             would benefit Amtrak and add long term stability for continued
+turers. By the end of the reporting period, Amtrak management          Amtrak operations and smart growth.
+has signaled a limited consolidation of maintenance work for the
+P-42 fleet to Chicago and removed work from two other loca-
+tions. This is a good first step. The OIG will work closely with
+
+2   Inspector General Viewpoint
+                                                                                       Amtrak Profile
+BACKGROUND                                                              operations; reviewing certain procurements and material acquisi-
+                                                                        tions for appropriateness of cost and pricing and compliance
+Amtrak is incorporated under the District of Columbia Business          with applicable grant and/or contract terms and conditions; and,
+Corporation Act in accordance with the provisions of the Rail           monitoring compliance with laws and regulations.
+Passenger Service Act of 1970 (Public Law 91-518). Amtrak is
+governed by a seven-member Board of Directors appointed under           The Investigations Unit is responsible for investigating various
+the Amtrak Reform and Accountability Act (December 2, 1997).            types of fraud and abuse particularly allegations of financial
+The company operates as a for-profit corporation providing inter-       wrongdoings, kickbacks, construction irregularities, bribery, and
+city rail passenger service as its principal business.                  false claims; performing reviews of Amtrak’s safety and security
+                                                                        programs; recommending to the company better internal controls
+Amtrak operates more than 260 daily inter-city trains over 23,000       to prevent fraud and abuse; and, reporting violations of law to
+route miles serving over 500 communities in every state but two         the Attorney General and prosecutors. The Unit is also charged
+in the contiguous United States. Of this route system, Amtrak           with reviewing and safeguarding Amtrak’s cash and credit card
+owns the right-of-way of more than 2,600 track miles in the             purchases for transportation and food services on board Amtrak
+Northeast Corridor. This includes Washington, DC-New York               trains.
+City-Boston, Philadelphia-Harrisburg, New Haven-Springfield,
+CT and short segments in Michigan and New York. Amtrak also             The Inspections and Evaluations Unit is a hybrid unit within
+operates rail services in several areas around the country under        the OIG whose staff have specialized skills in engineering,
+contract with state and regional commuter authorities.                  safety, labor/employee relations, mechanical maintenance opera-
+                                                                        tions, strategic planning, and finance. This group conducts
+Amtrak owns many of its passenger stations and also leases other        targeted inspections of Amtrak programs, providing assistance to
+stations from the freight railroads. It owns most of the mainte-        managers in their efforts to determine the feasibility of new
+nance and repair facilities for its fleet of about 2,000 cars and       initiatives and the effectiveness of existing operating methodolo-
+locomotives. Amtrak employs 20,000 persons, of which about              gies. The evaluative process they utilize, whether requested or
+18,000 are agreement-covered employees. These employees                 mandated, consists of independent studies and analytical reviews
+work in on-board services, maintenance of way, station and              that often serve as the cornerstone for strategies to improve
+reservations services, and other support areas. Outside the             program cost efficiency and effectiveness, management, and the
+Northeast Corridor (NEC), Amtrak contracts with freight rail-           overall quality of service delivery throughout Amtrak.
+roads for the right to operate over their tracks. On their property,
+the host freight railroads are responsible for the condition of their   The Intelligence and Counter-Terrorism Unit is responsible
+tracks and for the coordination of all railroad traffic.                for facilitating, and overseeing projects and tasks pertaining to
+                                                                        rail security, counter-terrorism and intelligence related to the
+                                                                        country’s war on terrorism. The unit is involved in working with
+OIG PROFILE                                                             external agencies to provide focus on the importance of rail secu-
+Amtrak’s OIG was formed under the provisions of the Inspector           rity and the need for an integrated approach for addressing the
+General Act Amendment of 1988. The OIG is an independent                many challenges in securing an open-architecture rail passenger
+entity within Amtrak whose mission is to detect fraud, waste, and       system.
+misconduct involving Amtrak’s programs and personnel and to             OIG Legal Counsel is responsible for providing legal advice,
+promote economy and efficiency in Amtrak operations. The OIG            counsel and training to all of the aforementioned units.
+investigates allegations of violations of criminal and civil law,       Moreover, Legal Counsel represents the Inspector General and
+regulations, and ethical standards arising from the conduct of          his employees in litigation or legal matters, specifically related
+Amtrak employees in performing their work. The OIG also audits          to OIG responsibilities, or coordinates such representation on
+and evaluates Amtrak operations and assists management in               behalf of the IG and his employees.
+promoting integrity, economy, efficiency, and effectiveness. The
+OIG consists of the following units with specific responsibilities:     OIG personnel are located in eight offices in Washington, DC
+                                                                        (Headquarters), Baltimore, Wilmington, Philadelphia, New
+The Audit Unit is responsible for conducting independent                York, Boston, Chicago, and Los Angeles.
+reviews of Amtrak’s internal controls; overseeing and assisting
+audits of Amtrak’s financial statements; reviewing information
+technology programs and information security; providing
+accounting counsel to, and oversight of, Finance Department
+
+                                                                                                                       Amtrak Profile   3
+OIG Joint Department Efforts
+As set forth below, during this period, the OIG – Investigations,
+Inspections and Evaluations and Audit – completed a joint inves-
+tigation project and continues work on a previously reported
+project. Highlights of these efforts are discussed below:
+
+NORTHEAST CORRIDOR IMPROVEMENT PROJECT
+CONTRACT-RELATED FRAUD –
+$24.75 MILLION SETTLEMENT
+In conjunction with Amtrak’s Northeast Corridor Improvement
+Project, a contractor was awarded a federally funded multi-year
+contract to electrify Amtrak’s Northeast Corridor rail lines
+between New Haven, Connecticut and Boston, Massachusetts.
+The OIG, in conjunction with the United States Department of
+Justice, conducted an investigation spanning several years,
+millions of documents, and utilizing many different personnel
+and expertise within the office. The investigation uncovered
+evidence that Amtrak was defrauded by more than $50 million in
+connection with the fixed-price contract of $305 million; the
+total contract ultimately grew to exceed $485 million. The
+OIG’s investigation began with a 1995 tip and was supplemented
+in 1999 when a “whistleblower” who had formerly been
+employed by the contractor on the project, filed suit under the
+                                                                     Coast Starlight | North of Grover Beach, CA
+False Claims Act in the United States District Court for
+Connecticut. The “whistleblower” alleged that the defendants
+had defrauded Amtrak by more than $10 million by filing claims       determine the cause of the cracks, possible prior knowledge of
+for payment known to be false and supporting false certifica-        the dangerous condition by the primary contractors or others
+tions. The OIG’s lengthy, substantial efforts to unravel the         involved, who designed, built and maintained the Acela trains,
+complex fraudulent schemes helped the Department of Justice in       and why inspections and maintenance by the prime contractors
+negotiating a settlement of $24.75 million. The OIG did not          failed to discover and remedy the dangerous condition. The
+agree to the final settlement amount, but the settlement was         OIG’s investigation thus far, indicates that certain vendors/sub-
+approved by Amtrak management.                                       contractors learned of the cracked discs at least one month prior
+                                                                     to the April discovery, but apparently, did not disclose the
+ACELA BRAKE INVESTIGATION                                            discovery to Amtrak. OIG has issued ten (10) subpoenas in its
+                                                                     investigation and has received production from seven (7) entities
+As reported in the previous semiannual, the OIG continues its
+                                                                     and has filed suit in the District Court for the District of
+investigation of the Acela brake cracks. In April 2005, cracks
+                                                                     Columbia to compel compliance with subpoenas for the
+were discovered in 300 out of 1,440 disc brake rotors of the 20
+                                                                     remaining three (3) entities.
+Acela train sets. Although any immediate safety concerns about
+the Acela trains have been eliminated, there are still significant
+issues to be resolved. The OIG became involved from the outset
+and continued to be involved with the ongoing investigation to
+
+
+
+
+4   OIG Joint Department Efforts
+                                                                                  Office of Audits
+SIGNIFICANT AUDITS                                                   Amtrak Finance – Progress Addressing Internal Control
+                                                                     Weaknesses
+                                                                     Report #108-2004 – Issued 10/28/2005
+INTERNAL OPERATIONS REVIEWS
+Emergency Exchange Voucher Review – Martinez, CA                     In response to KPMG recommendations in the FY01 financial
+Report #502-2006 – Issued 12/15/2005                                 statement report, Amtrak management developed and began
+                                                                     implementing a corrective action plan. As part of the OIG over-
+Emergency Exchange Voucher Review – Sacramento, CA                   sight, we reviewed the current status of Amtrak’s progress in
+Report #501-2006 – Issued 2/03/2006                                  implementing the corrective action plan and issued an informa-
+Due to a higher than normal dollar value of Emergency                tional status report to management in which no formal response
+Exchange Voucher (EEV) transactions processed by the                 was required.
+Martinez and Sacramento ticket office during the period April        Our review indicated that Amtrak has satisfactorily addressed a
+2005-September 2005, the OIG performed special reviews of            number of issues identified by the external auditors. However,
+selected Emergency Exchange Voucher (EEV) transactions to            some items were not yet fully resolved either because implemen-
+determine whether they were processed in accordance with             tation was continuing or because recently implemented controls
+established company procedures.                                      would require ongoing monitoring to stabilize the new
+EEVs are used locally to assist passengers who are seriously         processes. The areas requiring continuing management attention
+inconvenienced due to a service disruption or causal event. Our      included: Capital Expenditures, Three Way Match, Accounting
+examination determined that the larger EEV expenditures were         for Significant Transactions, Legal Accruals, Depreciation,
+incurred primarily due to connecting services from other train       Disposals-Retirements-Replacements of Assets, Accounting for
+and bus operations. The OIG recommended, and management              Leases, Physical Inventory of Amtrak Fleet, and Deferred
+agreed, that formal agreements with commercial transportation        Revenue Liability.
+services should be considered to reduce costs; and that supple-      Environmental Audit Review – Internal Processes Need
+mentary instructions on the EEV process be issued.                   Improvement
+Amtrak Non-Rolling Stock Equipment Accountability –                  Report #208-2006 – Issued 3/28/2006
+Internal Control Weaknesses Identified                               We completed a limited scope review of the internal process and
+Report #302-2005 – Issued 2/13/2006                                  procedures followed in an internal environmental audit
+We reviewed internal controls over Amtrak’s non-rolling stock        conducted at Amtrak’s Bear Mechanical Facility located in Bear,
+equipment and concluded that internal controls need to be            Delaware. Our review disclosed that inaccurate information was
+strengthened. Current procedures do not provide reasonable           reported to the Environmental Protection Agency regarding
+assurance that equipment is properly accounted for or safe-          corrective action taken. Training records were not reported to
+guarded; inventory records were found to be materially               Amtrak’s Human Resources Department, and there was inade-
+inaccurate; and, many pieces of equipment did not have Amtrak        quate documentation of audit findings and follow up.
+numbers assigned. We also noted that periodic inventories are        Management agreed with the findings and stated that they have
+not required, equipment property custodians are not assigned;        begun implementing corrective actions.
+and the Amtrak Equipment Manager is not properly placed in the
+organization to provide full accountability and authority required
+to properly account for equipment.
+The OIG recommended, and management agreed that a defini-
+tive policy to enforce procedures to properly account for and
+protect Amtrak equipment should be established for the purchase
+and placement of equipment into inventory and that a “wall-to-
+wall” inventory of all existing equipment should be performed
+matching the Purchasing Department and the Equipment
+Manager’s inventory records.
+
+                                                                     Amtrak Station | San Antonio, TX
+
+
+
+                                                                                                                Office of Audits   5
+INFORMATION TECHNOLOGY                                               tions and technology infrastructure are now centralized. The
+                                                                     ability to remotely access these resources and the various poten-
+eTrax Application Review – Process and System Control
+                                                                     tial entry points from Intranet and Internet increase the potential
+Weaknesses Found
+                                                                     for security breaches and threats to availability, integrity, and
+Report #104-2004
+                                                                     confidentiality of Amtrak’s critical and proprietary business
+As reported in a previous semiannual report, the OIG has             information. Limited technical resources, software with security
+continued its review of eTrax applications. Amtrak imple-            weaknesses, widely available information on how to exploit
+mented eTrax applications for processing travel and expense          security weaknesses, and an increasingly complex technology
+reports, payment requests, non-inventory requisitions, procure-      environment all contribute to increase security risks.
+ment card transactions, and several electronic forms in late 2002.
+                                                                     The OIG’s review tested whether an effective system of security
+The critical functionalities provided by this application are the
+                                                                     controls has been established to protect the corporate informa-
+electronic routing, authorization and approval using organiza-
+                                                                     tion resources. Based on the fieldwork completed thus far,
+tional hierarchy and business rules; and economies of scale
+                                                                     violations of Amtrak’s computer and security policies as well as
+achieved by aggregating purchases and negotiating volume
+                                                                     significant control issues were noted. A detailed final report will
+discounts with vendors. About 106,000 monetary transactions
+                                                                     be issued in the near future.
+worth $504 million were processed through eTrax in FY2004.
+Currently, 4,070 users have access to this application.
+                                                                     PROCUREMENT AUDITS
+Our primary objectives were to evaluate whether adequate appli-
+                                                                     Price for Repair of Locomotive Main Transformers was
+cation, data integrity and general IT controls along with
+                                                                     Unsupported
+appropriate Amtrak policies were implemented in eTrax. While
+                                                                     Report #217-2004 – Issued 3/13/2006
+the new system has helped reduce paper processing and potential
+for errors, fraud, delays, and inappropriate approvals, we found     We completed an audit of a contractor’s cost proposal to repair
+weaknesses in internal controls, administration and the computer     AEM-7 DC locomotive main transformers and identified
+network environment that require management attention.               $187,441 of questioned cost due to lack of detailed supporting
+Management agreed with most of our findings and recommenda-          documentation for the proposed labor hours. Management will
+tions, and has either already implemented or are in process of       attempt to obtain an independent technical opinion of the proposed
+implementing audit recommendations.                                  labor hours. If a technical report is received, we will perform addi-
+                                                                     tional audit procedures and issue a supplemental report.
+Information Technology Security Review
+Project #107-2004                                                    Audit Questioned $201,401 of the Contractor’s Cost
+                                                                     Proposal
+Due to the reorganization and consolidation of the Strategic
+                                                                     Report #205-2005 – Issued 1/06/2006
+Business Units in the last few years, more critical business func-
+                                                                     We completed a post award audit of a contractor’s cost proposal
+                                                                     to install cable inside Union Tunnel, Baltimore, Maryland. We
+                                                                     questioned $201,401 of the cost proposal due to numerous
+                                                                     differences between the cost proposal and actual costs. The
+                                                                     contractor agreed with the OIG findings and executed a contract
+                                                                     modification for the reduction in contract value.
+                                                                     Termination Proposal Related to a Superliner I Overhaul
+                                                                     Program – $63,184 in Questioned Costs for Settlement
+                                                                     Proposal Report #219-2005 – Issued 1/05/2006
+                                                                     A contract was issued for a Superliner I overhaul program at
+                                                                     Beech Grove, Indiana. The contract was terminated by Amtrak
+                                                                     due to the contractor’s failure to perform its obligations in a
+                                                                     timely and satisfactorily manner under the contract. According
+                                                                     to the terms of the termination letter, Amtrak planned to pay the
+                                                                     contractor for its engineering costs and for the net cost of mate-
+Multi-Model Transportation Center | Meridian, MS
+                                                                     rials supplied based on the results of the audit and a technical
+
+6    Office of Audits
+opinion on the quality and usefulness of the materials. We ques-    INVENTORY
+tioned $63,184 of the termination proposal based on our review
+                                                                    Annual Maintenance of Way Inventory – Significant
+and technical report. We will continue to monitor.
+                                                                    Increase in Inventory Value
+Food and Beverage Contract Review of Contractor’s                   Report #223-2005 – Issued 1/05/2006
+General and Administrative (G&A) Expenses –
+                                                                    At the request of Amtrak’s Procurement and Materials
+Questioned Cost in excess of $700,000
+                                                                    Management Department, the OIG observed the annual mainte-
+Report #225-2005 – Issued 2/06/2006
+                                                                    nance of way physical inventory conducted by the Material
+We completed a limited scope review of a food and beverage          Control and Engineering Departments. A significant increase in
+contractor’s overhead rates for calendar year 2005. The             inventory value, from $24 million to $40.6 million (69%) between
+contractor projected $4,474,313 for G&A expenses for calendar       October 1, 2004 and September 30, 2005, was noted, and we
+year 2005. We questioned $544,068 based on disallowances            recommended tighter control over purchases and revised inven-
+under the FARs. The contractor also failed to provide               tory purchasing procedures to achieve a capital store turnover ratio
+supporting documentation for $173,420 covering pension, vaca-       of four. Management stated that they review the status of capital
+tion and holiday costs. Due to lack of access to the contractor’s   purchase orders as to delivery schedules and requirement dates
+home office records (parent company located in Switzerland),        and work closely with the Procurement and Materials
+we were unable to determine the reasonableness of home office       Management on planning for capital project purchases. However,
+cost allocations approximating $1 million; therefore, we did not    management stated that inventory levels can fluctuate from year to
+express an opinion regarding those costs.                           year due to the uncertain funding process, budget reductions,
+                                                                    rescheduling of projects due to force availability caused by mate-
+Kiewit Pacific Company – Oakland Maintenance Facility               rial delivery delays and long lead material times combined with
+$329,753 in Questioned Costs                                        uncertain delivery dates. We will continue to monitor.
+Report #502-2005 – Issued 12/21/2005
+At Procurement’s request, OIG reviewed a Contract                   RAILROAD AUDITS
+Modification awarded to Kiewit Pacific Company (the                 CPR/SOO – On-Time Performance Incentives Audit
+Contractor) for the construction of a roof over the Service and     $111,004 Excess Billings Identified
+Inspection Facility and track at Amtrak’s Oakland Maintenance       Report #401-2005 – Issued 3/27/2006
+Facility in West Oakland, CA. The contract change was for a
+firm fixed price of $2.96 million, subject to downward revision     Effective April 16, 1971, The National Railroad Passenger
+based upon an Amtrak audit. The audit identified $329,753 – 11      Corporation (Amtrak) entered into an Agreement with the
+percent of the total proposal - in questioned costs primarily       Canadian Pacific Railway (CPR), successor of the SOO Line
+related to the direct and indirect labor, subcontractor work,       Railroad, and the Chicago, Milwaukee, St. Paul, and Pacific
+equipment costs, and associated overhead and profit additives.      Railroad Companies, for intercity rail passenger operations on
+                                                                    tracks and properties owned by CPR. Under the agreement
+We recommended that the questioned costs be recovered in            provisions, the CPR bills Amtrak each month for specific
+accordance with the terms of the contract. Management agreed        services and facilities for intercity rail passenger operations. The
+to utilize the reported audit findings in its attempt to reach a    OIG reviewed 100 percent of the billings for on-time-perfor-
+negotiated settlement with the Contractor who offered to settle     mance incentives for the period January 2001 through December
+for $154,058 or 47% of the total questioned costs. The OIG          2001 to determine the accuracy, reasonableness, and validity of
+reviewed the Contractor’s explanations and proposed dollar          the charges. Our review found $111,004 in excessive and unsup-
+adjustments, and advised Procurement management that                ported billing for on-time performance. CPR representatives
+Kiewit’s rationale was not consistent with the contract provi-      agreed with this finding and we recommended that management
+sions for downward pricing. Procurement is continuing to            initiate a final settlement letter and that monies due Amtrak be
+pursue a final settlement, which is expected to be completed        collected. Management has not yet responded to this report.
+within the next reporting period.
+
+
+
+
+                                                                                                                   Office of Audits   7
+METRA Billing Audit – $50,075 in Excess Billing and
+Unnecessary Costs Identified ($23,007 Excess Billings
+                                                                     MANAGEMENT RESPONSES OVER
+Identified – $27,068 Unnecessary Costs)                              180 DAYS OLD FOR WHICH
+Report #410-2003 – Issued 3/30/2006
+                                                                     CORRECTIVE ACTION HAS NOT BEEN
+Effective May 1, 1996 the National Railroad Passenger
+Corporation (Amtrak) entered into an agreement with the
+                                                                     COMPLETED
+Commuter Rail Division of the Regional Transportation                (Including Date of Management Response)
+Authority, i.e., Northeast Illinois Regional Commuter Railroad       The following items were reported in previous semiannual
+Corporation (METRA).                                                 reports. As of this reporting period, there are no significant
+The OIG reviewed all billings from April 1997 through                developments to report.
+September 2003 to determine whether all claims were properly         Delaware Car ACSES Installation Bid Review
+supported in compliance with the contract.                           Report #225-2002 – Response 6/19/2003
+We questioned costs of $11,167 for prior period adjustments and      Corrective Action Not Yet Implemented
+$11,840 for rates that were not adjusted in accordance with the
+agreement, totaling $23,007. METRA agreed and issued separate        Reimbursable Work Trains
+checks in settlement of these findings. We also identified $27,068   Report #212-2003 – Response 10/28/2003
+in unnecessary costs to Amtrak for the Glenview station parking
+                                                                     Agreed to Actions in Progress
+spaces not utilized, which are funds that could have been put to
+better use by Amtrak. We recommended and management agreed           Parsons-Jenny Joint Venture
+that the allotment of parking spaces be reduced or eliminated. The   Report #201-2004 – Response 5/14/2004
+reserve parking spaces was reduced from twelve to four.
+                                                                     Questioned Costs Not Yet Resolved
+In addition, we identified internal control issues that will be
+reviewed in future audits. We recommended that management            Blanket Purchase Order Sole Source Compliance Review
+prepare the necessary settlement letter to close the audit period.   Report #206-2004 – Response 3/25/2004
+                                                                     Corrective Actions in Progress
+UNRESOLVED AUDIT ISSUES                                              Audit Questioned $4 million of Commissary Services
+Appendices 1 and 2 show the status of management decisions on        Contract Costs
+audit recommendations and dollar values of questioned costs,         Report #218-2004 – Response 7/16/2004
+unsupported cost, and funds to be put to better use.                 Corrective Action Not Yet Completed
+Section 5(a)(10) of the Inspector General Act of 1978 as             Southern Pacific Central Line
+amended requires “a summary of each audit report issued before       Report #01-506 – Response 9/04/2001
+the commencement of the reporting period for which no manage-        Report #01-507 – Response 9/04/2001
+ment decision has been made by the end of the reporting period.      Report #01-508 – Response 10/12/2001
+. .” Such reports are shown in Appendix 1 and 2. Section             Report #01-509 – Response 10/12/2001
+5(a)(11) requires “a description and explanation of the reasons
+for any significant revised management decision made during          Questioned Costs Not Yet Resolved
+the reporting period.” There were none during this reporting
+period. Section 5(a)(12) requires “information concerning any
+significant management decision with which the Inspector
+General is in disagreement.” Again, no such decisions were
+made during this reporting period.”
+
+
+
+
+8   Office of Audits
+The following are either new items within this category or items
+that have been previously reported and additional information            AUDIT STATISTICS
+has been reported.
+                                                                         Status of Audit Projects
+Capital Spare Parts for High Speed Trainsets and
+Locomotives –                                                            Audits in progress at 10/1/05                                60
+Questioned Costs Not Yet Resolved                                        Audit projects postponed or cancelled                        2
+Report #218-2001 – Response 5/21/2003                                    Audit projects started                                       18
+We previously reported that the OIG identified questioned costs          Audit reports issued                                         21
+of $1,223,897. Management subsequently recovered $425,992                Audit projects in progress 3/31/06                           55
+of the questioned cost through withholding payment for goods
+received. Management then developed a revised negotiating                Audit Findings
+strategy to be consistent with a recent Alstom audit and a negoti-
+ated 12 percent markup. Management decided to allow the same             Questioned costs                                 $1,059,511
+12 percent markup to each Consortium member associated with              Unsupported costs                                            $0
+the subject audit, thus reducing the amount of the questioned            Funds to be put to better use                       $27,068
+costs to $599,108. The remaining balance to be collected would
+                                                                         Total                                            $1,086,579
+be $173,116 and would be withheld against future payments; but
+would not be addressed until all issues related to the March 16,
+2004 global settlement are resolved.
+                                                                     agreed upon costs for the operation of a high speed corridor in
+Subsequently, we verified additional documentation from the          New York that includes the points from Poughkeepsie to
+Consortium regarding two questionable parts as reasonable. As        Hoffmans. The parties agreed to a negotiated amount of
+a result, management reached a settlement that revised the           $176,767, and credited Amtrak with $23,767. The remaining
+remaining cost questioned to $167,058, which the Consortium          balance of $153,658 is still outstanding pending the final
+could not substantiate and allowed a 14 percent markup. As a         wording of a settlement agreement, and possibly, agreement on
+result, Amtrak will owe the remaining balance of what was            other audit issues. We will continue to monitor.
+previous withheld totaling $258,934. We are awaiting confirma-
+tion from management to verify the payment to the Consortium.        eTrax Payment Requests – Agreed to Actions in Progress
+We will continue to monitor management’s action on this issue.       Report #202-2004 – Response 1/14/2005
+                                                                     Report #201-2005 – Response 5/18/2005
+Amtrak’s Overtime Expenses – Internal Controls Issues
+Not Yet Resolved                                                     n    Report #202-2004 was performed to determine the level of
+Report #205-2003 – Response 4/20/2005                                     compliance with Amtrak’s policies and procedures for
+                                                                          payment requests processed through the eTrax system in
+Amtrak’s management issued a response addressing the OIG                  fiscal year 2003. The OIG made several recommendations to
+findings and indicated that the Finance and Planning department           address the weaknesses in internal controls, improve proce-
+management will ensure proper training and oversight of time-             dures to clarify roles and responsibilities and monitor
+keepers regarding the completion of payroll operation field               compliance. Management substantially agreed with our find-
+audits. Additionally, management was expected to revise the               ings and has implemented various improvements. However,
+Corporate Policy for Time Reporting and Pay Procedures by                 management has not fully responded as to recoveries of dupli-
+September 2005. This Policy is still under review by Amtrak’s             cate payments addressed in the report.
+Controller Office. We will continue to monitor the actions
+taken.                                                               n    Report #201-2005 The review of employee expense reports
+                                                                          processed through the eTrax software system found a high
+New York High Speed Line Agreement – Collection Effort                    degree of non-compliance with Amtrak’s travel policy and
+Continuing                                                                eTrax instructions. Management indicated substantial agree-
+Report #207-2003 – Response 5/24/2005                                     ment with our findings and has implemented various
+We performed a limited review related to the CSXT usage of the            improvements, including the issuance of an updated expense
+New York High Speed Line. Amtrak’s Off-Corridor Operating                 report policy. We are in the process of evaluating if manage-
+Agreements and Amendments with Conrail governed certain                   ment action has achieved a significant reduction in the
+                                                                          noncompliance with the travel policy.
+                                                                                                                   Office of Audits        9
+Office of Investigations
+                                                                            The fraud OIG HOTLINE program has continued to provide
+ CASE STATUS OF INVESTIGATIONS                                              employees or third parties an opportunity to report allegations of
+ 10/1/05 – 3/31/06                                                          fraud, waste, abuse, and other wrongdoing. Employees can
+                                                                            access the HOTLINE twenty-four hours a day by calling Amtrak
+ Total Open Cases as of 9/30/05                                       378
+                                                                            Telephone System number 728-3065 in Philadelphia and the toll
+ Closed Cases                                                         134   free number (800) 468-5469 if outside Philadelphia. During
+ Opened Cases                                                          75   working hours from 9:00 a.m. to 4:30 p.m., OIG staff answers
+ Total Ongoing Cases as of 3/31/06                                    319   the callers on the HOTLINE system. During other hours or
+                                                                            during those occasions when staff are away from the office,
+                                                                            callers can leave a message on the HOTLINE answering
+                                                                            machine. In addition, people can write in confidentially to P.O.
+CASE HANDLING                                                               Box 76654, Washington, DC 20013.
+
+The OIG receives allegations from various sources, including                The OIG received seven telephonic HOTLINE complaints
+employees, confidential informants, Congressional sources,                  during this reporting period.
+federal agencies, and third parties. Presently, we are handling
+319 investigations; in the last six months, we opened 75 new
+cases and closed 134.                                                        HOTLINE STATISTICS
+As set forth in the chart below, entitled “Sources of Allegations,”          10/1/05 – 3/31/06                                        Total
+employees, anonymous and confidential source referrals
+accounted for about 65 percent of the allegations during this                Hotline Complaints Received                                  7
+reporting period, with employees being the source of 36 of the
+75 allegations or 48 percent. All allegations are reviewed,                  Sources of Hotline Complaints
+screened and resources are allocated based upon, among other
+                                                                             Anonymous Source                                             3
+things, the seriousness of the allegations and potential harm to
+                                                                             Private Citizen                                              3
+Amtrak or the public.
+                                                                             Confidential Source                                          1
+
+                                                                             Classification of Complaints
+ SOURCES OF ALLEGATIONS                                                      Fraud                                                        2
+ 10/1/05 – 3/31/06                                                           Theft/Embezzlement                                           3
+                                                                             Non-criminal – Other                                         1
+                                                Private Citizen 3
+                                                                             Criminal – Other                                             1
+                                                Referred by Audit 1
+                                                                             Complaints Referred To:
+                                                Referred by
+                                                Other Amtrak Dept. 1
+                                                                             OI Field Offices                                             3
+                                                Referred by Fed/Local Law
+                                                Enforcement 4                Revenue Protection Unit                                      2
+                                                                             Customer Relations                                           1
+                                                Referred by Other OIG 3
+                                                                             Audit                                                        1
+                                                Hotline 2
+                                                Other 1
+
+
+
+                                         Amtrak Employee
+                                                                            SIGNIFICANT INVESTIGATIONS
+      Confidential                             36
+     Informant 10                                                           Fraud takes on many forms and can be committed through many
+                     Anonymous                                              methods, including mail, wire, phone and the Internet.
+                     Source 13
+                                                                            Organizations that fail to implement measures to prevent and
+                                  Former Amtrak Employee 1                  detect internal fraud assume significant risk. As a result, the
+                                                                            OIG spends considerable time and effort towards identifying
+                                                                            and addressing the many forms of fraud. Illustrative of such
+                                                                            investigations are those mentioned below.
+10    Office of Investigations
+Mail Fraud                                                                vehicle without authorization for commuting purposes for
+                                                                          approximately one year. The employee was counseled and
+A station caretaker contracted to maintain the Amtrak Station at          instructed to repay Amtrak $800 in restitution.
+Plattsburgh, New York pled guilty to submitting invoices for
+time not worked. As a result of an OIG investigation and subse-
+quent findings, the former contractor was prosecuted by the           FUNDS RECOVERED OR
+United States Attorney’s Office for the Northern District of New
+York for one-count of felony mail fraud. The defendant over-          DISCONTINUED
+charged Amtrak for maintenance activities, which were never           Although not always fraudulent in nature, often an OIG investi-
+performed, and admitted that the over-billing took place for a        gation will lead to the recovery or discontinuance of monies
+period of four years defrauding Amtrak of $71,555.25. All             disbursed by Amtrak due to oversight, abuse or misuse of funds
+invoices were transmitted for payment through the United States       as detailed below.
+                                                                      n
+mail. In addition to six (6) months house arrest, and three (3)
+                                                                          The OIG investigated the circumstances surrounding a
+years probation, the former contractor was ordered to make full
+                                                                          marketing firm from Mississippi receiving a no bid contract
+restitution to Amtrak.
+                                                                          from Amtrak to market the long-distance train, The Crescent.
+Health Insurance Fraud Case                                               Pursuant to this investigation, we examined billings to
+                                                                          Amtrak by the firm and discovered a suspect payment to the
+The OIG investigated an Indianapolis physician for violation of           firm in the amount of $32,319. As a result of the OI investi-
+the Federal False Claims Act, 31 U. S. C. Section 3729 et. seq.           gation, the firm acknowledged the unearned payment and
+The fraud resulted from a scheme by the physician to bill                 repaid Amtrak the monies in an out-of-court settlement.
+Amtrak, through its carrier United Health Care, for procedures
+which he had not performed. Amtrak received $33,719.96 in             n   The OIG investigated the purpose of Amtrak making a
+restitution from the physician as the result of a Settlement              $200,000 annual donation to the University City District
+Agreement executed by the Indianapolis United States                      (UCD), a non-profit special services district in Philadelphia,
+Attorney’s Office for the Southern District of Indiana.                   Pennsylvania, which encompasses 30th Street Station.
+                                                                          Amtrak was classified as a “Platinum Ambassador,” meaning
+Fraudulent Misuse of Company Vehicle or Fuel Credit                       they were in the top category of donators along with nine (9)
+Cards                                                                     other entities. Amtrak had contributed $1,400,000 to the
+In conjunction with the use and issuance of company vehicles,             UCD since 1997. The payments were processed through four
+Amtrak also issues fuel credit cards to be used for the sole              payment requests of $50,000 each quarter. As a result of the
+purpose of purchasing fuel for Amtrak vehicles. While there are           investigation, the Amtrak President, who was unaware of the
+established corporate procedures for the management and                   payments, ordered the donations to cease.
+control of both corporate vehicles and fuel credit cards, the abuse   Investigations begun in prior reporting periods that have had
+of both continue to be reported and substantiated by the OIG.         some significant progress or changes are detailed below.
+The following reflect some of our investigations in this area:
+                                                                      Chicago-based Lead Service Attendant’s (LSA)
+n   The OIG conducted a joint investigation with the General
+    Services Administration (GSA) OIG into a GSA credit card          The OIG has continued its activities regarding fraud and abuse in
+    fraud scheme being perpetrated in the New Jersey area. A          connection with cash handling. Since the previous reporting
+    Gas Station Service Attendant was double swiping GSA              period, monies totaling several thousand dollars were recovered
+    credit cards assigned to Amtrak vehicles, resulting in double     from four Chicago-based LSA’s that were terminated after
+    or over-billing. As a result, the Attendant was able to person-   failing to remit all of their on board sales to Amtrak. Amtrak
+    ally profit from the extra charge made against the Amtrak         withheld vacation pay to the four employees, to recover some of
+    issued GSA credit card. With the assistance of the United         the monies due to Amtrak.
+    States Attorney’s office for the Northern District of New
+    Jersey, the perpetrator was arrested and charged with theft of
+    Federal funds.                                                    EFFICIENCY AND EFFECTIVENESS
+                                                                      In addition to detecting and deterring fraud, waste, abuse and
+n   Based on an allegation received by the OIG, the subsequent
+                                                                      wrong doing in Amtrak’s programs and operations, OIG investi-
+    investigation revealed that a Senior Director in the
+                                                                      gations also provide information and recommendations to
+    Engineering Department was using a company assigned
+
+                                                                                                           Office of Investigations   11
+    CLASSIFICATION OF CASES                                                                                PROSECUTIVE REFERRALS
+    OPENED DURING THIS PERIOD                                                                              10/1/05 – 3/31/06
+    10/1/05 – 3/31/06                                                                                      Referrals                U.S. Attorney       Local/State            Total
+    Type                                                                                 Number            Criminal Cases
+    Fraud . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
+                                                                                                           Indictments                     3                  0                  3
+    Theft/Embezzlement . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16
+                                                                                                           Convictions/Pleas               1                  0                  1
+    Kickbacks . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+                                                                                                           Pending*                        7                  0                  7
+    False Claims . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1
+                                                                                                           Declinations                    2                  0                  2
+    False Statements . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1
+                                                                                                           Resolved                        4                  0                  4
+    False T&A Issues . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4
+                                                                                                           TOTAL                          17                  0                 17
+    Other – Criminal . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+    Waste . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6    Civil Cases
+    Abuse of Position . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6          Suits Filed                     0                  0                  0
+    Mismanagement . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2            Settled                         1                  0                  1
+    Conflict of Interest . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1         Pending                         1                  0                  1
+    Administrative Inquiries . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1               TOTAL                           2                  0                  2
+    Other – Non-criminal . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6             Total Civil and Criminal                                             19
+    TOTAL                                                                                          75      *Some of these will be reflected under pending civil cases because these
+                                                                                                           matters are being handled by the United States Attorney’s office in parallel
+                                                                                                           proceedings. In cases where there have been convictions or pleas, we may be
+                                                                                                           awaiting sentencing, restitution, or other resolutions.
+company employees and officials towards improving efficiency,
+effectiveness and adaptability. During this reporting period,
+OIG investigations have led to recommendations regarding
+quality improvement which have been implemented by manage-                                                REVENUE PROTECTION EFFORTS
+ment. Examples of these efforts are detailed below.                                                       The Revenue Protection Unit (RPU) provides critical guidance
+n     The OIG conducted an investigation into a Contractor providing                                      and support in the strengthening of management accountabilities
+      entertainment in the way of food and beverages in excess of                                         and responsibilities as well as internal controls.
+      approximately $10,000 over a two (2) year period to Amtrak                                          Food & Beverage Reviews
+      Procurement and Mechanical Management employees. As a
+      result of the investigation, the employees directly affected were                                   Over the last few reporting periods, circumstances and statistics
+      disciplined and, although there is an existing policy in place, the                                 have been provided indicating misappropriations in the area of
+      Chief Mechanical Officer reiterated the policy to his staff.                                        food service by Lead Service Attendants (LSAs). During this
+                                                                                                          reporting period and in conjunction with these previously
+n     The OIG received information that an Amtrak manager                                                 reported findings, RPU focused on Boston management super-
+      authorized and submitted payment to Amtrak for the purchase                                         vision and accountabilities in this area. Our findings indicated
+      and consumption of alcoholic beverages by Amtrak                                                    several consistent failures by management in their supervision
+      employees in recognition of perfect attendance and employ-                                          of and accountability for LSA’s. As a result of the review and
+      ment anniversaries. Through the subsequent investigation it                                         subsequent administrative referral, four (4) management staff
+      was determined that there were excessive expenditures for                                           changes were instituted and management has adopted several of
+      these celebrations, both in food and alcoholic beverages. In                                        OIG’s recommendations.
+      addition to the manager received counseling for his actions,
+      and as a result of OIG recommendations, all further employee
+      recognition events that include alcohol or being held off
+      Amtrak property have been eliminated.
+
+12        Office of Investigations
+                                         Inspections and Evaluations
+SIGNIFICANT INSPECTIONS &                                                  train miles and the average OTP of Acela trains. This rela-
+                                                                           tionship has helped Amtrak identify the delay minute goals
+EVALUATIONS                                                                that must be achieved for Amtrak to reach its 90% OTP goal
+Acela Service – OIG Continues its Oversight Efforts                        for Acela service. Subsequent to the presentation of our find-
+                                                                           ings and recommendations, Acela OTP has improved
+The Acela high-speed trains generate approximately one quarter             significantly.
+of Amtrak’s ticket revenue, and Acela operations have a signifi-
+cant impact on Amtrak’s financial goals and objectives. As a           n   Follow-up to Acela Quality Assurance Evaluation
+result, the OIG remains involved with the Acela Executive                  In August 2004, we issued report #E-04-03 on the Acela
+Oversight Committee and has continued to examine critical                  Quality Assurance Program. This report was an overall posi-
+areas of the Acela program. During this reporting period, we               tive report on the state of the then-existing program.
+conducted reviews on the transition of contracted maintenance              However, we expressed concern that the program might
+services from the manufacturer to Amtrak; we also reviewed                 degrade during the transition between the manufacturers’
+Acela on-time performance (OTP) and the maintenance quality                consortium, NEC MSC, and Amtrak, and made several
+assurance program. A summary of the work performed in these                recommendations to prevent this from occurring.
+areas follows:                                                             In the fall of 2005, we conducted a follow-up review to see if
+n   Transfer of Maintenance Responsibility from the                        actions in response to our recommendations had been accom-
+    Manufacturer                                                           plished. We found little to no progress had been achieved.
+    With the responsibility for maintenance of the trainsets transi-       We reported our follow-up findings to the Chief Operating
+    tioning from the manufacturer’s consortium to Amtrak on                Officer and will follow-up on this area again in early FY
+    October 1, 2006, the OIG is closely monitoring the transition          2007.
+    to highlight potential problem areas and make recommenda-          Amtrak Mechanical Operations
+    tions to help achieve the smooth and safe transition of train
+    set maintenance from the manufacturers to Amtrak. We are           In September 2005, we issued report E-05-04, which resulted from
+    providing feedback to the Senior Vice President of                 a year-long system-wide review of Amtrak’s Mechanical
+    Operations on areas we feel are at risk so that actions can be     Maintenance Operations. In this report, we found that Amtrak’s
+    taken by management now to help prevent problems in the            maintenance operations were being performed similarly to the
+    future.                                                            way other major railroads in North America did maintenance over
+                                                                       20 years ago - mainly preventative maintenance inspections and
+n   Acela Express On-Time Performance                                  services conducted at mostly time-based intervals, augmented by a
+    The On-Time Performance (OTP) of Amtrak’s Acela trains             high number of reactionary, unscheduled, repairs.
+    fell to historically low levels in FY 04 and FY 05. The poor
+    OTP was adversely impacting the financial performance of           We recommended that Amtrak adopt a more modern mainte-
+    the Acela service, since the customer base for Acela is            nance philosophy based on Reliability-Centered Maintenance
+    comprised primarily of business travelers with time-sensitive      (RCM). An RCM-based program requires that maintenance
+    travel plans.                                                      activities be supported by sound technical and economic justifi-
+                                                                       cations.
+    The OIG evaluated past Acela operating performance to help
+    understand the cause of poor OTP and to develop a set of           Our report discussed specific actions that Amtrak should take to
+    recommendations on how to improve it. The evaluation               transition to RCM. It was well received by Amtrak Management
+    developed five findings related to Acela OTP and offered           and we continue to work with the Mechanical Department to
+    seven recommendations for improvement. The findings                help them implement our recommendations.
+    helped to dispel popular, but often unfounded, perceptions
+                                                                       Implementation of Reliability-Centered Maintenance
+    about the primary cause of late trains and to provide the quan-
+    titative data to help identify the proper actions required to      To assist the Mechanical Department implement Reliability-
+    reduce train delays and improve OTP.                               Centered Maintenance, we engaged a consulting firm,
+                                                                       T-solutions, who facilitated the implementation of Reliability-
+    The evaluation recommended specific actions that Amtrak’s
+                                                                       Centered Maintenance (RCM) at both the U.S. Navy and the
+    line departments should take to reduce Acela delays and
+                                                                       U.S. Coast Guard. In both of these organizations, the implemen-
+    improve its OTP. The evaluation determined that there is a
+                                                                       tation of RCM resulted in significant improvements in
+    direct correlation between delay minutes per ten thousand
+
+                                                                                                        Inspections and Evaluations   13
+equipment reliability, while at the same time significantly            n   Reconcile equipment requirements to equipment availability,
+reducing maintenance costs. The consultants are currently
+                                                                       n   Develop a set of metrics that measure fleet utilization rates,
+analyzing the maintenance history of the Acela high-speed train-
+sets with the intent to begin implementation of new practices in       n   Compare Amtrak’s fleet utilization rates to industry standards
+this area first. Fully implementing RCM throughout Amtrak will             and recommend areas for improvement,
+be a multi-year effort. The OIG will remain engaged to facilitate
+this effort through at least the rest of this fiscal year.             n   Assess how well Amtrak implements its equipment plan.
+
+Amtrak Mechanical Department Facility Rationalization                  The OIG facilitated the Thomas Group’s work within the
+                                                                       company by identifying Amtrak’s equipment planning stake-
+One of the recommendations in report E-05-04 was that Amtrak           holders, coordinating meetings, specifying critical data
+“evaluate the potential benefits of consolidating maintenance          requirements and sources, and identifying Amtrak’s operating
+operations into fewer locations.” The Chairman of Amtrak’s             constraints. A full report on this effort will be issued during the
+Board of Directors requested that the OIG help facilitate the          next reporting period.
+implementation of this recommendation. Therefore, we engaged
+the services of the Thomas Group, an international consulting          IT Project Approval Process – Improvements made, but
+firm with expertise in a variety of industrial operations,             implementation of “best practices” from leading organiza-
+including railroad maintenance. A team composed of both                tions can lead to further improvements
+Thomas Group and IG staff evaluators visited all major Amtrak          Report E-06-01 – Issued March 31, 2006
+maintenance activities, including the three major maintenance          During this reporting period, the OIG completed our evaluation
+back shops and the eleven major mechanical facilities across the       of Amtrak’s Information Technology (IT) project approval
+United States. The team gathered data on characteristics, condi-       process. In this report, E-06-01, the OIG recognized improve-
+tion and utilization of the various facilities, speaking with local    ments in the IT Project Approval process between FY05 and
+management and observing operations.                                   FY06, including the institution of an IT Working Group, better
+The survey found significant excess capacity at Amtrak’s main-         use of criteria to “value” and “score” projects; and the selection
+tenance facilities, resulting in inefficiencies and excess costs and   of the projects based on information prepared by the IT working
+presenting an opportunity for significant potential savings. To        group. While these are noteworthy improvements, further
+achieve these savings, the OIG recommended actions included            improvement is possible.
+consolidating back shops, consolidating preventative mainte-           As part of this evaluation, we compared Amtrak’s process to the
+nance and repair activities at Centers of Excellence for different     best practices of leading organizations and identified opportuni-
+equipment types, and combining or outsourcing certain compo-           ties for improvement. Our recommendations included adopting
+nent repair operations. The estimated potential saving, after          an organizational structure that provides for the inclusion of the
+accomplishing these actions, is in excess of $20 million annu-         CIO in the development and discussion of strategic plans and
+ally. The preliminary findings have been briefed to the Amtrak         initiatives; the integration of an IT strategy the supports the
+Board of Directors, and the OIG is developing recommendations          corporation’s business strategy; and increased project controls to
+for Amtrak to implement and execute these recommendations.             promote consistency in decision-making.
+Amtrak Fleet Planning Process                                          Employee Leave of Absence Initiative – OIG Inter-depart-
+Another of the recommendations contained in Report E-05-04             ment team working with Amtrak Human Resources
+was that Amtrak “develop, and keep current, a comprehensive            In September 2004, the OIG issued an evaluation report on
+fleet plan (that includes both locomotives and cars) to be used to     Employee Leaves of Absence (E-04-04). The report found that
+forecast and prioritize mechanical capital expenditures.” The          Amtrak was not adequately tracking employees on leave of
+Chairman of Amtrak’s Board of Directors requested the OIG              absence and therefore Amtrak could not ensure that benefits
+facilitate the implementation of this recommendation.                  were only being paid to eligible personnel.
+Therefore, the OIG engaged the Thomas Group to review
+Amtrak’s Fleet Planning Process. Specifically, the Thomas              In August 2005, after realizing that the situation had not
+Group was asked to:                                                    improved significantly, the CEO directed that the Human
+                                                                       Resources department create an Employee Leave of Absence
+n    Document Amtrak’s current fleet allocation process,               Initiative and take necessary actions to ensure employees on
+n    Recommend how to improve this process,                            leave of absence are tracked and their benefit eligibility is prop-
+
+14     Inspections and Evaluations
+erly managed. On average, 1200 -1300 employees are either on          that one of the complaints warranted a formal investigation. The
+a medical leave of absence or personal leave of absence each          results of this investigation will be issued during the next
+month. This monthly rolling number requires a dedicated data-         reporting period.
+base to track and monitor employee activity, particularly if
+employees are in compliance with providing the required               Conductor and LSA Non-Remittance – OIG Continuing
+medical documentation. An OIG inter-department team of                Involvement
+Inspections and Evaluations (I&E) and Audit personnel has been        Amtrak employees handle approximately $100 million annually
+monitoring and advising the Human Resources team tasked with          in on-board ticket and food and beverage sales. The OIG previ-
+this initiative. AT is currently testing the database with the goal   ously issued two evaluation reports where we noted substantial
+of final production in the next quarter.                              evidence of employee theft and made recommendations to
+                                                                      improve the oversight and control of cash generated from on-
+Harassment and Intimidation Complaint – Formal
+                                                                      board sales.
+Investigation Initiated
+                                                                      The Inspections and Evaluations staff works closely with the
+Amtrak’s Statement of Policy Against Harassment and
+                                                                      OIG Revenue Protection Unit, whose work is highlighted earlier
+Intimidation states, in part, “Amtrak will, under no circum-
+                                                                      in this report. Also, the I&E staff continues to interact with
+stances, tolerate harassing or intimidating conduct by any
+                                                                      Amtrak’s Customer Services department to advise on remittance
+employee that is calculated to discourage or prevent any indi-
+                                                                      policy and procedures as well as process improvements for safe-
+vidual from receiving proper medical treatment or from
+                                                                      guarding OBS revenues.
+reporting an accident, incident, injury or illness.” This
+Statement of Policy conforms to Federal Railroad                      Since October 2002, more than 175 conductors and 150 On-
+Administration Regulations 49 CFR Part 225.33                         Board Service (OBS) employees have either resigned or been
+                                                                      terminated from the company for misappropriation of revenues,
+During this reporting period, the OIG conducted four inquiries
+                                                                      in part as a result of OIG’s efforts in this area.
+into employee complaints of Harassment and Intimidation.
+After an initial review of the four complaints, it was determined
+
+
+
+
+                                                                                                      Inspections and Evaluations   15
+Counter-Terrorism and Intelligence
+SIGNIFICANT COUNTER-TERRORISM                                           Vulnerability Assessments
+
+AND INTELLIGENCE EFFORTS                                                During the last two quarters, the OIG has retained the services of
+                                                                        two highly regarded assessment and evaluation organizations
+The OIG Counter-Terrorism and Intelligence unit is responsible          that have been performing in-depth reviews of a major Amtrak
+for oversight of Amtrak’s rail security, emergency preparedness,        station and adjacent infrastructure. Through these reviews, we
+and related counter-terrorism and intelligence efforts. Working         hope to ensure that Amtrak has the best possible information
+with Amtrak’s Vice President for Security and other OIG secu-           from which it can improve upon its security investments. The
+rity oversight teams, this unit works to increase awareness about       OIG also intends to expand its review and evaluation program to
+the possibilities of a terrorist attack against railroad passenger      nine additional urban stations during FY 2007 and 2008.
+services and the critical importance of security preparedness.
+                                                                        Concurrent with the OIG’s efforts, the Vice President for
+The OIG and Amtrak’s Security Department also continue to               Security at Amtrak has used a DHS, Office of Domestic
+work with officials from the Department of Homeland Security            Preparedness grant to conduct a more systemic Vulnerability
+(DHS) and with other Federal departments and agencies to                Assessment, for Amtrak’s Northeast Corridor assets and for an
+upgrade and improve security measures at selected locations.            Amtrak facility in the Midwest. The OIG and RAND
+These joint efforts include exercising preventive measures, and         Corporation had recommended that the company undertake
+conducting joint operations with appropriate law enforcement.           these reviews following its 2004 security evaluations. The
+Given the highly confidential nature of this unit, its activities and   Vulnerability Assessment report is scheduled to be delivered to
+progress is generally not publicized. The OIG is willing to discuss     Amtrak in May 2006. From the more complete Vulnerability
+projects and highlights with Congressional members and staff.           Assessment report, Amtrak will be able to revise its security
+                                                                        plans and make better decisions for spending security dollars.
+
+
+
+
+Auto Train Station | Lorton, VA
+
+
+
+
+16     Counter-Terrorism and Intelligence
+                                                                     Other OIG Activities
+COORDINATION WITH INDEPENDENT                                         visit to Aetna, United Healthcare, Cigna, and Blue Cross Blue
+                                                                      Shield. During the site visits, the OIG plans to inquire about the
+PUBLIC ACCOUNTANTS                                                    potential vendors’ internal control processes for safeguarding
+Section 805 of the Rail Passenger Service Act of 1970 requires        Amtrak’s interests with respect to healthcare claims processing.
+Amtrak to have its financial statements audited annually in           We are continuing to work with management to assess actions
+accordance with the generally accepted auditing standards, and        taken or planned for implementing recommendations stemming
+to report the audit findings to Congress in Amtrak’s annual           from a recent OIG sponsored audit of Amtrak’s On-Duty Injury
+report. Amtrak has been audited annually since 1971.                  plan administered by Continuum. We are also preparing for an
+At the request of KPMG, the OIG conducted a review of fiscal          audit of commonly abused medical billing codes to identify
+year 2005 labor charges for both the Engineering and                  abusive or fraudulent billings. Current plans also include a
+Mechanical departments. in order to determine the amounts             review of the new eligibility process implemented by manage-
+adjusted and assess the appropriateness of the labor cost adjust-     ment to determine if accurate information is being provided to
+ments. The results of our review indicated a normal trend of a        various Third Party Administrators that provide healthcare
+small number of adjustments and a relatively low dollar value for     services to agreement covered employees. Amtrak incurs over
+each date of adjustment. A few instances were observed that           $200 million in healthcare costs per year for its two self-insured
+exceeded the normal trend, but the dollar value of these adjust-      healthcare plans for management and agreement-covered
+ments were not significant. Accordingly, we concluded that the        employees. These plans are managed through a number of third
+risk of inappropriate changes was very low and informed KPMG          party vendors and cover over 60,000 members including
+on the results of our review.                                         employees and dependents.
+
+The OIG is continuing to follow-up on progress being made by
+management to implement corrective actions in response to the         TEAMMATE IMPLEMENTATION
+Management Letters issued by the external auditors in connec-         OIG Secure Subnet and TeamMate Implementation
+tion with the annual audits of Amtrak’s financial statements. As      Project Update
+indicated in this report earlier, we issued a status report in
+October 2005 which noted that Amtrak Finance has satisfacto-          As previously reported, Amtrak OIG selected TeamMate appli-
+rily addressed a number of internal control weaknesses cited by       cation to automate various audit processes. In order to protect
+the external auditors.                                                the confidentiality and chain of custody of OIG information, a
+                                                                      secure subnet with internal firewalls was built to host the
+During the next semiannual period, we plan to work with the           TeamMate application and related databases.
+external auditors and Amtrak management on issues related to
+prior audits and the financial statement audit for FY 06.             During this semiannual period, we completed the installation of
+                                                                      technical infrastructure and successfully tested the OIG secure
+                                                                      subnet proof of concept from our Washington office. After
+SELF-INSURED HEALTH CARE PLANS                                        conducting an end-to-end testing from all our offices and
+Amtrak is currently in the process of evaluating potential health-    completing security controls review, we plan to finalize the
+care service providers for the management plan. The OIG is            TeamMate protocol/library, update our Audit Procedures
+participating in this process with Human Resources and others to      Manual, train our audit staff, and roll out the application in a
+evaluate the vendor proposals and conduct site visits. As part of     phased manner. We plan to implement the TeamMate applica-
+this project, OIG staff will join other Amtrak personnel on a site    tion in 2006.
+
+
+
+
+                                                                                                                   Title of Section   17
+NATIONAL RAILROAD PASSENGER CORPORATION
+
+                              Office of the Inspector General
+
+
+
+
+                                                                Appendices
+Appendix 1
+ INSPECTOR GENERAL AUDIT REPORTS ISSUED WITH QUESTIONED COSTS
+ 10/1/05 – 3/31/06
+                                                   Number   Questioned Costs   Unsupported Costs
+ A. For which no management decision
+    has been made by the commencement
+    of the reporting period.                         2          $903,383            $277,348
+ B. Reports issued during the
+    reporting period.                               11        $1,059,511                  $0
+
+ Subtotals (A + B)                                  13        $1,962,894            $277,348
+
+ LESS
+ C. For which a management decision
+    was made during the reporting period.            8
+     (i) dollar value of recommendations
+         that were agreed to by management.                     $738,058                  $0
+     (ii) dollar value of recommendations
+          that were not agreed to by management.
+
+ D. For which no management decision
+    has been made by the end of the
+    reporting period.                                5        $1,224,836            $277,348
+
+
+
+
+20   Appendix 1
+                                                          Appendix 2
+INSPECTOR GENERAL AUDIT REPORTS ISSUED WITH FUNDS TO BE PUT TO
+BETTER USE
+10/1/05 – 3/31/06
+                                                 Number        Dollar Value
+A. For which no management decision
+   has been made by the commencement
+   of the reporting period.                        1             $21,200
+B. Reports issued during the
+   reporting period.                               1             $27,068
+
+Subtotals (A+B)                                    2             $48,268
+
+LESS
+C. For which a management decision
+   was made during the reporting period.           1
+   (i) dollar value of recommendations
+       that were agreed to by management.                        $11,200
+   (ii) dollar value of recommendations
+        that were not agreed to by management.                   $10,000
+
+D. For which no management decision
+   has been made by the end of the
+   reporting period.                               1              $27,068
+
+
+
+
+                                                                 Appendix 2   21
+Appendix 3
+ OFFICE OF THE INSPECTOR GENERAL DETAILED LISTING
+ OF ALL ISSUED AUDIT REPORTS
+ 10/1/05 – 3/31/06
+ Date                Report                                                   Questioned   Unsupported   Funds to be Put
+ Issued              Number     Report Title                                       Costs         Costs     to Better Use
+ 02/23/2006          104-2004   eTrax Application Review                        $39,943            $0                $0
+
+ 10/28/2005          108-2004   KPMG Management Letter Compliance                    $0            $0                $0
+
+ 01/06/2006          205-2005   Pirelli Construction Services, Inc             $201,401            $0                $0
+
+ 03/28/2006          208-2006   Environmental Audit                                  $0            $0                $0
+
+ 10/27/2005          210-2005   Henkles & McCoy - Ivy City Utililties                $0            $0                $0
+
+ 01/05/2006          211-2005   Parsons - Mod 12                                $29,677            $0                $0
+
+ 03/13/2006          217-2004   ABB-AEM-7 Transformer R&R                      $187,441            $0                $0
+
+ 01/05/2006          219-2005   Mass Transit Products Termination               $63,184            $0                $0
+
+ 11/10/2005          220-2005   Albany Commissary Closing                            $0            $0                $0
+
+ 10/25/2005          221-2005   Electronic Exchange Corporation                      $0            $0                $0
+
+ 03/08/2006          222-2005   CSX Billing Under High Speed Rail Agreement     $40,770            $0                $0
+
+ 11/15/2005          223-2004   Smart Associates                                $12,825            $0                $0
+
+ 01/15/2006          223-2005   Observations of FY05 Annual M/W Inventory            $0            $0                $0
+
+ 02/10/2006          224-2005   W.A. Chester, L.L.C                             $20,505            $0                $0
+
+ 02/06/2006          225-2005   Gate Gourmet-Cost and Rate Audit                     $0            $0                $0
+
+ 02/13/2006          302-2005   Amtrak Equipment Accountability                      $0            $0                $0
+
+ 03/27/2006          401-2005   CPR (SOO) OTP only (2001)                      $111,004            $0                $0
+
+ 03/30/2006          410-2003   METRA/CUSCO Lease                               $23,008            $0           $27,068
+
+ 02/06/2006          501-2006   Sacramento, CA EEV Review                            $0            $0                $0
+
+ 12/21/2005          502-2005   Kiewit Pacific Company -                       $329,753            $0                $0
+                                Oakland Maintenance Facility
+
+ 12/15/2005          502-2006   Martinez, CA EEV Review                              $0            $0                $0
+
+ Total                                                                        $1,059,511           $0           $27,068
+
+
+
+
+22   Appendix 3
+                                            Appendix 4
+OFFICE OF THE INSPECTOR GENERAL
+SUMMARY OF REPORTS TO PRESIDENT OF AMTRAK
+CONCERNING INFORMATION OR ASSISTANCE
+UNREASONABLY REFUSED OR NOT PROVIDED
+10/1/05 – 3/31/06
+
+NONE
+
+
+
+
+                                                  Appendix 4   23
+Appendix 5
+ OFFICE OF THE INSPECTOR GENERAL
+ REVIEW OF LEGISLATION AND REGULATIONS
+ 10/1/05 – 3/31/06
+ Section 4(a) of the Inspector General Act of 1978, as amended, provides that the Inspector General shall …review existing and proposed
+ legislation and regulations relating to programs and operations of such establishment and to make recommendations in the semiannual reports
+ … concerning the impact of such legislation or regulations on the economy and efficiency in the administration of such programs and opera-
+ tions administered or financed by such establishment or the prevention and detection of fraud and abuse in such programs and operations.
+ The Office of Inspector General has an agreement with Amtrak’s Government and Public Affairs Department that allows the OIG to review
+ and comment on the company’s annual legislative program and other legislative and regulatory concerns of the company. Existing legislation
+ and regulations are reviewed as necessary, as a part of every audit and investigation.
+ The OIG has also submitted legislative recommendations to oversight and appropriating committees seeking line item funding and several
+ other legislative changes that will strengthen OIG independence and effectiveness.
+
+
+
+
+24   Appendix 5
+                                                                                                     Appendix 6
+GLOSSARY OF AUDIT TERMS AND ABBREVIATIONS
+The terms we use in reporting audit statistics are defined below:
+Questioned Cost                      A cost or expenditure of funds for an intended purpose that is unnecessary, unreasonable, or an alleged
+                                     violation of Amtrak’s corporate policy or procedure.
+Unsupported Cost                     A cost that is not supported by adequate documentation at the time of the audit.
+Funds To Be Put To Better Use        Funds identified in an audit that could be used more effectively by taking greater efficiency measures.
+Management Decision                  Management’s evaluation of our audit finding and its final decision concerning agreement or non-
+                                     agreement with our recommendation.
+
+Certain abbreviations used in the text are defined below:
+ACSES      Advanced Civil Speed Enforcement System                      IG            Inspector General
+CEO        Chief Executive Officer                                      IT            Information Technology
+CFR        Code of Federal Regulation                                   LSA           Lead Service Attendant
+CIO        Chief Information Officer                                    METRA         Northern Illinois Regional Commuter Railroad
+CPR        Canadian Pacific Railway                                     MOU           Memorandum of Understanding
+CSXT       CSX Corporation                                              NEC           Northeast Corridor
+DELDOT Delaware Department of Transportation                            NECMSC Northeast Corridor Management Services Company
+DHS        Department of Homeland Security                              OBS           On Board Services
+EEV        Emergency Exchange Voucher                                   OIG           Office of Inspector General
+eTrax      Electronic Transaction Express Software System               OTP           On-Time Performance
+FAR        Federal Acquisition Register                                 RCM           Reliability Centered Management
+FY         Fiscal Year                                                  RPU           Revenue Protection Unit
+GAAP       Generally Accepted Accounting Principles                     UCD           University City District
+G&A        General and Administrative                                   YTD           Year-to-Date
+GAO        Government Accountability Office
+GSA        General Services Administration
+
+
+
+
+                                                                                                                              Appendix 6       25
+Reporting Requirements Index
+ INDEX OF REPORTING REQUIREMENTS PURSUANT
+ TO THE INSPECTOR GENERAL ACT AMENDMENTS OF 1988
+ Topic                              Reporting Requirements                                                       Page
+ Section 4(a)(2)                    Review of Legislation and Regulations                                          24
+ Section 5(a)(1)                    Significant Problems, Abuses, and Deficiencies                          5-8, 10-16
+ Section 5(a)(2)                    Recommendations for Corrective Action to Significant Problems           5-8, 10-16
+ Section 5(a)(3)                    Previous Reports’ Recommendations for Which Corrective Action
+                                    Has Not Been Completed                                                        8-9
+ Section 5(a)(4)                    Matters Referred to Prosecutive Authorities                                    12
+ Section 5(a)(5)                    Information or Assistance Refused or Not Provided                              23
+ Section 5(a)(6)                    Audit Reports Issued in This Reporting Period                                  22
+ Section 5(a)(7)                    Summary of Significant Reports                                          5-8, 10-16
+ Section 5(a)(8)                    Audit Reports with Questioned Costs                                            20
+ Section 5(a)(9)                    Audit Reports with Recommendations That Funds Be Put to Better Use             21
+ Section 5(a)(10)                   Previous Audit Reports Issued with No Management Decision Made by
+                                    End of This Reporting Period                                                    8
+ Section 5(a)(11)                   Significant Revised Management Decisions                                        8
+ Section 5(a)(12)                   Significant Management Decisions with Which the IG is in Disagreement           8
+
+
+
+
+26   Reporting Requirements Index
+Reporting Requirements Index
+ INDEX OF REPORTING REQUIREMENTS PURSUANT
+ TO THE INSPECTOR GENERAL ACT AMENDMENTS OF 1988
+ Topic                              Reporting Requirements                                                       Page
+ Section 4(a)(2)                    Review of Legislation and Regulations                                          24
+ Section 5(a)(1)                    Significant Problems, Abuses, and Deficiencies                          5-8, 10-16
+ Section 5(a)(2)                    Recommendations for Corrective Action to Significant Problems           5-8, 10-16
+ Section 5(a)(3)                    Previous Reports’ Recommendations for Which Corrective Action
+                                    Has Not Been Completed                                                        8-9
+ Section 5(a)(4)                    Matters Referred to Prosecutive Authorities                                    12
+ Section 5(a)(5)                    Information or Assistance Refused or Not Provided                              23
+ Section 5(a)(6)                    Audit Reports Issued in This Reporting Period                                  22
+ Section 5(a)(7)                    Summary of Significant Reports                                          5-8, 10-16
+ Section 5(a)(8)                    Audit Reports with Questioned Costs                                            20
+ Section 5(a)(9)                    Audit Reports with Recommendations That Funds Be Put to Better Use             21
+ Section 5(a)(10)                   Previous Audit Reports Issued with No Management Decision Made by
+                                    End of This Reporting Period                                                    8
+ Section 5(a)(11)                   Significant Revised Management Decisions                                        8
+ Section 5(a)(12)                   Significant Management Decisions with Which the IG is in Disagreement           8
+
+
+
+
+26   Reporting Requirements Index
+Stop Fraud, Waste, Mismanagement, and Abuse
+
+Who pays? You pay. Act like it’s your money… it is!
+Tell Us About It
+Maybe you are aware of fraud, waste, mismanagement, or some other type of abuse at Amtrak.
+Amtrak’s Office of Inspector General has a toll free hotline number for you to call. You can also write to us.
+We will keep your identity confidential. If you prefer, you can remain anonymous. You are protected by law from reprisal by your employer.
+
+Call the hotline:
+Nationwide             (800) 468-5469
+Philadelphia           (215) 349-3065
+                       ATS 728-3065
+
+Write to us:
+Inspector General
+P.O. Box 76654
+Washington, DC 20013-6654
+
+
+
+
+National Railroad Passenger Corporation
+Office of Inspector General
+(800) 468-5469
+       National Railroad Passenger Corporation
+                 Office of the Inspector General
+10 G Street, NE, Suite 3W-300, NE, Washington, DC 20002-4285
+
+
+
+         Amtrak is a registered service mark of the National Railroad Passenger Corporation.
