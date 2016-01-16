@@ -1,14 +1,8 @@
 // boilerplate includes
 var config = require("../config/config"),
+    es = require("./boot").es,
     helpers = require("./helpers"),
-    elasticsearch = require("elasticsearch"),
-    es = new elasticsearch.Client({
-      host: {
-        host: config.elasticsearch.host,
-        port: config.elasticsearch.port
-      },
-      log: 'debug'
-    });
+    fs = require("fs");
 
 // Number of reports per request for web page results and RSS results
 var HTML_SIZE = 10;
@@ -19,7 +13,6 @@ module.exports = {
   // The homepage. A temporary search page.
   index: function(req, res) {
     res.render("index.html", {
-      reportCount: reportCount,
       inspector: null
     });
   },
@@ -40,7 +33,6 @@ module.exports = {
 
     search(query, inspector, page, HTML_SIZE).then(function(results) {
       res.render("reports.html", {
-        reportCount: reportCount,
         results: results,
         query: req.query.query,
         inspector: inspector,
@@ -51,7 +43,6 @@ module.exports = {
       console.log("Noooo!");
       res.status(500);
       res.render("reports.html", {
-        reportCount: reportCount,
         results: null,
         query: null,
         inspector: inspector,
@@ -92,24 +83,19 @@ module.exports = {
   },
 
   inspectors: function(req, res) {
-    res.render("inspectors.html", {
-      reportCount: reportCount,
-      inspectorReportCounts: inspectorReportCounts
-    });
+    res.render("inspectors.html");
   },
 
   inspector: function(req, res) {
     var metadata = helpers.inspector_info(req.params.inspector);
+
     if (metadata) {
-      var inspectorReportCount;
-      if (inspectorReportCounts) {
-        inspectorReportCount = inspectorReportCounts[req.params.inspector] || 0;
-      } else {
-        inspectorReportCount = null;
-      }
+      var inspectorReportCount = null;
+      if (helpers.counts.inspectors)
+        inspectorReportCount = helpers.counts.inspectors[req.params.inspector] || 0;
+
       search("*", req.params.inspector, 1, HTML_SIZE).then(function(results) {
         res.render("inspector.html", {
-          reportCount: reportCount,
           inspector: req.params.inspector,
           metadata: metadata,
           inspectorReportCount: inspectorReportCount,
@@ -118,35 +104,28 @@ module.exports = {
       }, function(err) {
         console.log("Noooo!");
         res.render("inspector.html", {
-          reportCount: reportCount,
           inspector: req.params.inspector,
           metadata: metadata,
           inspectorReportCount: inspectorReportCount,
           results: []
         });
       });
+
     } else {
       res.status(404);
-      res.render("inspector.html", {
-        reportCount: reportCount,
-        metadata: null
-      });
+      res.render("inspector.html", {metadata: null});
     }
   },
 
   report: function(req, res) {
     get(req.params.inspector, req.params.report_id).then(function(result) {
       res.render("report.html", {
-        reportCount: reportCount,
         report: result._source
       });
     }, function(err) {
       console.log("Nooooo! " + err);
       res.status(500);
-      res.render("report.html", {
-        reportCount: reportCount,
-        report: null
-      });
+      res.render("report.html", {report: null});
     });
   }
 
@@ -207,45 +186,3 @@ function search(query, inspector, page, size) {
     body: body
   });
 }
-
-var reportCount = null;
-var inspectorReportCounts = null;
-
-function updateReportCounts() {
-  es.count({
-    index: config.elasticsearch.index,
-    type: "reports"
-  }).then(function(result) {
-    reportCount = result.count;
-  }, function(err) {
-    console.log("Nooooo! " + err);
-    reportCount = null;
-  });
-  es.search({
-    index: config.elasticsearch.index,
-    type: "reports",
-    searchType: "count",
-    body: {
-      aggregations: {
-        inspector_agg: {
-          terms: {
-            field: "inspector",
-            size: 0
-          }
-        }
-      }
-    }
-  }).then(function(result) {
-    var buckets = result.aggregations.inspector_agg.buckets;
-    inspectorReportCounts = {};
-    for (var i = 0; i < buckets.length; i++) {
-      inspectorReportCounts[buckets[i].key] = buckets[i].doc_count;
-    }
-  }, function(err) {
-    console.log("Nooooo! " + err);
-    inspectorReportCounts = null;
-  });
-}
-
-setInterval(updateReportCounts, 1000 * 60 * 60);
-updateReportCounts();

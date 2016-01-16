@@ -5,11 +5,10 @@ var app = express();
 // environment and port
 var env = process.env.NODE_ENV || 'development';
 var port;
-if (config && config.http && config.http.port) {
+if (config && config.http && config.http.port)
   port = config.http.port;
-} else {
+else
   port = 3000;
-}
 
 // app middleware/settings
 app.engine('.html', require('ejs').__express);
@@ -47,6 +46,7 @@ if (!module.parent) {
   app.listen(port, function() {
     console.log("Express server listening on port %s in %s mode", port, env);
   });
-} else {
-  exports.app = app;
 }
+
+else
+  exports.app = app;
