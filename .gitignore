@@ -6,6 +6,4 @@
 *.log
 *.pyc
 /node_modules
-
-
-/public/css/main.css
+.sass-cache

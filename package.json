@@ -40,7 +40,6 @@
     "js-yaml": "*",
     "method-override": "*",
     "minimist": "*",
-    "node-sass-middleware": "^0.9.7",
     "numeral": "*",
     "request": "*"
   },
