@@ -27,7 +27,7 @@ var boot_time = new Date().getTime();
 var counts = {
   reports: null,
   inspectors: null
-}
+};
 
 function updateReportCounts() {
   es.count({
