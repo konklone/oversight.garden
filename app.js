@@ -42,8 +42,11 @@ app.get('/inspectors', routes.inspectors);
 app.get('/inspector/:inspector', routes.inspector);
 app.get('/report/:inspector/:report_id', routes.report);
 
-
 // boot it up!
-app.listen(port, function() {
-  console.log("Express server listening on port %s in %s mode", port, env);
-});
+if (!module.parent) {
+  app.listen(port, function() {
+    console.log("Express server listening on port %s in %s mode", port, env);
+  });
+} else {
+  exports.app = app;
+}
