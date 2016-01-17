@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+"use strict";
+
 var async = require("async");
 var ejs = require("ejs");
 var fs = require("fs");
