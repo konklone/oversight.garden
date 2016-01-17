@@ -3,7 +3,7 @@
 var fs = require('fs');
 var tv4 = require('tv4');
 
-FILES_SYNTAX = [
+var FILES_SYNTAX = [
     'package.json',
     'config/index.json',
     'config/mappings/reports.json'
