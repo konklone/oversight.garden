@@ -163,7 +163,7 @@ async.eachSeries(inspectors, function(inspector, done) {
       var r = request({
         url: urls[slug],
         headers: {
-          'User-Agent': 'oversight.io'
+          'User-Agent': 'oversight.garden'
         }
       });
       r.pipe(file);

@@ -13,7 +13,7 @@ namespace :sitemap do
     ping_yandex = (!$config['sitemap'].nil?) && ($config['sitemap']['ping_yandex'] ? true : false)
 
     BigSitemap.generate(
-      base_url: "https://oversight.io/",
+      base_url: "https://oversight.garden/",
       document_root: "public/sitemap",
       url_path: "sitemap",
       ping_google: ping_google,
