@@ -10,20 +10,18 @@ namespace :elasticsearch do
   # options:
   #   only - only one mapping, please
   #   force - delete the mapping first (okay...)
-  #   host - defaults to http://localhost:9200
   task init: :environment do
     single = ENV['only'] || nil
     force = ENV['force'] || false
 
     mappings = single ? [single] : Dir.glob('config/mappings/*.json').map {|dir| File.basename dir, File.extname(dir)}
 
-    settings = JSON.parse(File.read('config/index.json'))
+    index_settings = JSON.parse(File.read('config/index.json'))
 
-    host = ENV['host'] || "http://localhost:9200"
+    endpoint = "http://#{$config['elasticsearch']['host']}:#{$config['elasticsearch']['port']}"
     index = $config['elasticsearch']['index']
-    index_url = "#{host}/#{index}"
 
-    client = Elasticsearch::Client.new url: host, log: true, index: index
+    client = Elasticsearch::Client.new url: endpoint, log: true, index: index
 
     if !client.indices.exists index: index
       client.indices.create index: index
@@ -49,7 +47,7 @@ namespace :elasticsearch do
     puts
 
     begin
-      client.indices.put_settings index: index, body: settings
+      client.indices.put_settings index: index, body: index_settings
 
       puts "Configured index"
       puts
