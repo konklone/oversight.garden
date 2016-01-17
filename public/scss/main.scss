@@ -1,10 +1,40 @@
-
 @import "bourbon/bourbon";
 @import "neat/neat";
 
+/****************************************
+  Main styles for oversight.garden.
+*****************************************/
 
-body {font-family: "Open Sans", "Arial", sans-serif;}
-pre {font-family: "Fira Mono", monospace;}
+// set the grid to 12 columns, no gutter
+$grid-columns: 12;
+$gutter: 0em !global;
+
+
+/*********** Colors ************/
+
+// header and footer areas
+$frame-background: #136932;
+$frame-foreground: #f5f5f5;
+$frame-links: #3EC04E;
+
+// center area
+$main-background: #f5f5f5;
+$main-foreground: #0a0a0a;
+$main-links: #297432;
+
+$callout-background: #d0ebc1;
+
+
+/************* Text sizes ********/
+
+
+/************** Fonts *************/
+
+$main-font: "Open Sans", "Arial", sans-serif;
+$pre-font: "Fira Mono", monospace;
+body {font-family: $main-font;}
+pre {font-family: $pre-font;}
+
 
 /* font sizes */
 
@@ -15,51 +45,27 @@ body {font-size: 11pt; line-height: 25px;}
 .home .featured h2 {font-weight: bold;}
 
 
-/********* colors ************/
-
 a, a:visited {
-  color: #3EC04E;
+  color: $frame-links;
 }
 
-/* frame */
-header, footer {
-
-}
-header a, footer a,
-header a:visited, footer a:visited {
-
-}
-
-/* light body */
 body {
-  color: #f5f5f5;
-  background-color: #136932;
+  color: $frame-foreground;
+  background-color: $frame-background;
 }
 
 section.main {
-  color: #0a0a0a;
-  background-color: #f5f5f5;
+  color: $main-foreground;
+  background-color: $main-background;
 } section.main a, section.main a:visited {
-  color: #297432;
+  color: $main-links;
 }
 
-/* callout boxes */
-.home .featured {
-  background-color: #d0ebc1;
-}
+.home .featured {background-color: $callout-background;}
 
 
 
 /* layout */
-
-header, section.main, footer {
-
-}
-
-.inner {
-  max-width: 800px;
-  margin: 0 auto;
-}
 
 
 

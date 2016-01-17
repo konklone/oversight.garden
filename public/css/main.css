@@ -4,6 +4,12 @@ html {
 *, *::after, *::before {
   box-sizing: inherit; }
 
+/****************************************
+  Main styles for oversight.garden.
+*****************************************/
+/*********** Colors ************/
+/************* Text sizes ********/
+/************** Fonts *************/
 body {
   font-family: "Open Sans", "Arial", sans-serif; }
 
@@ -27,12 +33,9 @@ body {
 .home .featured h2 {
   font-weight: bold; }
 
-/********* colors ************/
 a, a:visited {
   color: #3EC04E; }
 
-/* frame */
-/* light body */
 body {
   color: #f5f5f5;
   background-color: #136932; }
@@ -44,15 +47,10 @@ section.main {
 section.main a, section.main a:visited {
   color: #297432; }
 
-/* callout boxes */
 .home .featured {
   background-color: #d0ebc1; }
 
 /* layout */
-.inner {
-  max-width: 800px;
-  margin: 0 auto; }
-
 header {
   padding: 20px 20px; }
 
