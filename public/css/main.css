@@ -33,6 +33,14 @@ body {
   body a, body a:visited {
     color: #3EC04E; }
 
+header, section.main, footer {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%; }
+  header:last-child, section.main:last-child, footer:last-child {
+    margin-right: 0; }
+
 header {
   padding: 20px 20px; }
   header h1 {
@@ -64,10 +72,13 @@ footer {
 .home .search-bar-container {
   margin-bottom: 20px; }
 .home section {
-  width: 45%;
-  padding-right: 20px;
-  display: inline-block;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
   vertical-align: top; }
+  .home section:last-child {
+    margin-right: 0; }
 .home .intro p {
   padding-bottom: 13px; }
 .home .featured {
@@ -81,30 +92,33 @@ footer {
       font-weight: bold; }
   .home .featured p {
     margin-bottom: 10px; }
-  .home .featured .tl .submit {
-    padding: 2px 10px; }
   .home .featured .tl input[type=text] {
-    width: 200px;
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%;
     padding: 2px 5px; }
+    .home .featured .tl input[type=text]:last-child {
+      margin-right: 0; }
+  .home .featured .tl input[type=submit] {
+    padding: 2px 10px; }
 
 /****** Search bar *******/
-.search-bar-container {
+.search-bar-container input[type='search'] {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 100%; }
-  .search-bar-container:last-child {
+  width: 48.82117%;
+  padding: 10px;
+  font-size: 2em;
+  text-align: center;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  outline: 0; }
+  .search-bar-container input[type='search']:last-child {
     margin-right: 0; }
-  .search-bar-container input[type='search'] {
-    width: 100%;
-    padding: 10px;
-    font-size: 2em;
-    text-align: center;
-    border: 1px solid #ccc;
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    border-radius: 30px;
-    outline: 0; }
 
 /******* Document search results. **/
 .reports ul, .reports li {
