@@ -29,26 +29,31 @@ $callout-background: #d0ebc1;
 /************* Text sizes ********/
 
 $main-font-size: 11pt;
-$main-line-height: 25px;
 $search-bar-font-size: 20px;
+$site-title-size: 2em;
+$header-size: 20px;
 
+$main-line-height: 25px;
+$header-height: 31px;
 
 /************** Fonts *************/
 
 $main-font: "Open Sans", "Arial", sans-serif;
 $pre-font: "Fira Mono", monospace;
-body {font-family: $main-font;}
-pre {font-family: $pre-font;}
+$search-result-font: Average, serif;
+
+
 
 
 /***** Main Layout ******/
 
-h1, h2, h3, h4, h5, h6 {
+h1, h3, h4, h5, h6 {
   font-weight: normal; margin: 0; padding: 0;
   display: inline-block;
 }
 
 body {
+  font-family: $main-font;
   font-size: $main-font-size;
   input {font-size: $main-font-size;}
 
@@ -60,6 +65,17 @@ body {
   a, a:visited {
     color: $frame-links;
   }
+
+  h2 {
+    font-weight: bold;
+    font-size: $header-size;
+    line-height: $header-height;
+    display: block;
+  }
+
+  pre {
+    font-family: $pre-font;
+  }
 }
 
 header, section.main, footer {
@@ -70,7 +86,8 @@ header {
   padding: 20px 20px;
 
   h1 {
-    font-size: 2em;
+    font-size: $site-title-size;
+
     a, a:visited {
       text-decoration: none;
       color: $white;
@@ -87,13 +104,28 @@ section.main {
   a, a:visited {
     color: $main-links;
   }
-}
 
-#query {
-  font-size: $search-bar-font-size;
+  .search-bar {
 
-  padding: 5px 10px;
-  margin-bottom: 10px;
+    input[type='search'] {
+      @include span-columns(6);
+
+      font-size: $search-bar-font-size;
+      text-align: center;
+
+      padding: 10px;
+      margin-bottom: 10px;
+
+      border: 1px solid #ccc;
+      -webkit-border-radius: 30px;
+      -moz-border-radius: 30px;
+      border-radius: 30px;
+      outline: 0;
+    }
+
+    select {}
+    input[type='submit'] {}
+  }
 }
 
 footer {
@@ -109,15 +141,12 @@ footer {
 
 .home {
 
-  h2 {font-weight: bold;}
-
   .search-bar-container {
     margin-bottom: 20px;
   }
 
-  section {
+  .intro, .featured {
     @include span-columns(6);
-    vertical-align: top;
   }
 
   .intro p {
@@ -129,12 +158,7 @@ footer {
     padding: 10px;
 
     h2 {margin-bottom: 10px;}
-
-    h4 {
-      margin-bottom: 10px;
-      a.landing {font-weight: bold;}
-    }
-
+    h4 {margin-bottom: 10px;}
     p {margin-bottom: 10px;}
 
     .tl {
@@ -152,45 +176,16 @@ footer {
 
 }
 
-/****** Search bar *******/
-
-.search-bar-container {
-
-  input[type='search'] {
-    @include span-columns(6);
-
-    padding: 10px;
-    font-size: 2em;
-    text-align: center;
-    border: 1px solid #ccc;
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    border-radius: 30px;
-    outline: 0;
-  }
-
-  select {
-
-  }
-
-  input[type='submit'] {
-
-  }
-}
-
 
 /******* Document search results. **/
 
 .reports {
   ul, li {list-style-type: none;}
+
   li {
     margin: 40px 0;
 
     h2 {
-      font-size: 20px;
-      line-height: 30px;
-      display: block;
-
       a {text-decoration: none;}
       a:hover {text-decoration: underline;}
     }
@@ -198,13 +193,13 @@ footer {
     h4 {margin: 10px 0;}
 
     p {
+      font-family: $search-result-font;
+
       background-color: #e5e5e5;
       padding: 5px 10px;
       margin: 10px 0;
-      font-family: Average, serif;
     }
 
-    .links {font-size: 12px;}
   }
 }
 
@@ -213,22 +208,16 @@ footer {
 
 .report {
   h2 {
-    display: block;
-    font-size: 30px;
-    line-height: 41px;
+    font-size: $header-size;
+    line-height: $header-height;
   }
 
   h4 {
     display: block;
-    font-size: 18px;
-    line-height: 30px;
     margin-top: 10px;
   }
 
-  p {
-    font-size: 18px;
-    margin-top: 30px;
-  }
+  p {margin-top: 30px;}
 
   .text {
     border: 1px solid #888;
@@ -243,14 +232,9 @@ footer {
 .inspector {
   .infobox {
     background-color: #d0ebc1;
+
     padding: 20px;
     margin-bottom: 40px;
-    h2 {
-      max-width: 600px;
-      font-weight: bold;
-      font-size: 20px;
-      vertical-align: top;
-    }
   }
 }
 
@@ -259,18 +243,13 @@ footer {
 
 .inspectors {
   ul, li {list-style-type: none;}
+
   li {
     margin: 40px 0;
 
     div {
       vertical-align: top;
-      max-width: 600px;
     }
-  }
-
-  h2 {
-    font-weight: bold;
-    font-size: 20px;
   }
 
   .inspector-info {display: inline-block;}

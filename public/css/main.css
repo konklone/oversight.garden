@@ -10,20 +10,15 @@ html {
 /*********** Colors ************/
 /************* Text sizes ********/
 /************** Fonts *************/
-body {
-  font-family: "Open Sans", "Arial", sans-serif; }
-
-pre {
-  font-family: "Fira Mono", monospace; }
-
 /***** Main Layout ******/
-h1, h2, h3, h4, h5, h6 {
+h1, h3, h4, h5, h6 {
   font-weight: normal;
   margin: 0;
   padding: 0;
   display: inline-block; }
 
 body {
+  font-family: "Open Sans", "Arial", sans-serif;
   font-size: 11pt;
   line-height: 25px;
   color: #f5f5f5;
@@ -32,6 +27,13 @@ body {
     font-size: 11pt; }
   body a, body a:visited {
     color: #3EC04E; }
+  body h2 {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 31px;
+    display: block; }
+  body pre {
+    font-family: "Fira Mono", monospace; }
 
 header, section.main, footer {
   float: left;
@@ -55,11 +57,22 @@ section.main {
   padding: 30px 20px; }
   section.main a, section.main a:visited {
     color: #297432; }
-
-#query {
-  font-size: 20px;
-  padding: 5px 10px;
-  margin-bottom: 10px; }
+  section.main .search-bar input[type='search'] {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    outline: 0; }
+    section.main .search-bar input[type='search']:last-child {
+      margin-right: 0; }
 
 footer {
   padding: 10px 20px; }
@@ -67,17 +80,14 @@ footer {
     margin: 5px 0; }
 
 /******* Home page **********/
-.home h2 {
-  font-weight: bold; }
 .home .search-bar-container {
   margin-bottom: 20px; }
-.home section {
+.home .intro, .home .featured {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 48.82117%;
-  vertical-align: top; }
-  .home section:last-child {
+  width: 48.82117%; }
+  .home .intro:last-child, .home .featured:last-child {
     margin-right: 0; }
 .home .intro p {
   padding-bottom: 13px; }
@@ -88,8 +98,6 @@ footer {
     margin-bottom: 10px; }
   .home .featured h4 {
     margin-bottom: 10px; }
-    .home .featured h4 a.landing {
-      font-weight: bold; }
   .home .featured p {
     margin-bottom: 10px; }
   .home .featured .tl input[type=text] {
@@ -103,58 +111,31 @@ footer {
   .home .featured .tl input[type=submit] {
     padding: 2px 10px; }
 
-/****** Search bar *******/
-.search-bar-container input[type='search'] {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 48.82117%;
-  padding: 10px;
-  font-size: 2em;
-  text-align: center;
-  border: 1px solid #ccc;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  border-radius: 30px;
-  outline: 0; }
-  .search-bar-container input[type='search']:last-child {
-    margin-right: 0; }
-
 /******* Document search results. **/
 .reports ul, .reports li {
   list-style-type: none; }
 .reports li {
   margin: 40px 0; }
-  .reports li h2 {
-    font-size: 20px;
-    line-height: 30px;
-    display: block; }
-    .reports li h2 a {
-      text-decoration: none; }
-    .reports li h2 a:hover {
-      text-decoration: underline; }
+  .reports li h2 a {
+    text-decoration: none; }
+  .reports li h2 a:hover {
+    text-decoration: underline; }
   .reports li h4 {
     margin: 10px 0; }
   .reports li p {
+    font-family: Average, serif;
     background-color: #e5e5e5;
     padding: 5px 10px;
-    margin: 10px 0;
-    font-family: Average, serif; }
-  .reports li .links {
-    font-size: 12px; }
+    margin: 10px 0; }
 
 /******* Report landing page. ********/
 .report h2 {
-  display: block;
-  font-size: 30px;
-  line-height: 41px; }
+  font-size: 20px;
+  line-height: 31px; }
 .report h4 {
   display: block;
-  font-size: 18px;
-  line-height: 30px;
   margin-top: 10px; }
 .report p {
-  font-size: 18px;
   margin-top: 30px; }
 .report .text {
   border: 1px solid #888;
@@ -166,11 +147,6 @@ footer {
   background-color: #d0ebc1;
   padding: 20px;
   margin-bottom: 40px; }
-  .inspector .infobox h2 {
-    max-width: 600px;
-    font-weight: bold;
-    font-size: 20px;
-    vertical-align: top; }
 
 /************* List of offices. ********/
 .inspectors ul, .inspectors li {
@@ -178,11 +154,7 @@ footer {
 .inspectors li {
   margin: 40px 0; }
   .inspectors li div {
-    vertical-align: top;
-    max-width: 600px; }
-.inspectors h2 {
-  font-weight: bold;
-  font-size: 20px; }
+    vertical-align: top; }
 .inspectors .inspector-info {
   display: inline-block; }
 .inspectors .inspector-link {
