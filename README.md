@@ -35,7 +35,7 @@ This project uses Sass, Bourbon, and Neat to develop front-end CSS.
 Have Sass "watch" the `.scss` files with:
 
 ```
-make watch
+rake watch
 ```
 
 This will automatically detect changes to `/public/scss/main.scss` and re-compile to `/public/css/main.css`.
