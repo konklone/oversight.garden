@@ -1,6 +1,11 @@
-# inspectors-general data directory, defaults to ./data
+# unitedstates/inspectors-general data directory, defaults to ./data
 inspectors:
   data: data
+
+# unitedstates/reports data directory, uncomment and change to point to a
+# clone of https://github.com/unitedstates/reports.git
+#reports:
+#  data: ../reports
 
 # elasticsearch server address
 elasticsearch:
