@@ -5,33 +5,35 @@ require 'elasticsearch'
 require 'json'
 
 namespace :elasticsearch do
-
   desc "Initialize ES mappings"
+
+  task client: [:environment] do
+    endpoint = "http://#{$config['elasticsearch']['host']}:#{$config['elasticsearch']['port']}"
+    index = $config['elasticsearch']['index']
+    $elasticsearch_client = Elasticsearch::Client.new url: endpoint, log: true, index: index
+  end
+
   # options:
   #   only - only one mapping, please
   #   force - delete the mapping first (okay...)
-  task init: :environment do
+  task init: [:environment, :client] do
     single = ENV['only'] || nil
     force = ENV['force'] || false
 
     mappings = single ? [single] : Dir.glob('config/mappings/*.json').map {|dir| File.basename dir, File.extname(dir)}
 
+    index = $config['elasticsearch']['index']
     index_settings = JSON.parse(File.read('config/index.json'))
 
-    endpoint = "http://#{$config['elasticsearch']['host']}:#{$config['elasticsearch']['port']}"
-    index = $config['elasticsearch']['index']
-
-    client = Elasticsearch::Client.new url: endpoint, log: true, index: index
-
-    if !client.indices.exists index: index
-      client.indices.create index: index
-      client.cluster.health wait_for_status: 'green'
+    if !$elasticsearch_client.indices.exists index: index
+      $elasticsearch_client.indices.create index: index
+      $elasticsearch_client.cluster.health wait_for_status: 'green'
 
       puts "Created index"
       puts
     else
       if force
-        client.indices.delete index: index
+        $elasticsearch_client.indices.delete index: index
 
         puts "Deleted index"
         puts
@@ -41,18 +43,18 @@ namespace :elasticsearch do
       end
     end
 
-    client.indices.close index: index
+    $elasticsearch_client.indices.close index: index
 
     puts "Closed index"
     puts
 
     begin
-      client.indices.put_settings index: index, body: index_settings
+      $elasticsearch_client.indices.put_settings index: index, body: index_settings
 
       puts "Configured index"
       puts
     ensure
-      client.indices.open index: index
+      $elasticsearch_client.indices.open index: index
 
       puts "Opened index"
       puts
@@ -61,7 +63,7 @@ namespace :elasticsearch do
     mappings.each do |mapping|
       mapping_raw = File.read("config/mappings/#{mapping}.json")
       mapping_config = JSON.parse(mapping_raw)
-      client.indices.put_mapping index: index, type: mapping, body: mapping_config
+      $elasticsearch_client.indices.put_mapping index: index, type: mapping, body: mapping_config
 
       puts "Created #{mapping}"
       puts
