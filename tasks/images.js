@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+"use strict";
+
 var async = require("async");
 var child_process = require("child_process");
 var fs = require("fs");

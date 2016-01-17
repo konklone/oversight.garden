@@ -1,3 +1,5 @@
+"use strict";
+
 var webdriverio = require('webdriverio');
 var options = {
   desiredCapabilities: {

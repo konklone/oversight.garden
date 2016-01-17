@@ -1,3 +1,5 @@
+"use strict";
+
 // view helpers
 
 var qs = require("querystring");

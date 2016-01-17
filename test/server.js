@@ -1,3 +1,5 @@
+"use strict";
+
 global.isMocha = true;
 var app = require("../app").app;
 var http = require("http");

@@ -1,3 +1,5 @@
+"use strict";
+
 // boilerplate includes
 var config = require("../config/config"),
     es = require("./boot").es,
