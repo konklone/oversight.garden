@@ -141,7 +141,8 @@ function run(options) {
         option != "inspectors" &&
         option != "report_id" &&
         option != "limit" &&
-        option != "_") {
+        option != "_" &&
+        option != "config") {
       unknown_option = option;
     }
   }
@@ -152,6 +153,7 @@ function run(options) {
     console.error("  inspectors: limit to list of inspector slugs (comma-separated)");
     console.error("  report_id: limit to individual report ID (combine with --since if needed)");
     console.error("  limit: cut off after N reports, useful for debugging");
+    console.error("  config: specify a different configuration file");
     process.exit(1);
   }
 
