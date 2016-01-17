@@ -157,10 +157,10 @@ function run(options) {
     process.exit(1);
   }
 
-  var reports_dir = config.reports && config.reports.data;
   var scraper_data_list = crawl(options, config.inspectors.data);
   ingest(scraper_data_list);
 
+  var reports_dir = config.reports && config.reports.data;
   if (reports_dir) {
     var reports_ig_dir = path.join(reports_dir, "inspectors-general");
     var reports_list = crawl(options, reports_ig_dir);
