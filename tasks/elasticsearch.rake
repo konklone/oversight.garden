@@ -25,20 +25,27 @@ namespace :elasticsearch do
     index = $config['elasticsearch']['index']
     index_settings = JSON.parse(File.read('config/index.json'))
 
-    if !$elasticsearch_client.indices.exists index: index
+    if force
+      if $elasticsearch_client.indices.exists index: index
+        $elasticsearch_client.indices.delete index: index
+
+        puts "Deleted index"
+        puts
+      end
       $elasticsearch_client.indices.create index: index
       $elasticsearch_client.cluster.health wait_for_status: 'green'
 
       puts "Created index"
       puts
     else
-      if force
-        $elasticsearch_client.indices.delete index: index
-
-        puts "Deleted index"
+      if $elasticsearch_client.indices.exists index: index
+        puts "Index already exists"
         puts
       else
-        puts "Index already exists"
+        $elasticsearch_client.indices.create index: index
+        $elasticsearch_client.cluster.health wait_for_status: 'green'
+
+        puts "Created index"
         puts
       end
     end
