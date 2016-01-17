@@ -1,0 +1,246 @@
+
+@import "bourbon/bourbon";
+@import "neat/neat";
+
+
+body {font-family: "Open Sans", "Arial", sans-serif;}
+pre {font-family: "Fira Mono", monospace;}
+
+/* font sizes */
+
+body {font-size: 11pt; line-height: 25px;}
+#query {font-size: 20px;}
+#tlemail {font-size: 11pt;}
+.home .tl .submit {font-size: 11pt;}
+.home .featured h2 {font-weight: bold;}
+
+
+/********* colors ************/
+
+a, a:visited {
+  color: #3EC04E;
+}
+
+/* frame */
+header, footer {
+
+}
+header a, footer a,
+header a:visited, footer a:visited {
+
+}
+
+/* light body */
+body {
+  color: #f5f5f5;
+  background-color: #136932;
+}
+
+section.main {
+  color: #0a0a0a;
+  background-color: #f5f5f5;
+} section.main a, section.main a:visited {
+  color: #297432;
+}
+
+/* callout boxes */
+.home .featured {
+  background-color: #d0ebc1;
+}
+
+
+
+/* layout */
+
+header, section.main, footer {
+
+}
+
+.inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+
+
+header {padding: 20px 20px;}
+section.main {padding: 30px 20px;}
+footer {padding: 10px 20px;}
+
+footer p {margin: 5px 0;}
+
+
+/* header */
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal; margin: 0; padding: 0;
+  display: inline-block;
+}
+
+h1 { font-size: 2em; }
+h1 a, h1 a:visited { text-decoration: none; color: white; }
+
+#query {
+  padding: 5px 10px;
+  margin-bottom: 10px;
+}
+
+/** search bar **/
+
+.search-bar {
+  width: 100%;
+}
+
+.search-bar input[type='search'] {
+  width: 100%;
+  padding: 10px;
+  font-size: 2em;
+  text-align: center;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  outline: 0;
+}
+
+/** home page **/
+
+.home .search-bar-container {
+  margin-bottom: 20px;
+}
+
+.home section  {
+  width: 45%;
+  padding-right: 20px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.home .intro p {
+  padding-bottom: 13px;
+}
+
+.home .featured {padding: 10px;}
+.home .featured h4 a.landing {font-weight: bold;}
+.home .featured h2 {margin-bottom: 10px;}
+.home .featured h4 {margin-bottom: 10px;}
+.home .featured p {margin-bottom: 10px;}
+
+.home .featured #tlemail {
+  width: 200px;
+  padding: 2px 5px;
+} .home .tl .submit {padding: 2px 10px;}
+
+
+/** report listings **/
+
+.reports ul, .reports li {list-style-type: none;}
+.reports li {
+  margin: 40px 0;
+}
+
+.reports li h2 {
+  font-size: 20px;
+  line-height: 30px;
+  display: block;
+} .reports li h2 a {
+  text-decoration: none
+} .reports li h2 a:hover {
+  text-decoration: underline
+}
+
+.reports li h4 {
+  margin: 10px 0;
+}
+
+.reports li p {
+  background-color: #e5e5e5;
+  padding: 5px 10px;
+  margin: 10px 0;
+  font-family: Average, serif;
+}
+
+.reports li .links {
+  font-size: 12px;
+}
+
+/** report landing page **/
+
+.report h2, .report h4 {display: block;}
+.report h2 {
+  font-size: 30px;
+  line-height: 41px;
+}
+
+.report h4 {
+  font-size: 18px;
+  line-height: 30px;
+  margin-top: 10px;
+}
+
+.report p {
+  font-size: 18px;
+  margin-top: 30px;
+}
+
+.report .text {
+  border: 1px solid #888;
+  margin: 40px 0;
+  padding: 40px;
+}
+
+/** inspector page **/
+
+.inspector .infobox {
+  background-color: #d0ebc1;
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+.inspector .infobox h2 {
+  max-width: 600px;
+  font-weight: bold;
+  font-size: 20px;
+  vertical-align: top;
+}
+
+/** inspector list **/
+
+.inspectors ul, .inspectors li {list-style-type: none;}
+.inspectors li {
+  margin: 40px 0;
+}
+
+.inspectors h2 {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.inspectors li div {
+  vertical-align: top;
+  max-width: 600px;
+}
+
+.inspectors .inspector-info {
+  display: inline-block;
+}
+
+.inspectors .inspector-link {
+  display: block;
+}
+
+/** tags **/
+
+.tag {
+  border-radius: 10px;
+  padding: 5px;
+  margin: 10px;
+}
+
+.tag.inactive {
+  background-color: #cccccc;
+}
+
+.tag.foia-only {
+  background-color: #ff2222;
+}

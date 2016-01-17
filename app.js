@@ -1,5 +1,6 @@
 var config = require("./config/config");
-var express = require('express');
+var express = require('express'),
+    path = require("path");
 var app = express();
 
 // environment and port
@@ -19,8 +20,10 @@ app.enable('trust proxy')
   .use(function(req,res,next){
     res.locals.req = req;
     next();
-  })
-  .use(express.static(__dirname + '/public'));
+  });
+
+app.use(express.static(__dirname + '/public'));
+
 
 // development vs production
 if (env == "development")
