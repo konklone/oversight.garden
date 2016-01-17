@@ -116,7 +116,7 @@ function crawl(options, base_path) {
 }
 
 function ingest(fetch) {
-  if (fetch.length == 0) {
+  if (fetch.length === 0) {
     // Don't need to refresh index if there are no reports, exit early
     return;
   }
