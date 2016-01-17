@@ -1,55 +1,47 @@
-## Oversight.io
+## Oversight.garden
 
-Bringing into sight the work of the United States government's oversight community.
+Collecting the oversight community's work in one place.
 
-A small website (in progress!) at [oversight.io](https://oversight.io).
-
-[![Build Status](https://travis-ci.org/konklone/oversight.io.svg?branch=master)](https://travis-ci.org/konklone/oversight.io)
+A small website at [oversight.garden](https://oversight.garden).
 
 ### Getting started
 
 Oversight.io is primarily a **Node** application, and uses **Ruby** for some data manipulation tasks.
 
-Elasticsearch is used for text search *and* as a primary datastore.
+Elasticsearch is used for text search and as a primary datastore.
 
-#### Installing Node, Elasticsearch, and Ruby
+#### Installing dependencies
 
-Install [Node](http://nodejs.org/) by either:
+* Install [Node](https://nodejs.org/) version 4.x or higher.
+* Install [Elasticsearch](https://elastic.co) version 2.1 or higher.
+* Install [Ruby](https://www.ruby-lang.org/en/) 2.2 or higher.
 
-* Downloading the latest tarball from [nodejs.org](http://nodejs.org/) and compiling/installing from source.
-* Installing [nvm](https://github.com/creationix/nvm) and running `nvm install 0.10` and `nvm alias default 0.10`.
-
-Install [Elasticsearch](http://elasticsearch.org/) **version 1.3 and up** by either:
-
-* [Installing Elasticsearch on Linux](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/setup-repositories.html) through apt or yum.
-* [Installing Elasticsearch on Mac OS X](http://stackoverflow.com/a/22855889/16075) through [Homebrew](http://brew.sh/).
-* [Downloading the latest tarball](http://www.elasticsearch.org/download/) and compiling/installing from source.
-
-Install [Ruby](https://www.ruby-lang.org/en/) 2.2 by either:
-
-* Using [rbenv](https://github.com/sstephenson/rbenv) to run `rbenv install 2.2.0`.
-* Using [brew](http://brew.sh/) to run `brew install ruby`.
-* Some [other method](https://www.ruby-lang.org/en/installation/). Don't use `apt`, which will install a too-old version of Ruby.
-
-Then install Bundler (a Ruby dependency manager) with:
+* Then install Ruby dependencies:
 
 ```
 gem install bundler
+bundle install
 ```
 
-#### Setting up the application
-
-Install Node dependencies with:
+* And Node dependencies:
 
 ```
 npm install
 ```
 
-Install Ruby dependencies with:
+#### Working with the CSS
+
+This project uses Sass, Bourbon, and Neat to develop front-end CSS.
+
+Have Sass "watch" the `.scss` files with:
 
 ```
-bundle install
+make watch
 ```
+
+This will automatically detect changes to `/public/scss/main.scss` and re-compile to `/public/css/main.css`.
+
+#### Setting up the data
 
 Symlink a `data` dir that points to the location of your downloaded inspector general report data from the [unitedstates/inspectors-general](https://github.com/unitedstates/inspectors-general) project.
 
@@ -98,9 +90,13 @@ This defaults to loading every report for the current year. See [the full list o
 If this all worked, you should be up and running!
 
 ### Git hooks
-If you're contributing to the project, you can run the same syntax checks locally that would get run on Travis. Once you have cloned the project, run `tasks/install-git-hooks.sh`. This will create a symbolic link at `.git/hooks/pre-commit` that points to `tasks/pre-commit`. From then on, Git will execute syntax checks whenever you run `git commit`. If there is an issue, the script will abort the commit and print an error message. If you need to bypass the syntax checks for any reason, use `git commit --no-verify`.
+
+If you're contributing to the project, you can run the same syntax checks locally that would get run on Travis. Once you have cloned the project, run `tasks/install-git-hooks.sh`. This will create a symbolic link at `.git/hooks/pre-commit` that points to `tasks/pre-commit`.
+
+From then on, Git will execute syntax checks whenever you run `git commit`. If there is an issue, the script will abort the commit and print an error message. If you need to bypass the syntax checks for any reason, use `git commit --no-verify`.
 
 ### Sitemap
+
 Sitemaps can be generated with the following rake task:
 
 ```
