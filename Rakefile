@@ -14,7 +14,7 @@ task :watch do
 end
 
 task :clean do
-  sh "rm -f #{css}"
+  remove_file css, :force => true
 end
 
 load "tasks/elasticsearch.rake"
