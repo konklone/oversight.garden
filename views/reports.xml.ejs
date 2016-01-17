@@ -6,25 +6,25 @@
 <% var last_page = Math.max(1, Math.floor((results.hits.total + size - 1) / size)); -%>
 <% var query_string_last = helpers.q({page: last_page, query: query, inspector: inspector}); -%>
 <feed xmlns="http://www.w3.org/2005/Atom">
-<title>Oversight.io | Bringing into sight the US government's oversight community.</title>
-<link href="https://oversight.io/reports?<%= query_string_this %>"/>
+<title>Oversight.garden | Collecting the oversight community's work in one place.</title>
+<link href="https://oversight.garden/reports?<%= query_string_this %>"/>
 <updated><%= new Date().toISOString() %></updated>
-<id>https://oversight.io/reports.xml</id>
-<link rel="alternate" type="text/html" hreflang="en" href="https://oversight.io/reports?<%= query_string_this %>"/>
-<link rel="self" type="application/atom+xml" href="https://oversight.io<%= self_url %>"/>
-<link rel="first" href="https://oversight.io/reports.xml?<%= query_string_first %>"/>
+<id>https://oversight.garden/reports.xml</id>
+<link rel="alternate" type="text/html" hreflang="en" href="https://oversight.garden/reports?<%= query_string_this %>"/>
+<link rel="self" type="application/atom+xml" href="https://oversight.garden<%= self_url %>"/>
+<link rel="first" href="https://oversight.garden/reports.xml?<%= query_string_first %>"/>
 <% if (page > 1) { -%>
-<link rel="previous" href="https://oversight.io/reports.xml?<%= query_string_prev %>"/>
+<link rel="previous" href="https://oversight.garden/reports.xml?<%= query_string_prev %>"/>
 <% } -%>
 <% if (results.hits.total > page * size) { -%>
-<link rel="next" href="https://oversight.io/reports.xml?<%= query_string_next %>"/>
+<link rel="next" href="https://oversight.garden/reports.xml?<%= query_string_next %>"/>
 <% } -%>
-<link rel="last" href="https://oversight.io/reports.xml?<%= query_string_last %>"/>
+<link rel="last" href="https://oversight.garden/reports.xml?<%= query_string_last %>"/>
 <% var hits = results.hits.hits; -%>
 <% for (var i = 0; i < hits.length; i++) { -%>
 <% var report = hits[i]._source; -%>
 <% var highlight = hits[i].highlight; -%>
-<% var link = 'https:/' + '/oversight.io/report/' + report.inspector + '/' + encodeURIComponent(report.report_id); -%>
+<% var link = 'https:/' + '/oversight.garden/report/' + report.inspector + '/' + encodeURIComponent(report.report_id); -%>
 <entry>
 <id><%= link %></id>
 <title><%= report.title %></title>

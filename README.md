@@ -6,7 +6,7 @@ A small website at [oversight.garden](https://oversight.garden).
 
 ### Getting started
 
-Oversight.io is primarily a **Node** application, and uses **Ruby** for some data manipulation tasks.
+Oversight.garden is primarily a **Node** application, and uses **Ruby** for some data manipulation tasks.
 
 Elasticsearch is used for text search and as a primary datastore.
 

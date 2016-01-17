@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "title": "Oversight.io Inspectors General Metadata",
+    "title": "Oversight.garden Inspectors General Metadata",
     "type": "array",
     "items": {
         "type": "object",

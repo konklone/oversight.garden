@@ -10,7 +10,7 @@ describe('homepage', function() {
     client
       .url(baseURL)
       .getTitle(function(err, title) {
-        assert.equal(title, 'Oversight.io | Bringing into sight the US government\'s oversight community.');
+        assert.equal(title, 'Oversight.garden | Collecting the oversight community\'s work in one place.');
       })
       .call(done);
   });
