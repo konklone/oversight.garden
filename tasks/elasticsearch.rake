@@ -5,7 +5,6 @@ require 'elasticsearch'
 require 'json'
 
 namespace :elasticsearch do
-  desc "Initialize ES mappings"
 
   task client: [:environment] do
     endpoint = "http://#{$config['elasticsearch']['host']}:#{$config['elasticsearch']['port']}"
@@ -16,6 +15,7 @@ namespace :elasticsearch do
   # options:
   #   only - only one mapping, please
   #   force - delete the mapping first (okay...)
+  desc "Initialize ES mappings"
   task init: [:environment, :client] do
     single = ENV['only'] || nil
     force = ENV['force'] || false
