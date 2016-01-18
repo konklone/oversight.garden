@@ -34,7 +34,7 @@
     "body-parser": "^1.14.2",
     "ejs": "^2.3.4",
     "elasticsearch": "8.x",
-    "errorhandler": "^1.4.2",
+    "errorhandler": "^1.4.3",
     "express": "4.x",
     "glob": "^5.0.15",
     "js-yaml": "^3.5.2",
