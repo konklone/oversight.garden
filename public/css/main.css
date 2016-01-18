@@ -435,16 +435,7 @@ body {
   background: #63e195;
   text-align: center;
   padding: 10px 20px; }
-
-.footer__content {
-  max-width: 68em;
-  margin-left: auto;
-  margin-right: auto; }
-  .footer__content::after {
-    clear: both;
-    content: "";
-    display: table; }
-  .footer__content a {
+  .footer a {
     color: #ffffff;
     text-decoration: none; }
 
@@ -489,17 +480,15 @@ body h2 {
 body pre {
   font-family: "Fira Mono", monospace; }
 
-section.main {
+.center {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 100%; }
-  section.main:last-child {
-    margin-right: 0; }
-
-section.main {
+  width: 100%;
   padding: 30px 20px; }
-  section.main .search-bar input[type='search'] {
+  .center:last-child {
+    margin-right: 0; }
+  .center .search-bar input[type='search'] {
     float: left;
     display: block;
     margin-right: 2.35765%;
@@ -513,7 +502,7 @@ section.main {
     -moz-border-radius: 30px;
     border-radius: 30px;
     outline: 0; }
-    section.main .search-bar input[type='search']:last-child {
+    .center .search-bar input[type='search']:last-child {
       margin-right: 0; }
 
 /******* Home page **********/

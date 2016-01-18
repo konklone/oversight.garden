@@ -8,9 +8,6 @@
 @import "base";
 
 
-
-// To be refactored
-
 /***** Main Layout ******/
 
 h1, h3, h4, h5, h6 {
@@ -19,26 +16,6 @@ h1, h3, h4, h5, h6 {
 }
 
 body {
-  // font-family: $font-family-sans;
-  // font-size: $main-size;
-  // input {font-size: $main-size;}
-
-  // line-height: $main-height;
-
-  // color: $text-color;
-  // background-color: $white;
-
-  // a, a:visited {
-  //   color: $brand-color;
-  // }
-
-  // h1 {
-  //   font-weight: bold;
-  //   font-size: $header-size;
-  //   line-height: $header-height;
-  //   display: block;
-  // }
-
   h2 {
     font-weight: bold;
     font-size: $subheader-size;
@@ -51,23 +28,8 @@ body {
   }
 }
 
-section.main {
+.center {
   @include span-columns(12);
-}
-
-// header {
-//   padding: 20px 20px;
-
-//   h1 {
-//     font-size: $title-size;
-
-//     a, a:visited {
-//       text-decoration: none;
-//     }
-//   }
-// }
-
-section.main {
   padding: 30px 20px;
 
   .search-bar {
@@ -93,14 +55,6 @@ section.main {
   }
 }
 
-// footer {
-//   padding: 10px 20px;
-
-//   p {
-//     margin: 5px 0;
-//   }
-// }
-
 
 /******* Home page **********/
 
@@ -117,26 +71,6 @@ section.main {
   .intro p {
     padding-bottom: 13px;
   }
-
-  // .featured {
-  //   padding: 10px;
-
-  //   h2 {margin-bottom: 10px;}
-  //   h4 {margin-bottom: 10px;}
-  //   p {margin-bottom: 10px;}
-
-  //   .tl {
-  //     input[type=text] {
-  //       @include span-columns(6);
-  //       padding: 2px 5px;
-  //     }
-
-  //     input[type=submit] {
-  //       padding: 2px 10px;
-  //     }
-
-  //   }
-  // }
 
 }
 

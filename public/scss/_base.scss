@@ -74,10 +74,6 @@ body {
     background: $brand-color;
     text-align: center;
     padding: 10px 20px;
-}
-
-.footer__content {
-    @include outer-container;
 
     a {
         color: $text-color-white;
