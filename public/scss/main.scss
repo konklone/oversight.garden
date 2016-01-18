@@ -68,8 +68,10 @@ body {
   }
 
   h1 {
+    font-weight: bold;
     font-size: $header-size;
     line-height: $header-height;
+    display: block;
   }
 
   h2 {

@@ -27,8 +27,10 @@ body {
   body a, body a:visited {
     color: #63e295; }
   body h1 {
+    font-weight: bold;
     font-size: 20pt;
-    line-height: 31px; }
+    line-height: 31px;
+    display: block; }
   body h2 {
     font-weight: bold;
     font-size: 16pt;
