@@ -84,3 +84,27 @@ body {
         text-decoration: none;
     }
 }
+
+// Sections
+
+section {
+    @include outer-container;
+}
+
+// Cards
+
+.card {
+    @include span-columns(4);
+    background: $gray-light;
+    padding: 20px;
+    min-height: 175px;
+    margin-bottom: 20px;
+}
+
+// Panels
+
+.panel {
+    border: 1px solid $gray-light;
+    padding: 100px;
+    margin-bottom: 20px;
+}

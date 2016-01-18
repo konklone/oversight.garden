@@ -448,6 +448,32 @@ body {
     color: #ffffff;
     text-decoration: none; }
 
+section {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto; }
+  section::after {
+    clear: both;
+    content: "";
+    display: table; }
+
+.card {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%;
+  background: #f9f9f9;
+  padding: 20px;
+  min-height: 175px;
+  margin-bottom: 20px; }
+  .card:last-child {
+    margin-right: 0; }
+
+.panel {
+  border: 1px solid #f9f9f9;
+  padding: 100px;
+  margin-bottom: 20px; }
+
 /***** Main Layout ******/
 h1, h3, h4, h5, h6 {
   font-weight: normal;
@@ -493,33 +519,15 @@ section.main {
 /******* Home page **********/
 .home .search-bar-container {
   margin-bottom: 20px; }
-.home .intro, .home .featured {
+.home .intro {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 48.82117%; }
-  .home .intro:last-child, .home .featured:last-child {
+  .home .intro:last-child {
     margin-right: 0; }
 .home .intro p {
   padding-bottom: 13px; }
-.home .featured {
-  padding: 10px; }
-  .home .featured h2 {
-    margin-bottom: 10px; }
-  .home .featured h4 {
-    margin-bottom: 10px; }
-  .home .featured p {
-    margin-bottom: 10px; }
-  .home .featured .tl input[type=text] {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 48.82117%;
-    padding: 2px 5px; }
-    .home .featured .tl input[type=text]:last-child {
-      margin-right: 0; }
-  .home .featured .tl input[type=submit] {
-    padding: 2px 10px; }
 
 /****** Document search results. */
 .reports ul, .reports li {
