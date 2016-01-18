@@ -388,7 +388,7 @@ body {
   margin-right: auto;
   border-bottom: 1px solid #63e195;
   margin-bottom: 20px;
-  padding: 20px 0; }
+  padding: 20px 20px; }
   .header::after {
     clear: both;
     content: "";
