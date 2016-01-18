@@ -374,9 +374,9 @@
       "resolved": "https://registry.npmjs.org/generate-object-property/-/generate-object-property-1.2.0.tgz"
     },
     "glob": {
-      "version": "5.0.15",
-      "from": "https://registry.npmjs.org/glob/-/glob-5.0.15.tgz",
-      "resolved": "https://registry.npmjs.org/glob/-/glob-5.0.15.tgz"
+      "version": "6.0.4",
+      "from": "glob@>=6.0.0 <7.0.0",
+      "resolved": "https://registry.npmjs.org/glob/-/glob-6.0.4.tgz"
     },
     "graceful-readlink": {
       "version": "1.0.1",
