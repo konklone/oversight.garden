@@ -1,3 +1,4 @@
 {
+  "strict": "global",
   "node": true
 }
