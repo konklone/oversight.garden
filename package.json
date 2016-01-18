@@ -33,7 +33,7 @@
     "async": "^1.5.2",
     "body-parser": "^1.14.2",
     "ejs": "^2.3.4",
-    "elasticsearch": "8.x",
+    "elasticsearch": "^10.1.2",
     "errorhandler": "^1.4.3",
     "express": "4.x",
     "glob": "^6.0.4",

@@ -52,11 +52,6 @@
       "from": "https://registry.npmjs.org/bl/-/bl-1.0.0.tgz",
       "resolved": "https://registry.npmjs.org/bl/-/bl-1.0.0.tgz"
     },
-    "bluebird": {
-      "version": "2.10.2",
-      "from": "https://registry.npmjs.org/bluebird/-/bluebird-2.10.2.tgz",
-      "resolved": "https://registry.npmjs.org/bluebird/-/bluebird-2.10.2.tgz"
-    },
     "body-parser": {
       "version": "1.14.2",
       "from": "body-parser@1.14.2",
@@ -263,9 +258,16 @@
       "resolved": "https://registry.npmjs.org/ejs/-/ejs-2.3.4.tgz"
     },
     "elasticsearch": {
-      "version": "8.2.0",
-      "from": "https://registry.npmjs.org/elasticsearch/-/elasticsearch-8.2.0.tgz",
-      "resolved": "https://registry.npmjs.org/elasticsearch/-/elasticsearch-8.2.0.tgz"
+      "version": "10.1.2",
+      "from": "elasticsearch@10.1.2",
+      "resolved": "https://registry.npmjs.org/elasticsearch/-/elasticsearch-10.1.2.tgz",
+      "dependencies": {
+        "promise-js": {
+          "version": "0.0.6",
+          "from": "promise-js@0.0.6",
+          "resolved": "https://registry.npmjs.org/promise-js/-/promise-js-0.0.6.tgz"
+        }
+      }
     },
     "entities": {
       "version": "1.0.0",
