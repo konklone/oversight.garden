@@ -33,9 +33,9 @@
       "resolved": "https://registry.npmjs.org/assert-plus/-/assert-plus-0.1.5.tgz"
     },
     "async": {
-      "version": "1.5.0",
-      "from": "https://registry.npmjs.org/async/-/async-1.5.0.tgz",
-      "resolved": "https://registry.npmjs.org/async/-/async-1.5.0.tgz"
+      "version": "1.5.2",
+      "from": "async@1.5.2",
+      "resolved": "https://registry.npmjs.org/async/-/async-1.5.2.tgz"
     },
     "aws-sign2": {
       "version": "0.6.0",
