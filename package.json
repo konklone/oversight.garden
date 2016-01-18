@@ -41,7 +41,7 @@
     "method-override": "^2.3.5",
     "minimist": "^1.2.0",
     "numeral": "^1.5.3",
-    "request": "^2.65.0"
+    "request": "^2.67.0"
   },
   "devDependencies": {
     "intercept-stdout": "^0.1.2",
