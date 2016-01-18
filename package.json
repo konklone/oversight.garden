@@ -35,7 +35,7 @@
     "ejs": "^2.3.4",
     "elasticsearch": "^10.1.2",
     "errorhandler": "^1.4.3",
-    "express": "4.x",
+    "express": "^4.13.3",
     "glob": "^6.0.4",
     "js-yaml": "^3.5.2",
     "method-override": "^2.3.5",
