@@ -1,3 +1,86 @@
 //
 // Base Layout
 //
+
+body {
+    font-family: $font-family-sans;
+    font-size: $main-size;
+    color: $text-color;
+    background-color: $white;
+}
+
+.main {
+    @include outer-container;
+}
+
+
+// Header
+
+.header {
+    @include outer-container;
+    border-bottom: 1px solid $brand-color;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.header__logo {
+    @include span-columns(6);
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 28px;
+    font-family: $font-family-sans;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+
+    a {
+        color: $text-color;
+        cursor: pointer;
+        text-decoration: none;
+        transition: color 150ms ease-in;
+
+        &:hover {
+            color: $brand-color;
+        }
+    }
+}
+
+.header__navigation {
+    @include span-columns(6);
+    ul {
+        padding-left: 0;
+        margin: 0;
+    }
+    li {
+        display: inline-block;
+        margin-right: 3rem;
+        text-align: right;
+
+        a {
+            color: $text-color-light;
+            font-size: $beta;
+            text-decoration: none;
+
+            &:hover {
+                color: $text-color;
+            }
+        }
+    }   
+}
+
+
+// Footer
+
+.footer {
+    background: $brand-color;
+    text-align: center;
+    padding: 10px 20px;
+}
+
+.footer__content {
+    @include outer-container;
+
+    a {
+        color: $text-color-white;
+        text-decoration: none;
+    }
+}

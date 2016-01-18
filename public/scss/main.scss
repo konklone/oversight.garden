@@ -19,25 +19,25 @@ h1, h3, h4, h5, h6 {
 }
 
 body {
-  font-family: $font-family-sans;
-  font-size: $main-size;
-  input {font-size: $main-size;}
+  // font-family: $font-family-sans;
+  // font-size: $main-size;
+  // input {font-size: $main-size;}
 
-  line-height: $main-height;
+  // line-height: $main-height;
 
-  color: $text-color;
-  background-color: $white;
+  // color: $text-color;
+  // background-color: $white;
 
-  a, a:visited {
-    color: $brand-color;
-  }
+  // a, a:visited {
+  //   color: $brand-color;
+  // }
 
-  h1 {
-    font-weight: bold;
-    font-size: $header-size;
-    line-height: $header-height;
-    display: block;
-  }
+  // h1 {
+  //   font-weight: bold;
+  //   font-size: $header-size;
+  //   line-height: $header-height;
+  //   display: block;
+  // }
 
   h2 {
     font-weight: bold;
@@ -51,21 +51,21 @@ body {
   }
 }
 
-header, section.main, footer {
+section.main {
   @include span-columns(12);
 }
 
-header {
-  padding: 20px 20px;
+// header {
+//   padding: 20px 20px;
 
-  h1 {
-    font-size: $title-size;
+//   h1 {
+//     font-size: $title-size;
 
-    a, a:visited {
-      text-decoration: none;
-    }
-  }
-}
+//     a, a:visited {
+//       text-decoration: none;
+//     }
+//   }
+// }
 
 section.main {
   padding: 30px 20px;
@@ -93,13 +93,13 @@ section.main {
   }
 }
 
-footer {
-  padding: 10px 20px;
+// footer {
+//   padding: 10px 20px;
 
-  p {
-    margin: 5px 0;
-  }
-}
+//   p {
+//     margin: 5px 0;
+//   }
+// }
 
 
 /******* Home page **********/
@@ -141,7 +141,7 @@ footer {
 }
 
 
-/******* Document search results. **/
+/****** Document search results. */
 
 .reports {
   ul, li {list-style-type: none;}
