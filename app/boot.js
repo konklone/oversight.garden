@@ -5,6 +5,7 @@ var config = require("../config/config"),
 
 module.exports = {
   es: new elasticsearch.Client({
+    apiVersion: "1.7",
     host: {
       host: config.elasticsearch.host,
       port: config.elasticsearch.port
