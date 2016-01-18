@@ -1,43 +1,43 @@
 <% include layout/header.html %>
 
 <section class="main report"><div class="inner">
-  <% if (report) { %>
+    <% if (report) { %>
 
-    <h2>
-      <%= report.title %>
-    </h2>
+        <h2>
+            <%= report.title %>
+        </h2>
 
-    <h4>
-      Published by the
-      <a href="/inspector/<%= report.inspector %>">
-        <%= helpers.inspector_info(report.inspector).name %></a>
-      on
-      <%= report.published_on %>.
-    </h4>
+        <h4>
+            Published by the
+            <a href="/inspector/<%= report.inspector %>">
+                <%= helpers.inspector_info(report.inspector).name %></a>
+            on
+            <%= report.published_on %>.
+        </h4>
 
-    <p>
-      <% if (report.url) { %>
-        Below is a raw (and likely hideous) rendition of the
-        <a href="<%= report.url %>">original report</a>.
-        <% if (report.file_type == "pdf") { %>
-          (PDF)
+        <p>
+            <% if (report.url) { %>
+                Below is a raw (and likely hideous) rendition of the
+                <a href="<%= report.url %>">original report</a>.
+                <% if (report.file_type == "pdf") { %>
+                    (PDF)
+                <% } %>
+            <% } else if (report.unreleased) { %>
+                This report is unreleased, or missing. Visit its
+                <a href="<%= report.landing_url %>">landing page</a>
+                for more detail.
+            <% } %>
+        </p>
+
+        <% if (report.text) { %>
+            <section class="text">
+            <pre><%= report.text %></pre>
+            </section>
         <% } %>
-      <% } else if (report.unreleased) { %>
-        This report is unreleased, or missing. Visit its
-        <a href="<%= report.landing_url %>">landing page</a>
-        for more detail.
-      <% } %>
-    </p>
 
-    <% if (report.text) { %>
-      <section class="text">
-      <pre><%= report.text %></pre>
-      </section>
+    <% } else { %>
+        Error loading report.
     <% } %>
-
-  <% } else { %>
-    Error loading report.
-  <% } %>
 
 </div></section>
 

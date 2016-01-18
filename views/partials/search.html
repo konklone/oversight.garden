@@ -1,20 +1,20 @@
 <form action="/reports" method="get" class="search-bar">
-  <input type="search" id="query" name="query" placeholder="Search Reports..."
-  <% if ((typeof(query) != "undefined") && query) { %>
-    value="<%= query %>"
-  <% } %>
-  />
-  <select name="inspector">
+    <input type="search" id="query" name="query" placeholder="Search Reports..."
+    <% if ((typeof(query) != "undefined") && query) { %>
+        value="<%= query %>"
+    <% } %>
+    />
+    <select name="inspector">
     <option value="">All Inspectors General</option>
     <% for (var i = 0; i < helpers.inspector_list.length; i++) { %>
-      <option value="<%= helpers.inspector_list[i].slug %>"
-        <% if (inspector && inspector === helpers.inspector_list[i].slug) { %>
-          selected
-        <% } %>
-      >
-        <%= helpers.inspector_list[i].short_name %>
-      </option>
+        <option value="<%= helpers.inspector_list[i].slug %>"
+            <% if (inspector && inspector === helpers.inspector_list[i].slug) { %>
+                selected
+            <% } %>
+        >
+            <%= helpers.inspector_list[i].short_name %>
+        </option>
     <% } %>
-  </select>
-  <input type="submit" value="Search" />
+    </select>
+    <input type="submit" value="Search" />
 </form>

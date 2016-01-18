@@ -2,63 +2,63 @@
 
 <section class="main home">
 
-  <section class="search">
-    <div class="panel">
-      <p>
-        A collection of
-        <a class="browse" href="/reports">
-          <%= helpers.format_number(helpers.counts.reports, 'over 40,000') %> documents
-        </a>
-        overseeing the US federal government, in a single place so you can freely search and subscribe to them.
-      </p>
+    <section class="search">
+        <div class="panel">
+          <p>
+            A collection of
+            <a class="browse" href="/reports">
+                <%= helpers.format_number(helpers.counts.reports, 'over 40,000') %> documents
+            </a>
+            overseeing the US federal government, in a single place so you can freely search and subscribe to them.
+          </p>
 
-      <% include partials/search.html %>
-    </div>
-  </section>
+          <% include partials/search.html %>
+        </div>
+    </section>
 
-  <section>
+    <section>
 
-    <div class="card featured">
-      <h2>Featured documents</h2>
-      <p>
-        Check out some of the most interesting inspector general reports and documents we've come across.
-      </p>
-    </div>
+        <div class="card featured">
+            <h2>Featured documents</h2>
+            <p>
+                Check out some of the most interesting inspector general reports and documents we've come across.
+            </p>
+        </div>
 
-    <div class="card unreleased">
-      <h2>Unreleased documents</h2>
-      <p>
-        Documents whose full contents haven't yet been released.
-      </p>
-    </div>
+        <div class="card unreleased">
+            <h2>Unreleased documents</h2>
+            <p>
+                Documents whose full contents haven't yet been released.
+            </p>
+        </div>
 
-    <div class="card newsletter">
-      <h2>Get occasional news by email</h2>
+        <div class="card newsletter">
+            <h2>Get occasional news by email</h2>
 
-      <form class="tl" action="https://tinyletter.com/oversight" method="post" target="_blank" onsubmit="window.open('https://tinyletter.com/oversight', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
-        <input type="text" placeholder="email address" name="email" id="tlemail" />
-        <input type="hidden" value="1" name="embed"/>
-        <input class="submit" type="submit" value="Subscribe" />
-      </form>
-    </div>
+            <form class="tl" action="https://tinyletter.com/oversight" method="post" target="_blank" onsubmit="window.open('https://tinyletter.com/oversight', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+                <input type="text" placeholder="email address" name="email" id="tlemail" />
+                <input type="hidden" value="1" name="embed"/>
+                <input class="submit" type="submit" value="Subscribe" />
+            </form>
+        </div>
 
-  </section>
+    </section>
 
-  <section class="about">
-    <div class="panel">
-      <h1>About Oversight</h1>
+    <section class="about">
+        <div class="panel">
+            <h1>About Oversight</h1>
 
-      <p>
-        The US government has many dozens of offices dedicated to keeping the government honest and efficient through strong, independent oversight.
+            <p>
+                The US government has many dozens of offices dedicated to keeping the government honest and efficient through strong, independent oversight.
 
-        They produce a lot of good work, but the results are scattered all over the internet. Sometimes they get the attention they deserve, and many times they don't.
+                They produce a lot of good work, but the results are scattered all over the internet. Sometimes they get the attention they deserve, and many times they don't.
 
-        It would be a shame for good oversight to go overlooked. We gather the work of the US government oversight community in one place so you can freely search and subscribe to it.
-      </p>
+                It would be a shame for good oversight to go overlooked. We gather the work of the US government oversight community in one place so you can freely search and subscribe to it.
+            </p>
 
-      <a class="button" href="/about">Learn More</a>
-    </div>
-  </section>
+            <a class="button" href="/about">Learn More</a>
+        </div>
+    </section>
 
 </section>
 

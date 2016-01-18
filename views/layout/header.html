@@ -13,19 +13,19 @@
 <head>
 
 <% if ((typeof(report) != "undefined") && report) { %>
-  <title>
-    <%= helpers.inspector_info(report.inspector).name %> | <%= report.agency_name %> | <%= report.title %>
-  </title>
-  <meta name="og:title" content="<%= helpers.inspector_info(report.inspector).name %> | <%= report.agency_name %> | <%= report.title %>" />
-  <meta name="description" content="<%= report.title %>" />
-  <meta name="og:description" content="<%= report.title %>" />
+    <title>
+        <%= helpers.inspector_info(report.inspector).name %> | <%= report.agency_name %> | <%= report.title %>
+    </title>
+    <meta name="og:title" content="<%= helpers.inspector_info(report.inspector).name %> | <%= report.agency_name %> | <%= report.title %>" />
+    <meta name="description" content="<%= report.title %>" />
+    <meta name="og:description" content="<%= report.title %>" />
 <% } else { %>
-  <title>
-    oversight.garden | Collecting the oversight community's work in one place.
-  </title>
-  <meta name="og:title" content="oversight.garden">
-  <meta name="description" content="Collecting the oversight community's work in one place." />
-  <meta name="og:description" content="Collecting the oversight community's work in one place." />
+    <title>
+        oversight.garden | Collecting the oversight community's work in one place.
+    </title>
+    <meta name="og:title" content="oversight.garden">
+    <meta name="description" content="Collecting the oversight community's work in one place." />
+    <meta name="og:description" content="Collecting the oversight community's work in one place." />
 <% } %>
 
 <meta charset="utf-8" />
