@@ -1,0 +1,48 @@
+//
+// Settings and Variables
+//
+
+// Grid
+// set the grid to 12 columns, no gutter
+$grid-columns: 12;
+$gutter: 0em !global;
+
+
+// Colors
+
+$green: #63e195;
+$white: #ffffff;
+$gray: #cccccc;
+$gray-light: #f9f9f9;
+
+$brand-color: $green;
+
+$text-color: #222222;
+$text-color-light: #aaaaaa;
+$text-color-white: $white;
+
+
+// Fonts
+$font-family-sans: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+$font-family-mono: "Fira Mono", monospace;
+$search-result-font: Average, serif;
+
+
+// Type Sizes
+
+$alpha:    24px;
+$beta:     20px;
+$gamma:    18px;
+$body:     16px;
+$small:    14px;
+
+// To do: refactor based on new type sizes
+$search-bar-font-size: 20px;
+$title-size: 2em;
+
+$main-size: $body;
+$main-height: 25px;
+$header-size: $alpha;
+$header-height: 31px;
+$subheader-size: $beta;
+$subheader-height: 24px;

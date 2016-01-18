@@ -2,50 +2,14 @@
 @import "vendors/bourbon/bourbon";
 @import "vendors/neat/neat";
 
-/****************************************
-  Main styles for oversight.garden.
-*****************************************/
+@import "settings";
+@import "components/typography";
 
-// set the grid to 12 columns, no gutter
-$grid-columns: 12;
-$gutter: 0em !global;
+@import "base";
 
 
-/*********** Colors ************/
 
-// primary theme colors
-$oversight-green: #63e295;
-$oversight-gray: #cccccc;
-$oversight-red: #f36f62;
-$oversight-white: #ffffff;
-$oversight-font-dark: #333333;
-$oversight-font-light: #ffffff;
-
-// center area
-$main-background: $oversight-white;
-$main-font-color: $oversight-font-dark;
-$main-links: $oversight-green;
-
-
-/************* Text ********/
-
-
-$search-bar-font-size: 20px;
-
-$title-size: 2em;
-
-$main-size: 11pt;
-$main-height: 25px;
-$header-size: 20pt;
-$header-height: 31px;
-$subheader-size: 16pt;
-$subheader-height: 24px;
-
-$main-font: "Open Sans", "Arial", sans-serif;
-$pre-font: "Fira Mono", monospace;
-$search-result-font: Average, serif;
-
-
+// To be refactored
 
 /***** Main Layout ******/
 
@@ -55,17 +19,17 @@ h1, h3, h4, h5, h6 {
 }
 
 body {
-  font-family: $main-font;
+  font-family: $font-family-sans;
   font-size: $main-size;
   input {font-size: $main-size;}
 
   line-height: $main-height;
 
-  color: $main-font-color;
-  background-color: $main-background;
+  color: $text-color;
+  background-color: $white;
 
   a, a:visited {
-    color: $main-links;
+    color: $brand-color;
   }
 
   h1 {
@@ -83,7 +47,7 @@ body {
   }
 
   pre {
-    font-family: $pre-font;
+    font-family: $font-family-mono;
   }
 }
 

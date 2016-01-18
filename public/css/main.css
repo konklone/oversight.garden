@@ -362,11 +362,6 @@ html {
 *, *::after, *::before {
   box-sizing: inherit; }
 
-/****************************************
-  Main styles for oversight.garden.
-*****************************************/
-/*********** Colors ************/
-/************* Text ********/
 /***** Main Layout ******/
 h1, h3, h4, h5, h6 {
   font-weight: normal;
@@ -375,23 +370,23 @@ h1, h3, h4, h5, h6 {
   display: inline-block; }
 
 body {
-  font-family: "Open Sans", "Arial", sans-serif;
-  font-size: 11pt;
+  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+  font-size: 16px;
   line-height: 25px;
-  color: #333333;
+  color: #222222;
   background-color: #ffffff; }
   body input {
-    font-size: 11pt; }
+    font-size: 16px; }
   body a, body a:visited {
-    color: #63e295; }
+    color: #63e195; }
   body h1 {
     font-weight: bold;
-    font-size: 20pt;
+    font-size: 24px;
     line-height: 31px;
     display: block; }
   body h2 {
     font-weight: bold;
-    font-size: 16pt;
+    font-size: 20px;
     line-height: 24px;
     display: block; }
   body pre {
@@ -486,7 +481,7 @@ footer {
 
 /******* Report landing page. ********/
 .report h2 {
-  font-size: 20pt;
+  font-size: 24px;
   line-height: 31px; }
 .report h4 {
   display: block;
