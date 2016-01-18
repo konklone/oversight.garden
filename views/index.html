@@ -1,52 +1,63 @@
 <% include layout/header.html %>
 
+<section class="main home">
 
-<section class="main home"><div class="inner">
+  <section class="search">
+    <p>
+      A collection of
+      <a class="browse" href="/reports">
+        <%= helpers.format_number(helpers.counts.reports, 'over 40,000') %> documents
+      </a>
+      overseeing the US federal government, in a single place so you can freely search and subscribe to them.
+    </p>
 
-  <div class="search-bar-container">
     <% include partials/search.html %>
-  </div>
-
-  <section class="intro">
-    <p>
-      Most every piece of the US federal government has an office called the <strong>Inspector General</strong> (IG).
-    </p>
-    <p>
-      An IG's job is to keep their part of the government honest and efficient through strong, independent oversight.
-    </p>
-    <p>
-      IGs produce a lot of work, but their reports are scattered all over the Internet. Some get the attention they deserve, and some don't.
-    </p>
-    <p>
-      <strong>It would be a shame for good oversight to go overlooked.</strong> We gather them in one place so you can freely search and subscribe to them.
-    </p>
   </section>
 
-  <section class="featured">
-    <h2>Featured Report</h2>
+  <section class="callouts">
 
-    <div>
-      <h4>
-        July 28, 2014 &mdash;
-        <a class="landing" href="/report/commerce/13-1077">
-          Waste and Mismanagement at the Patent Trial and Appeal Board</a>
-        (<a href="http://www.oig.doc.gov/OIGPublications/13-1077.pdf">PDF</a>)
-      </h4>
+    <div class="featured">
+      <h2>Featured documents</h2>
       <p>
-        The US Patent Office's board of appeals wasted $5 million since 2009 by paying people to do nothing, as the nation's patent backlog continued rising. Senior management knew of this and allowed it to continue.
+        Check out some of the most interesting inspector general reports and documents we've come across.
       </p>
     </div>
 
-    <form class="tl" action="https://tinyletter.com/oversight" method="post" target="_blank" onsubmit="window.open('https://tinyletter.com/oversight', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
-      <input type="text" placeholder="Get featured reports by email?" name="email" id="tlemail" />
-      <input type="hidden" value="1" name="embed"/>
-      <input class="submit" type="submit" value="Sure!" />
-    </form>
+    <div class="unreleased">
+      <h2>Unreleased documents</h2>
+      <p>
+        Documents whose full contents haven't yet been released.
+      </p>
+    </div>
+
+    <div class="newsletter">
+      <h2>Get occasional news by email</h2>
+
+      <form class="tl" action="https://tinyletter.com/oversight" method="post" target="_blank" onsubmit="window.open('https://tinyletter.com/oversight', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+        <input type="text" placeholder="email address" name="email" id="tlemail" />
+        <input type="hidden" value="1" name="embed"/>
+        <input class="submit" type="submit" value="Subscribe" />
+      </form>
+    </div>
 
   </section>
 
+  <section class="about">
 
-</div></section>
+    <h1>About Oversight</h1>
+
+    <p>
+      The US government has many dozens of offices dedicated to keeping the government honest and efficient through strong, independent oversight.
+
+      They produce a lot of good work, but the results are scattered all over the internet. Sometimes they get the attention they deserve, and many times they don't.
+
+      It would be a shame for good oversight to go overlooked. We gather the work of the US government oversight community in one place so you can freely search and subscribe to it.
+    </p>
+
+    <a class="button" href="/about">Learn More</a>
+  </section>
+
+</section>
 
 <script>
   document.getElementById("query").focus();

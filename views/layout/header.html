@@ -60,19 +60,21 @@
 </head>
 <body>
 
-<header><div class="inner">
-  <div>
-    <h1>
-      <a href="/">oversight.garden</a>
-    </h1>
-  </div>
+<header>
+  <h1>
+    <a href="/">oversight.garden</a>
+  </h1>
 
-  <p>
-  Searching
-  <a class="browse" href="/reports">
-    <%= helpers.format_number(helpers.counts.reports, 'over 40,000') %> reports</a>
-  from various <a href="/inspectors">inspectors general</a>
-  in the US federal government.
-  </p>
+  <ul>
+    <li>
+      <a href="/reports">Latest reports</a>
+    </li>
+    <li>
+      <a href="/about">About this project</a>
+    </li>
+    <li>
+      <input type="search" value="Search" />
+    </li>
+  </ul>
 
-</div></header>
+</header>
