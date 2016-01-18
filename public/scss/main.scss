@@ -29,13 +29,15 @@ body {
 }
 
 .center {
-  @include span-columns(12);
+  @include outer-container;
+
   padding: 30px 20px;
 
-  .search-bar {
+  .search {
 
     input[type='search'] {
-      @include span-columns(6);
+      @include shift(2);
+      @include span-columns(8);
 
       font-size: $search-bar-font-size;
       text-align: center;
@@ -52,6 +54,10 @@ body {
 
     select {}
     input[type='submit'] {}
+
+    small {
+
+    }
   }
 }
 
@@ -66,10 +72,35 @@ body {
 
   .intro {
     @include span-columns(6);
+    p {
+      padding-bottom: 13px;
+    }
   }
 
-  .intro p {
-    padding-bottom: 13px;
+  .card.newsletter {
+    input[type=text] {
+      padding: 3px;
+    }
+    input[type=submit] {
+      padding: 3px;
+    }
+  }
+
+  .about {
+    h1 {
+      @include fill-parent;
+      text-align: center;
+    }
+    p {
+      font-size: $gamma;
+    }
+    a {
+      display: inline-block;
+      margin-top: 10px;
+      background-color: $brand-color;
+      padding: 10px 25px;
+      color: $text-color;
+    }
   }
 
 }
