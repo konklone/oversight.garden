@@ -24,7 +24,7 @@ namespace :sitemap do
       ping_yandex: ping_yandex) do
 
       # Add homepage and list of inspectors
-      add "/", change_frequency: "weekly"
+      add "/", change_frequency: "daily"
       add "/inspectors", change_frequency: "monthly"
 
       # Skip search results and search result Atom feeds
