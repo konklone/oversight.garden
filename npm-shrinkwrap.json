@@ -414,9 +414,9 @@
       "resolved": "https://registry.npmjs.org/ipaddr.js/-/ipaddr.js-1.0.1.tgz"
     },
     "is-my-json-valid": {
-      "version": "2.12.2",
-      "from": "https://registry.npmjs.org/is-my-json-valid/-/is-my-json-valid-2.12.2.tgz",
-      "resolved": "https://registry.npmjs.org/is-my-json-valid/-/is-my-json-valid-2.12.2.tgz"
+      "version": "2.12.4",
+      "from": "is-my-json-valid@>=2.12.2 <3.0.0",
+      "resolved": "https://registry.npmjs.org/is-my-json-valid/-/is-my-json-valid-2.12.4.tgz"
     },
     "is-property": {
       "version": "1.0.2",
