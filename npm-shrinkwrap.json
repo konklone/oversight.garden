@@ -58,9 +58,50 @@
       "resolved": "https://registry.npmjs.org/bluebird/-/bluebird-2.10.2.tgz"
     },
     "body-parser": {
-      "version": "1.14.1",
-      "from": "https://registry.npmjs.org/body-parser/-/body-parser-1.14.1.tgz",
-      "resolved": "https://registry.npmjs.org/body-parser/-/body-parser-1.14.1.tgz"
+      "version": "1.14.2",
+      "from": "body-parser@1.14.2",
+      "resolved": "https://registry.npmjs.org/body-parser/-/body-parser-1.14.2.tgz",
+      "dependencies": {
+        "bytes": {
+          "version": "2.2.0",
+          "from": "bytes@2.2.0",
+          "resolved": "https://registry.npmjs.org/bytes/-/bytes-2.2.0.tgz"
+        },
+        "iconv-lite": {
+          "version": "0.4.13",
+          "from": "iconv-lite@0.4.13",
+          "resolved": "https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.4.13.tgz"
+        },
+        "qs": {
+          "version": "5.2.0",
+          "from": "qs@5.2.0",
+          "resolved": "https://registry.npmjs.org/qs/-/qs-5.2.0.tgz"
+        },
+        "raw-body": {
+          "version": "2.1.5",
+          "from": "raw-body@>=2.1.5 <2.2.0",
+          "resolved": "https://registry.npmjs.org/raw-body/-/raw-body-2.1.5.tgz"
+        },
+        "type-is": {
+          "version": "1.6.10",
+          "from": "type-is@>=1.6.10 <1.7.0",
+          "resolved": "https://registry.npmjs.org/type-is/-/type-is-1.6.10.tgz",
+          "dependencies": {
+            "mime-types": {
+              "version": "2.1.9",
+              "from": "mime-types@>=2.1.8 <2.2.0",
+              "resolved": "https://registry.npmjs.org/mime-types/-/mime-types-2.1.9.tgz",
+              "dependencies": {
+                "mime-db": {
+                  "version": "1.21.0",
+                  "from": "mime-db@>=1.21.0 <1.22.0",
+                  "resolved": "https://registry.npmjs.org/mime-db/-/mime-db-1.21.0.tgz"
+                }
+              }
+            }
+          }
+        }
+      }
     },
     "boom": {
       "version": "2.10.1",
@@ -71,11 +112,6 @@
       "version": "1.1.1",
       "from": "https://registry.npmjs.org/brace-expansion/-/brace-expansion-1.1.1.tgz",
       "resolved": "https://registry.npmjs.org/brace-expansion/-/brace-expansion-1.1.1.tgz"
-    },
-    "bytes": {
-      "version": "2.1.0",
-      "from": "https://registry.npmjs.org/bytes/-/bytes-2.1.0.tgz",
-      "resolved": "https://registry.npmjs.org/bytes/-/bytes-2.1.0.tgz"
     },
     "caseless": {
       "version": "0.11.0",
@@ -370,11 +406,6 @@
       "from": "https://registry.npmjs.org/http-signature/-/http-signature-0.11.0.tgz",
       "resolved": "https://registry.npmjs.org/http-signature/-/http-signature-0.11.0.tgz"
     },
-    "iconv-lite": {
-      "version": "0.4.12",
-      "from": "https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.4.12.tgz",
-      "resolved": "https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.4.12.tgz"
-    },
     "inflight": {
       "version": "1.0.4",
       "from": "https://registry.npmjs.org/inflight/-/inflight-1.0.4.tgz",
@@ -609,20 +640,10 @@
       "from": "https://registry.npmjs.org/proxy-addr/-/proxy-addr-1.0.8.tgz",
       "resolved": "https://registry.npmjs.org/proxy-addr/-/proxy-addr-1.0.8.tgz"
     },
-    "qs": {
-      "version": "5.1.0",
-      "from": "https://registry.npmjs.org/qs/-/qs-5.1.0.tgz",
-      "resolved": "https://registry.npmjs.org/qs/-/qs-5.1.0.tgz"
-    },
     "range-parser": {
       "version": "1.0.3",
       "from": "https://registry.npmjs.org/range-parser/-/range-parser-1.0.3.tgz",
       "resolved": "https://registry.npmjs.org/range-parser/-/range-parser-1.0.3.tgz"
-    },
-    "raw-body": {
-      "version": "2.1.4",
-      "from": "https://registry.npmjs.org/raw-body/-/raw-body-2.1.4.tgz",
-      "resolved": "https://registry.npmjs.org/raw-body/-/raw-body-2.1.4.tgz"
     },
     "readable-stream": {
       "version": "2.0.4",
