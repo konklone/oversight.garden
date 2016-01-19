@@ -14,6 +14,7 @@ script:
   - bash tasks/pre-commit
   - bash tasks/tests
   - rake sitemap:generate config=test/config.yaml
+  - node_modules/.bin/nsp check
 sudo: false
 notifications:
   email: false
