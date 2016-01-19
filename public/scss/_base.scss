@@ -1,0 +1,134 @@
+//
+// Base Layout
+//
+
+body {
+    font-family: $font-family-sans;
+    font-size: $main-size;
+    color: $text-color;
+    background-color: $white;
+
+    a, a:visited {
+        color: $link-color;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+}
+
+.main {
+    @include outer-container;
+}
+
+
+// Header
+
+.header {
+    @include outer-container;
+
+    border-bottom: 1px solid $brand-color;
+    margin-bottom: 20px;
+    padding: 20px 20px;
+
+    .logo {
+        @include span-columns(6);
+
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 28px;
+        font-family: $font-family-sans;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+
+        a {
+            color: $text-color;
+            cursor: pointer;
+            text-decoration: none;
+            transition: color 150ms ease-in;
+
+            &:hover {
+                color: $brand-color;
+            }
+        }
+    }
+
+    nav {
+        @include span-columns(6);
+
+        padding-top: 5px;
+
+        ul {
+            @include outer-container;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        li {
+            @include span-columns(4);
+            display: inline-block;
+
+            a {
+                color: $text-color-light;
+                font-size: $beta;
+                text-decoration: none;
+
+                &:hover {
+                    color: $text-color;
+                }
+            }
+        }
+    }
+}
+
+// Footer
+
+.footer {
+    @include fill-parent;
+
+    background-color: $brand-color;
+    text-align: center;
+    padding: 10px 20px;
+
+    a, a:visited {
+        color: $text-color-white;
+    }
+    a:visited {text-decoration: underline;}
+}
+
+// Sections
+
+section {
+    @include outer-container;
+}
+
+// Cards
+
+.card {
+    @include span-columns(4);
+    background: $gray-light;
+    min-height: 175px;
+    padding: 20px;
+    margin-bottom: 20px;
+
+    border-top: 2px solid $gray;
+}
+
+// Panels
+
+.panel {
+    @include span-columns(8);
+    @include shift(2);
+
+    border: 1px solid $gray-light;
+
+    padding-top: 50px;
+    padding-bottom: 100px;
+    margin-bottom: 20px;
+
+    p {
+        font-size: $alpha;
+        text-align: center;
+    }
+}

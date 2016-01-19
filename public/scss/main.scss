@@ -1,48 +1,11 @@
-@import "bourbon/bourbon";
-@import "neat/neat";
+@import "vendors/normalize/normalize";
+@import "vendors/bourbon/bourbon";
+@import "vendors/neat/neat";
 
-/****************************************
-  Main styles for oversight.garden.
-*****************************************/
+@import "settings";
+@import "components/typography";
 
-// set the grid to 12 columns, no gutter
-$grid-columns: 12;
-$gutter: 0em !global;
-
-
-/*********** Colors ************/
-
-// header and footer areas
-$frame-background: #136932;
-$frame-foreground: #f5f5f5;
-$frame-links: #3EC04E;
-$white: #fff;
-
-// center area
-$main-background: #f5f5f5;
-$main-foreground: #0a0a0a;
-$main-links: #297432;
-
-$callout-background: #d0ebc1;
-
-
-/************* Text sizes ********/
-
-$main-font-size: 11pt;
-$search-bar-font-size: 20px;
-$site-title-size: 2em;
-$header-size: 20px;
-
-$main-line-height: 25px;
-$header-height: 31px;
-
-/************** Fonts *************/
-
-$main-font: "Open Sans", "Arial", sans-serif;
-$pre-font: "Fira Mono", monospace;
-$search-result-font: Average, serif;
-
-
+@import "base";
 
 
 /***** Main Layout ******/
@@ -53,62 +16,28 @@ h1, h3, h4, h5, h6 {
 }
 
 body {
-  font-family: $main-font;
-  font-size: $main-font-size;
-  input {font-size: $main-font-size;}
-
-  line-height: $main-line-height;
-
-  color: $frame-foreground;
-  background-color: $frame-background;
-
-  a, a:visited {
-    color: $frame-links;
-  }
-
   h2 {
     font-weight: bold;
-    font-size: $header-size;
-    line-height: $header-height;
+    font-size: $subheader-size;
+    line-height: $subheader-height;
     display: block;
   }
 
   pre {
-    font-family: $pre-font;
+    font-family: $font-family-mono;
   }
 }
 
-header, section.main, footer {
-  @include span-columns(12);
-}
-
-header {
-  padding: 20px 20px;
-
-  h1 {
-    font-size: $site-title-size;
-
-    a, a:visited {
-      text-decoration: none;
-      color: $white;
-    }
-  }
-}
-
-section.main {
-  color: $main-foreground;
-  background-color: $main-background;
+.center {
+  @include outer-container;
 
   padding: 30px 20px;
 
-  a, a:visited {
-    color: $main-links;
-  }
-
-  .search-bar {
+  .search {
 
     input[type='search'] {
-      @include span-columns(6);
+      @include shift(2);
+      @include span-columns(8);
 
       font-size: $search-bar-font-size;
       text-align: center;
@@ -125,14 +54,10 @@ section.main {
 
     select {}
     input[type='submit'] {}
-  }
-}
 
-footer {
-  padding: 10px 20px;
+    small {
 
-  p {
-    margin: 5px 0;
+    }
   }
 }
 
@@ -145,39 +70,43 @@ footer {
     margin-bottom: 20px;
   }
 
-  .intro, .featured {
+  .intro {
     @include span-columns(6);
+    p {
+      padding-bottom: 13px;
+    }
   }
 
-  .intro p {
-    padding-bottom: 13px;
+  .card.newsletter {
+    input[type=text] {
+      padding: 3px;
+    }
+    input[type=submit] {
+      padding: 3px;
+    }
   }
 
-  .featured {
-    background-color: $callout-background;
-    padding: 10px;
-
-    h2 {margin-bottom: 10px;}
-    h4 {margin-bottom: 10px;}
-    p {margin-bottom: 10px;}
-
-    .tl {
-      input[type=text] {
-        @include span-columns(6);
-        padding: 2px 5px;
-      }
-
-      input[type=submit] {
-        padding: 2px 10px;
-      }
-
+  .about {
+    h1 {
+      @include fill-parent;
+      text-align: center;
+    }
+    p {
+      font-size: $gamma;
+    }
+    a {
+      display: inline-block;
+      margin-top: 10px;
+      background-color: $brand-color;
+      padding: 10px 25px;
+      color: $text-color;
     }
   }
 
 }
 
 
-/******* Document search results. **/
+/****** Document search results. */
 
 .reports {
   ul, li {list-style-type: none;}

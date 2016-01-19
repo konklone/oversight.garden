@@ -1,106 +1,106 @@
 <% include layout/header.html %>
 
-<section class="main reports"><div class="inner">
-  <% include partials/search.html %>
+<section class="center reports">
+    <% include partials/search.html %>
 
-  <% if (results) { %>
+    <% if (results) { %>
 
 
-    <strong>
-      <% if (query) { %>
-        <% if (inspector) { %>
-          <%= results.hits.total %> reports matching "<%= query %>" from <a href="/inspector/<%= inspector %>"><%= helpers.inspector_info(inspector).short_name %></a>.
-        <% } else { %>
-          <%= results.hits.total %> reports matching "<%= query %>".
-        <% } %>
-      <% } else { %>
-        <% if (inspector) { %>
-          <%= results.hits.total %> reports from <a href="/inspector/<%= inspector %>"><%= helpers.inspector_info(inspector).short_name %></a>.
-        <% } else { %>
-          <%= results.hits.total %> reports.
-        <% } %>
-      <% } %>
-    </strong>
-    <% if (page > 1) { %>
-      <a href="/reports?<%= helpers.q({page: parseInt(page)-1, query: query, inspector: inspector}) %>">
-        Previous page</a>
-    <% } %>
-    <% if (results.hits.total > results.hits.hits.length) { %>
-      Page <%= page %>.
-      <% if (page == 1) { %>
-        Showing the first <%= size %>.
-      <% } else { %>
-        Showing <%= (page - 1) * size + 1 %>-<%= (page - 1) * size + results.hits.hits.length %>.
-      <% } %>
-      <% if (results.hits.total > page * size) { %>
-        <a href="/reports?<%= helpers.q({page: parseInt(page)+1, query: query, inspector: inspector}) %>">
-          Next page</a>
-      <% } %>
-
-    <% } %>
-
-    <% var hits = results.hits.hits; %>
-    <% if (hits.length > 0) { %>
-      <ul>
-        <% for (var i=0; i<hits.length; i++) { %>
-          <% var report = hits[i]._source; %>
-          <% var highlight = hits[i].highlight; %>
-          <li>
-            <h2>
-              <a href="/report/<%= report.inspector %>/<%= encodeURIComponent(report.report_id) %>">
-                <%= report.title %></a>
-            </h2>
-            <h4>
-              <a href="/inspector/<%= report.inspector %>">
-                <%= helpers.inspector_info(report.inspector).name %></a>
-              &mdash;
-              <%= report.agency_name %>
-              &mdash;
-              <%= report.published_on %>
-              <% if (report.url) { %>
-                &mdash;
-                <a href="<%= report.url %>">
-                  Full report</a>
-                <% if (report.file_type == "pdf") { %>
-                  (PDF)
-                <% } %>
-              <% } else if (report.unreleased) { %>
-                &mdash;
-                <% if (report.missing) { %>
-                  Unreleased/Missing
+        <strong>
+            <% if (query) { %>
+                <% if (inspector) { %>
+                    <%= results.hits.total %> reports matching "<%= query %>" from <a href="/inspector/<%= inspector %>"><%= helpers.inspector_info(inspector).short_name %></a>.
                 <% } else { %>
-                  Unreleased
+                    <%= results.hits.total %> reports matching "<%= query %>".
                 <% } %>
-              <% } %>
-
-              <% if (report.landing_url) { %>
-                &mdash;
-                <a href="<%= report.landing_url %>">Summary</a>
-              <% } %>
-            </h4>
-            <% if (highlight && (highlight.text || highlight.summary)) { %>
-              <p>
-                <% if (highlight.text) { %>
-                  …<%- helpers.strip_ff(highlight.text[0]) %>…
-                <% } else if (highlight.summary) { %>
-                  …<%- helpers.strip_ff(highlight.summary[0]) %>…
+            <% } else { %>
+                <% if (inspector) { %>
+                    <%= results.hits.total %> reports from <a href="/inspector/<%= inspector %>"><%= helpers.inspector_info(inspector).short_name %></a>.
+                <% } else { %>
+                    <%= results.hits.total %> reports.
                 <% } %>
-              </p>
             <% } %>
-          </li>
+        </strong>
+        <% if (page > 1) { %>
+            <a href="/reports?<%= helpers.q({page: parseInt(page)-1, query: query, inspector: inspector}) %>">
+                Previous page</a>
         <% } %>
-      </ul>
-      <a href="<%= req.originalUrl.replace("/reports", "/reports.xml") %>">
-        <img src="/images/feed-icon.png" alt="Atom feed of search results" title="Atom Feed">
-      </a>
+        <% if (results.hits.total > results.hits.hits.length) { %>
+            Page <%= page %>.
+            <% if (page == 1) { %>
+                Showing the first <%= size %>.
+            <% } else { %>
+                Showing <%= (page - 1) * size + 1 %>-<%= (page - 1) * size + results.hits.hits.length %>.
+            <% } %>
+            <% if (results.hits.total > page * size) { %>
+                <a href="/reports?<%= helpers.q({page: parseInt(page)+1, query: query, inspector: inspector}) %>">
+                    Next page</a>
+            <% } %>
+
+        <% } %>
+
+        <% var hits = results.hits.hits; %>
+        <% if (hits.length > 0) { %>
+            <ul>
+                <% for (var i=0; i<hits.length; i++) { %>
+                    <% var report = hits[i]._source; %>
+                    <% var highlight = hits[i].highlight; %>
+                    <li>
+                        <h2>
+                            <a href="/report/<%= report.inspector %>/<%= encodeURIComponent(report.report_id) %>">
+                                <%= report.title %></a>
+                        </h2>
+                        <h4>
+                            <a href="/inspector/<%= report.inspector %>">
+                                <%= helpers.inspector_info(report.inspector).name %></a>
+                            &mdash;
+                            <%= report.agency_name %>
+                            &mdash;
+                            <%= report.published_on %>
+                            <% if (report.url) { %>
+                                &mdash;
+                                <a href="<%= report.url %>">
+                                    Full report</a>
+                                <% if (report.file_type == "pdf") { %>
+                                    (PDF)
+                                <% } %>
+                            <% } else if (report.unreleased) { %>
+                                &mdash;
+                                <% if (report.missing) { %>
+                                    Unreleased/Missing
+                                <% } else { %>
+                                    Unreleased
+                                <% } %>
+                            <% } %>
+
+                            <% if (report.landing_url) { %>
+                                &mdash;
+                                <a href="<%= report.landing_url %>">Summary</a>
+                            <% } %>
+                        </h4>
+                        <% if (highlight && (highlight.text || highlight.summary)) { %>
+                            <p>
+                                <% if (highlight.text) { %>
+                                    …<%- helpers.strip_ff(highlight.text[0]) %>…
+                                <% } else if (highlight.summary) { %>
+                                    …<%- helpers.strip_ff(highlight.summary[0]) %>…
+                                <% } %>
+                            </p>
+                        <% } %>
+                    </li>
+                <% } %>
+            </ul>
+            <a href="<%= req.originalUrl.replace("/reports", "/reports.xml") %>">
+                <img src="/images/feed-icon.png" alt="Atom feed of search results" title="Atom Feed">
+            </a>
+        <% } else { %>
+            <p>
+                No results right now.
+            </p>
+        <% } %>
     <% } else { %>
-      <p>
-        No results right now.
-      </p>
+        Error performing the search!
     <% } %>
-  <% } else { %>
-    Error performing the search!
-  <% } %>
-</div></section>
+</section>
 
 <% include layout/footer.html %>

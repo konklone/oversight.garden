@@ -1,0 +1,15 @@
+
+This site and its underlying data gathering code...
+
+  https://github.com/unitedstates/inspectors-general
+  https://github.com/konklone/oversight.garden
+
+...were built by humans:
+
+Eric Mill, @konklone, konklone.com
+Dave Cook, @divergentdave
+Steve Pulec, @spulec
+Olivia Cheng, @heyits0livia, heyitsolivia.com
+Lindsay Young, @not_young
+Travis Briggs, @audiodude, travisbriggs.com
+Andrew Dai, github.com/bunsenmcdubbs, andrewdai.co

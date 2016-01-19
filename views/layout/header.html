@@ -4,43 +4,34 @@
   Oversight.garden,
   collecting the oversight community's work in one place.
 
-  Built and maintained by Eric Mill. (@konklone, konklone.com)
-
-  A Node app, with Express for a web server, and Elasticsearch
-  for persistence. Open source, under a GPLv3 license:
-  https://github.com/konklone/oversight
-
-  This app would be entirely impossible without the public domain,
-  volunteer-driven project to gather IG reports in bulk:
-  https://github.com/unitedstates/inspectors-general
-
-  Thanks to Lindsay Young, Travis Briggs, David Cook, Steve Pulec,
-  Andrew Dai, and any contributors to that project not listed here.
+  Contributors: https://oversight.garden/humans.txt
+  Code: https://github.com/konklone/oversight.garden
+  Data gathering: https://github.com/unitedstates/inspectors-general
 -->
 
 <html lang="en">
 <head>
 
 <% if ((typeof(report) != "undefined") && report) { %>
-  <title>
-    <%= helpers.inspector_info(report.inspector).name %> | <%= report.agency_name %> | <%= report.title %>
-  </title>
-  <meta name="og:title" content="<%= helpers.inspector_info(report.inspector).name %> | <%= report.agency_name %> | <%= report.title %>" />
-  <meta name="description" content="<%= report.title %>" />
-  <meta name="og:description" content="<%= report.title %>" />
+    <title>
+        <%= helpers.inspector_info(report.inspector).name %> | <%= report.agency_name %> | <%= report.title %>
+    </title>
+    <meta name="og:title" content="<%= helpers.inspector_info(report.inspector).name %> | <%= report.agency_name %> | <%= report.title %>" />
+    <meta name="description" content="<%= report.title %>" />
+    <meta name="og:description" content="<%= report.title %>" />
 <% } else { %>
-  <title>
-    Oversight.garden | Collecting the oversight community's work in one place.
-  </title>
-  <meta name="og:title" content="Oversight.garden">
-  <meta name="description" content="Collecting the oversight community's work in one place." />
-  <meta name="og:description" content="Collecting the oversight community's work in one place." />
+    <title>
+        oversight.garden | Collecting the oversight community's work in one place.
+    </title>
+    <meta name="og:title" content="oversight.garden">
+    <meta name="description" content="Collecting the oversight community's work in one place." />
+    <meta name="og:description" content="Collecting the oversight community's work in one place." />
 <% } %>
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta property="og:site_name" content="Oversight.garden">
+<meta property="og:site_name" content="oversight.garden">
 
 
 <meta name="author" content="Eric Mill" />
@@ -62,26 +53,28 @@
 
 <meta name="twitter:card" content="summary" />
 
-<link rel="stylesheet" type="text/css" href="/css/fonts.css" />
-<link rel="stylesheet" type="text/css" href="/css/html5-reset.css" />
+<link rel='stylesheet' type='text/css' href='/css/fonts.css' />
 <link rel="stylesheet" type="text/css" href="/css/main.css?<%= helpers.boot_time %>" />
 
 </head>
 <body>
+<main class="main">
+    <header class="header">
+        <h1 class="logo">
+            <a href="/">oversight</a>
+        </h1>
 
-<header><div class="inner">
-  <div>
-    <h1>
-      <a href="/">Oversight.garden</a>
-    </h1>
-  </div>
-
-  <p>
-  Searching
-  <a class="browse" href="/reports">
-    <%= helpers.format_number(helpers.counts.reports, 'over 40,000') %> reports</a>
-  from various <a href="/inspectors">inspectors general</a>
-  in the US federal government.
-  </p>
-
-</div></header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/reports">Latest reports</a>
+                </li>
+                <li>
+                    <a href="/about">About this project</a>
+                </li>
+                <li>
+                    <input type="search" placeholder="Search" />
+                </li>
+            </ul>
+        </nav>
+    </header>
