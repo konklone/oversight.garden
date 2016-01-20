@@ -11,5 +11,7 @@ else # Running locally
 fi
 
 rake elasticsearch:init force=true config=test/config.yaml index=oversight_test
+rake elasticsearch:alias_write config=test/config.yaml index=oversight_test
 tasks/inspectors.js --config=test/config.yaml --since=1776
+rake elasticsearch:alias_read config=test/config.yaml index=oversight_test
 node_modules/.bin/mocha

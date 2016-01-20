@@ -90,4 +90,59 @@ namespace :elasticsearch do
       end
     end
   end
+
+  def change_alias(name, index)
+    actions = []
+    if $elasticsearch_client.indices.exists_alias name: name then
+      old = $elasticsearch_client.indices.get_alias name: name
+      for old_index, _ in old do
+        actions.push({ remove: { index: old_index, alias: name } })
+      end
+    end
+    actions.push({ add: { index: index, alias: name } })
+    $elasticsearch_client.indices.update_aliases body: { actions: actions }
+    puts "Aliased #{name} to point to #{index}"
+  end
+
+  desc "Create or update the reading index alias"
+  # options:
+  #   index - which index to point to
+  task alias_read: [:environment, :client] do
+    alias_name = $config['elasticsearch']['index_read']
+    index = ENV['index']
+    if not index then
+      raise "Missing required argunent 'index'"
+    end
+    change_alias alias_name, index
+  end
+
+  desc "Create or update the writing index alias"
+  # options:
+  #   index - which index to point to
+  task alias_write: [:environment, :client] do
+    alias_name = $config['elasticsearch']['index_write']
+    index = ENV['index']
+    if not index then
+      raise "Missing required argunent 'index'"
+    end
+    change_alias alias_name, index
+  end
+
+  desc "Delete an index"
+  # options:
+  #   index - which index to delete
+  task delete: [:environment, :client] do
+    index = ENV['index']
+    if not index then
+      raise "Missing required argunent 'index'"
+    end
+
+    aliases =  [$config['elasticsearch']['index_read'], $config['elasticsearch']['index_write']]
+    if $elasticsearch_client.indices.get_alias(name: aliases.join(","), index: index).length > 0 then
+      raise "That index is currently used by an alias, reassign aliases before deleting the index"
+    end
+
+    $elasticsearch_client.indices.delete index: index
+    puts "Deleted index #{index}"
+  end
 end
