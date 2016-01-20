@@ -37,7 +37,7 @@ def dependencies():
 def reindex():
   run("cd %s && rake elasticsearch:init index=%s" % (version_path, index_name))
   run("cd %s && rake elasticsearch:alias_write index=%s" % (version_path, index_name))
-  run("cd %s && NODE_ENV=%s tasks/inspectors.js --since=0" % (version_path, environment))
+  run("cd %s && NODE_ENV=%s tasks/inspectors.js --since=1" % (version_path, environment))
   run("cd %s && rake elasticsearch:alias_read index=%s" % (version_path, index_name))
 
 # TODO: why cp instead of ln?
