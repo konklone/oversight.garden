@@ -75,17 +75,16 @@ namespace :elasticsearch do
     end
   end
 
-  namespace :index do
-    task list: [:environment, :client] do
-      for index, aliases in $elasticsearch_client.indices.get_aliases do
-        if !(index.start_with? ".") then
-          puts "#{index}, #{aliases['aliases'].length} aliases"
-          for alias_, options in aliases['aliases'] do
-            if options.length > 0 then
-              puts "  #{alias_}: #{options}"
-            else
-              puts "  #{alias_}"
-            end
+  desc "List all indices and their aliases"
+  task list: [:environment, :client] do
+    for index, aliases in $elasticsearch_client.indices.get_aliases do
+      if !(index.start_with? ".") then
+        puts "#{index}, #{aliases['aliases'].length} aliases"
+        for alias_, options in aliases['aliases'] do
+          if options.length > 0 then
+            puts "  #{alias_}: #{options}"
+          else
+            puts "  #{alias_}"
           end
         end
       end
