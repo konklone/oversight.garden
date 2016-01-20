@@ -133,7 +133,7 @@ module.exports = {
 
 function get(inspector, report_id) {
   return es.get({
-    index: config.elasticsearch.index,
+    index: config.elasticsearch.index_read,
     type: 'reports',
     id: inspector + '-' + report_id
   });
@@ -181,7 +181,7 @@ function search(query, inspector, page, size) {
   }
 
   return es.search({
-    index: config.elasticsearch.index,
+    index: config.elasticsearch.index_read,
     type: 'reports',
     body: body
   });

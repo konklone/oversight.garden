@@ -31,7 +31,7 @@ var counts = {
 
 function updateReportCounts() {
   es.count({
-    index: config.elasticsearch.index,
+    index: config.elasticsearch.index_read,
     type: "reports"
   }).then(function(result) {
     counts.reports = result.count;
@@ -41,7 +41,7 @@ function updateReportCounts() {
   });
 
   es.search({
-    index: config.elasticsearch.index,
+    index: config.elasticsearch.index_read,
     type: "reports",
     searchType: "count",
     body: {
