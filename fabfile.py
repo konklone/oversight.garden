@@ -29,7 +29,7 @@ def links():
 
 # install node (and ruby?) dependencies
 def dependencies():
-  run("cd %s && NODE_ENV=%s npm install" % (version_path, environment))
+  run("cd %s && NODE_ENV=%s npm install --no-spin" % (version_path, environment))
 
 # TODO: why cp instead of ln?
 def make_current():
