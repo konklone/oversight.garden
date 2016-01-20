@@ -11,21 +11,24 @@ namespace :elasticsearch do
   task client: [:environment] do
     log = ENV['log'] || false
     endpoint = "http://#{$config['elasticsearch']['host']}:#{$config['elasticsearch']['port']}"
-    index = $config['elasticsearch']['index']
-    $elasticsearch_client = Elasticsearch::Client.new url: endpoint, log: log, index: index
+    $elasticsearch_client = Elasticsearch::Client.new url: endpoint, log: log
   end
 
   # options:
   #   only - only one mapping, please
   #   force - delete the mapping first (okay...)
+  #   index - which index to initialize
   desc "Initialize ES mappings"
   task init: [:environment, :client] do
     single = ENV['only'] || nil
     force = ENV['force'] || false
+    index = ENV['index']
+    if not index then
+      raise "Missing required argunent 'index'"
+    end
 
     mappings = single ? [single] : Dir.glob('config/mappings/*.json').map {|dir| File.basename dir, File.extname(dir)}
 
-    index = $config['elasticsearch']['index']
     index_settings = JSON.parse(File.read('config/index.json'))
 
     if force
