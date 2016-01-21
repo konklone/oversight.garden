@@ -73,10 +73,12 @@ Once, **before the first time you load data**, you need to tell Elasticsearch to
 Use `rake` (which ships with Ruby) to run:
 
 ```
-rake elasticsearch:init
+rake elasticsearch:init index=oversight-YYYY-MM-DD
+rake elasticsearch:alias_read index=oversight-YYYY-MM-DD
+rake elasticsearch:alias_write index=oversight-YYYY-MM-DD
 ```
 
-You can add `force=true` to the end of the command to empty the database and reload the mappings.
+You can add `force=true` to the end of the init command to empty the database and reload the mappings.
 
 Then, to actually load report data, run:
 

@@ -14,8 +14,10 @@ home = "/home/unitedstates/oversight"
 logs = "/home/unitedstates/oversight"
 shared_path = "%s/shared" % home
 versions_path = "%s/versions" % home
-version_path = "%s/%s" % (versions_path, time.strftime("%Y%m%d%H%M%S"))
+now = time.strftime("%Y%m%d%H%M%S")
+version_path = "%s/%s" % (versions_path, now)
 current_path = "%s/current" % home
+index_name = "oversight-%s" % now
 
 # how many old releases to be kept at deploy-time
 keep = 3
@@ -30,6 +32,13 @@ def links():
 # install node (and ruby?) dependencies
 def dependencies():
   run("cd %s && NODE_ENV=%s npm install --no-spin --no-progress" % (version_path, environment))
+
+# create new index, switch write alias, update documents, switch read alias
+def reindex():
+  run("cd %s && rake elasticsearch:init index=%s" % (version_path, index_name))
+  run("cd %s && rake elasticsearch:alias_write index=%s" % (version_path, index_name))
+  run("cd %s && NODE_ENV=%s tasks/inspectors.js --since=1" % (version_path, environment))
+  run("cd %s && rake elasticsearch:alias_read index=%s" % (version_path, index_name))
 
 # TODO: why cp instead of ln?
 def make_current():
@@ -46,6 +55,12 @@ def cleanup():
 
 
 ## can be run on their own
+
+def list_indices():
+  run("cd %s && rake elasticsearch:list" % current_path)
+
+def delete_index(index):
+  run("cd %s && rake elasticsearch:delete index=%s" % (current_path, index))
 
 def start():
   run("cd %s && NODE_ENV=%s forever -l %s/forever.log -a start app.js" % (current_path, environment, logs))
@@ -64,9 +79,26 @@ def deploy():
   execute(restart)
   execute(cleanup)
 
+def deploy_reindex():
+  execute(checkout)
+  execute(links)
+  execute(dependencies)
+  execute(reindex)
+  execute(make_current)
+  execute(restart)
+  execute(cleanup)
+
 def deploy_cold():
   execute(checkout)
   execute(links)
   execute(dependencies)
+  execute(make_current)
+  execute(start)
+
+def deploy_cold_reindex():
+  execute(checkout)
+  execute(links)
+  execute(dependencies)
+  execute(reindex)
   execute(make_current)
   execute(start)

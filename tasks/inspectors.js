@@ -55,7 +55,7 @@ function loadReport(details, done) {
   // Actually load into Elasticsearch
   console.log("\tIndexing into Elasticsearch...");
   es.index({
-    index: config.elasticsearch.index,
+    index: config.elasticsearch.index_write,
     type: 'reports',
     id: inspector + '-' + report_id,
     body: data

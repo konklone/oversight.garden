@@ -4,7 +4,8 @@ inspectors:
 elasticsearch:
   host: 127.0.0.1
   port: 9200
-  index: oversight_test
+  index_read: oversight_test_read
+  index_write: oversight_test_write
 
 http:
   port: 3000

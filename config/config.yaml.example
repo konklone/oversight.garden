@@ -11,7 +11,8 @@ inspectors:
 elasticsearch:
   host: 127.0.0.1
   port: 9200
-  index: oversight
+  index_read: oversight_read
+  index_write: oversight_write
 
 # http server exposed by the app
 http:
