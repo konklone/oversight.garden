@@ -9,6 +9,19 @@ namespace :elasticsearch do
   # options:
   #   log - show HTTP requests and responses
   task client: [:environment] do
+    if $config['elasticsearch']['host'].nil?
+      fail "The elasticsearch server's hostname is not set in the configuration file"
+    end
+    if $config['elasticsearch']['port'].nil?
+      fail "The elasticsearch server's port number is not set in the configuration file"
+    end
+    if $config['elasticsearch']['index_read'].nil?
+      fail "The elasticsearch server's index name for reading is not set in the configuration file"
+    end
+    if $config['elasticsearch']['index_write'].nil?
+      fail "The elasticsearch server's index name for writing is not set in the configuration file"
+    end
+
     log = ENV['log'] || false
     endpoint = "http://#{$config['elasticsearch']['host']}:#{$config['elasticsearch']['port']}"
     $elasticsearch_client = Elasticsearch::Client.new url: endpoint, log: log
