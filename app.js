@@ -40,6 +40,7 @@ app.locals.config = require("./config/config");
 
 var routes = require("./app/routes");
 app.get('/', routes.index);
+app.get('/about', routes.about);
 app.get('/reports', routes.reports);
 app.get('/reports.xml', routes.reports_xml);
 app.get('/inspectors', routes.inspectors);

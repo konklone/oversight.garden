@@ -19,6 +19,10 @@ module.exports = {
     });
   },
 
+  about: function(req, res) {
+    res.redirect(302, 'https://sunlightfoundation.com/blog/2014/11/07/opengov-voices-opening-up-government-reports-through-teamwork-and-open-data/');
+  },
+
   // search/results
   reports: function(req, res) {
     var query;
