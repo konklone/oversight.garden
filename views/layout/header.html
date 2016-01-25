@@ -59,22 +59,25 @@
 </head>
 <body>
 <main class="main">
-    <header class="header">
-        <h1 class="logo">
-            <a href="/">oversight</a>
-        </h1>
 
-        <nav>
-            <ul>
-                <li>
-                    <a href="/reports">Latest reports</a>
-                </li>
-                <li>
-                    <a href="https://sunlightfoundation.com/blog/2014/11/07/opengov-voices-opening-up-government-reports-through-teamwork-and-open-data/">About this project</a>
-                </li>
-                <li>
-                    <input type="search" placeholder="Search" />
-                </li>
-            </ul>
-        </nav>
-    </header>
+<header class="header">
+    <h1 class="logo">
+        <a href="/">oversight</a>
+    </h1>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="/reports">Latest reports</a>
+            </li>
+            <li>
+                <a href="https://sunlightfoundation.com/blog/2014/11/07/opengov-voices-opening-up-government-reports-through-teamwork-and-open-data/">About this project</a>
+            </li>
+            <li>
+                <form action="/reports" method="get" class="search-bar">
+                    <input type="search" id="query" name="query" placeholder="Search..." />
+                </form>
+            </li>
+        </ul>
+    </nav>
+</header>
