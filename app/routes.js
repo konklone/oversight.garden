@@ -42,7 +42,8 @@ module.exports = function(app) {
         size: HTML_SIZE
       });
     }, function(err) {
-      console.log("Noooo!");
+      console.log("Noooo!\n\n" + err);
+
       res.status(500);
       res.render("reports.html", {
         results: null,
@@ -77,7 +78,8 @@ module.exports = function(app) {
         self_url: req.url
       });
     }, function(err) {
-      console.log("Noooo!");
+      console.log("Noooo!\n\n" + err);
+
       res.status(500);
       res.type("text");
       res.send("Server error");
@@ -105,7 +107,7 @@ module.exports = function(app) {
           results: results
         });
       }, function(err) {
-        console.log("Noooo!");
+        console.log("Noooo!\n\n" + err);
         res.render("inspector.html", {
           inspector: req.params.inspector,
           metadata: metadata,
@@ -126,7 +128,7 @@ module.exports = function(app) {
         report: result._source
       });
     }, function(err) {
-      console.log("Nooooo! " + err);
+      console.log("Nooooo!\n\n" + err);
       res.status(500);
       res.render("report.html", {report: null});
     });
