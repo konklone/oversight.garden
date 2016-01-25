@@ -25,11 +25,8 @@ module.exports = function(app) {
 
   app.get('/reports', function(req, res) {
     var query;
-    if (req.query.query) {
+    if (req.query.query)
       query = req.query.query;
-      if (query.charAt(0) != "\"" || query.charAt(query.length-1) != "\"")
-        query = "\"" + query + "\"";
-    }
     else
       query = "*";
 
