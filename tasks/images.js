@@ -89,7 +89,7 @@ var urls = {
 
 var root = path.resolve(__dirname, "..");
 var output_dir = path.resolve(root, "public", "images", "inspectors");
-var originals_dir = path.resolve(root, "images-original");
+var originals_dir = path.resolve(root, "tasks/images-original");
 
 function find_original(slug) {
   if (fs.existsSync(path.resolve(originals_dir, slug + "-original.svg"))) {
