@@ -165,7 +165,7 @@ async.eachSeries(inspectors, function(inspector, done) {
       var r = request({
         url: urls[slug],
         headers: {
-          'User-Agent': 'oversight.garden'
+          'User-Agent': 'https://oversight.garden (https://github.com/konklone/oversight.garden)'
         }
       });
       r.pipe(file);
