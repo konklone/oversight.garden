@@ -7,7 +7,7 @@ require 'yaml'
 
 class Environment
   def self.config
-    @config ||= YAML.load_file File.join(File.dirname(__FILE__), "config.yaml")
+    @config ||= YAML.load_file File.join(File.dirname(__FILE__), (ENV["config"] || "config.yaml"))
   end
 
   def self.init_client!
