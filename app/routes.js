@@ -30,10 +30,16 @@ module.exports = function(app) {
     else
       query = "*";
 
+    var featured = (req.query.featured == "true");
+
     var inspector = req.query.inspector || null;
     var page = req.query.page || 1;
 
-    search(query, inspector, page, HTML_SIZE).then(function(results) {
+    search(query, {
+      inspector: inspector,
+      page: page,
+      size: HTML_SIZE
+    }).then(function(results) {
       res.render("reports.html", {
         results: results,
         query: req.query.query,
@@ -67,7 +73,11 @@ module.exports = function(app) {
     var inspector = req.query.inspector || null;
     var page = req.query.page || 1;
 
-    search(query, inspector, page, XML_SIZE).then(function(results) {
+    search(query, {
+      inspector: inspector,
+      page: page,
+      size: XML_SIZE
+    }).then(function(results) {
       res.type("atom");
       res.render("reports.xml.ejs", {
         results: results,
@@ -99,7 +109,11 @@ module.exports = function(app) {
       if (helpers.counts.inspectors)
         inspectorReportCount = helpers.counts.inspectors[req.params.inspector] || 0;
 
-      search("*", req.params.inspector, 1, HTML_SIZE).then(function(results) {
+      search("*", {
+        inspector: req.params.inspector,
+        page: 1,
+        size: HTML_SIZE
+      }).then(function(results) {
         res.render("inspector.html", {
           inspector: req.params.inspector,
           metadata: metadata,
@@ -145,11 +159,20 @@ function get(inspector, report_id) {
   });
 }
 
-function search(query, inspector, page, size) {
-  var from = (page - 1) * size;
+function search(query, options) {
+  if (!options) options = {};
+
+  // defaults
+  options.inspector = options.inspector || null;
+  options.page = options.page || 1;
+  options.size = options.size || HTML_SIZE;
+  options.featured = options.featured || false;
+
+  var from = (options.page - 1) * options.size;
+
   var body = {
     "from": from,
-    "size": size,
+    "size": options.size,
     "query": {
       "filtered": {
         "query": {
@@ -178,10 +201,10 @@ function search(query, inspector, page, size) {
     "_source": ["report_id", "year", "inspector", "agency", "title", "agency_name", "url", "landing_url", "inspector_url", "published_on", "type", "file_type"]
   };
 
-  if (inspector) {
+  if (options.inspector) {
     body.query.filtered.filter = {
       "term": {
-        "inspector": inspector
+        "inspector": options.inspector
       }
     };
   }

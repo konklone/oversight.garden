@@ -17,14 +17,9 @@ var fs = require('fs'),
     glob = require('glob');
 
 var config = require("../config/config"),
-    elasticsearch = require("elasticsearch"),
-    es = new elasticsearch.Client({
-      apiVersion: "1.7",
-      host: {
-        host: config.elasticsearch.host,
-        port: config.elasticsearch.port
-      }
-    });
+    boot = require("../app/boot"),
+    es = boot.es,
+    featured = boot.featured;
 
 // load a report from disk, put it into elasticsearch
 function loadReport(details, done) {
@@ -51,6 +46,13 @@ function loadReport(details, done) {
 
   // and this is for IG reports
   data.source = "igs";
+
+  // if it's been manually flagged as featured, mark it as such
+  if (featured[report_id]) {
+    data.featured = featured[report_id];
+    data.is_featured = true;
+  } else
+    data.is_featured = false;
 
   // Actually load into Elasticsearch
   console.log("\tIndexing into Elasticsearch...");
