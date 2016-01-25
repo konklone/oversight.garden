@@ -1,5 +1,5 @@
 inspectors:
-  data: data_sample
+  data: test/data_sample
 
 elasticsearch:
   host: 127.0.0.1
