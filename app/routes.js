@@ -10,21 +10,20 @@ var config = require("../config/config"),
 var HTML_SIZE = 10;
 var XML_SIZE = 50;
 
-module.exports = {
+module.exports = function(app) {
 
   // The homepage. A temporary search page.
-  index: function(req, res) {
+  app.get('/', function(req, res) {
     res.render("index.html", {
       inspector: null
     });
-  },
+  });
 
-  about: function(req, res) {
+  app.get('/about', function(req, res) {
     res.redirect(302, 'https://sunlightfoundation.com/blog/2014/11/07/opengov-voices-opening-up-government-reports-through-teamwork-and-open-data/');
-  },
+  });
 
-  // search/results
-  reports: function(req, res) {
+  app.get('/reports', function(req, res) {
     var query;
     if (req.query.query) {
       query = req.query.query;
@@ -55,9 +54,9 @@ module.exports = {
         page: null
       });
     });
-  },
+  });
 
-  reports_xml: function(req, res) {
+  app.get('/reports.xml', function(req, res) {
     var query;
     if (req.query.query) {
       query = req.query.query;
@@ -86,13 +85,14 @@ module.exports = {
       res.type("text");
       res.send("Server error");
     });
-  },
+  });
 
-  inspectors: function(req, res) {
+
+  app.get('/inspectors', function(req, res) {
     res.render("inspectors.html");
-  },
+  });
 
-  inspector: function(req, res) {
+  app.get('/inspectors/:inspector', function(req, res) {
     var metadata = helpers.inspector_info(req.params.inspector);
 
     if (metadata) {
@@ -121,9 +121,9 @@ module.exports = {
       res.status(404);
       res.render("inspector.html", {metadata: null});
     }
-  },
+  });
 
-  report: function(req, res) {
+  app.get('/reports/:inspector/:report_id', function(req, res) {
     get(req.params.inspector, req.params.report_id).then(function(result) {
       res.render("report.html", {
         report: result._source
@@ -133,9 +133,10 @@ module.exports = {
       res.status(500);
       res.render("report.html", {report: null});
     });
-  }
+  });
 
 };
+
 
 function get(inspector, report_id) {
   return es.get({

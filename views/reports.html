@@ -9,13 +9,13 @@
         <strong>
             <% if (query) { %>
                 <% if (inspector) { %>
-                    <%= results.hits.total %> reports matching "<%= query %>" from <a href="/inspector/<%= inspector %>"><%= helpers.inspector_info(inspector).short_name %></a>.
+                    <%= results.hits.total %> reports matching "<%= query %>" from <a href="/inspectors/<%= inspector %>"><%= helpers.inspector_info(inspector).short_name %></a>.
                 <% } else { %>
                     <%= results.hits.total %> reports matching "<%= query %>".
                 <% } %>
             <% } else { %>
                 <% if (inspector) { %>
-                    <%= results.hits.total %> reports from <a href="/inspector/<%= inspector %>"><%= helpers.inspector_info(inspector).short_name %></a>.
+                    <%= results.hits.total %> reports from <a href="/inspectors/<%= inspector %>"><%= helpers.inspector_info(inspector).short_name %></a>.
                 <% } else { %>
                     <%= results.hits.total %> reports.
                 <% } %>
@@ -47,11 +47,11 @@
                     <% var highlight = hits[i].highlight; %>
                     <li>
                         <h2>
-                            <a href="/report/<%= report.inspector %>/<%= encodeURIComponent(report.report_id) %>">
+                            <a href="/reports/<%= report.inspector %>/<%= encodeURIComponent(report.report_id) %>">
                                 <%= report.title %></a>
                         </h2>
                         <h4>
-                            <a href="/inspector/<%= report.inspector %>">
+                            <a href="/inspectors/<%= report.inspector %>">
                                 <%= helpers.inspector_info(report.inspector).name %></a>
                             &mdash;
                             <%= report.agency_name %>

@@ -24,7 +24,7 @@
 <% for (var i = 0; i < hits.length; i++) { -%>
 <% var report = hits[i]._source; -%>
 <% var highlight = hits[i].highlight; -%>
-<% var link = 'https:/' + '/oversight.garden/report/' + report.inspector + '/' + encodeURIComponent(report.report_id); -%>
+<% var link = 'https:/' + '/oversight.garden/reports/' + report.inspector + '/' + encodeURIComponent(report.report_id); -%>
 <entry>
 <id><%= link %></id>
 <title><%= report.title %></title>
