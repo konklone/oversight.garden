@@ -14,6 +14,7 @@ namespace :elasticsearch do
   task init: :environment do
     single = ENV['only'] || nil
     force = ENV['force'] || false
+    also_alias = ENV['alias'] || false
     index = ENV['index']
     if not index then
       raise "Missing required argument 'index'"
@@ -58,6 +59,12 @@ namespace :elasticsearch do
 
       Environment.client.indices.put_mapping index: index, type: mapping, body: mapping_config
       puts "Created #{mapping}"
+    end
+
+    # Optionally, alias the new index to both read and write.
+    if also_alias
+      change_alias Environment.config['elasticsearch']['index_read'], index
+      change_alias Environment.config['elasticsearch']['index_write'], index
     end
   end
 
