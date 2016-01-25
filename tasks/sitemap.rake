@@ -5,12 +5,12 @@ namespace :sitemap do
     require 'json'
     require "cgi"
 
-    ping_google = (!$config['sitemap'].nil?) && ($config['sitemap']['ping_google'] ? true : false)
-    ping_bing = (!$config['sitemap'].nil?) && ($config['sitemap']['ping_bing'] ? true : false)
-    ping_yahoo = (!$config['sitemap'].nil?) && ($config['sitemap']['ping_yahoo'] ? true : false)
-    yahoo_app_id = ($config['sitemap'].nil?) ? nil : $config['sitemap']['yahoo_app_id']
-    ping_ask = (!$config['sitemap'].nil?) && ($config['sitemap']['ping_ask'] ? true : false)
-    ping_yandex = (!$config['sitemap'].nil?) && ($config['sitemap']['ping_yandex'] ? true : false)
+    ping_google = (!Environment.config['sitemap'].nil?) && (Environment.config['sitemap']['ping_google'] ? true : false)
+    ping_bing = (!Environment.config['sitemap'].nil?) && (Environment.config['sitemap']['ping_bing'] ? true : false)
+    ping_yahoo = (!Environment.config['sitemap'].nil?) && (Environment.config['sitemap']['ping_yahoo'] ? true : false)
+    yahoo_app_id = (Environment.config['sitemap'].nil?) ? nil : Environment.config['sitemap']['yahoo_app_id']
+    ping_ask = (!Environment.config['sitemap'].nil?) && (Environment.config['sitemap']['ping_ask'] ? true : false)
+    ping_yandex = (!Environment.config['sitemap'].nil?) && (Environment.config['sitemap']['ping_yandex'] ? true : false)
 
     BigSitemap.generate(
       base_url: "https://oversight.garden/",
@@ -37,7 +37,7 @@ namespace :sitemap do
       end
 
       # Add each report landing page
-      data_dir = $config['inspectors']['data']
+      data_dir = Environment.config['inspectors']['data']
       Dir.foreach(data_dir) do |inspector|
         next if inspector == "." or inspector == ".."
         next if not File.directory?(File.join(data_dir, inspector))
