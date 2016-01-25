@@ -39,6 +39,22 @@
         "type": "string",
         "index": "not_analyzed"
       },
+      "is_featured": {
+        "type": "boolean",
+        "index": "not_analyzed"
+      },
+      "featured": {
+        "properties": {
+          "author": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "author_link": {
+            "type": "string",
+            "index": "not_analyzed"
+          }
+        }
+      }
       "landing_url": {
         "type": "string",
         "index": "not_analyzed"

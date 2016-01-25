@@ -38,6 +38,7 @@ module.exports = function(app) {
     search(query, {
       inspector: inspector,
       page: page,
+      featured: featured,
       size: HTML_SIZE
     }).then(function(results) {
       res.render("reports.html", {
@@ -45,6 +46,7 @@ module.exports = function(app) {
         query: req.query.query,
         inspector: inspector,
         page: page,
+        featured: featured,
         size: HTML_SIZE
       });
     }, function(err) {
@@ -70,13 +72,16 @@ module.exports = function(app) {
     else
       query = "*";
 
+    var featured = (req.query.featured == "true");
+
     var inspector = req.query.inspector || null;
     var page = req.query.page || 1;
 
     search(query, {
       inspector: inspector,
       page: page,
-      size: XML_SIZE
+      size: XML_SIZE,
+      featured: featured
     }).then(function(results) {
       res.type("atom");
       res.render("reports.xml.ejs", {
@@ -85,6 +90,7 @@ module.exports = function(app) {
         inspector: inspector,
         page: page,
         size: XML_SIZE,
+        featured: featured,
         self_url: req.url
       });
     }, function(err) {
@@ -205,6 +211,14 @@ function search(query, options) {
     body.query.filtered.filter = {
       "term": {
         "inspector": options.inspector
+      }
+    };
+  }
+
+  if (options.featured) {
+    body.query.filtered.filter = {
+      "term": {
+        "is_featured": true
       }
     };
   }

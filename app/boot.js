@@ -15,7 +15,7 @@ module.exports = {
       host: config.elasticsearch.host,
       port: config.elasticsearch.port
     },
-    // log: 'debug'
+    log: 'debug'
   }),
 
   featured: featured
