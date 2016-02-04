@@ -2277,7 +2277,7 @@
     },
     {
         "active": true,
-        "agencies": ["Office of Special Counsel"],
+        "agencies": [],
         "established_year": 1979,
         "homepage_url": "http://www.osc.gov",
         "hotline": [
@@ -2298,6 +2298,6 @@
         "publishes_reports": true,
         "short_name": "Office of Special Counsel",
         "slug": "osc",
-        "statutory_reference": "5 U.S.C. \u00A7 1201"
+        "statutory_reference": "5 U.S.C. \u00A7 1211"
     }
 ]
