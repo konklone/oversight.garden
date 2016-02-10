@@ -36,7 +36,7 @@
     "elasticsearch": "^10.1.2",
     "errorhandler": "^1.4.3",
     "express": "^4.13.3",
-    "glob": "^6.0.4",
+    "glob": "^7.0.0",
     "js-yaml": "^3.5.2",
     "method-override": "^2.3.5",
     "minimist": "^1.2.0",
