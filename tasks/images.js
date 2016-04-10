@@ -85,6 +85,7 @@ var urls = {
     uscp: "https://pbs.twimg.com/profile_images/95405530/uscp_patch.JPG",
     usps: "https://pbs.twimg.com/profile_images/460880152520454144/90ieWtNy.png",
     va: "https://upload.wikimedia.org/wikipedia/commons/0/05/Seal_of_the_U.S._Department_of_Veterans_Affairs.svg",
+    osc: "https://upload.wikimedia.org/wikipedia/en/c/c1/Wiki_OSC_Seal.jpg"
 };
 
 var root = path.resolve(__dirname, "..");
