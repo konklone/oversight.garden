@@ -48,8 +48,8 @@ function loadReport(details, done) {
   data.source = "igs";
 
   // if it's been manually flagged as featured, mark it as such
-  if (featured[report_id]) {
-    data.featured = featured[report_id];
+  if (featured[inspector] && featured[inspector][report_id]) {
+    data.featured = featured[inspector][report_id];
     data.is_featured = true;
   } else
     data.is_featured = false;

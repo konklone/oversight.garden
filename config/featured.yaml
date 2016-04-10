@@ -1,8 +1,8 @@
-
-mgmt-letter-11-08:
-  description: "In 2011, the National Archives' IG wrote management,
-  baffled about the fact that its electronic records system, ERA, had
-  no full text search, even after giving Lockheed Martin a 6-year,
-  $430M contract."
-  author: Eric Mill
-  author_link: "https://twitter.com/konklone"
+archives:
+  mgmt-letter-11-08:
+    description: "In 2011, the National Archives' IG wrote management,
+    baffled about the fact that its electronic records system, ERA, had
+    no full text search, even after giving Lockheed Martin a 6-year,
+    $430M contract."
+    author: Eric Mill
+    author_link: "https://twitter.com/konklone"
