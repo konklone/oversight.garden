@@ -223,6 +223,25 @@ function search(query, options) {
     };
   }
 
+  if (options.inspector && options.featured) {
+    body.query.filtered.filter = {
+      "bool": {
+        "must": [
+          {
+            "term": {
+              "inspector": options.inspector
+            }
+          },
+          {
+            "term": {
+              "is_featured": true
+            }
+          }
+        ]
+      }
+    };
+  }
+
   return es.search({
     index: config.elasticsearch.index_read,
     type: 'reports',
