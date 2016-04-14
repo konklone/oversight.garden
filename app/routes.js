@@ -207,37 +207,28 @@ function search(query, options) {
     "_source": ["report_id", "year", "inspector", "agency", "title", "agency_name", "url", "landing_url", "inspector_url", "published_on", "type", "file_type"]
   };
 
+  var filters = [];
   if (options.inspector) {
-    body.query.filtered.filter = {
+    filters.push({
       "term": {
         "inspector": options.inspector
       }
-    };
+    });
   }
-
   if (options.featured) {
-    body.query.filtered.filter = {
+    filters.push({
       "term": {
         "is_featured": true
       }
-    };
+    });
   }
 
-  if (options.inspector && options.featured) {
+  if (filters.length == 1) {
+    body.query.filtered.filter = filters[0];
+  } else if (filters.length > 1) {
     body.query.filtered.filter = {
       "bool": {
-        "must": [
-          {
-            "term": {
-              "inspector": options.inspector
-            }
-          },
-          {
-            "term": {
-              "is_featured": true
-            }
-          }
-        ]
+        "must": filters
       }
     };
   }
