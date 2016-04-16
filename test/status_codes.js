@@ -38,6 +38,28 @@ describe('reports page, search results', function() {
   });
 });
 
+describe('reports page, one inspector filter', function() {
+  it('is OK', function(done) {
+    var baseURL = server.getBaseURL();
+    request(baseURL + '/reports?inspector=nasa', function(error, response, body) {
+      assert.ifError(error);
+      assert.equal(200, response.statusCode);
+      done();
+    });
+  });
+});
+
+describe('reports page, two inspector filter', function() {
+  it('is OK', function(done) {
+    var baseURL = server.getBaseURL();
+    request(baseURL + '/reports?inspector=nasa&inspector=nsa', function(error, response, body) {
+      assert.ifError(error);
+      assert.equal(200, response.statusCode);
+      done();
+    });
+  });
+});
+
 describe('reports ATOM feed, all', function() {
   it('is OK', function(done) {
     var baseURL = server.getBaseURL();
@@ -53,6 +75,28 @@ describe('reports ATOM feed, search results', function() {
   it('is OK', function(done) {
     var baseURL = server.getBaseURL();
     request(baseURL + '/reports.xml?query=audit', function(error, response, body) {
+      assert.ifError(error);
+      assert.equal(200, response.statusCode);
+      done();
+    });
+  });
+});
+
+describe('reports ATOM feed, one inspector filter', function() {
+  it('is OK', function(done) {
+    var baseURL = server.getBaseURL();
+    request(baseURL + '/reports.xml?inspector=nasa', function(error, response, body) {
+      assert.ifError(error);
+      assert.equal(200, response.statusCode);
+      done();
+    });
+  });
+});
+
+describe('reports ATOM feed, two inspector filter', function() {
+  it('is OK', function(done) {
+    var baseURL = server.getBaseURL();
+    request(baseURL + '/reports.xml?inspector=nasa&inspector=nsa', function(error, response, body) {
       assert.ifError(error);
       assert.equal(200, response.statusCode);
       done();
