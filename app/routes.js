@@ -84,7 +84,7 @@ module.exports = function(app) {
 
       var query_obj = {
         query: "*",
-        inspector: req.params.inspector,
+        inspector: [req.params.inspector],
         page: 1,
         size: HTML_SIZE
       };
@@ -135,7 +135,17 @@ function parse_search_query(request_query, size) {
   else
     search_query = "*";
 
-  var inspector = request_query.inspector || null;
+  var inspector;
+  if (request_query.inspector) {
+    if (Array.isArray(request_query.inspector)) {
+      inspector = request_query.inspector;
+    } else {
+      inspector = [request_query.inspector];
+    }
+  } else {
+    inspector = null;
+  }
+
   var page = request_query.page || 1;
 
   return {
@@ -191,11 +201,20 @@ function search(query_obj) {
   };
 
   if (query_obj.inspector) {
-    body.query.filtered.filter = {
-      "term": {
-        "inspector": query_obj.inspector
-      }
-    };
+    if (query_obj.inspector.length == 1) {
+      body.query.filtered.filter = {
+        "term": {
+          "inspector": query_obj.inspector[0]
+        }
+      };
+    } else if (query_obj.inspector.length > 1) {
+      body.query.filtered.filter = {
+        "terms": {
+          "inspector": query_obj.inspector,
+          "execution": "or"
+        }
+      };
+    }
   }
 
   return es.search({

@@ -9,13 +9,17 @@
         <strong>
             <% if (query) { %>
                 <% if (inspector) { %>
-                    <%= results.hits.total %> reports matching "<%= query %>" from <a href="/inspectors/<%= inspector %>"><%= helpers.inspector_info(inspector).short_name %></a>.
+                    <%= results.hits.total %> reports matching "<%= query %>" from
+                    <% for (var i = 0; i < inspector.length; i++) { %>
+                      <a href="/inspectors/<%= inspector[i] %>"><%= helpers.inspector_info(inspector[i]).short_name %></a><% if (i < inspector.length - 2) { %>,<% } else if (i == inspector.length - 2) { %><% if (inspector.length > 2) { %>,<% } %> and<% } %><% } %>.
                 <% } else { %>
                     <%= results.hits.total %> reports matching "<%= query %>".
                 <% } %>
             <% } else { %>
                 <% if (inspector) { %>
-                    <%= results.hits.total %> reports from <a href="/inspectors/<%= inspector %>"><%= helpers.inspector_info(inspector).short_name %></a>.
+                    <%= results.hits.total %> reports from
+                    <% for (var i = 0; i < inspector.length; i++) { %>
+                      <a href="/inspectors/<%= inspector[i] %>"><%= helpers.inspector_info(inspector[i]).short_name %></a><% if (i < inspector.length - 2) { %>,<% } else if (i == inspector.length - 2) { %><% if (inspector.length > 2) { %>,<% } %> and<% } -%><% } %>.
                 <% } else { %>
                     <%= results.hits.total %> reports.
                 <% } %>
