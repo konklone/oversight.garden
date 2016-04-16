@@ -157,7 +157,10 @@ function search(query, inspector, page, size) {
             "query": query,
             "default_operator": "AND",
             "use_dis_max": true,
-            "fields": ["text", "title", "summary"]
+            "fields": ["text", "title", "summary",
+                       "pdf.title", "pdf.keywords",
+                       "doc.title",
+                       "docx.title", "docx.keywords"]
           }
         }
       }

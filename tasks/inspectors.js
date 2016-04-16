@@ -130,7 +130,6 @@ function ingest(fetch) {
       if (err) console.log("Error: " + err);
 
       console.log("All done.");
-      process.exit(0);
     });
   });
 }

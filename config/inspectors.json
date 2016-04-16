@@ -1725,6 +1725,31 @@
         "statutory_reference": "5 U.S.C. App. 3 \u00A7 2(A)"
     },
     {
+        "active": true,
+        "agencies": [],
+        "established_year": 1979,
+        "homepage_url": "http://www.osc.gov",
+        "hotline": [
+            {
+                "type": "url",
+                "value": "https://osc.gov/Pages/about.aspx"
+            },
+            {
+                "type": "phone",
+                "value": "800-572-2249"
+            },
+            {
+                "type": "mail",
+                "value": "Whistleblower Disclosure Hotline\n1730 M Street, N.W., Suite 218\nWashington, D.C. 20036-4505\n\nProhibited Personnel Practices\n1730 M Street, N.W., Suite 218\nWashington, D.C. 20036-4505"
+            }
+        ],
+        "name": "Office of Special Counsel",
+        "publishes_reports": true,
+        "short_name": "Office of Special Counsel",
+        "slug": "osc",
+        "statutory_reference": "5 U.S.C. \u00A7 1211"
+    },
+    {
         "active": false,
         "agencies": ["Panama Canal Commission"],
         "established_year": 1988,

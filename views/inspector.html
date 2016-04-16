@@ -15,10 +15,12 @@
                 not currently active
             <% } %>
             </div>
-            <div>
-                <% var agencies_with_the = metadata.agencies.map(function(s){return "the " + s;}); %>
-                Oversees <%= helpers.join_and(agencies_with_the) %>
-            </div>
+            <% if (metadata.agencies.length > 0) { %>
+                <div>
+                    <% var agencies_with_the = metadata.agencies.map(function(s){return "the " + s;}); %>
+                    Oversees <%= helpers.join_and(agencies_with_the) %>
+                </div>
+            <% } %>
             <div>
                 Homepage: <a href="<%= metadata.homepage_url %>"><%= metadata.homepage_url %></a>
             </div>
