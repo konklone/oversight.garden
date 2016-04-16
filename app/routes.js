@@ -24,22 +24,15 @@ module.exports = function(app) {
   });
 
   app.get('/reports', function(req, res) {
-    var query;
-    if (req.query.query)
-      query = req.query.query;
-    else
-      query = "*";
+    var query_obj = parse_search_query(req.query, HTML_SIZE);
 
-    var inspector = req.query.inspector || null;
-    var page = req.query.page || 1;
-
-    search(query, inspector, page, HTML_SIZE).then(function(results) {
+    search(query_obj).then(function(results) {
       res.render("reports.html", {
         results: results,
         query: req.query.query,
-        inspector: inspector,
-        page: page,
-        size: HTML_SIZE
+        inspector: query_obj.inspector,
+        page: query_obj.page,
+        size: query_obj.size
       });
     }, function(err) {
       console.log("Noooo!\n\n" + err);
@@ -48,31 +41,23 @@ module.exports = function(app) {
       res.render("reports.html", {
         results: null,
         query: null,
-        inspector: inspector,
+        inspector: query_obj.inspector,
         page: null
       });
     });
   });
 
   app.get('/reports.xml', function(req, res) {
-    var query;
-    if (req.query.query) {
-      query = req.query.query;
-    }
-    else
-      query = "*";
+    var query_obj = parse_search_query(req.query, XML_SIZE);
 
-    var inspector = req.query.inspector || null;
-    var page = req.query.page || 1;
-
-    search(query, inspector, page, XML_SIZE).then(function(results) {
+    search(query_obj).then(function(results) {
       res.type("atom");
       res.render("reports.xml.ejs", {
         results: results,
         query: req.query.query,
-        inspector: inspector,
-        page: page,
-        size: XML_SIZE,
+        inspector: query_obj.inspector,
+        page: query_obj.page,
+        size: query_obj.size,
         self_url: req.url
       });
     }, function(err) {
@@ -97,7 +82,13 @@ module.exports = function(app) {
       if (helpers.counts.inspectors)
         inspectorReportCount = helpers.counts.inspectors[req.params.inspector] || 0;
 
-      search("*", req.params.inspector, 1, HTML_SIZE).then(function(results) {
+      var query_obj = {
+        query: "*",
+        inspector: req.params.inspector,
+        page: 1,
+        size: HTML_SIZE
+      };
+      search(query_obj).then(function(results) {
         res.render("inspector.html", {
           inspector: req.params.inspector,
           metadata: metadata,
@@ -134,6 +125,26 @@ module.exports = function(app) {
 
 };
 
+/* Parses query string parameters from a search request, and returns an object
+ * that can be passed to the search function.
+ */
+function parse_search_query(request_query, size) {
+  var search_query;
+  if (request_query.query)
+    search_query = request_query.query;
+  else
+    search_query = "*";
+
+  var inspector = request_query.inspector || null;
+  var page = request_query.page || 1;
+
+  return {
+    query: search_query,
+    inspector: inspector,
+    page: page,
+    size: size
+  };
+}
 
 function get(inspector, report_id) {
   return es.get({
@@ -143,16 +154,16 @@ function get(inspector, report_id) {
   });
 }
 
-function search(query, inspector, page, size) {
-  var from = (page - 1) * size;
+function search(query_obj) {
+  var from = (query_obj.page - 1) * query_obj.size;
   var body = {
     "from": from,
-    "size": size,
+    "size": query_obj.size,
     "query": {
       "filtered": {
         "query": {
           "query_string": {
-            "query": query,
+            "query": query_obj.query,
             "default_operator": "AND",
             "use_dis_max": true,
             "fields": ["text", "title", "summary",
@@ -179,10 +190,10 @@ function search(query, inspector, page, size) {
     "_source": ["report_id", "year", "inspector", "agency", "title", "agency_name", "url", "landing_url", "inspector_url", "published_on", "type", "file_type"]
   };
 
-  if (inspector) {
+  if (query_obj.inspector) {
     body.query.filtered.filter = {
       "term": {
-        "inspector": inspector
+        "inspector": query_obj.inspector
       }
     };
   }
