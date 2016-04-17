@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<% var query_string_this = helpers.q({page: parseInt(page), query: query, inspector: inspector}); -%>
-<% var query_string_first = helpers.q({page: 1, query: query, inspector: inspector}); -%>
-<% var query_string_next = helpers.q({page: parseInt(page) + 1, query: query, inspector: inspector}); -%>
-<% var query_string_prev = helpers.q({page: parseInt(page) - 1, query: query, inspector: inspector}); -%>
+<% var query_string_this = helpers.q({page: parseInt(page), query: query, inspector: inspector, featured: featured}); -%>
+<% var query_string_first = helpers.q({page: 1, query: query, inspector: inspector, featured: featured}); -%>
+<% var query_string_next = helpers.q({page: parseInt(page) + 1, query: query, inspector: inspector, featured: featured}); -%>
+<% var query_string_prev = helpers.q({page: parseInt(page) - 1, query: query, inspector: inspector, featured: featured}); -%>
 <% var last_page = Math.max(1, Math.floor((results.hits.total + size - 1) / size)); -%>
-<% var query_string_last = helpers.q({page: last_page, query: query, inspector: inspector}); -%>
+<% var query_string_last = helpers.q({page: last_page, query: query, inspector: inspector, featured: featured}); -%>
 <feed xmlns="http://www.w3.org/2005/Atom">
 <title>Oversight.garden | Collecting the oversight community's work in one place.</title>
 <link href="https://oversight.garden/reports?<%= query_string_this %>"/>

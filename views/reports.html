@@ -29,7 +29,7 @@
             <% } %>
         </strong>
         <% if (page > 1) { %>
-            <a href="/reports?<%= helpers.q({page: parseInt(page)-1, query: query, inspector: inspector}) %>">
+            <a href="/reports?<%= helpers.q({page: parseInt(page)-1, query: query, inspector: inspector, featured: featured}) %>">
                 Previous page</a>
         <% } %>
         <% if (results.hits.total > results.hits.hits.length) { %>
@@ -40,7 +40,7 @@
                 Showing <%= (page - 1) * size + 1 %>-<%= (page - 1) * size + results.hits.hits.length %>.
             <% } %>
             <% if (results.hits.total > page * size) { %>
-                <a href="/reports?<%= helpers.q({page: parseInt(page)+1, query: query, inspector: inspector}) %>">
+                <a href="/reports?<%= helpers.q({page: parseInt(page)+1, query: query, inspector: inspector, featured: featured}) %>">
                     Next page</a>
             <% } %>
 
