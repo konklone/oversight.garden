@@ -7,40 +7,40 @@
 
         <strong>
             <%= results.hits.total %>
-            <% if (featured) { %>
+            <% if (query_obj.featured) { %>
                 featured
             <% } %>
-            <% if (query) { %>
-                <% if (inspector) { %>
-                    reports matching "<%= query %>" from
-                    <% for (var i = 0; i < inspector.length; i++) { %>
-                        <a href="/inspectors/<%= inspector[i] %>"><%= helpers.inspector_info(inspector[i]).short_name %></a><% if (i < inspector.length - 2) { %>,<% } else if (i == inspector.length - 2) { %><% if (inspector.length > 2) { %>,<% } %> and<% } %><% } %>.
+            <% if (query_obj.original_query) { %>
+                <% if (query_obj.inspector) { %>
+                    reports matching "<%= query_obj.original_query %>" from
+                    <% for (var i = 0; i < query_obj.inspector.length; i++) { %>
+                        <a href="/inspectors/<%= query_obj.inspector[i] %>"><%= helpers.inspector_info(query_obj.inspector[i]).short_name %></a><% if (i < query_obj.inspector.length - 2) { %>,<% } else if (i == query_obj.inspector.length - 2) { %><% if (query_obj.inspector.length > 2) { %>,<% } %> and<% } %><% } %>.
                 <% } else { %>
-                    reports matching "<%= query %>".
+                    reports matching "<%= query_obj.original_query %>".
                 <% } %>
             <% } else { %>
-                <% if (inspector) { %>
+                <% if (query_obj.inspector) { %>
                     reports from
-                    <% for (var i = 0; i < inspector.length; i++) { %>
-                        <a href="/inspectors/<%= inspector[i] %>"><%= helpers.inspector_info(inspector[i]).short_name %></a><% if (i < inspector.length - 2) { %>,<% } else if (i == inspector.length - 2) { %><% if (inspector.length > 2) { %>,<% } %> and<% } -%><% } %>.
+                    <% for (var i = 0; i < query_obj.inspector.length; i++) { %>
+                        <a href="/inspectors/<%= query_obj.inspector[i] %>"><%= helpers.inspector_info(query_obj.inspector[i]).short_name %></a><% if (i < query_obj.inspector.length - 2) { %>,<% } else if (i == query_obj.inspector.length - 2) { %><% if (query_obj.inspector.length > 2) { %>,<% } %> and<% } -%><% } %>.
                 <% } else { %>
                     reports.
                 <% } %>
             <% } %>
         </strong>
-        <% if (page > 1) { %>
-            <a href="/reports?<%= helpers.q({page: parseInt(page)-1, query: query, inspector: inspector, featured: featured}) %>">
+        <% if (query_obj.page > 1) { %>
+            <a href="/reports?<%= helpers.q({page: query_obj.page - 1, query: query_obj.original_query, inspector: query_obj.inspector, featured: query_obj.featured}) %>">
                 Previous page</a>
         <% } %>
         <% if (results.hits.total > results.hits.hits.length) { %>
-            Page <%= page %>.
-            <% if (page == 1) { %>
-                Showing the first <%= size %>.
+            Page <%= query_obj.page %>.
+            <% if (query_obj.page == 1) { %>
+                Showing the first <%= query_obj.size %>.
             <% } else { %>
-                Showing <%= (page - 1) * size + 1 %>-<%= (page - 1) * size + results.hits.hits.length %>.
+                Showing <%= (query_obj.page - 1) * query_obj.size + 1 %>-<%= (query_obj.page - 1) * query_obj.size + results.hits.hits.length %>.
             <% } %>
-            <% if (results.hits.total > page * size) { %>
-                <a href="/reports?<%= helpers.q({page: parseInt(page)+1, query: query, inspector: inspector, featured: featured}) %>">
+            <% if (results.hits.total > query_obj.page * query_obj.size) { %>
+                <a href="/reports?<%= helpers.q({page: query_obj.page + 1, query: query_obj.original_query, inspector: query_obj.inspector, featured: query_obj.featured}) %>">
                     Next page</a>
             <% } %>
 

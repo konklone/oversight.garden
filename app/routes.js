@@ -14,9 +14,7 @@ module.exports = function(app) {
 
   // The homepage. A temporary search page.
   app.get('/', function(req, res) {
-    res.render("index.html", {
-      inspector: null
-    });
+    res.render("index.html", {});
   });
 
   app.get('/about', function(req, res) {
@@ -29,11 +27,7 @@ module.exports = function(app) {
     search(query_obj).then(function(results) {
       res.render("reports.html", {
         results: results,
-        query: req.query.query,
-        inspector: query_obj.inspector,
-        page: query_obj.page,
-        featured: query_obj.featured,
-        size: query_obj.size
+        query_obj: query_obj,
       });
     }, function(err) {
       console.log("Noooo!\n\n" + err);
@@ -41,9 +35,7 @@ module.exports = function(app) {
       res.status(500);
       res.render("reports.html", {
         results: null,
-        query: null,
-        inspector: query_obj.inspector,
-        page: null
+        query_obj: {},
       });
     });
   });
@@ -55,11 +47,7 @@ module.exports = function(app) {
     search(query_obj).then(function(results) {
       res.render("reports.html", {
         results: results,
-        query: req.query.query,
-        inspector: query_obj.inspector,
-        page: query_obj.page,
-        featured: query_obj.featured,
-        size: query_obj.size
+        query_obj: query_obj,
       });
     }, function(err) {
       console.log("Noooo!\n\n" + err);
@@ -67,9 +55,7 @@ module.exports = function(app) {
       res.status(500);
       res.render("reports.html", {
         results: null,
-        query: null,
-        inspector: query_obj.inspector,
-        page: null
+        query_obj: {},
       });
     });
   });
@@ -81,11 +67,7 @@ module.exports = function(app) {
       res.type("atom");
       res.render("reports.xml.ejs", {
         results: results,
-        query: req.query.query,
-        inspector: query_obj.inspector,
-        page: query_obj.page,
-        featured: query_obj.featured,
-        size: query_obj.size,
+        query_obj: query_obj,
         self_url: req.url
       });
     }, function(err) {
@@ -164,6 +146,8 @@ function parse_search_query(request_query, size) {
   else
     search_query = "*";
 
+  var original_search_query = request_query.query || "";
+
   var inspector;
   if (request_query.inspector) {
     if (Array.isArray(request_query.inspector)) {
@@ -175,11 +159,16 @@ function parse_search_query(request_query, size) {
     inspector = null;
   }
 
-  var page = request_query.page || 1;
+  var page = parseInt(request_query.page);
+  if (!Number.isInteger(page)) {
+    page = 1;
+  }
+
   var featured = (request_query.featured == "true");
 
   return {
     query: search_query,
+    original_query: original_search_query,
     inspector: inspector,
     page: page,
     size: size,
