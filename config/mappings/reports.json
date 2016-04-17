@@ -52,6 +52,9 @@
           "author_link": {
             "type": "string",
             "index": "not_analyzed"
+          },
+          "description": {
+            "type": "string"
           }
         }
       },

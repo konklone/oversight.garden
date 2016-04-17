@@ -85,6 +85,15 @@
                                 <a href="<%= report.landing_url %>">Summary</a>
                             <% } %>
                         </h4>
+                        <% if (query_obj.featured && report.featured) { %>
+                            <p>
+                                <%= report.featured.description %>
+                                <br/>
+                                &mdash;<a href="<%= report.featured.author_link %>">
+                                    <%= report.featured.author %>
+                                </a>
+                            </p>
+                        <% } %>
                         <% if (highlight && (highlight.text || highlight.summary)) { %>
                             <p>
                                 <% if (highlight.text) { %>
