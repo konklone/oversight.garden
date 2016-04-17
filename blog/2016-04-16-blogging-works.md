@@ -1,11 +1,12 @@
 ---
 title: Blogging works!
-date: 2016-04-16 18:00
+date: "2016-04-16T8:00:00Z"
+display_date: "April 16th, 2016"
 template: blog-post.ejs
-filename: /blogging-works.html
+author: Travis Briggs
+author_link: "https://travisbriggs.com"
+filename: /blogging-works/index.html
 ---
-
-# This is a sample blog page
 
 The blogging template, views/blog-post.ejs, doesn't currently do anything with
 the post's title or date. The title "This is a sample blog page" is part of the
