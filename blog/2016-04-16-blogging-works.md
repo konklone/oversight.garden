@@ -5,8 +5,6 @@ template: blog-post.ejs
 filename: /blogging-works/index.html
 ---
 
-# This is a sample blog page
-
 The blogging template, views/blog-post.ejs, doesn't currently do anything with
 the post's title or date. The title "This is a sample blog page" is part of the
 page itself.
