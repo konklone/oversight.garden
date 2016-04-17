@@ -24,30 +24,16 @@ module.exports = function(app) {
   });
 
   app.get('/reports', function(req, res) {
-    var query;
-    if (req.query.query)
-      query = req.query.query;
-    else
-      query = "*";
+    var query_obj = parse_search_query(req.query, HTML_SIZE);
 
-    var featured = (req.query.featured == "true");
-
-    var inspector = req.query.inspector || null;
-    var page = req.query.page || 1;
-
-    search(query, {
-      inspector: inspector,
-      page: page,
-      featured: featured,
-      size: HTML_SIZE
-    }).then(function(results) {
+    search(query_obj).then(function(results) {
       res.render("reports.html", {
         results: results,
         query: req.query.query,
-        inspector: inspector,
-        page: page,
-        featured: featured,
-        size: HTML_SIZE
+        inspector: query_obj.inspector,
+        page: query_obj.page,
+        featured: query_obj.featured,
+        size: query_obj.size
       });
     }, function(err) {
       console.log("Noooo!\n\n" + err);
@@ -56,41 +42,24 @@ module.exports = function(app) {
       res.render("reports.html", {
         results: null,
         query: null,
-        inspector: inspector,
+        inspector: query_obj.inspector,
         page: null
       });
     });
   });
 
   app.get('/reports.xml', function(req, res) {
-    var query;
-    if (req.query.query) {
-      query = req.query.query;
-      if (query.charAt(0) != "\"" || query.charAt(query.length-1) != "\"")
-        query = "\"" + query + "\"";
-    }
-    else
-      query = "*";
+    var query_obj = parse_search_query(req.query, XML_SIZE);
 
-    var featured = (req.query.featured == "true");
-
-    var inspector = req.query.inspector || null;
-    var page = req.query.page || 1;
-
-    search(query, {
-      inspector: inspector,
-      page: page,
-      size: XML_SIZE,
-      featured: featured
-    }).then(function(results) {
+    search(query_obj).then(function(results) {
       res.type("atom");
       res.render("reports.xml.ejs", {
         results: results,
         query: req.query.query,
-        inspector: inspector,
-        page: page,
-        size: XML_SIZE,
-        featured: featured,
+        inspector: query_obj.inspector,
+        page: query_obj.page,
+        featured: query_obj.featured,
+        size: query_obj.size,
         self_url: req.url
       });
     }, function(err) {
@@ -115,11 +84,14 @@ module.exports = function(app) {
       if (helpers.counts.inspectors)
         inspectorReportCount = helpers.counts.inspectors[req.params.inspector] || 0;
 
-      search("*", {
-        inspector: req.params.inspector,
+      var query_obj = {
+        query: "*",
+        inspector: [req.params.inspector],
         page: 1,
+        featured: false,
         size: HTML_SIZE
-      }).then(function(results) {
+      };
+      search(query_obj).then(function(results) {
         res.render("inspector.html", {
           inspector: req.params.inspector,
           metadata: metadata,
@@ -156,6 +128,38 @@ module.exports = function(app) {
 
 };
 
+/* Parses query string parameters from a search request, and returns an object
+ * that can be passed to the search function.
+ */
+function parse_search_query(request_query, size) {
+  var search_query;
+  if (request_query.query)
+    search_query = request_query.query;
+  else
+    search_query = "*";
+
+  var inspector;
+  if (request_query.inspector) {
+    if (Array.isArray(request_query.inspector)) {
+      inspector = request_query.inspector;
+    } else {
+      inspector = [request_query.inspector];
+    }
+  } else {
+    inspector = null;
+  }
+
+  var page = request_query.page || 1;
+  var featured = (request_query.featured == "true");
+
+  return {
+    query: search_query,
+    inspector: inspector,
+    page: page,
+    size: size,
+    featured: featured
+  };
+}
 
 function get(inspector, report_id) {
   return es.get({
@@ -165,28 +169,22 @@ function get(inspector, report_id) {
   });
 }
 
-function search(query, options) {
-  if (!options) options = {};
-
-  // defaults
-  options.inspector = options.inspector || null;
-  options.page = options.page || 1;
-  options.size = options.size || HTML_SIZE;
-  options.featured = options.featured || false;
-
-  var from = (options.page - 1) * options.size;
-
+function search(query_obj) {
+  var from = (query_obj.page - 1) * query_obj.size;
   var body = {
     "from": from,
-    "size": options.size,
+    "size": query_obj.size,
     "query": {
       "filtered": {
         "query": {
           "query_string": {
-            "query": query,
+            "query": query_obj.query,
             "default_operator": "AND",
             "use_dis_max": true,
-            "fields": ["text", "title", "summary"]
+            "fields": ["text", "title", "summary",
+                       "pdf.title", "pdf.keywords",
+                       "doc.title",
+                       "docx.title", "docx.keywords"]
           }
         }
       }
@@ -208,14 +206,24 @@ function search(query, options) {
   };
 
   var filters = [];
-  if (options.inspector) {
-    filters.push({
-      "term": {
-        "inspector": options.inspector
-      }
-    });
+  if (query_obj.inspector) {
+    if (query_obj.inspector.length == 1) {
+      filters.push({
+        "term": {
+          "inspector": query_obj.inspector[0]
+        }
+      });
+    } else if (query_obj.inspector.length > 1) {
+      filters.push({
+        "terms": {
+          "inspector": query_obj.inspector,
+          "execution": "or"
+        }
+      });
+    }
   }
-  if (options.featured) {
+
+  if (query_obj.featured) {
     filters.push({
       "term": {
         "is_featured": true

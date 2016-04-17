@@ -70,7 +70,7 @@ Then visit the application at `http://localhost:3000`. It should work! But you w
 
 Once, **before the first time you load data**, you need to tell Elasticsearch to optimize loaded report text for efficient highlighting.
 
-Use `rake` (which ships with Ruby) to run:
+Use `rake` (which ships with Ruby) to set up the Elasticsearch index and index aliases. Make up an index name, (for example, based off of today's date) and run the following commands to set up the index.
 
 ```
 rake elasticsearch:init index=oversight-YYYY-MM-DD
