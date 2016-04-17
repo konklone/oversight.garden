@@ -1,7 +1,10 @@
 ---
 title: Blogging works!
-date: 2016-04-16 18:00
+date: "2016-04-16T8:00:00Z"
+display_date: "April 16th, 2016"
 template: blog-post.ejs
+author: Travis Briggs
+author_link: "https://travisbriggs.com"
 filename: /blogging-works/index.html
 ---
 
