@@ -9,7 +9,7 @@
         <option value="">All Inspectors General</option>
         <% for (var i = 0; i < helpers.inspector_list.length; i++) { %>
             <option value="<%= helpers.inspector_list[i].slug %>"
-                <% if (inspector && inspector === helpers.inspector_list[i].slug) { %>
+                <% if (inspector && inspector[0] && inspector[0] === helpers.inspector_list[i].slug) { %>
                     selected
                 <% } %>
             >
