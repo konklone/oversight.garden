@@ -48,6 +48,32 @@ module.exports = function(app) {
     });
   });
 
+  app.get('/reports/featured', function(req, res) {
+    var query_obj = parse_search_query(req.query, HTML_SIZE);
+    query_obj.featured = true;
+
+    search(query_obj).then(function(results) {
+      res.render("reports.html", {
+        results: results,
+        query: req.query.query,
+        inspector: query_obj.inspector,
+        page: query_obj.page,
+        featured: query_obj.featured,
+        size: query_obj.size
+      });
+    }, function(err) {
+      console.log("Noooo!\n\n" + err);
+
+      res.status(500);
+      res.render("reports.html", {
+        results: null,
+        query: null,
+        inspector: query_obj.inspector,
+        page: null
+      });
+    });
+  });
+
   app.get('/reports.xml', function(req, res) {
     var query_obj = parse_search_query(req.query, XML_SIZE);
 
