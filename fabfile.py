@@ -59,6 +59,9 @@ def cleanup():
 def list_indices():
   run("cd %s && rake elasticsearch:list" % current_path)
 
+def blog():
+  run("cd %s && rake blog" % current_path)
+
 def delete_index(index):
   run("cd %s && rake elasticsearch:delete index=%s" % (current_path, index))
 
