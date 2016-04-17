@@ -5,23 +5,26 @@
 
     <% if (results) { %>
 
-
         <strong>
+            <%= results.hits.total %>
+            <% if (featured) { %>
+                featured
+            <% } %>
             <% if (query) { %>
                 <% if (inspector) { %>
-                    <%= results.hits.total %> reports matching "<%= query %>" from
+                    reports matching "<%= query %>" from
                     <% for (var i = 0; i < inspector.length; i++) { %>
-                      <a href="/inspectors/<%= inspector[i] %>"><%= helpers.inspector_info(inspector[i]).short_name %></a><% if (i < inspector.length - 2) { %>,<% } else if (i == inspector.length - 2) { %><% if (inspector.length > 2) { %>,<% } %> and<% } %><% } %>.
+                        <a href="/inspectors/<%= inspector[i] %>"><%= helpers.inspector_info(inspector[i]).short_name %></a><% if (i < inspector.length - 2) { %>,<% } else if (i == inspector.length - 2) { %><% if (inspector.length > 2) { %>,<% } %> and<% } %><% } %>.
                 <% } else { %>
-                    <%= results.hits.total %> reports matching "<%= query %>".
+                    reports matching "<%= query %>".
                 <% } %>
             <% } else { %>
                 <% if (inspector) { %>
-                    <%= results.hits.total %> reports from
+                    reports from
                     <% for (var i = 0; i < inspector.length; i++) { %>
-                      <a href="/inspectors/<%= inspector[i] %>"><%= helpers.inspector_info(inspector[i]).short_name %></a><% if (i < inspector.length - 2) { %>,<% } else if (i == inspector.length - 2) { %><% if (inspector.length > 2) { %>,<% } %> and<% } -%><% } %>.
+                        <a href="/inspectors/<%= inspector[i] %>"><%= helpers.inspector_info(inspector[i]).short_name %></a><% if (i < inspector.length - 2) { %>,<% } else if (i == inspector.length - 2) { %><% if (inspector.length > 2) { %>,<% } %> and<% } -%><% } %>.
                 <% } else { %>
-                    <%= results.hits.total %> reports.
+                    reports.
                 <% } %>
             <% } %>
         </strong>
