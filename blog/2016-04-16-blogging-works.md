@@ -2,7 +2,7 @@
 title: Blogging works!
 date: 2016-04-16 18:00
 template: blog-post.ejs
-filename: /blogging-works.html
+filename: /blogging-works/index.html
 ---
 
 # This is a sample blog page
