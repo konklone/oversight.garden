@@ -83,7 +83,7 @@ You can add `force=true` to the end of the init command to empty the database an
 Then, to actually load report data, run:
 
 ```
-node tasks/inspectors.js
+node tasks/inspectors.js --since=1776
 ```
 
 This defaults to loading every report for the current year. See [the full list of supported options](tasks/inspectors.js) for data loading.
