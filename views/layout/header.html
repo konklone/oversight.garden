@@ -45,9 +45,13 @@
 <link rel="vcs-git" href="https://github.com/konklone/oversight.garden" title="code for oversight.garden" />
 
 <link rel="shortcut icon" href="/favicon.png" />
-<link rel="canonical" href="https://oversight.garden<%= req.originalUrl %>" />
+<% if (req) { %>
+  <link rel="canonical" href="https://oversight.garden<%= req.originalUrl %>" />
+<% } else { %>
+  <link rel="canonical" href="https://oversight.garden/blog<%= page.url %>" />
+<% } %>
 
-<% if (req.originalUrl.startsWith("/reports")) { -%>
+<% if (req && req.originalUrl.startsWith("/reports")) { -%>
   <link rel="alternate" type="application/atom+xml" title="Search Results" href="<%= req.originalUrl.replace("/reports", "/reports.xml") %>" />
 <% } -%>
 

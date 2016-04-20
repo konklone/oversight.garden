@@ -83,10 +83,10 @@ You can add `force=true` to the end of the init command to empty the database an
 Then, to actually load report data, run:
 
 ```
-node tasks/inspectors.js
+node tasks/inspectors.js --since=1776
 ```
 
-This defaults to loading every report for the current year. See [the full list of supported options](tasks/inspectors.js) for data loading.
+This loads every report in your data since the year 1776. See [the full list of supported options](tasks/inspectors.js) for data loading.
 
 If this all worked, you should be up and running!
 
@@ -103,6 +103,18 @@ Sitemaps can be generated with the following rake task:
 ```
 rake sitemap:generate
 ```
+
+### Blogging
+
+There is a blogging system, powered by the [Wintersmith](https://github.com/jnordberg/wintersmith) static site generator, built into the site itself. By default, it can be easily used to create static pages ("blog posts") under oversight.garden/blog/. Here are the steps:
+
+1. Install the wintersmith CLI tool globally: `npm install -g wintersmith`
+1. Create a blog post markdown file in `./blog/` Something like `./blog/my-first-post.md`.
+  * Make sure it has YAML front matter (you can look at existing posts for how to set this up). The `filename` key in the front matter can be used to specify a final URL for the post that is different from its file name (eg "filename: superblog.html" will make my-first-post.md be served as oversight.garden/blog/superblog.html).
+1. Run the wintersmith generator: `wintersmith build --config=blog-config.js`
+1. Commit the new file(s) in `./public/blog` to `git/github`.
+
+The blog post will appear the next time the site is deployed.
 
 ### Public domain
 

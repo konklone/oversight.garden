@@ -30,14 +30,14 @@ namespace :elasticsearch do
         puts "Deleted index"
       end
       Environment.client.indices.create index: index
-      Environment.client.cluster.health wait_for_status: 'green'
+      Environment.client.cluster.health wait_for_status: 'yellow'
       puts "Created index"
     else
       if Environment.client.indices.exists index: index
         puts "Index already exists"
       else
         Environment.client.indices.create index: index
-        Environment.client.cluster.health wait_for_status: 'green'
+        Environment.client.cluster.health wait_for_status: 'yellow'
         puts "Created index"
       end
     end
@@ -136,7 +136,7 @@ namespace :elasticsearch do
     end
 
     Environment.client.indices.delete index: index
-    Environment.client.cluster.health wait_for_status: 'green'
+    Environment.client.cluster.health wait_for_status: 'yellow'
     puts "Deleted index #{index}"
   end
 end

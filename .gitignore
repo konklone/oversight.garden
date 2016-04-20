@@ -8,3 +8,5 @@
 /node_modules
 .sass-cache
 /.rake_tasks~
+/public/blog
+
