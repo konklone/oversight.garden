@@ -86,7 +86,7 @@ Then, to actually load report data, run:
 node tasks/inspectors.js --since=1776
 ```
 
-This defaults to loading every report for the current year. See [the full list of supported options](tasks/inspectors.js) for data loading.
+This loads every report in your data since the year 1776. See [the full list of supported options](tasks/inspectors.js) for data loading.
 
 If this all worked, you should be up and running!
 
