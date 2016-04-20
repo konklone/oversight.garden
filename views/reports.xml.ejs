@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<% var query_string_this = helpers.q({page: parseInt(page), query: query, inspector: inspector}); -%>
-<% var query_string_first = helpers.q({page: 1, query: query, inspector: inspector}); -%>
-<% var query_string_next = helpers.q({page: parseInt(page) + 1, query: query, inspector: inspector}); -%>
-<% var query_string_prev = helpers.q({page: parseInt(page) - 1, query: query, inspector: inspector}); -%>
-<% var last_page = Math.max(1, Math.floor((results.hits.total + size - 1) / size)); -%>
-<% var query_string_last = helpers.q({page: last_page, query: query, inspector: inspector}); -%>
+<% var query_string_this = helpers.q({page: query_obj.page, query: query_obj.original_query, inspector: query_obj.inspector, featured: query_obj.featured}); -%>
+<% var query_string_first = helpers.q({page: 1, query: query_obj.original_query, inspector: query_obj.inspector, featured: query_obj.featured}); -%>
+<% var query_string_next = helpers.q({page: query_obj.page + 1, query: query_obj.original_query, inspector: query_obj.inspector, featured: query_obj.featured}); -%>
+<% var query_string_prev = helpers.q({page: query_obj.page - 1, query: query_obj.original_query, inspector: query_obj.inspector, featured: query_obj.featured}); -%>
+<% var last_page = Math.max(1, Math.floor((results.hits.total + query_obj.size - 1) / query_obj.size)); -%>
+<% var query_string_last = helpers.q({page: last_page, query: query_obj.original_query, inspector: query_obj.inspector, featured: query_obj.featured}); -%>
 <feed xmlns="http://www.w3.org/2005/Atom">
 <title>Oversight.garden | Collecting the oversight community's work in one place.</title>
 <link href="https://oversight.garden/reports?<%= query_string_this %>"/>
@@ -13,10 +13,10 @@
 <link rel="alternate" type="text/html" hreflang="en" href="https://oversight.garden/reports?<%= query_string_this %>"/>
 <link rel="self" type="application/atom+xml" href="https://oversight.garden<%= self_url %>"/>
 <link rel="first" href="https://oversight.garden/reports.xml?<%= query_string_first %>"/>
-<% if (page > 1) { -%>
+<% if (query_obj.page > 1) { -%>
 <link rel="previous" href="https://oversight.garden/reports.xml?<%= query_string_prev %>"/>
 <% } -%>
-<% if (results.hits.total > page * size) { -%>
+<% if (results.hits.total > query_obj.page * query_obj.size) { -%>
 <link rel="next" href="https://oversight.garden/reports.xml?<%= query_string_next %>"/>
 <% } -%>
 <link rel="last" href="https://oversight.garden/reports.xml?<%= query_string_last %>"/>

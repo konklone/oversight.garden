@@ -55,4 +55,11 @@ class Report
   attribute :title, String
   attribute :inspector, String
   attribute :agency, String
+  attribute :featured, Hash
+  attribute :is_featured, Boolean
+  attribute :report_id, String
+  attribute :pdf, Hash
+  attribute :type, String
+  attribute :url, String
+  attribute :year, Fixnum
 end

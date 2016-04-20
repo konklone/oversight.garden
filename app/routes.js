@@ -14,9 +14,7 @@ module.exports = function(app) {
 
   // The homepage. A temporary search page.
   app.get('/', function(req, res) {
-    res.render("index.html", {
-      inspector: null
-    });
+    res.render("index.html", {});
   });
 
   app.get('/about', function(req, res) {
@@ -29,10 +27,7 @@ module.exports = function(app) {
     search(query_obj).then(function(results) {
       res.render("reports.html", {
         results: results,
-        query: req.query.query,
-        inspector: query_obj.inspector,
-        page: query_obj.page,
-        size: query_obj.size
+        query_obj: query_obj,
       });
     }, function(err) {
       console.log("Noooo!\n\n" + err);
@@ -40,9 +35,27 @@ module.exports = function(app) {
       res.status(500);
       res.render("reports.html", {
         results: null,
-        query: null,
-        inspector: query_obj.inspector,
-        page: null
+        query_obj: {},
+      });
+    });
+  });
+
+  app.get('/reports/featured', function(req, res) {
+    var query_obj = parse_search_query(req.query, HTML_SIZE);
+    query_obj.featured = true;
+
+    search(query_obj).then(function(results) {
+      res.render("reports.html", {
+        results: results,
+        query_obj: query_obj,
+      });
+    }, function(err) {
+      console.log("Noooo!\n\n" + err);
+
+      res.status(500);
+      res.render("reports.html", {
+        results: null,
+        query_obj: {},
       });
     });
   });
@@ -54,10 +67,7 @@ module.exports = function(app) {
       res.type("atom");
       res.render("reports.xml.ejs", {
         results: results,
-        query: req.query.query,
-        inspector: query_obj.inspector,
-        page: query_obj.page,
-        size: query_obj.size,
+        query_obj: query_obj,
         self_url: req.url
       });
     }, function(err) {
@@ -86,6 +96,7 @@ module.exports = function(app) {
         query: "*",
         inspector: [req.params.inspector],
         page: 1,
+        featured: false,
         size: HTML_SIZE
       };
       search(query_obj).then(function(results) {
@@ -135,6 +146,8 @@ function parse_search_query(request_query, size) {
   else
     search_query = "*";
 
+  var original_search_query = request_query.query || "";
+
   var inspector;
   if (request_query.inspector) {
     if (Array.isArray(request_query.inspector)) {
@@ -146,13 +159,20 @@ function parse_search_query(request_query, size) {
     inspector = null;
   }
 
-  var page = request_query.page || 1;
+  var page = parseInt(request_query.page);
+  if (!Number.isInteger(page)) {
+    page = 1;
+  }
+
+  var featured = (request_query.featured == "true");
 
   return {
     query: search_query,
+    original_query: original_search_query,
     inspector: inspector,
     page: page,
-    size: size
+    size: size,
+    featured: featured
   };
 }
 
@@ -197,24 +217,43 @@ function search(query_obj) {
       "order": "score",
       "fragment_size": 500
     },
-    "_source": ["report_id", "year", "inspector", "agency", "title", "agency_name", "url", "landing_url", "inspector_url", "published_on", "type", "file_type"]
+    "_source": ["report_id", "year", "inspector", "agency", "title", "agency_name", "url", "landing_url", "inspector_url", "published_on", "type", "file_type", "featured.author", "featured.author_link", "featured.description"]
   };
 
+  var filters = [];
   if (query_obj.inspector) {
     if (query_obj.inspector.length == 1) {
-      body.query.filtered.filter = {
+      filters.push({
         "term": {
           "inspector": query_obj.inspector[0]
         }
-      };
+      });
     } else if (query_obj.inspector.length > 1) {
-      body.query.filtered.filter = {
+      filters.push({
         "terms": {
           "inspector": query_obj.inspector,
           "execution": "or"
         }
-      };
+      });
     }
+  }
+
+  if (query_obj.featured) {
+    filters.push({
+      "term": {
+        "is_featured": true
+      }
+    });
+  }
+
+  if (filters.length == 1) {
+    body.query.filtered.filter = filters[0];
+  } else if (filters.length > 1) {
+    body.query.filtered.filter = {
+      "bool": {
+        "must": filters
+      }
+    };
   }
 
   return es.search({

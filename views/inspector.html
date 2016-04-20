@@ -47,7 +47,7 @@
                     <% for (var i = 0; i < hits.length; i++) { %>
                         <% var report = hits[i]._source; %>
                         <li>
-                            <h2><a href="/report/<%= report.inspector %>/<%= encodeURIComponent(report.report_id) %>">
+                            <h2><a href="/reports/<%= report.inspector %>/<%= encodeURIComponent(report.report_id) %>">
                                 <%= report.title %>
                             </a></h2>
                             <h4>
