@@ -60,6 +60,26 @@ module.exports = function(app) {
     });
   });
 
+  app.get('/reports/unreleased', function(req, res) {
+    var query_obj = parse_search_query(req.query, HTML_SIZE);
+    query_obj.unreleased = true;
+
+    search(query_obj).then(function(results) {
+      res.render("reports.html", {
+        results: results,
+        query_obj: query_obj,
+      });
+    }, function(err) {
+      console.log("Noooo!\n\n" + err);
+
+      res.status(500);
+      res.render("reports.html", {
+        results: null,
+        query_obj: {},
+      });
+    });
+  });
+
   app.get('/reports.xml', function(req, res) {
     var query_obj = parse_search_query(req.query, XML_SIZE);
 
@@ -97,6 +117,7 @@ module.exports = function(app) {
         inspector: [req.params.inspector],
         page: 1,
         featured: false,
+        unreleased: false,
         size: HTML_SIZE
       };
       search(query_obj).then(function(results) {
@@ -165,6 +186,7 @@ function parse_search_query(request_query, size) {
   }
 
   var featured = (request_query.featured == "true");
+  var unreleased = (request_query.unreleased == "true");
 
   return {
     query: search_query,
@@ -172,7 +194,8 @@ function parse_search_query(request_query, size) {
     inspector: inspector,
     page: page,
     size: size,
-    featured: featured
+    featured: featured,
+    unreleased: unreleased
   };
 }
 
@@ -217,7 +240,7 @@ function search(query_obj) {
       "order": "score",
       "fragment_size": 500
     },
-    "_source": ["report_id", "year", "inspector", "agency", "title", "agency_name", "url", "landing_url", "inspector_url", "published_on", "type", "file_type", "featured.author", "featured.author_link", "featured.description"]
+    "_source": ["report_id", "year", "inspector", "agency", "title", "agency_name", "url", "landing_url", "inspector_url", "published_on", "type", "file_type", "featured.author", "featured.author_link", "featured.description", "unreleased", "missing"]
   };
 
   var filters = [];
@@ -242,6 +265,14 @@ function search(query_obj) {
     filters.push({
       "term": {
         "is_featured": true
+      }
+    });
+  }
+
+  if (query_obj.unreleased) {
+    filters.push({
+      "term": {
+        "unreleased": true
       }
     });
   }
