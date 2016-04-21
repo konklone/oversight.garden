@@ -71,6 +71,17 @@ describe('featured reports page', function() {
   });
 });
 
+describe('unreleased reports page', function() {
+  it('is OK', function(done) {
+    var baseURL = server.getBaseURL();
+    request(baseURL + '/reports/unreleased', function(error, response, body) {
+      assert.ifError(error);
+      assert.equal(200, response.statusCode);
+      done();
+    });
+  });
+});
+
 describe('reports ATOM feed, all', function() {
   it('is OK', function(done) {
     var baseURL = server.getBaseURL();
