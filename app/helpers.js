@@ -2,7 +2,7 @@
 
 // view helpers
 
-var qs = require("querystring");
+var querystring = require("querystring");
 var numeral = require("numeral");
 var es = require("./boot").es;
 var config = require("../config/config");
@@ -83,7 +83,39 @@ updateReportCounts();
 module.exports = {
 
   q: function(object) {
-    return qs.stringify(object);
+    return querystring.stringify(object);
+  },
+
+  format_qs: function(obj1, obj2) {
+    obj2 = obj2 || {};
+    var output_obj = {};
+
+    var page = (obj2.page !== undefined) ? obj2.page : obj1.page;
+    if (page != 1) {
+      output_obj.page = page;
+    }
+
+    var original_query = (obj2.original_query !== undefined) ? obj2.original_query : obj1.original_query;
+    if (original_query.length > 0) {
+      output_obj.query = original_query;
+    }
+
+    var inspector = (obj2.inspector !== undefined) ? obj2.inspector : obj1.inspector;
+    if (inspector && inspector.length > 0) {
+      output_obj.inspector = inspector;
+    }
+
+    var featured = (obj2.featured !== undefined) ? obj2.featured : obj1.featured;
+    if (featured) {
+      output_obj.featured = featured;
+    }
+
+    var unreleased = (obj2.unreleased !== undefined) ? obj2.unreleased : obj1.unreleased;
+    if (unreleased) {
+      output_obj.unreleased = unreleased;
+    }
+
+    return querystring.stringify(output_obj);
   },
 
   format_number: function(val, default_string) {

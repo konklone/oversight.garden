@@ -32,7 +32,7 @@
             <% } %>
         </strong>
         <% if (query_obj.page > 1) { %>
-            <a href="/reports?<%= helpers.q({page: query_obj.page - 1, query: query_obj.original_query, inspector: query_obj.inspector, featured: query_obj.featured, unreleased: query_obj.unreleased}) %>">
+            <a href="/reports?<%= helpers.format_qs(query_obj, {page: query_obj.page - 1}) %>">
                 Previous page</a>
         <% } %>
         <% if (results.hits.total > results.hits.hits.length) { %>
@@ -43,7 +43,7 @@
                 Showing <%= (query_obj.page - 1) * query_obj.size + 1 %>-<%= (query_obj.page - 1) * query_obj.size + results.hits.hits.length %>.
             <% } %>
             <% if (results.hits.total > query_obj.page * query_obj.size) { %>
-                <a href="/reports?<%= helpers.q({page: query_obj.page + 1, query: query_obj.original_query, inspector: query_obj.inspector, featured: query_obj.featured, unreleased: query_obj.unreleased}) %>">
+                <a href="/reports?<%= helpers.format_qs(query_obj, {page: query_obj.page + 1}) %>">
                     Next page</a>
             <% } %>
 
