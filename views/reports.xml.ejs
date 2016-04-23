@@ -6,7 +6,7 @@
 <% var last_page = Math.max(1, Math.floor((results.hits.total + query_obj.size - 1) / query_obj.size)); -%>
 <% var query_string_last = helpers.q(query_obj, {page: last_page}); -%>
 <feed xmlns="http://www.w3.org/2005/Atom">
-<title>Oversight.garden | Collecting the oversight community's work in one place.</title>
+<title>Oversight | Collecting the oversight community's work in one place.</title>
 <link href="https://oversight.garden/reports?<%= query_string_this %>"/>
 <updated><%= new Date().toISOString() %></updated>
 <id>https://oversight.garden/reports.xml</id>
