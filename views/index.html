@@ -7,39 +7,42 @@
           <p>
             A collection of
             <a class="browse" href="/reports">
-                <%= helpers.format_number(helpers.counts.reports, 'over 40,000') %> documents
+                <%= helpers.format_number(helpers.counts.reports, 'over 40,000') %>
             </a>
-            from oversight bodies in the US federal government, in one place.
-            <a href="/about">Learn more &raquo;</a>
+            documents from oversight bodies in the US federal government, in one place.
           </p>
 
-          <% include partials/search.html %>
+          <form action="/reports" method="get" class="search-home">
+            <p>
+              Find documents about
+              <input type="search" name="query">
+            </p>
+          </form>
         </div>
     </section>
 
-    <section>
+    <section class="cards">
 
-        <div class="card featured">
-            <h2><a href="/reports/featured">Featured documents &raquo;</a></h2>
+        <a class="card" href="/reports/featured">
+            <h2>Featured reports <img src="/images/arrow.svg"></h2>
             <p>
-                Check out some of the most interesting inspector general reports and documents we've come across.
+                Check out some of the most interesting inspector general reports and documents we've come across on Oversight.
             </p>
-        </div>
+        </a>
 
-        <div class="card unreleased">
-            <h2><a href="/reports/unreleased">Unreleased documents &raquo;</a></h2>
+        <a class="card" href="/reports/unreleased">
+            <h2>Unreleased reports <img src="/images/arrow.svg"></h2>
             <p>
-                Documents whose full contents haven't yet been released.
+                Occasionally we'll find some reports from inspectors general that haven't been released to the public yet.
             </p>
-        </div>
+        </a>
 
         <div class="card newsletter">
-            <h2>Get occasional news by email</h2>
+            <h2>Get Featured Reports by Email</h2>
 
             <form class="tl" action="https://tinyletter.com/oversight" method="post" target="popupwindow" onsubmit="window.open('https://tinyletter.com/oversight', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
-                <input type="text" placeholder="email address" name="email" id="tlemail" />
                 <input type="hidden" value="1" name="embed"/>
-                <input class="submit" type="submit" value="Subscribe" />
+                <input type="text" placeholder="Email address" name="email" id="tlemail" /><input class="submit" type="submit" value="Subscribe" />
             </form>
         </div>
 
@@ -51,9 +54,9 @@
 
             <p>
                 The US government has many dozens of offices dedicated to keeping the government honest and efficient through strong, independent oversight.
-
                 They produce a lot of good work, but the results are scattered all over the internet. Sometimes they get the attention they deserve, and many times they don't.
-
+            </p>
+            <p>
                 It would be a shame for good oversight to go overlooked. We gather the work of the US government oversight community in one place so you can freely search and subscribe to it.
             </p>
 

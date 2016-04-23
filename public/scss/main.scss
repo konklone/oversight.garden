@@ -33,23 +33,21 @@ body {
 
   padding: 30px 20px;
 
-  .search {
+  .search-home {
+    font-size: $search-bar-font-size;
+    text-align: center;
 
     input[type='search'] {
-      @include shift(2);
-      @include span-columns(8);
+      background: transparent;
+      background-image: url(/images/search-brand-color.svg);
+      background-repeat: no-repeat;
+      background-position: right;
+      padding-right: 32px;
 
-      font-size: $search-bar-font-size;
-      text-align: center;
-
-      padding: 10px;
-      margin-bottom: 10px;
-
-      border: 1px solid #ccc;
-      -webkit-border-radius: 30px;
-      -moz-border-radius: 30px;
-      border-radius: 30px;
-      outline: 0;
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+      border-bottom: 2px solid $brand-color;
     }
 
     select {}
@@ -70,6 +68,10 @@ body {
     margin-bottom: 20px;
   }
 
+  .search {
+    background-image: url(/images/background-books.jpg);
+  }
+
   .intro {
     @include span-columns(6);
     p {
@@ -79,27 +81,45 @@ body {
 
   .card.newsletter {
     input[type=text] {
-      padding: 3px;
+      height: 30px;
+      border: solid 2px $gray;
+      @include placeholder {
+        font-style: italic;
+      }
     }
+
     input[type=submit] {
-      padding: 3px;
+      height: 30px;
+      border: 0;
+      color: $text-color-white;
+      background-color: $brand-color;
     }
   }
 
+
+  .cards {
+    background-color: $gray-dark;
+  }
+
   .about {
+    background-color: $gray-dark;
+
     h1 {
       @include fill-parent;
+      color: $brand-color;
       text-align: center;
     }
     p {
       font-size: $gamma;
+      color: $text-color-white;
     }
-    a {
+    a.button {
       display: inline-block;
       margin-top: 10px;
       background-color: $brand-color;
       padding: 10px 25px;
-      color: $text-color;
+      color: $text-color-white;
+      border-radius: 3px;
     }
   }
 
