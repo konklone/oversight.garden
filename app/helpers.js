@@ -120,6 +120,16 @@ module.exports = {
       output_obj.foiad = foiad;
     }
 
+    var published_on_start = (obj2.published_on_start !== undefined) ? obj2.published_on_start : obj1.published_on_start;
+    if (published_on_start) {
+      output_obj.published_on_start = published_on_start;
+    }
+
+    var published_on_end = (obj2.published_on_end !== undefined) ? obj2.published_on_end : obj1.published_on_end;
+    if (published_on_end) {
+      output_obj.published_on_end = published_on_end;
+    }
+
     return querystring.stringify(output_obj);
   },
 

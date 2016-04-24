@@ -119,6 +119,8 @@ module.exports = function(app) {
         featured: false,
         unreleased: false,
         foiad: false,
+        published_on_start: null,
+        published_on_end: null,
         size: HTML_SIZE
       };
       search(query_obj).then(function(results) {
@@ -190,6 +192,19 @@ function parse_search_query(request_query, size) {
   var unreleased = (request_query.unreleased == "true");
   var foiad = (request_query.foiad == "true");
 
+  var date_regex = /([0-9]{4})-([0-9]{1,2})-([0-9]{1,2})/;
+  var published_on_start, published_on_end;
+  var start_match = date_regex.exec(request_query.published_on_start);
+  if (start_match)
+    published_on_start = start_match.slice(1).join("-");
+  else
+    published_on_start = null;
+  var end_match = date_regex.exec(request_query.published_on_end);
+  if (end_match)
+    published_on_end = end_match.slice(1).join("-");
+  else
+    published_on_end = null;
+
   return {
     query: search_query,
     original_query: original_search_query,
@@ -198,6 +213,8 @@ function parse_search_query(request_query, size) {
     size: size,
     featured: featured,
     unreleased: unreleased,
+    published_on_start: published_on_start,
+    published_on_end: published_on_end,
     foiad: foiad
   };
 }
@@ -286,6 +303,17 @@ function search(query_obj) {
         "type": "FOIA - GovernmentAttic.org"
       }
     });
+  }
+
+  if (query_obj.published_on_start || query_obj.published_on_end) {
+    var date_filter = {"range": {"published_on": {}}};
+    if (query_obj.published_on_start) {
+      date_filter.range.published_on.from = query_obj.published_on_start;
+    }
+    if (query_obj.published_on_end) {
+      date_filter.range.published_on.to = query_obj.published_on_end;
+    }
+    filters.push(date_filter);
   }
 
   if (filters.length == 1) {

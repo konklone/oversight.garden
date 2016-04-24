@@ -14,8 +14,8 @@
 
 <section class="center date-filter">
     <strong>Date Filters</strong>
-    <input type="date" name="published_on_start" id="date-start">
-    <input type="date" name="published_on_end" id="date-end">
+    <input type="date" name="published_on_start" id="date-start" value="<%= query_obj.published_on_start || "" %>">
+    <input type="date" name="published_on_end" id="date-end" value="<%= query_obj.published_on_end || "" %>">
     <span id="date-filter-clear">Clear date filter</span>
 </section>
 
