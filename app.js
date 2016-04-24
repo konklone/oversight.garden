@@ -2,7 +2,8 @@
 
 var config = require("./config/config");
 var express = require('express'),
-    path = require("path");
+    path = require('path'),
+    fs = require('fs');
 var app = express();
 
 // environment and port
@@ -12,6 +13,15 @@ if (config && config.http && config.http.port)
   port = config.http.port;
 else
   port = 3000;
+
+// copy client-side script from dependency
+function copy(fromPath, toPath) {
+  var fromStream = fs.createReadStream(fromPath);
+  var toStream = fs.createWriteStream(toPath);
+  fromStream.pipe(toStream);
+}
+copy(path.join(__dirname, 'node_modules/nodep-date-input-polyfill/nodep-date-input-polyfill.dist.js'),
+     path.join(__dirname, 'public/scripts/nodep-date-input-polyfill.dist.js'));
 
 // app middleware/settings
 app.engine('.html', require('ejs').__express);

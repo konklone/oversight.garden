@@ -9,4 +9,4 @@
 .sass-cache
 /.rake_tasks~
 /public/blog
-
+/public/scripts/nodep-date-input-polyfill.dist.js

@@ -40,6 +40,7 @@
     "js-yaml": "^3.5.2",
     "method-override": "^2.3.5",
     "minimist": "^1.2.0",
+    "nodep-date-input-polyfill": "^2.4.6",
     "numeral": "^1.5.3",
     "wintersmith-ejs": "^0.1.4"
   },
