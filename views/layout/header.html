@@ -64,14 +64,16 @@
 <body>
 <main class="main">
 
+<form action="/reports" method="get">
+
 <header class="header">
     <h1 class="logo">
         <a href="/">oversight</a>
     </h1>
 
-    <form action="/reports" method="get" class="search-bar">
-        <input type="search" name="query" placeholder="Find oversight documents" />
-    </form>
+    <div class="search-bar">
+        <input type="search" name="query" placeholder="Find oversight documents" value="<%= (typeof(query_obj) != "undefined") ? query_obj.original_query : "" %>"/>
+    </div>
 
     <nav>
         <ul>
@@ -84,3 +86,7 @@
         </ul>
     </nav>
 </header>
+
+<% if ((typeof(form_tag_open) == "undefined") || !form_tag_open) { %>
+</form>
+<% } %>

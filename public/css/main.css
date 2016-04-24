@@ -465,7 +465,8 @@ body {
   width: 100%;
   background-color: #ffffff;
   text-align: center;
-  padding: 10px 20px; }
+  padding: 10px 20px;
+  border-top: 1px solid #63e195; }
   .footer a:visited {
     text-decoration: underline; }
 
@@ -527,7 +528,8 @@ a.card, a:visited.card {
   user-select: none; }
 
 .toggle-input:checked ~ .toggle-label {
-  background-color: #63e195; }
+  background-color: #63e195;
+  border-color: #63e195; }
 
 .toggle-input {
   display: none; }
@@ -622,24 +624,104 @@ body pre {
     border-radius: 3px; }
 
 /****** Document search results. */
-section.filters {
-  background-color: #3c3b40; }
+.inspector-filter {
+  border-bottom: 1px solid #cccccc; }
+  .inspector-filter ul {
+    display: inline-block;
+    min-width: 5em;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+    .inspector-filter ul li {
+      display: inline-block;
+      position: relative;
+      list-style-type: none;
+      height: 20px;
+      padding-left: 10px;
+      padding-right: 20px;
+      background-color: #f9f9f9;
+      border-radius: 10px; }
+      .inspector-filter ul li div.delete-filter {
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        cursor: pointer;
+        background-image: url(/images/delete.svg); }
+  .inspector-filter span#inspector-filter-add {
+    color: #63e195;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
 
-.reports ul, .reports li {
-  list-style-type: none; }
-.reports li {
-  margin: 40px 0; }
-  .reports li h2 a {
-    text-decoration: none; }
-  .reports li h2 a:hover {
-    text-decoration: underline; }
-  .reports li h4 {
-    margin: 10px 0; }
-  .reports li p {
-    font-family: Average, serif;
-    background-color: #e5e5e5;
-    padding: 5px 10px;
-    margin: 10px 0; }
+.date-filter span#date-filter-clear {
+  color: #63e195;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+.filters {
+  background-color: #3c3b40;
+  border-bottom: 1px solid #cccccc; }
+
+.reports {
+  background-color: #3c3b40; }
+  .reports .count {
+    color: #ffffff; }
+  .reports ul, .reports li {
+    list-style-type: none; }
+  .reports li {
+    margin: 40px 0; }
+    .reports li h2 a {
+      text-decoration: none; }
+    .reports li h2 a:hover {
+      text-decoration: underline; }
+    .reports li h4 {
+      margin: 10px 0; }
+    .reports li p {
+      font-family: Average, serif;
+      background-color: #e5e5e5;
+      padding: 5px 10px;
+      margin: 10px 0; }
+  .reports .pagination {
+    max-width: 68em;
+    margin-left: auto;
+    margin-right: auto; }
+    .reports .pagination::after {
+      clear: both;
+      content: "";
+      display: table; }
+    .reports .pagination .previous-page {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 31.76157%;
+      text-align: left; }
+      .reports .pagination .previous-page:last-child {
+        margin-right: 0; }
+    .reports .pagination .page-number {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 31.76157%;
+      color: #ffffff;
+      text-align: center; }
+      .reports .pagination .page-number:last-child {
+        margin-right: 0; }
+    .reports .pagination .next-page {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 31.76157%;
+      text-align: right; }
+      .reports .pagination .next-page:last-child {
+        margin-right: 0; }
 
 /******* Report landing page. ********/
 .report h2 {

@@ -1,80 +1,64 @@
-<% include layout/header.html %>
+<%- include('layout/header.html', {form_tag_open: true}); %>
+
+<section class="center inspector-filter">
+    <strong>Agency Filters</strong>
+    <ul id="inspector-filter-list">
+    <% if (query_obj.inspector) { %>
+        <% for (var i = 0; i < query_obj.inspector.length; i++) { %>
+            <li>
+                <%= helpers.inspector_info(query_obj.inspector[i]).short_name %>
+                <div class="delete-filter"></div>
+                <input type="hidden" name="inspector" value="<%= query_obj.inspector[i] %>"></input>
+            </li>
+        <% } %>
+    <% } %>
+    </ul>
+    <span id="inspector-filter-add">Add another agency filter</span>
+</section>
+
+<section class="center date-filter">
+    <strong>Date Filters</strong>
+    <input type="date" name="published_on_start" id="date-start">
+    <input type="date" name="published_on_end" id="date-end">
+    <span id="date-filter-clear">Clear date filter</span>
+</section>
+
+<section class="center filters">
+    <% var all_reports = !query_obj.unreleased && !query_obj.foiad && !query_obj.featured %>
+    <span>
+        <input type="checkbox" id="checkbox-all-reports" class="toggle-input" <%= all_reports ? "checked" : "" %>>
+        <label for="checkbox-all-reports" class="toggle-label">
+            All Reports
+        </label>
+    </span>
+    <span>
+        <input type="checkbox" id="checkbox-unreleased" name="unreleased" value="true" class="toggle-input" <%= query_obj.unreleased ? "checked" : "" %>>
+        <label for="checkbox-unreleased" class="toggle-label">
+            Unreleased
+        </label>
+    </span>
+    <span>
+        <input type="checkbox" id="checkbox-foiad" name="foiad" value="true" class="toggle-input" <%= query_obj.foiad ? "checked" : "" %>>
+        <label for="checkbox-foiad" class="toggle-label">
+            FOIA'd
+        </label>
+    </span>
+    <span>
+        <input type="checkbox" id="checkbox-featured" name="featured" value="true" class="toggle-input" <%= query_obj.featured ? "checked" : "" %>>
+        <label for="checkbox-featured" class="toggle-label">
+            Editor's Pick
+        </label>
+    </span>
+</section>
+
+</form>
 
 <section class="center reports">
-    <form action="/reports" method="get" class="search-bar">
-        <section class="filters">
-            <span>
-                <input type="checkbox" id="checkbox-all-reports" class="toggle-input">
-                <label for="checkbox-all-reports" class="toggle-label">
-                    All Reports
-                </label>
-            </span>
-            <span>
-                <input type="checkbox" id="checkbox-unreleased" name="unreleased" value="true" class="toggle-input">
-                <label for="checkbox-unreleased" class="toggle-label">
-                    Unreleased
-                </label>
-            </span>
-            <span>
-                <input type="checkbox" id="checkbox-foiad" name="foiad" value="true" class="toggle-input">
-                <label for="checkbox-foiad" class="toggle-label">
-                    FOIA'd
-                </label>
-            </span>
-            <span>
-                <input type="checkbox" id="checkbox-featured" name="featured" value="true" class="toggle-input">
-                <label for="checkbox-featured" class="toggle-label">
-                    Editor's Pick
-                </label>
-            </span>
-        </section>
-    </form>
-
     <% if (results) { %>
 
-        <strong>
-            <%= results.hits.total %>
-            <% if (query_obj.featured) { %>
-                featured
-            <% } %>
-            <% if (query_obj.unreleased) { %>
-                unreleased
-            <% } %>
-            <% if (query_obj.original_query) { %>
-                <% if (query_obj.inspector) { %>
-                    reports matching "<%= query_obj.original_query %>" from
-                    <% for (var i = 0; i < query_obj.inspector.length; i++) { %>
-                        <a href="/inspectors/<%= query_obj.inspector[i] %>"><%= helpers.inspector_info(query_obj.inspector[i]).short_name %></a><% if (i < query_obj.inspector.length - 2) { %>,<% } else if (i == query_obj.inspector.length - 2) { %><% if (query_obj.inspector.length > 2) { %>,<% } %> and<% } %><% } %>.
-                <% } else { %>
-                    reports matching "<%= query_obj.original_query %>".
-                <% } %>
-            <% } else { %>
-                <% if (query_obj.inspector) { %>
-                    reports from
-                    <% for (var i = 0; i < query_obj.inspector.length; i++) { %>
-                        <a href="/inspectors/<%= query_obj.inspector[i] %>"><%= helpers.inspector_info(query_obj.inspector[i]).short_name %></a><% if (i < query_obj.inspector.length - 2) { %>,<% } else if (i == query_obj.inspector.length - 2) { %><% if (query_obj.inspector.length > 2) { %>,<% } %> and<% } -%><% } %>.
-                <% } else { %>
-                    reports.
-                <% } %>
-            <% } %>
-        </strong>
-        <% if (query_obj.page > 1) { %>
-            <a href="/reports?<%= helpers.format_qs(query_obj, {page: query_obj.page - 1}) %>">
-                Previous page</a>
-        <% } %>
-        <% if (results.hits.total > results.hits.hits.length) { %>
-            Page <%= query_obj.page %>.
-            <% if (query_obj.page == 1) { %>
-                Showing the first <%= query_obj.size %>.
-            <% } else { %>
-                Showing <%= (query_obj.page - 1) * query_obj.size + 1 %>-<%= (query_obj.page - 1) * query_obj.size + results.hits.hits.length %>.
-            <% } %>
-            <% if (results.hits.total > query_obj.page * query_obj.size) { %>
-                <a href="/reports?<%= helpers.format_qs(query_obj, {page: query_obj.page + 1}) %>">
-                    Next page</a>
-            <% } %>
-
-        <% } %>
+        <span class="count">
+            <%= helpers.format_number(results.hits.total) %> documents found
+        </span>
 
         <% var hits = results.hits.hits; %>
         <% if (hits.length > 0) { %>
@@ -136,14 +120,28 @@
                     </li>
                 <% } %>
             </ul>
-            <a href="<%= req.originalUrl.replace("/reports", "/reports.xml") %>">
-                <img src="/images/feed-icon.png" alt="Atom feed of search results" title="Atom Feed">
-            </a>
         <% } else { %>
             <p>
                 No results right now.
             </p>
         <% } %>
+
+        <div class="pagination">
+            <% if (query_obj.page > 1) { %>
+                <a href="/reports?<%= helpers.format_qs(query_obj, {page: query_obj.page - 1}) %>" class="previous-page">
+                    Previous page</a>
+            <% } else {%>
+                <span class="previous-page">&nbsp;</span>
+            <% } %>
+            <span class="page-number">Page <%= query_obj.page %></span>
+            <% if (results.hits.total > query_obj.page * query_obj.size) { %>
+                <a href="/reports?<%= helpers.format_qs(query_obj, {page: query_obj.page + 1}) %>" class="next-page">
+                    Next page</a>
+            <% } else {%>
+                <span class="next-page">&nbsp;</span>
+            <% } %>
+        </div>
+
     <% } else { %>
         Error performing the search!
     <% } %>

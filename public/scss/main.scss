@@ -128,11 +128,67 @@ body {
 
 /****** Document search results. */
 
-section.filters {
+.inspector-filter {
+  border-bottom: 1px solid $gray;
+
+  ul {
+    display: inline-block;
+    min-width: 5em;
+    @include user-select(none);
+
+    li {
+      display: inline-block;
+      position: relative;
+      list-style-type: none;
+      height: 20px;
+      padding-left: 10px;
+      padding-right: 20px;
+      background-color: $gray-light;
+      border-radius: 10px;
+
+      div.delete-filter {
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+
+        cursor: pointer;
+        background-image: url(/images/delete.svg);
+      }
+    }
+  }
+
+  span#inspector-filter-add {
+    color: $link-color;
+    cursor: pointer;
+    @include user-select(none);
+  }
+}
+
+.date-filter {
+  span#date-filter-clear {
+    color: $link-color;
+    cursor: pointer;
+    @include user-select(none);
+  }
+
+  input[type='date'] {
+  }
+}
+
+.filters {
   background-color: $gray-dark;
+  border-bottom: 1px solid $gray;
 }
 
 .reports {
+  background-color: $gray-dark;
+
+  .count {
+    color: $text-color-white;
+  }
+
   ul, li {list-style-type: none;}
 
   li {
@@ -153,6 +209,26 @@ section.filters {
       margin: 10px 0;
     }
 
+  }
+
+  .pagination {
+    @include outer-container;
+
+    .previous-page {
+      @include span-columns(4);
+      text-align: left;
+    }
+
+    .page-number {
+      @include span-columns(4);
+      color: $text-color-white;
+      text-align: center;
+    }
+
+    .next-page {
+      @include span-columns(4);
+      text-align: right;
+    }
   }
 }
 
