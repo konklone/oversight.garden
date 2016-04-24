@@ -176,8 +176,9 @@ body {
 
 .reports {
   background-color: $gray-dark;
+  min-height: 30em;
 
-  .count {
+  .count, .no-results {
     color: $text-color-white;
     padding: 0 30px;
   }

@@ -681,8 +681,9 @@ body pre {
   border-bottom: 1px solid #cccccc; }
 
 .reports {
-  background-color: #3c3b40; }
-  .reports .count {
+  background-color: #3c3b40;
+  min-height: 30em; }
+  .reports .count, .reports .no-results {
     color: #ffffff;
     padding: 0 30px; }
   .reports ul, .reports li {

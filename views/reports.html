@@ -52,12 +52,11 @@
 <section class="center reports">
     <% if (results) { %>
 
-        <span class="count">
-            <%= helpers.format_number(results.hits.total) %> documents found
-        </span>
-
         <% var hits = results.hits.hits; %>
         <% if (hits.length > 0) { %>
+            <span class="count">
+                <%= helpers.format_number(results.hits.total) %> documents found
+            </span>
             <ul>
                 <% for (var i=0; i<hits.length; i++) { %>
                     <% var report = hits[i]._source; %>
@@ -120,27 +119,31 @@
                     </li>
                 <% } %>
             </ul>
-        <% } else { %>
-            <p>
-                No results right now.
-            </p>
-        <% } %>
 
-        <div class="pagination">
-            <% if (query_obj.page > 1) { %>
-                <a href="/reports?<%= helpers.format_qs(query_obj, {page: query_obj.page - 1}) %>" class="previous-page">
-                    Previous page</a>
-            <% } else {%>
-                <span class="previous-page">&nbsp;</span>
-            <% } %>
-            <span class="page-number">Page <%= query_obj.page %></span>
-            <% if (results.hits.total > query_obj.page * query_obj.size) { %>
-                <a href="/reports?<%= helpers.format_qs(query_obj, {page: query_obj.page + 1}) %>" class="next-page">
-                    Next page</a>
-            <% } else {%>
-                <span class="next-page">&nbsp;</span>
-            <% } %>
-        </div>
+            <div class="pagination">
+                <% if (query_obj.page > 1) { %>
+                    <a href="/reports?<%= helpers.format_qs(query_obj, {page: query_obj.page - 1}) %>" class="previous-page">
+                        Previous page</a>
+                <% } else {%>
+                    <span class="previous-page">&nbsp;</span>
+                <% } %>
+                <span class="page-number">Page <%= query_obj.page %></span>
+                <% if (results.hits.total > query_obj.page * query_obj.size) { %>
+                    <a href="/reports?<%= helpers.format_qs(query_obj, {page: query_obj.page + 1}) %>" class="next-page">
+                        Next page</a>
+                <% } else {%>
+                    <span class="next-page">&nbsp;</span>
+                <% } %>
+            </div>
+
+        <% } else { %>
+            <div class="no-results">
+                Sorry, we couldn't find any documents that match
+                "<%= query_obj.original_query%>".<br/>
+                Try more general keywords, or browse our
+                <a href="/reports/featured">editor's picks</a>.
+            </div>
+        <% } %>
 
     <% } else { %>
         Error performing the search!
