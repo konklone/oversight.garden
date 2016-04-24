@@ -109,7 +109,7 @@ body {
 // Footer
 
 .footer {
-    @include fill-parent;
+    @include outer-container;
 
     background-color: $white;
     text-align: center;

@@ -470,11 +470,17 @@ body {
           color: #222222; }
 
 .footer {
-  width: 100%;
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
   background-color: #ffffff;
   text-align: center;
   padding: 10px 20px;
   border-top: 1px solid #63e195; }
+  .footer::after {
+    clear: both;
+    content: "";
+    display: table; }
   .footer a:visited {
     text-decoration: underline; }
 
