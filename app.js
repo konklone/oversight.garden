@@ -16,12 +16,18 @@ else
 
 // copy client-side script from dependency
 function copy(fromPath, toPath) {
-  var fromStream = fs.createReadStream(fromPath);
-  var toStream = fs.createWriteStream(toPath);
+  var fromStream = fs.createReadStream(path.join(__dirname, fromPath));
+  var toStream = fs.createWriteStream(path.join(__dirname, toPath));
   fromStream.pipe(toStream);
 }
-copy(path.join(__dirname, 'node_modules/nodep-date-input-polyfill/nodep-date-input-polyfill.dist.js'),
-     path.join(__dirname, 'public/scripts/nodep-date-input-polyfill.dist.js'));
+copy('node_modules/nodep-date-input-polyfill/nodep-date-input-polyfill.dist.js',
+     'public/scripts/nodep-date-input-polyfill.dist.js');
+copy('node_modules/jquery/dist/jquery.min.js',
+     'public/scripts/jquery.min.js');
+copy('node_modules/jquery/dist/jquery.min.map',
+     'public/scripts/jquery.min.map');
+copy('node_modules/jquery/dist/jquery.js',
+     'public/scripts/jquery.js');
 
 // app middleware/settings
 app.engine('.html', require('ejs').__express);

@@ -626,37 +626,6 @@ body pre {
 /****** Document search results. */
 .inspector-filter {
   border-bottom: 1px solid #cccccc; }
-  .inspector-filter ul {
-    display: inline-block;
-    min-width: 5em;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none; }
-    .inspector-filter ul li {
-      display: inline-block;
-      position: relative;
-      list-style-type: none;
-      height: 20px;
-      padding-left: 10px;
-      padding-right: 20px;
-      background-color: #f9f9f9;
-      border-radius: 10px; }
-      .inspector-filter ul li div.delete-filter {
-        width: 10px;
-        height: 10px;
-        position: absolute;
-        top: 5px;
-        right: 5px;
-        cursor: pointer;
-        background-image: url(/images/delete.svg); }
-  .inspector-filter span#inspector-filter-add {
-    color: #63e195;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none; }
 
 .date-filter span#date-filter-clear {
   color: #63e195;

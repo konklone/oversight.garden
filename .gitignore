@@ -10,3 +10,6 @@
 /.rake_tasks~
 /public/blog
 /public/scripts/nodep-date-input-polyfill.dist.js
+/public/scripts/jquery.min.js
+/public/scripts/jquery.min.map
+/public/scripts/jquery.js

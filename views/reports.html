@@ -2,18 +2,14 @@
 
 <section class="center inspector-filter">
     <strong>Agency Filters</strong>
-    <ul id="inspector-filter-list">
-    <% if (query_obj.inspector) { %>
-        <% for (var i = 0; i < query_obj.inspector.length; i++) { %>
-            <li>
-                <%= helpers.inspector_info(query_obj.inspector[i]).short_name %>
-                <div class="delete-filter"></div>
-                <input type="hidden" name="inspector" value="<%= query_obj.inspector[i] %>"></input>
-            </li>
-        <% } %>
-    <% } %>
-    </ul>
-    <span id="inspector-filter-add">Add another agency filter</span>
+    <select name="inspector" data-placeholder="Select an agency" class="chosen-select" multiple>
+        <option value=""></option>
+        <% for (var i = 0; i < helpers.inspector_list.length; i++) { -%>
+            <% var inspector = helpers.inspector_list[i]; -%>
+            <% var selected = (query_obj.inspector && query_obj.inspector.indexOf(inspector.slug) != -1) ? "selected" : ""; -%>
+            <option value="<%= inspector.slug %>" <%= selected %>><%= inspector.short_name %></option>
+        <% } -%>
+    </select>
 </section>
 
 <section class="center date-filter">
@@ -147,6 +143,8 @@
     <% } %>
 </section>
 
+<script src="/scripts/jquery.min.js"></script>
+<script src="/chosen/chosen.jquery.min.js"></script>
 <script src="/scripts/search.js"></script>
 <script src="/scripts/nodep-date-input-polyfill.dist.js"></script>
 

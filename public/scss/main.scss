@@ -130,40 +130,6 @@ body {
 
 .inspector-filter {
   border-bottom: 1px solid $gray;
-
-  ul {
-    display: inline-block;
-    min-width: 5em;
-    @include user-select(none);
-
-    li {
-      display: inline-block;
-      position: relative;
-      list-style-type: none;
-      height: 20px;
-      padding-left: 10px;
-      padding-right: 20px;
-      background-color: $gray-light;
-      border-radius: 10px;
-
-      div.delete-filter {
-        width: 10px;
-        height: 10px;
-        position: absolute;
-        top: 5px;
-        right: 5px;
-
-        cursor: pointer;
-        background-image: url(/images/delete.svg);
-      }
-    }
-  }
-
-  span#inspector-filter-add {
-    color: $link-color;
-    cursor: pointer;
-    @include user-select(none);
-  }
 }
 
 .date-filter {
