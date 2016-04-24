@@ -115,6 +115,11 @@ module.exports = {
       output_obj.unreleased = unreleased;
     }
 
+    var foiad = (obj2.foiad !== undefined) ? obj2.foiad : obj1.foiad;
+    if (foiad) {
+      output_obj.foiad = foiad;
+    }
+
     return querystring.stringify(output_obj);
   },
 

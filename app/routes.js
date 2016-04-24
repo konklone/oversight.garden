@@ -118,6 +118,7 @@ module.exports = function(app) {
         page: 1,
         featured: false,
         unreleased: false,
+        foiad: false,
         size: HTML_SIZE
       };
       search(query_obj).then(function(results) {
@@ -187,6 +188,7 @@ function parse_search_query(request_query, size) {
 
   var featured = (request_query.featured == "true");
   var unreleased = (request_query.unreleased == "true");
+  var foiad = (request_query.foiad == "true");
 
   return {
     query: search_query,
@@ -195,7 +197,8 @@ function parse_search_query(request_query, size) {
     page: page,
     size: size,
     featured: featured,
-    unreleased: unreleased
+    unreleased: unreleased,
+    foiad: foiad
   };
 }
 
@@ -273,6 +276,14 @@ function search(query_obj) {
     filters.push({
       "term": {
         "unreleased": true
+      }
+    });
+  }
+
+  if (query_obj.foiad) {
+    filters.push({
+      "term": {
+        "type": "FOIA - GovernmentAttic.org"
       }
     });
   }
