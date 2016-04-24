@@ -37,17 +37,25 @@ body {
 .search-home {
   font-size: $search-bar-font-size;
   text-align: center;
+  position: relative;
 
   input[type='search'] {
     background: transparent;
-    background-image: url(/images/search-brand-color.svg);
-    background-repeat: no-repeat;
-    background-position: right;
     padding-right: 32px;
-   border-top: 0;
-    border-left: 0;
-    border-right: 0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
     border-bottom: 2px solid $brand-color;
+  }
+
+  input[type='submit'] {
+    position: relative;
+    right: 32px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background-color: unset;
+    background-image: url(/images/search-brand-color.svg);
   }
 
   select {}
@@ -89,7 +97,7 @@ body {
 
     input[type=submit] {
       height: 30px;
-      border: 0;
+      border: none;
       color: $text-color-white;
       background-color: $brand-color;
     }
@@ -130,9 +138,21 @@ body {
 
 .inspector-filter {
   border-bottom: 1px solid $gray;
+
+  strong {
+    @include span-columns(2);
+  }
+
+  select {
+    @include span-columns(8);
+  }
 }
 
 .date-filter {
+  strong {
+    @include span-columns(2);
+  }
+
   span#date-filter-clear {
     color: $link-color;
     cursor: pointer;

@@ -417,17 +417,25 @@ body {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 48.82117%; }
+    width: 40.29137%;
+    margin-left: 8.5298%;
+    position: relative; }
     .header .search-bar:last-child {
       margin-right: 0; }
     .header .search-bar input[type='search'] {
       width: 100%;
       height: 28px;
-      border: 0;
+      border: none; }
+    .header .search-bar input[type='submit'] {
+      position: absolute;
+      top: 0px;
+      left: -32px;
+      width: 32px;
+      height: 32px;
+      border: none;
+      background-color: unset;
       background-image: url(/images/search.svg);
-      background-repeat: no-repeat;
-      background-position: left;
-      padding-left: 32px; }
+      background-repeat: no-repeat; }
   .header nav {
     float: left;
     display: block;
@@ -561,17 +569,23 @@ body pre {
 
 .search-home {
   font-size: 20px;
-  text-align: center; }
+  text-align: center;
+  position: relative; }
   .search-home input[type='search'] {
     background: transparent;
-    background-image: url(/images/search-brand-color.svg);
-    background-repeat: no-repeat;
-    background-position: right;
     padding-right: 32px;
-    border-top: 0;
-    border-left: 0;
-    border-right: 0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
     border-bottom: 2px solid #63e195; }
+  .search-home input[type='submit'] {
+    position: relative;
+    right: 32px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background-color: unset;
+    background-image: url(/images/search-brand-color.svg); }
 
 /******* Home page **********/
 .home .search-bar-container {
@@ -600,7 +614,7 @@ body pre {
     font-style: italic; }
 .home .card.newsletter input[type=submit] {
   height: 30px;
-  border: 0;
+  border: none;
   color: #ffffff;
   background-color: #63e195; }
 .home .cards {
@@ -626,7 +640,28 @@ body pre {
 /****** Document search results. */
 .inspector-filter {
   border-bottom: 1px solid #cccccc; }
+  .inspector-filter strong {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 14.70196%; }
+    .inspector-filter strong:last-child {
+      margin-right: 0; }
+  .inspector-filter select {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 65.88078%; }
+    .inspector-filter select:last-child {
+      margin-right: 0; }
 
+.date-filter strong {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 14.70196%; }
+  .date-filter strong:last-child {
+    margin-right: 0; }
 .date-filter span#date-filter-clear {
   color: #63e195;
   cursor: pointer;

@@ -54,17 +54,27 @@ body {
     }
 
     .search-bar {
-        @include span-columns(6);
+        @include span-columns(5);
+        @include shift(1);
+        position: relative;
 
         input[type='search'] {
             width: 100%;
             height: 28px;
-            border: 0;
+            border: none;
+        }
 
+        input[type='submit'] {
+            position: absolute;
+            top: 0px;
+            left: -32px;
+            width: 32px;
+            height: 32px;
+
+            border: none;
+            background-color: unset;
             background-image: url(/images/search.svg);
             background-repeat: no-repeat;
-            background-position: left;
-            padding-left: 32px;
         }
     }
 
