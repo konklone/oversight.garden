@@ -387,7 +387,6 @@ body {
   margin-left: auto;
   margin-right: auto;
   border-bottom: 1px solid #63e195;
-  margin-bottom: 20px;
   padding: 20px 20px; }
   .header::after {
     clear: both;
@@ -470,14 +469,16 @@ body {
   .footer a:visited {
     text-decoration: underline; }
 
-section {
-  max-width: 68em;
-  margin-left: auto;
-  margin-right: auto; }
-  section::after {
-    clear: both;
-    content: "";
-    display: table; }
+section.search, section.cards, section.about {
+  width: 100%; }
+  section.search section, section.cards section, section.about section {
+    max-width: 68em;
+    margin-left: auto;
+    margin-right: auto; }
+    section.search section::after, section.cards section::after, section.about section::after {
+      clear: both;
+      content: "";
+      display: table; }
 
 .card {
   float: left;
@@ -536,19 +537,20 @@ body pre {
     clear: both;
     content: "";
     display: table; }
-  .center .search-home {
-    font-size: 20px;
-    text-align: center; }
-    .center .search-home input[type='search'] {
-      background: transparent;
-      background-image: url(/images/search-brand-color.svg);
-      background-repeat: no-repeat;
-      background-position: right;
-      padding-right: 32px;
-      border-top: 0;
-      border-left: 0;
-      border-right: 0;
-      border-bottom: 2px solid #63e195; }
+
+.search-home {
+  font-size: 20px;
+  text-align: center; }
+  .search-home input[type='search'] {
+    background: transparent;
+    background-image: url(/images/search-brand-color.svg);
+    background-repeat: no-repeat;
+    background-position: right;
+    padding-right: 32px;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 2px solid #63e195; }
 
 /******* Home page **********/
 .home .search-bar-container {
@@ -581,7 +583,8 @@ body pre {
   color: #ffffff;
   background-color: #63e195; }
 .home .cards {
-  background-color: #3c3b40; }
+  background-color: #3c3b40;
+  padding: 30px 20px; }
 .home .about {
   background-color: #3c3b40; }
   .home .about h1 {

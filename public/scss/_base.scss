@@ -28,7 +28,6 @@ body {
     @include outer-container;
 
     border-bottom: 1px solid $brand-color;
-    margin-bottom: 20px;
     padding: 20px 20px;
 
     .logo {
@@ -111,8 +110,11 @@ body {
 
 // Sections
 
-section {
-    @include outer-container;
+section.search, section.cards, section.about {
+    @include fill-parent;
+    section {
+        @include outer-container;
+    }
 }
 
 // Cards
