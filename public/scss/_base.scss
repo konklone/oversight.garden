@@ -131,7 +131,7 @@ section.search, section.cards, section.about {
     border-top: 6px solid $brand-color;
 }
 
-a.card {
+a.card, a:visited.card {
     color: $text-color;
 }
 

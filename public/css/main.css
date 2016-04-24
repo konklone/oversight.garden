@@ -495,7 +495,7 @@ section.search, section.cards, section.about {
   .card:last-child {
     margin-right: 0; }
 
-a.card {
+a.card, a:visited.card {
   color: #222222; }
 
 .panel {
