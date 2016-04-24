@@ -150,3 +150,22 @@ a.card, a:visited.card {
         text-align: center;
     }
 }
+
+// Toggle buttons
+
+.toggle-label {
+    display: inline-block;
+    height: 30px;
+    padding: 0px 15px;
+    border: 1px solid $white;
+    border-radius: 15px;
+    background-color: $gray-dark;
+    color: $text-color-white;
+}
+
+.toggle-input:checked ~ .toggle-label {
+    background-color: $brand-color;
+}
+.toggle-input{
+    display: none;
+}

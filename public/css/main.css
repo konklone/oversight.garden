@@ -513,6 +513,21 @@ a.card, a:visited.card {
     font-size: 24px;
     text-align: center; }
 
+.toggle-label {
+  display: inline-block;
+  height: 30px;
+  padding: 0px 15px;
+  border: 1px solid #ffffff;
+  border-radius: 15px;
+  background-color: #3c3b40;
+  color: #ffffff; }
+
+.toggle-input:checked ~ .toggle-label {
+  background-color: #63e195; }
+
+.toggle-input {
+  display: none; }
+
 /***** Main Layout ******/
 h1, h3, h4, h5, h6 {
   font-weight: normal;
@@ -603,6 +618,9 @@ body pre {
     border-radius: 3px; }
 
 /****** Document search results. */
+section.filters {
+  background-color: #3c3b40; }
+
 .reports ul, .reports li {
   list-style-type: none; }
 .reports li {

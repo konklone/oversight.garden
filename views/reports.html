@@ -1,7 +1,34 @@
 <% include layout/header.html %>
 
 <section class="center reports">
-    <% include partials/search.html %>
+    <form action="/reports" method="get" class="search-bar">
+        <section class="filters">
+            <span>
+                <input type="checkbox" id="checkbox-all-reports" class="toggle-input">
+                <label for="checkbox-all-reports" class="toggle-label">
+                    All Reports
+                </label>
+            </span>
+            <span>
+                <input type="checkbox" id="checkbox-unreleased" name="unreleased" value="true" class="toggle-input">
+                <label for="checkbox-unreleased" class="toggle-label">
+                    Unreleased
+                </label>
+            </span>
+            <span>
+                <input type="checkbox" id="checkbox-foiad" name="foiad" value="true" class="toggle-input">
+                <label for="checkbox-foiad" class="toggle-label">
+                    FOIA'd
+                </label>
+            </span>
+            <span>
+                <input type="checkbox" id="checkbox-featured" name="featured" value="true" class="toggle-input">
+                <label for="checkbox-featured" class="toggle-label">
+                    Editor's Pick
+                </label>
+            </span>
+        </section>
+    </form>
 
     <% if (results) { %>
 

@@ -128,6 +128,10 @@ body {
 
 /****** Document search results. */
 
+section.filters {
+  background-color: $gray-dark;
+}
+
 .reports {
   ul, li {list-style-type: none;}
 
