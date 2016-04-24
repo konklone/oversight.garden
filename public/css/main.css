@@ -520,7 +520,11 @@ a.card, a:visited.card {
   border: 1px solid #ffffff;
   border-radius: 15px;
   background-color: #3c3b40;
-  color: #ffffff; }
+  color: #ffffff;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
 
 .toggle-input:checked ~ .toggle-label {
   background-color: #63e195; }

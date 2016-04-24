@@ -161,6 +161,7 @@ a.card, a:visited.card {
     border-radius: 15px;
     background-color: $gray-dark;
     color: $text-color-white;
+    @include user-select(none);
 }
 
 .toggle-input:checked ~ .toggle-label {
