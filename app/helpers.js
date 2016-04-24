@@ -73,6 +73,9 @@ updateReportCounts();
 
 
 
+var date_regex = /([0-9]{4})-(0[0-9]|1[0-2])-([0-9]{1,2})/;
+var months = ["January", "February", "March", "April", "May", "June",
+              "July", "August", "September", "October", "November", "December"];
 
 
 /**********************************************************************
@@ -142,6 +145,17 @@ module.exports = {
     } catch (e) {
       return default_string;
     }
+  },
+
+  format_date: function(value) {
+    var match = date_regex.exec(value);
+    if (match) {
+      var month = parseInt(match[2]);
+      if (Number.isInteger(month) && month >= 1 && month <= 12) {
+        return months[month - 1] + " " + match[3] + ", " + match[1];
+      }
+    }
+    return value;
   },
 
   inspector_info: function(slug) {

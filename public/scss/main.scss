@@ -66,6 +66,12 @@ body {
   }
 }
 
+.tag {
+  height: 20px;
+  border-radius: 10px;
+  padding: 0 10px;
+  background-color: $gray;
+}
 
 /******* Home page **********/
 
@@ -173,28 +179,55 @@ body {
 
   .count {
     color: $text-color-white;
+    padding: 0 30px;
   }
 
   ul, li {list-style-type: none;}
+  ul {padding: 0;}
 
   li {
-    margin: 40px 0;
+    background-color: $white;
+    border-radius: 4px;
+    padding: 25px 30px;
+    margin: 30px 0;
 
-    h2 {
-      a {text-decoration: none;}
-      a:hover {text-decoration: underline;}
+    img {
+      float: left;
+      margin-right: 20px;
     }
 
-    h4 {margin: 10px 0;}
+    h2 a, a.inspector-link {
+      color: $text-color;
+    }
+
+    .date {
+    }
 
     p {
       font-family: $search-result-font;
-
-      background-color: #e5e5e5;
-      padding: 5px 10px;
-      margin: 10px 0;
+      margin-top: 10px;
+      margin-bottom: 25px;
+      line-height: 1.5;
     }
 
+    .report-bottom {
+      @include outer-container;
+      padding-top: 25px;
+      border-top: 1px solid $gray;
+
+      .tags {
+        @include span-columns(6);
+      }
+
+      .links {
+        @include span-columns(6);
+        text-align: right;
+
+        a {
+          margin-left: 30px;
+        }
+      }
+    }
   }
 
   .pagination {

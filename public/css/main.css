@@ -587,6 +587,12 @@ body pre {
     background-color: unset;
     background-image: url(/images/search-brand-color.svg); }
 
+.tag {
+  height: 20px;
+  border-radius: 10px;
+  padding: 0 10px;
+  background-color: #cccccc; }
+
 /******* Home page **********/
 .home .search-bar-container {
   margin-bottom: 20px; }
@@ -677,22 +683,54 @@ body pre {
 .reports {
   background-color: #3c3b40; }
   .reports .count {
-    color: #ffffff; }
+    color: #ffffff;
+    padding: 0 30px; }
   .reports ul, .reports li {
     list-style-type: none; }
+  .reports ul {
+    padding: 0; }
   .reports li {
-    margin: 40px 0; }
-    .reports li h2 a {
-      text-decoration: none; }
-    .reports li h2 a:hover {
-      text-decoration: underline; }
-    .reports li h4 {
-      margin: 10px 0; }
+    background-color: #ffffff;
+    border-radius: 4px;
+    padding: 25px 30px;
+    margin: 30px 0; }
+    .reports li img {
+      float: left;
+      margin-right: 20px; }
+    .reports li h2 a, .reports li a.inspector-link {
+      color: #222222; }
     .reports li p {
       font-family: Average, serif;
-      background-color: #e5e5e5;
-      padding: 5px 10px;
-      margin: 10px 0; }
+      margin-top: 10px;
+      margin-bottom: 25px;
+      line-height: 1.5; }
+    .reports li .report-bottom {
+      max-width: 68em;
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: 25px;
+      border-top: 1px solid #cccccc; }
+      .reports li .report-bottom::after {
+        clear: both;
+        content: "";
+        display: table; }
+      .reports li .report-bottom .tags {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 48.82117%; }
+        .reports li .report-bottom .tags:last-child {
+          margin-right: 0; }
+      .reports li .report-bottom .links {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 48.82117%;
+        text-align: right; }
+        .reports li .report-bottom .links:last-child {
+          margin-right: 0; }
+        .reports li .report-bottom .links a {
+          margin-left: 30px; }
   .reports .pagination {
     max-width: 68em;
     margin-left: auto;

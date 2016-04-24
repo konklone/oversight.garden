@@ -63,38 +63,15 @@
                     <% var report = hits[i]._source; %>
                     <% var highlight = hits[i].highlight; %>
                     <li>
+                        <a href="/inspectors/<%= report.inspector %>">
+                            <img src="/images/inspectors/<%= report.inspector %>.png" height="30" width="30"></a>
+                        <a href="/inspectors/<%= report.inspector %>" class="inspector-link">
+                            <%= helpers.inspector_info(report.inspector).name %></a>
+                        <div class="date"><%= helpers.format_date(report.published_on) %></div>
                         <h2>
                             <a href="/reports/<%= report.inspector %>/<%= encodeURIComponent(report.report_id) %>">
                                 <%= report.title %></a>
                         </h2>
-                        <h4>
-                            <a href="/inspectors/<%= report.inspector %>">
-                                <%= helpers.inspector_info(report.inspector).name %></a>
-                            &mdash;
-                            <%= report.agency_name %>
-                            &mdash;
-                            <%= report.published_on %>
-                            <% if (report.url) { %>
-                                &mdash;
-                                <a href="<%= report.url %>">
-                                    Full report</a>
-                                <% if (report.file_type == "pdf") { %>
-                                    (PDF)
-                                <% } %>
-                            <% } else if (report.unreleased) { %>
-                                &mdash;
-                                <% if (report.missing) { %>
-                                    Unreleased/Missing
-                                <% } else { %>
-                                    Unreleased
-                                <% } %>
-                            <% } %>
-
-                            <% if (report.landing_url) { %>
-                                &mdash;
-                                <a href="<%= report.landing_url %>">Summary</a>
-                            <% } %>
-                        </h4>
                         <% if (query_obj.featured && report.featured) { %>
                             <p>
                                 <%= report.featured.description %>
@@ -113,6 +90,33 @@
                                 <% } %>
                             </p>
                         <% } %>
+                        <div class="report-bottom">
+                            <div class="tags">
+                                <% if (report.featured) { %>
+                                    <span class="tag">Editor's Pick</span>
+                                <% } %>
+                                <% if (report.unreleased) { %>
+                                    <% if (report.missing) { %>
+                                        <span class="tag">Unreleased/Missing</span>
+                                    <% } else { %>
+                                        <span class="tag">Unreleased</span>
+                                    <% } %>
+                                <% } %>
+                                <% if (report.type == "FOIA - GovernmentAttic.org") { %>
+                                    <span class="tag">FOIA'd</span>
+                                <% } %>
+                            &nbsp;</div>
+                            <div class="links">
+                                <% if (report.url) { %>
+                                    <a href="<%= report.url %>">
+                                        View official report<%= report.file_type == "pdf" ? " (PDF)" : "" %></a>
+                                <% } %>
+
+                                <% if (report.landing_url) { %>
+                                    <a href="<%= report.landing_url %>">View official summary</a>
+                                <% } %>
+                            </div>
+                        </div>
                     </li>
                 <% } %>
             </ul>
