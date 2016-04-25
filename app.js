@@ -2,7 +2,8 @@
 
 var config = require("./config/config");
 var express = require('express'),
-    path = require("path");
+    path = require('path'),
+    fs = require('fs');
 var app = express();
 
 // environment and port

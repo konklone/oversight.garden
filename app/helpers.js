@@ -73,6 +73,9 @@ updateReportCounts();
 
 
 
+var date_regex = /([0-9]{4})-(0[0-9]|1[0-2])-([0-9]{1,2})/;
+var months = ["January", "February", "March", "April", "May", "June",
+              "July", "August", "September", "October", "November", "December"];
 
 
 /**********************************************************************
@@ -115,6 +118,21 @@ module.exports = {
       output_obj.unreleased = unreleased;
     }
 
+    var foiad = (obj2.foiad !== undefined) ? obj2.foiad : obj1.foiad;
+    if (foiad) {
+      output_obj.foiad = foiad;
+    }
+
+    var published_on_start = (obj2.published_on_start !== undefined) ? obj2.published_on_start : obj1.published_on_start;
+    if (published_on_start) {
+      output_obj.published_on_start = published_on_start;
+    }
+
+    var published_on_end = (obj2.published_on_end !== undefined) ? obj2.published_on_end : obj1.published_on_end;
+    if (published_on_end) {
+      output_obj.published_on_end = published_on_end;
+    }
+
     return querystring.stringify(output_obj);
   },
 
@@ -127,6 +145,17 @@ module.exports = {
     } catch (e) {
       return default_string;
     }
+  },
+
+  format_date: function(value) {
+    var match = date_regex.exec(value);
+    if (match) {
+      var month = parseInt(match[2]);
+      if (Number.isInteger(month) && month >= 1 && month <= 12) {
+        return months[month - 1] + " " + match[3] + ", " + match[1];
+      }
+    }
+    return value;
   },
 
   inspector_info: function(slug) {

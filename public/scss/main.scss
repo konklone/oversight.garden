@@ -32,35 +32,46 @@ body {
   @include outer-container;
 
   padding: 30px 20px;
+}
 
-  .search {
+.search-home {
+  font-size: $search-bar-font-size;
+  text-align: center;
+  position: relative;
 
-    input[type='search'] {
-      @include shift(2);
-      @include span-columns(8);
+  input[type='search'] {
+    background: transparent;
+    padding-right: 32px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid $brand-color;
+  }
 
-      font-size: $search-bar-font-size;
-      text-align: center;
+  input[type='submit'] {
+    position: relative;
+    right: 32px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background-color: unset;
+    background-image: url(/images/search-brand-color.svg);
+  }
 
-      padding: 10px;
-      margin-bottom: 10px;
+  select {}
+  input[type='submit'] {}
 
-      border: 1px solid #ccc;
-      -webkit-border-radius: 30px;
-      -moz-border-radius: 30px;
-      border-radius: 30px;
-      outline: 0;
-    }
+  small {
 
-    select {}
-    input[type='submit'] {}
-
-    small {
-
-    }
   }
 }
 
+.tag {
+  height: 20px;
+  border-radius: 10px;
+  padding: 0 10px;
+  background-color: $gray;
+}
 
 /******* Home page **********/
 
@@ -70,6 +81,10 @@ body {
     margin-bottom: 20px;
   }
 
+  .search {
+    background-image: url(/images/background-books.jpg);
+  }
+
   .intro {
     @include span-columns(6);
     p {
@@ -77,29 +92,62 @@ body {
     }
   }
 
-  .card.newsletter {
-    input[type=text] {
-      padding: 3px;
-    }
-    input[type=submit] {
-      padding: 3px;
+  a.card:hover {
+    text-decoration: inherit;
+    background-color: #e5e5e5;
+  }
+
+  a.card {
+    h2:hover {text-decoration: underline;}
+    h2 img {
+      margin-bottom: -3px;
+      margin-left: 5px;
     }
   }
 
+  .card.newsletter {
+    input[type=text] {
+      height: 30px;
+      border: solid 2px $gray;
+      padding-left: 5px;
+      @include placeholder {
+        font-style: italic;
+      }
+    }
+
+    input[type=submit] {
+      height: 30px;
+      border: none;
+      color: $text-color-white;
+      background-color: $brand-color;
+    }
+  }
+
+
+  .cards {
+    background-color: $gray-dark;
+    padding: 30px 20px;
+  }
+
   .about {
+    background-color: $gray-dark;
+
     h1 {
       @include fill-parent;
+      color: $brand-color;
       text-align: center;
     }
     p {
       font-size: $gamma;
+      color: $text-color-white;
     }
-    a {
+    a.button {
       display: inline-block;
       margin-top: 10px;
       background-color: $brand-color;
       padding: 10px 25px;
-      color: $text-color;
+      color: $text-color-white;
+      border-radius: 3px;
     }
   }
 
@@ -108,27 +156,115 @@ body {
 
 /****** Document search results. */
 
+.inspector-filter {
+  border-bottom: 1px solid $gray;
+
+  strong {
+    @include span-columns(2);
+  }
+
+  select {
+    @include span-columns(8);
+  }
+}
+
+.date-filter {
+  strong {
+    @include span-columns(2);
+  }
+
+  span#date-filter-clear {
+    color: $link-color;
+    cursor: pointer;
+    @include user-select(none);
+  }
+
+  input[type='date'] {
+    margin-left: 5px;
+    margin-right: 20px;
+  }
+}
+
+.filters {
+  background-color: $gray-dark;
+  border-bottom: 1px solid $gray;
+}
+
 .reports {
+  background-color: $gray-dark;
+  min-height: 30em;
+
+  .count, .no-results {
+    color: $text-color-white;
+    padding: 0 30px;
+  }
+
   ul, li {list-style-type: none;}
+  ul {padding: 0;}
 
   li {
-    margin: 40px 0;
+    background-color: $white;
+    border-radius: 4px;
+    padding: 25px 30px;
+    margin: 30px 0;
 
-    h2 {
-      a {text-decoration: none;}
-      a:hover {text-decoration: underline;}
+    img {
+      float: left;
+      margin-right: 20px;
     }
 
-    h4 {margin: 10px 0;}
+    h2 a, a.inspector-link {
+      color: $text-color;
+    }
+
+    .date {
+    }
 
     p {
       font-family: $search-result-font;
-
-      background-color: #e5e5e5;
-      padding: 5px 10px;
-      margin: 10px 0;
+      margin-top: 10px;
+      margin-bottom: 25px;
+      line-height: 1.5;
     }
 
+    .report-bottom {
+      @include outer-container;
+      padding-top: 25px;
+      border-top: 1px solid $gray;
+
+      .tags {
+        @include span-columns(6);
+      }
+
+      .links {
+        @include span-columns(6);
+        text-align: right;
+
+        a {
+          margin-left: 30px;
+        }
+      }
+    }
+  }
+
+  .pagination {
+    @include outer-container;
+
+    .previous-page {
+      @include span-columns(4);
+      text-align: left;
+    }
+
+    .page-number {
+      @include span-columns(4);
+      color: $text-color-white;
+      text-align: center;
+    }
+
+    .next-page {
+      @include span-columns(4);
+      text-align: right;
+    }
   }
 }
 

@@ -30,4 +30,4 @@ ruby -c tasks/elasticsearch.rake >/dev/null
 ruby -c tasks/sitemap.rake >/dev/null
 node_modules/jshint/bin/jshint app.js app/*.js config/config.js tasks/*.js test/*.js
 tasks/validate-json.js
-tasks/jshint-ejs.js views/layout/footer.html views/layout/header.html views/partials/search.html views/index.html views/inspector.html views/inspectors.html views/report.html views/reports.html views/reports.xml.ejs
+tasks/jshint-ejs.js views/layout/footer.html views/layout/header.html views/index.html views/inspector.html views/inspectors.html views/report.html views/reports.html views/reports.xml.ejs

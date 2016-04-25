@@ -1,7 +1,7 @@
 <!doctype html>
 
 <!--
-  Oversight.garden,
+  Oversight,
   collecting the oversight community's work in one place.
 
   Contributors: https://oversight.garden/humans.txt
@@ -21,9 +21,9 @@
     <meta name="og:description" content="<%= report.title %>" />
 <% } else { %>
     <title>
-        oversight.garden | Collecting the oversight community's work in one place.
+        Oversight | Collecting the oversight community's work in one place.
     </title>
-    <meta name="og:title" content="oversight.garden">
+    <meta name="og:title" content="Oversight">
     <meta name="description" content="Collecting the oversight community's work in one place." />
     <meta name="og:description" content="Collecting the oversight community's work in one place." />
 <% } %>
@@ -31,7 +31,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta property="og:site_name" content="oversight.garden">
+<meta property="og:site_name" content="Oversight">
 
 
 <meta name="author" content="Eric Mill" />
@@ -57,17 +57,25 @@
 
 <meta name="twitter:card" content="summary" />
 
-<link rel='stylesheet' type='text/css' href='/css/fonts.css' />
+<link rel="stylesheet" type="text/css" href="/css/fonts.css" />
 <link rel="stylesheet" type="text/css" href="/css/main.css?<%= helpers.boot_time %>" />
+<link rel="stylesheet" type="text/css" href="/chosen/chosen.min.css" />
 
 </head>
 <body>
 <main class="main">
 
+<form action="/reports" method="get">
+
 <header class="header">
     <h1 class="logo">
-        <a href="/">oversight.garden</a>
+        <a href="/">oversight</a>
     </h1>
+
+    <div class="search-bar">
+        <input type="search" name="query" placeholder="Find oversight documents" value="<%= (typeof(query_obj) != "undefined") ? query_obj.original_query : "" %>">
+        <input type="submit" value="">
+    </div>
 
     <nav>
         <ul>
@@ -77,11 +85,10 @@
             <li>
                 <a href="/about" target="_blank">About this project</a>
             </li>
-            <li>
-                <form action="/reports" method="get" class="search-bar">
-                    <input type="search" id="query" name="query" placeholder="Search..." />
-                </form>
-            </li>
         </ul>
     </nav>
 </header>
+
+<% if ((typeof(form_tag_open) == "undefined") || !form_tag_open) { %>
+</form>
+<% } %>
