@@ -435,11 +435,6 @@
       "from": "https://registry.npmjs.org/isstream/-/isstream-0.1.2.tgz",
       "resolved": "https://registry.npmjs.org/isstream/-/isstream-0.1.2.tgz"
     },
-    "jquery": {
-      "version": "2.2.3",
-      "from": "jquery@latest",
-      "resolved": "https://registry.npmjs.org/jquery/-/jquery-2.2.3.tgz"
-    },
     "js-yaml": {
       "version": "3.5.2",
       "from": "https://registry.npmjs.org/js-yaml/-/js-yaml-3.5.2.tgz",
@@ -588,25 +583,6 @@
       "version": "1.4.7",
       "from": "https://registry.npmjs.org/node-uuid/-/node-uuid-1.4.7.tgz",
       "resolved": "https://registry.npmjs.org/node-uuid/-/node-uuid-1.4.7.tgz"
-    },
-    "nodep-date-input-polyfill": {
-      "version": "2.4.6",
-      "from": "nodep-date-input-polyfill@latest",
-      "resolved": "https://registry.npmjs.org/nodep-date-input-polyfill/-/nodep-date-input-polyfill-2.4.6.tgz",
-      "dependencies": {
-        "babel-runtime": {
-          "version": "6.6.1",
-          "from": "babel-runtime@>=6.3.19 <7.0.0",
-          "resolved": "https://registry.npmjs.org/babel-runtime/-/babel-runtime-6.6.1.tgz",
-          "dependencies": {
-            "core-js": {
-              "version": "2.3.0",
-              "from": "core-js@>=2.1.0 <3.0.0",
-              "resolved": "https://registry.npmjs.org/core-js/-/core-js-2.3.0.tgz"
-            }
-          }
-        }
-      }
     },
     "numeral": {
       "version": "1.5.3",

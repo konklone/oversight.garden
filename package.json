@@ -37,11 +37,9 @@
     "errorhandler": "^1.4.3",
     "express": "^4.13.3",
     "glob": "^7.0.0",
-    "jquery": "^2.2.3",
     "js-yaml": "^3.5.2",
     "method-override": "^2.3.5",
     "minimist": "^1.2.0",
-    "nodep-date-input-polyfill": "^2.4.6",
     "numeral": "^1.5.3",
     "wintersmith-ejs": "^0.1.4"
   },
