@@ -108,13 +108,10 @@ rake sitemap:generate
 
 There is a blogging system, powered by the [Wintersmith](https://github.com/jnordberg/wintersmith) static site generator, built into the site itself. By default, it can be easily used to create static pages ("blog posts") under oversight.garden/blog/. Here are the steps:
 
-1. Install the wintersmith CLI tool globally: `npm install -g wintersmith`
 1. Create a blog post markdown file in `./blog/` Something like `./blog/my-first-post.md`.
   * Make sure it has YAML front matter (you can look at existing posts for how to set this up). The `filename` key in the front matter can be used to specify a final URL for the post that is different from its file name (eg "filename: superblog.html" will make my-first-post.md be served as oversight.garden/blog/superblog.html).
-1. Run the wintersmith generator: `wintersmith build --config=blog-config.js`
-1. Commit the new file(s) in `./public/blog` to `git/github`.
-
-The blog post will appear the next time the site is deployed.
+1. Run the wintersmith generator with `rake blog` to see your changes deployed to `public/blog` locally
+1. Run the `blog` fabric command to generate blog files in production.
 
 ### Public domain
 
