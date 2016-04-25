@@ -92,10 +92,24 @@ body {
     }
   }
 
+  a.card:hover {
+    text-decoration: inherit;
+    background-color: #e5e5e5;
+  }
+
+  a.card {
+    h2:hover {text-decoration: underline;}
+    h2 img {
+      margin-bottom: -3px;
+      margin-left: 5px;
+    }
+  }
+
   .card.newsletter {
     input[type=text] {
       height: 30px;
       border: solid 2px $gray;
+      padding-left: 5px;
       @include placeholder {
         font-style: italic;
       }

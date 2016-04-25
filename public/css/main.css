@@ -425,7 +425,9 @@ body {
     .header .search-bar input[type='search'] {
       width: 100%;
       height: 28px;
-      border: none; }
+      border: none;
+      margin-top: 2px;
+      margin-left: 5px; }
     .header .search-bar input[type='submit'] {
       position: absolute;
       top: 0px;
@@ -613,9 +615,18 @@ body pre {
     margin-right: 0; }
   .home .intro p {
     padding-bottom: 13px; }
+.home a.card:hover {
+  text-decoration: inherit;
+  background-color: #e5e5e5; }
+.home a.card h2:hover {
+  text-decoration: underline; }
+.home a.card h2 img {
+  margin-bottom: -3px;
+  margin-left: 5px; }
 .home .card.newsletter input[type=text] {
   height: 30px;
-  border: solid 2px #cccccc; }
+  border: solid 2px #cccccc;
+  padding-left: 5px; }
   .home .card.newsletter input[type=text]::-webkit-input-placeholder {
     font-style: italic; }
   .home .card.newsletter input[type=text]::-moz-placeholder {
