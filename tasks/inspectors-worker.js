@@ -5,13 +5,12 @@
 var fs = require('fs'),
     path = require('path');
 
-var config = require("../config/config"),
-    boot = require("../app/boot"),
+var boot = require("../app/boot"),
     es = boot.es,
     featured = boot.featured;
 
 // load a report from disk, put it into elasticsearch
-function loadReport(details, done) {
+function loadReport(details, config, done) {
   var base_path = details.base_path,
       inspector = details.inspector,
       year = details.year,

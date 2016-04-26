@@ -23,7 +23,7 @@ var config = require("../config/config"),
     farm = workerFarm(require.resolve('./inspectors-worker'));
 
 function loadReportProxy(details, done) {
-  farm(details, function(err) {
+  farm(details, config, function(err) {
     if (err) {
       console.log("\tEr what!!");
       console.log("\t" + err);
