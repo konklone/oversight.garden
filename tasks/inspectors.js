@@ -19,8 +19,13 @@ var async = require('async'),
 
 var config = require("../config/config"),
     boot = require("../app/boot"),
-    es = boot.es,
-    farm = workerFarm(require.resolve('./inspectors-worker'));
+    es = boot.es;
+
+var farm = workerFarm({
+  maxCallsPerWorker: 1000,
+  maxConcurrentWorkers: 1,
+  maxRetries: 20
+}, require.resolve('./inspectors-worker'));
 
 function loadReportProxy(details, done) {
   farm(details, config, function(err) {
