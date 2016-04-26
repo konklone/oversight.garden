@@ -94,13 +94,7 @@ function ingest(fetch, done) {
   async.eachSeries(fetch, loadReportProxy, function(err) {
     if (err) console.log("Error doing things!!");
 
-    console.log("Refreshing index.");
-    es.indices.refresh(function(err) {
-      if (err) console.log("Error: " + err);
-
-      console.log("All done.");
-      done();
-    });
+    done();
   });
 }
 
@@ -137,6 +131,13 @@ function run(options) {
     }
     ingest(reports_list, function() {
       workerFarm.end(farm);
+
+      console.log("Refreshing index.");
+      es.indices.refresh(function(err) {
+        if (err) console.log("Error: " + err);
+
+        console.log("All done.");
+      });
     });
   });
 }
