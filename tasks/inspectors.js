@@ -11,57 +11,19 @@
  * and all available reports in that year.
  */
 
-var fs = require('fs'),
+var async = require('async'),
+    fs = require('fs'),
+    glob = require('glob'),
     path = require('path'),
-    async = require('async'),
-    glob = require('glob');
+    workerFarm = require('worker-farm');
 
 var config = require("../config/config"),
     boot = require("../app/boot"),
     es = boot.es,
-    featured = boot.featured;
+    farm = workerFarm(require.resolve('./inspectors-worker'));
 
-// load a report from disk, put it into elasticsearch
-function loadReport(details, done) {
-  var base_path = details.base_path,
-      inspector = details.inspector,
-      year = details.year,
-      report_id = details.report_id;
-  console.log("[" + inspector + "][" + year + "][" + report_id + "]");
-
-  console.log("\tLoading JSON from disk...");
-  var datafile = path.join(base_path, inspector, year.toString(), report_id, "report.json");
-  if (!fs.existsSync(datafile)) {
-    console.error("ERROR: JSON missing, report is probably a bad URL.");
-    return done();
-  }
-  var json = fs.readFileSync(datafile);
-  if (!json || json.length <= 0) return done();
-  var data = JSON.parse(json);
-
-  console.log("\tLoading text from disk...");
-  var textfile = path.join(base_path, inspector, year.toString(), report_id, "report.txt");
-  if (fs.existsSync(textfile))
-    data.text = fs.readFileSync(textfile).toString();
-
-  // and this is for IG reports
-  data.source = "igs";
-
-  // if it's been manually flagged as featured, mark it as such
-  if (featured[inspector] && featured[inspector][report_id]) {
-    data.featured = featured[inspector][report_id];
-    data.is_featured = true;
-  } else
-    data.is_featured = false;
-
-  // Actually load into Elasticsearch
-  console.log("\tIndexing into Elasticsearch...");
-  es.index({
-    index: config.elasticsearch.index_write,
-    type: 'reports',
-    id: inspector + '-' + report_id,
-    body: data
-  }, function(err) {
+function loadReportProxy(details, done) {
+  farm(details, function(err) {
     if (err) {
       console.log("\tEr what!!");
       console.log("\t" + err);
@@ -118,13 +80,13 @@ function crawl(options, base_path) {
   return fetch;
 }
 
-function ingest(fetch) {
+function ingest(fetch, done) {
   if (fetch.length === 0) {
     // Don't need to refresh index if there are no reports, exit early
     return;
   }
 
-  async.eachSeries(fetch, loadReport, function(err) {
+  async.eachSeries(fetch, loadReportProxy, function(err) {
     if (err) console.log("Error doing things!!");
 
     console.log("Refreshing index.");
@@ -132,6 +94,7 @@ function ingest(fetch) {
       if (err) console.log("Error: " + err);
 
       console.log("All done.");
+      done();
     });
   });
 }
@@ -160,14 +123,17 @@ function run(options) {
   }
 
   var scraper_data_list = crawl(options, config.inspectors.data);
-  ingest(scraper_data_list);
-
-  var reports_dir = config.reports && config.reports.data;
-  if (reports_dir) {
-    var reports_ig_dir = path.join(reports_dir, "inspectors-general");
-    var reports_list = crawl(options, reports_ig_dir);
-    ingest(reports_list);
-  }
+  ingest(scraper_data_list, function() {
+    var reports_dir = config.reports && config.reports.data;
+    var reports_list = [];
+    if (reports_dir) {
+      var reports_ig_dir = path.join(reports_dir, "inspectors-general");
+      reports_list = crawl(options, reports_ig_dir);
+    }
+    ingest(reports_list, function() {
+      workerFarm.end(farm);
+    });
+  });
 }
 
 run(require('minimist')(process.argv.slice(2)));
