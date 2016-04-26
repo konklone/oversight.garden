@@ -88,7 +88,7 @@ function crawl(options, base_path) {
 function ingest(fetch, done) {
   if (fetch.length === 0) {
     // Don't need to refresh index if there are no reports, exit early
-    return;
+    return done();
   }
 
   async.eachSeries(fetch, loadReportProxy, function(err) {
