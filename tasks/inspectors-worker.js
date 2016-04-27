@@ -2,12 +2,13 @@
 
 "use strict";
 
-var fs = require('fs'),
-    path = require('path');
+var elasticsearch = require("elasticsearch"),
+    fs = require('fs'),
+    path = require('path'),
+    yaml = require('js-yaml');
 
-var boot = require("../app/boot"),
-    es = boot.es,
-    featured = boot.featured;
+var featured_path = "config/featured.yaml";
+var featured = yaml.safeLoad(fs.readFileSync(featured_path));
 
 // load a report from disk, put it into elasticsearch
 function loadReport(details, config, done) {
@@ -44,6 +45,13 @@ function loadReport(details, config, done) {
 
   // Actually load into Elasticsearch
   console.log("\tIndexing into Elasticsearch...");
+  var es = new elasticsearch.Client({
+    apiVersion: "1.7",
+    host: {
+      host: config.elasticsearch.host,
+      port: config.elasticsearch.port
+    }
+  });
   es.index({
     index: config.elasticsearch.index_write,
     type: 'reports',
