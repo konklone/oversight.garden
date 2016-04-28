@@ -25,6 +25,10 @@ app.enable('trust proxy')
     next();
   });
 
+if (config && config.sitemap && config.sitemap.directory) {
+  app.use('/sitemap', express.static(config.sitemap.directory));
+}
+
 app.use(express.static(__dirname + '/public'));
 
 

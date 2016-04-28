@@ -3,6 +3,7 @@
 /config/config.yaml
 /data
 /public/sitemap
+/test/sitemap
 *.log
 *.pyc
 /node_modules

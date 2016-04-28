@@ -5,6 +5,8 @@ namespace :sitemap do
     require 'json'
     require "cgi"
 
+    directory = (!Environment.config['sitemap'].nil? && !Environment.config['sitemap']['directory'].nil?) ? Environment.config['sitemap']['directory'] : 'public/sitemap'
+
     ping_google = (!Environment.config['sitemap'].nil?) && (Environment.config['sitemap']['ping_google'] ? true : false)
     ping_bing = (!Environment.config['sitemap'].nil?) && (Environment.config['sitemap']['ping_bing'] ? true : false)
     ping_yahoo = (!Environment.config['sitemap'].nil?) && (Environment.config['sitemap']['ping_yahoo'] ? true : false)
@@ -14,7 +16,7 @@ namespace :sitemap do
 
     BigSitemap.generate(
       base_url: "https://oversight.garden/",
-      document_root: "public/sitemap",
+      document_root: directory,
       url_path: "sitemap",
       ping_google: ping_google,
       ping_bing: ping_bing,
