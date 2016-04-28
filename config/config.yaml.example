@@ -20,6 +20,7 @@ http:
 
 # automatically ping search engines after generating the sitemap
 sitemap:
+  # directory: /path/to/sitemaps
   ping_google: false
   ping_bing: false
   ping_yahoo: false

@@ -9,3 +9,6 @@ elasticsearch:
 
 http:
   port: 3000
+
+sitemap:
+  directory: test/sitemap
