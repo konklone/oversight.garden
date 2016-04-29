@@ -9,3 +9,6 @@ source $HOME/.virtualenvs/inspectors/bin/activate
 
 # load them into elasticsearch
 cd $HOME/oversight/current && ./tasks/inspectors.js > $HOME/oversight/shared/log/load-cron.log 2>&1
+
+# update the sitemap files
+cd $HOME/oversight/current && rake sitemap:generate > $HOME/oversight/shared/log/sitemap-cron.log 2>&1
