@@ -14,7 +14,7 @@ script:
   - bash tasks/pre-commit
   - bash tasks/tests
   - rake sitemap:generate config=test/config.yaml
-  - "npm uninstall --save wintersmith >/dev/null 2>/dev/null && npm shrinkwrap 2>/dev/null && node_modules/.bin/nsp check"
+  - "rm npm-shrinkwrap.json && npm install >/dev/null 2>/dev/null && npm uninstall --save wintersmith >/dev/null 2>/dev/null && npm shrinkwrap 2>/dev/null && node_modules/.bin/nsp check"
 sudo: false
 notifications:
   email: false
