@@ -10,6 +10,7 @@
             <option value="<%= inspector.slug %>" <%= selected %>><%= inspector.short_name %></option>
         <% } -%>
     </select>
+    <input type="submit" value="Apply" class="apply">
 </section>
 
 <section class="center date-filter">
@@ -19,6 +20,7 @@
     End:
     <input type="date" name="published_on_end" id="date-end" value="<%= query_obj.published_on_end || "" %>">
     <span id="date-filter-clear">Clear date filter</span>
+    <input type="submit" value="Apply" class="apply">
 </section>
 
 <section class="center filters">
@@ -47,6 +49,7 @@
             Editor's Pick
         </label>
     </span>
+    <input type="submit" value="Apply" class="apply">
 </section>
 
 </form>

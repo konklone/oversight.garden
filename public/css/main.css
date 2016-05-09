@@ -700,6 +700,9 @@ body pre {
   background-color: #3c3b40;
   border-bottom: 1px solid #cccccc; }
 
+.apply {
+  float: right; }
+
 .reports {
   background-color: #3c3b40;
   min-height: 30em; }
