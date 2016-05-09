@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+  <ShortName>Oversight</ShortName>
+  <Description>Oversight</Description>
+  <!--Image TODO-->
+  <Url type="text/html" method="get" template="https://oversight.garden/reports?query={searchTerms}" />
+  <moz:SearchForm>https://oversight.garden/</moz:SearchForm>
+</OpenSearchDescription>
