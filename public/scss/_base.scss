@@ -134,6 +134,10 @@ section.search, section.cards, section.about {
 
 .card {
     @include span-columns(4);
+    @include media(max-width 945px, 4) {
+      @include span-columns(4);
+    }
+
     display: block;
     color: $text-color;
     background: $gray-light;

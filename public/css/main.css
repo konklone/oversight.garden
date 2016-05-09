@@ -511,6 +511,14 @@ section.search, section.cards, section.about {
   border-top: 6px solid #63e195; }
   .card:last-child {
     margin-right: 0; }
+  @media screen and (max-width: 945px) {
+    .card {
+      float: left;
+      display: block;
+      margin-right: 7.42297%;
+      width: 100%; }
+      .card:last-child {
+        margin-right: 0; } }
 
 a.card, a:visited.card {
   color: #222222; }
