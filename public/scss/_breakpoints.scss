@@ -3,3 +3,9 @@
         @content;
     }
 }
+
+@mixin media-navigation-mobile {
+    @include media(max-width $navigation-mobile, $navigation-mobile-columns) {
+        @content;
+    }
+}

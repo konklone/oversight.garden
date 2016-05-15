@@ -41,6 +41,10 @@ body {
         letter-spacing: -0.5px;
         border-right: 1px solid $gray;
 
+        @include media-navigation-mobile {
+            border-right: none;
+        }
+
         a {
             color: $text-color;
             cursor: pointer;
@@ -57,6 +61,12 @@ body {
         @include span-columns(5);
         @include shift(1);
         position: relative;
+
+        @include media-navigation-mobile {
+            padding-top: 1em;
+            padding-bottom: 1em;
+            @include span-columns(3);
+        }
 
         input[type='search'] {
             width: 100%;
@@ -77,11 +87,19 @@ body {
             background-color: unset;
             background-image: url(/images/search.svg);
             background-repeat: no-repeat;
+
+            @include media-navigation-mobile {
+                top: em(16);
+            }
         }
     }
 
     nav {
         @include span-columns(4);
+
+        @include media-navigation-mobile {
+            @include span-columns(4);
+        }
 
         padding-top: 5px;
 
@@ -94,6 +112,13 @@ body {
         li {
             @include span-columns(2 of 4);
             display: inline-block;
+
+            @include media-navigation-mobile {
+                @include span-columns(4);
+                text-align: right;
+                padding-top: 1em;
+                padding-bottom: 0.5em;
+            }
 
             a {
                 color: $text-color-light;

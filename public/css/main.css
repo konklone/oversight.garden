@@ -406,6 +406,9 @@ body {
     border-right: 1px solid #cccccc; }
     .header .logo:last-child {
       margin-right: 0; }
+    @media screen and (max-width: 872px) {
+      .header .logo {
+        border-right: none; } }
     .header .logo a {
       color: #222222;
       cursor: pointer;
@@ -422,6 +425,16 @@ body {
     position: relative; }
     .header .search-bar:last-child {
       margin-right: 0; }
+    @media screen and (max-width: 872px) {
+      .header .search-bar {
+        padding-top: 1em;
+        padding-bottom: 1em;
+        float: left;
+        display: block;
+        margin-right: 7.42297%;
+        width: 73.14426%; }
+        .header .search-bar:last-child {
+          margin-right: 0; } }
     .header .search-bar input[type='search'] {
       width: 100%;
       height: 28px;
@@ -438,6 +451,9 @@ body {
       background-color: unset;
       background-image: url(/images/search.svg);
       background-repeat: no-repeat; }
+      @media screen and (max-width: 872px) {
+        .header .search-bar input[type='submit'] {
+          top: 1em; } }
   .header nav {
     float: left;
     display: block;
@@ -446,6 +462,14 @@ body {
     padding-top: 5px; }
     .header nav:last-child {
       margin-right: 0; }
+    @media screen and (max-width: 872px) {
+      .header nav {
+        float: left;
+        display: block;
+        margin-right: 7.42297%;
+        width: 100%; }
+        .header nav:last-child {
+          margin-right: 0; } }
     .header nav ul {
       max-width: 68em;
       margin-left: auto;
@@ -464,6 +488,17 @@ body {
       display: inline-block; }
       .header nav li:last-child {
         margin-right: 0; }
+      @media screen and (max-width: 872px) {
+        .header nav li {
+          float: left;
+          display: block;
+          margin-right: 7.42297%;
+          width: 100%;
+          text-align: right;
+          padding-top: 1em;
+          padding-bottom: 0.5em; }
+          .header nav li:last-child {
+            margin-right: 0; } }
       .header nav li a {
         color: #aaaaaa;
         font-size: 20px;
