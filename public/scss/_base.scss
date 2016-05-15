@@ -134,8 +134,8 @@ section.search, section.cards, section.about {
 
 .card {
     @include span-columns(4);
-    @include media(max-width $card-mobile, $card-mobile-columns) {
-      @include span-columns(4);
+    @include media-card-mobile {
+        @include span-columns(4);
     }
 
     display: block;
