@@ -1,0 +1,11 @@
+@mixin media-card-mobile {
+    @include media(max-width $card-mobile, $card-mobile-columns) {
+        @content;
+    }
+}
+
+@mixin media-navigation-mobile {
+    @include media(max-width $navigation-mobile, $navigation-mobile-columns) {
+        @content;
+    }
+}
