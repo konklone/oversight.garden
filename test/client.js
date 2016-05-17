@@ -3,7 +3,8 @@
 var webdriverio = require('webdriverio');
 var options = {
   desiredCapabilities: {
-    browserName: 'phantomjs'
+    "browserName": "phantomjs",
+    "phantomjs.page.customHeaders.Connection": "close"
   }
 };
 var client = webdriverio.remote(options);
