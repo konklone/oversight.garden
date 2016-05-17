@@ -85,10 +85,6 @@ var months = ["January", "February", "March", "April", "May", "June",
 
 module.exports = {
 
-  q: function(object) {
-    return querystring.stringify(object);
-  },
-
   format_qs: function(obj1, obj2) {
     obj2 = obj2 || {};
     var output_obj = {};
