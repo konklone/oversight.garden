@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<% var query_string_this = helpers.q(query_obj); -%>
-<% var query_string_first = helpers.q(query_obj, {page: 1}); -%>
-<% var query_string_next = helpers.q(query_obj, {page: query_obj.page + 1}); -%>
-<% var query_string_prev = helpers.q(query_obj, {page: query_obj.page - 1}); -%>
+<% var query_string_this = helpers.format_qs(query_obj); -%>
+<% var query_string_first = helpers.format_qs(query_obj, {page: 1}); -%>
+<% var query_string_next = helpers.format_qs(query_obj, {page: query_obj.page + 1}); -%>
+<% var query_string_prev = helpers.format_qs(query_obj, {page: query_obj.page - 1}); -%>
 <% var last_page = Math.max(1, Math.floor((results.hits.total + query_obj.size - 1) / query_obj.size)); -%>
-<% var query_string_last = helpers.q(query_obj, {page: last_page}); -%>
+<% var query_string_last = helpers.format_qs(query_obj, {page: last_page}); -%>
 <feed xmlns="http://www.w3.org/2005/Atom">
 <title>Oversight | Collecting the oversight community's work in one place.</title>
 <link href="https://oversight.garden/reports?<%= query_string_this %>"/>
