@@ -1,89 +1,89 @@
 <% include layout/header.html %>
 
-<section class="center inspector">
-    <% if (metadata) { %>
-        <div class="infobox">
-            <div>
-                <img src="/images/inspectors/<%= metadata.slug %>.png" height="100" width="100">
-                <h2><%= metadata.name %></h2>
-            </div>
-            <div>
+<% if (metadata) { %>
+    <section class="center">
+        <div>
+            <img src="/images/inspectors/<%= metadata.slug %>.png" height="100" width="100">
+            <h2><%= metadata.name %></h2>
+        </div>
+        <div>
             Established in <%= metadata.established_year %>,
             <% if (metadata.active) { %>
                 currently active
             <% } else { %>
                 not currently active
             <% } %>
-            </div>
-            <% if (metadata.agencies.length > 0) { %>
-                <div>
-                    <% var agencies_with_the = metadata.agencies.map(function(s){return "the " + s;}); %>
-                    Oversees <%= helpers.join_and(agencies_with_the) %>
-                </div>
-            <% } %>
-            <div>
-                Homepage: <a href="<%= metadata.homepage_url %>"><%= metadata.homepage_url %></a>
-            </div>
-            <div>
-                <% if (metadata.publishes_reports) { %>
-                    Publishes reports online
-                <% } else { %>
-                    Does not publish reports
-                <% } %>
-            </div>
-            <div>
-                Statutory reference: <%= metadata.statutory_reference %>
-            </div>
         </div>
-        <div class="reports">
-            <% if (!inspectorReportCount || !results.hits.total) { %>
-                No reports were found.
+        <% if (metadata.agencies.length > 0) { %>
+            <div>
+                <% var agencies_with_the = metadata.agencies.map(function(s){return "the " + s;}); %>
+                Oversees <%= helpers.join_and(agencies_with_the) %>
+            </div>
+        <% } %>
+        <div>
+            Homepage: <a href="<%= metadata.homepage_url %>"><%= metadata.homepage_url %></a>
+        </div>
+        <div>
+            <% if (metadata.publishes_reports) { %>
+                Publishes reports online
             <% } else { %>
-                <% var hits = results.hits.hits; %>
-                <strong>
-                    <%= hits.length %> most recent reports (of <%= inspectorReportCount %>)
-                </strong>
-                <ul>
-                    <% for (var i = 0; i < hits.length; i++) { %>
-                        <% var report = hits[i]._source; %>
-                        <li>
-                            <h2><a href="/reports/<%= report.inspector %>/<%= encodeURIComponent(report.report_id) %>">
-                                <%= report.title %>
-                            </a></h2>
-                            <h4>
-                                <%= report.agency_name %>
-                                &mdash;
-                                <%= report.published_on %>
-                                <% if (report.url) { %>
-                                    &mdash;
-                                    <a href="<%= report.url %>">
-                                        Full report</a>
-                                    <% if (report.file_type == "pdf") { %>
-                                        (PDF)
-                                    <% } %>
-                                <% } else if (report.unreleased) { %>
-                                    &mdash;
-                                    <% if (report.missing) { %>
-                                        Unreleased/Missing
-                                    <% } else { %>
-                                        Unreleased
-                                    <% } %>
-                                <% } %>
-
-                                <% if (report.landing_url) { %>
-                                    &mdash;
-                                    <a href="<%= report.landing_url %>">Summary</a>
-                                <% } %>
-                            </h4>
-                        </li>
-                    <% } %>
-                </ul>
-                <a href="/reports?inspector=<%= metadata.slug %>">View more reports</a>
+                Does not publish reports
             <% } %>
         </div>
-    <% } else { %>
+        <div>
+            Statutory reference: <%= metadata.statutory_reference %>
+        </div>
+    </section>
+    <section class="center reports">
+        <% if (!inspectorReportCount || !results.hits.total) { %>
+            No reports were found.
+        <% } else { %>
+            <% var hits = results.hits.hits; %>
+            <span class="count">
+                <%= hits.length %> most recent reports (of <%= inspectorReportCount %>)
+            </span>
+            <ul>
+                <% for (var i = 0; i < hits.length; i++) { %>
+                    <% var report = hits[i]._source; %>
+                    <li>
+                        <h2><a href="/reports/<%= report.inspector %>/<%= encodeURIComponent(report.report_id) %>">
+                            <%= report.title %>
+                        </a></h2>
+                        <h4>
+                            <%= report.agency_name %>
+                            &mdash;
+                            <%= report.published_on %>
+                            <% if (report.url) { %>
+                                &mdash;
+                                <a href="<%= report.url %>">
+                                    Full report</a>
+                                <% if (report.file_type == "pdf") { %>
+                                    (PDF)
+                                <% } %>
+                            <% } else if (report.unreleased) { %>
+                                &mdash;
+                                <% if (report.missing) { %>
+                                    Unreleased/Missing
+                                <% } else { %>
+                                    Unreleased
+                                <% } %>
+                            <% } %>
+
+                            <% if (report.landing_url) { %>
+                                &mdash;
+                                <a href="<%= report.landing_url %>">Summary</a>
+                            <% } %>
+                        </h4>
+                    </li>
+                <% } %>
+            </ul>
+            <a href="/reports?inspector=<%= metadata.slug %>">View more reports</a>
+        <% } %>
+    </section>
+<% } else { %>
+    <section class="center">
         Error loading inspector information.
-    <% } %>
-</section>
+    </section>
+<% } %>
 
 <% include layout/footer.html %>
