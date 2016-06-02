@@ -846,12 +846,6 @@ body pre {
   margin: 40px 0;
   padding: 40px; }
 
-/******* Office landing page. ******/
-.inspector .infobox {
-  background-color: #d0ebc1;
-  padding: 20px;
-  margin-bottom: 40px; }
-
 /************* List of offices. ********/
 .inspectors ul, .inspectors li {
   list-style-type: none; }
