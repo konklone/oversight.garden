@@ -27,3 +27,7 @@ sitemap:
   yahoo_app_id:
   ping_ask: false
   ping_yandex: false
+
+# upload endpoint to collect errors from scrapers
+dashboard:
+  secret: ""

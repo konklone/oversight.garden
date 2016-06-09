@@ -158,6 +158,33 @@ module.exports = function(app) {
     });
   });
 
+  app.get('/dashboard', function(req, res) {
+    es.search({
+      index: config.elasticsearch.index_dashboard,
+      type: 'scraper',
+      body: {}
+    }).then(function(result) {
+      res.render("dashboard.html", {});
+    }, function(err) {
+      console.log("Nooooo!\n\n" + err);
+      res.status(500);
+      res.render("dashboard.html", {});
+    });
+  });
+
+  app.put('/dashboard/upload', function(req, res) {
+    if (config.dashboard && config.dashboard.secret) {
+      if (req.query.secret == config.dashboard.secret) {
+        console.log(req.body);
+      } else {
+        res.status(403);
+      }
+    } else {
+      res.status(500);
+    }
+    res.end();
+  });
+
 };
 
 /* Parses query string parameters from a search request, and returns an object

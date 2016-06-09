@@ -12,3 +12,6 @@ http:
 
 sitemap:
   directory: test/sitemap
+
+dashboard:
+  secret: "test"

@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Oversight.garden Dashboard Scraper Logging",
+  "type": "object",
+  "patternProperties": {
+    "^[a-z]+$": {
+      "type": "object",
+      "properties": {
+        "exceptions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "class_name": {
+                "type": "string"
+              },
+              "filename": {
+                "type": "string"
+              },
+              "line_num": {
+                "type": "string"
+              },
+              "function": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
