@@ -4,7 +4,8 @@
 var config = require("../config/config"),
     es = require("./boot").es,
     helpers = require("./helpers"),
-    fs = require("fs");
+    fs = require("fs"),
+    async = require("async");
 
 // Number of reports per request for web page results and RSS results
 var HTML_SIZE = 10;
@@ -161,8 +162,21 @@ module.exports = function(app) {
   app.get('/dashboard', function(req, res) {
     es.search({
       index: config.elasticsearch.index_dashboard,
-      type: 'scraper',
-      body: {}
+      type: 'scraper_info',
+      body: {
+        "size": 100,
+        "query": {
+          "match_all": {}
+        },
+        "sort": [
+          {
+            "severity": "desc",
+          },
+          {
+            "_id": "asc"
+          }
+        ]
+      }
     }).then(function(result) {
       res.render("dashboard.html", {});
     }, function(err) {
@@ -175,14 +189,32 @@ module.exports = function(app) {
   app.put('/dashboard/upload', function(req, res) {
     if (config.dashboard && config.dashboard.secret) {
       if (req.query.secret == config.dashboard.secret) {
-        console.log(req.body);
+        async.forEachOfLimit(req.body, 5, function(scraper_info, slug, done) {
+          es.index({
+            index: config.elasticsearch.index_dashboard,
+            type: 'scraper_info',
+            id: slug,
+            body: scraper_info
+          }, done);
+        }, function(err) {
+          if (err) {
+            console.log("Noooo!\n\n" + err);
+
+            res.status(500);
+            res.end();
+          } else {
+            res.status(200);
+            res.end();
+          }
+        });
       } else {
         res.status(403);
+        res.end();
       }
     } else {
       res.status(500);
+      res.end();
     }
-    res.end();
   });
 
 };

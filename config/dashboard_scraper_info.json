@@ -1,0 +1,31 @@
+{
+  "scraper_info": {
+    "properties": {
+      "severity": {
+        "type": "integer",
+        "null_value": 0
+      },
+      "exceptions": {
+        "type": "nested",
+        "properties": {
+          "class_name": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "filename": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "line_num": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "function": {
+            "type": "string",
+            "index": "not_analyzed"
+          }
+        }
+      }
+    }
+  }
+}

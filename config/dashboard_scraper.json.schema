@@ -6,6 +6,11 @@
     "^[a-z]+$": {
       "type": "object",
       "properties": {
+        "severity": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2
+        },
         "exceptions": {
           "type": "array",
           "items": {

@@ -1,5 +1,6 @@
 {
   "amtrak": {
+    "severity": 2,
     "exceptions": [
       {
         "class_name": "ValueError",

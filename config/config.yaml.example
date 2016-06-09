@@ -13,6 +13,7 @@ elasticsearch:
   port: 9200
   index_read: oversight_read
   index_write: oversight_write
+  index_dashboard: dashboard
 
 # http server exposed by the app
 http:
