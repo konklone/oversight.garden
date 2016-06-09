@@ -173,16 +173,16 @@ module.exports = function(app) {
             "severity": "desc",
           },
           {
-            "_id": "asc"
+            "_uid": "asc"
           }
         ]
       }
-    }).then(function(result) {
-      res.render("dashboard.html", {});
+    }).then(function(results) {
+      res.render("dashboard.html", {results: results});
     }, function(err) {
       console.log("Nooooo!\n\n" + err);
       res.status(500);
-      res.render("dashboard.html", {});
+      res.render("dashboard.html", {results: null});
     });
   });
 

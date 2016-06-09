@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Oversight dashboard</title>
+<link rel="stylesheet" type="text/css" href="/css/fonts.css" />
+<link rel="stylesheet" type="text/css" href="/css/dashboard.css" />
+<link rel="shortcut icon" href="/favicon.png" />
+<script src="/scripts/jquery.min.js"></script>
+</head>
+<body>
+<ul class="accordion">
+  <% for (var i = 0; i < results.hits.hits.length; i++) { %>
+    <% var hit = results.hits.hits[i]; %>
+    <li class="severity-<%= hit._source.severity %>">
+      <a href="javascript:void(0)" class="js-accordion-trigger">
+        <%= hit._id %>
+      </a>
+      <ul class="submenu">
+        <li>
+          <% var exceptions_count = hit._source.exceptions ? hit._source.exceptions.length : 0 %>
+          <%= exceptions_count %> exception<%= exceptions_count != 1 ? "s" : "" %>
+          <% if (exceptions_count > 0) { %>
+            <ul class="accordion">
+              <% for (var j = 0; j < hit._source.exceptions.length; j++) { %>
+                <% var exception = hit._source.exceptions[j]; %>
+                <li>
+                  <a href="javascript:void(0)" class="js-accordion-trigger">
+                    <%= exception.class_name %>
+                  </a>
+                  <ul class="submenu">
+                    <li>
+                      <%= exception.class_name %> thrown in <%= exception.function %> at <%= exception.filename %>:<%= exception.line_num %>
+                    </li>
+                  </ul>
+                </li>
+              <% } %>
+            </ul>
+          <% } %>
+        </li>
+      </ul>
+    </li>
+  <% } %>
+</ul>
+
+<script>
+  $(".js-accordion-trigger").bind("click", function(e) {
+    jQuery(this).parent().find(".submenu").slideToggle("fast");
+    jQuery(this).parent().toggleClass("is-expanded");
+    e.preventDefault();
+  });
+</script>
+</body>
+</html>
