@@ -4,6 +4,10 @@
 
 @import "settings";
 
+body {
+  @include outer-container;
+}
+
 /* From refills.bourbon.io/components */
 .accordion {
   $base-border-color: gainsboro !default;

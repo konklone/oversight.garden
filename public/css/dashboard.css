@@ -362,6 +362,15 @@ html {
 *, *::after, *::before {
   box-sizing: inherit; }
 
+body {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto; }
+  body::after {
+    clear: both;
+    content: "";
+    display: table; }
+
 /* From refills.bourbon.io/components */
 .accordion {
   background-color: #f6f6f6;
