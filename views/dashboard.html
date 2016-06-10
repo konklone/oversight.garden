@@ -26,11 +26,11 @@
                 <% var exception = hit._source.exceptions[j]; %>
                 <li>
                   <a href="javascript:void(0)" class="js-accordion-trigger">
-                    <%= exception.class_name %>
+                    <%= exception.class_name %> thrown in <%= exception.function %> at <%= exception.filename %>:<%= exception.line_num %>
                   </a>
                   <ul class="submenu">
                     <li>
-                      <%= exception.class_name %> thrown in <%= exception.function %> at <%= exception.filename %>:<%= exception.line_num %>
+                      <pre><%= exception.traceback %></pre>
                     </li>
                   </ul>
                 </li>

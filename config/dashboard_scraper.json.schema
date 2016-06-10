@@ -27,6 +27,9 @@
               },
               "function": {
                 "type": "string"
+              },
+              "traceback": {
+                "type": "string"
               }
             },
             "additionalProperties": false

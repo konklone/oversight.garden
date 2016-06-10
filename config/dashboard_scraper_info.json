@@ -23,6 +23,10 @@
           "function": {
             "type": "string",
             "index": "not_analyzed"
+          },
+          "traceback": {
+            "type": "string",
+            "index": "not_analyzed"
           }
         }
       }

@@ -6,7 +6,8 @@
         "class_name": "ValueError",
         "filename": "inspectors/amtrak.py",
         "line_num": "10",
-        "function": "run"
+        "function": "run",
+        "traceback": "Traceback goes here\nTraceback goes here\nTraceback goes here"
       }
     ]
   }
