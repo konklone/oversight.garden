@@ -9,6 +9,7 @@
         "function": "run",
         "traceback": "Traceback goes here\nTraceback goes here\nTraceback goes here"
       }
-    ]
+    ],
+    "report_count": 50
   }
 }

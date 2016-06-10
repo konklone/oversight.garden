@@ -19,6 +19,7 @@
       </a>
       <ul class="submenu">
         <li>
+          <%= hit._source.report_count %> reports<br/>
           <% var exceptions_count = hit._source.exceptions ? hit._source.exceptions.length : 0 %>
           <%= exceptions_count %> exception<%= exceptions_count != 1 ? "s" : "" %>
           <% if (exceptions_count > 0) { %>
