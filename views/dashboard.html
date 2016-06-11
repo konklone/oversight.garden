@@ -19,9 +19,13 @@
       </a>
       <ul class="submenu">
         <li>
-          <%= hit._source.report_count %> reports<br/>
-          <% var exceptions_count = hit._source.exceptions ? hit._source.exceptions.length : 0 %>
-          <%= exceptions_count %> exception<%= exceptions_count != 1 ? "s" : "" %>
+          <% var exceptions_count = hit._source.exceptions ? hit._source.exceptions.length : 0; %>
+          <%= exceptions_count %> exception<%= exceptions_count != 1 ? "s" : "" %><br/>
+          <% var duplicate_count = hit._source.duplicate_ids ? hit._source.duplicate_ids.length : 0; %>
+          <%= duplicate_count %> duplicate ID<%= duplicate_count != 1? "s" : "" %><br/>
+          <% var missing_date_count = hit._source.missing_dates ? hit._source.missing_dates.length : 0; %>
+          <%= missing_date_count  %> missing date<%= missing_date_count != 1 ? "s" : "" %><br/>
+          <%= hit._source.report_count %> report<%= hit._source.report_count != 1 ? "s" : "" %><br/>
           <% if (exceptions_count > 0) { %>
             <ul class="accordion">
               <% for (var j = 0; j < hit._source.exceptions.length; j++) { %>
