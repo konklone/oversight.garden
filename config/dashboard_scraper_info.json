@@ -67,6 +67,10 @@
             "index": "not_analyzed"
           }
         }
+      },
+      "timestamp": {
+        "type": "date",
+        "format": "epoch_millis"
       }
     }
   }
