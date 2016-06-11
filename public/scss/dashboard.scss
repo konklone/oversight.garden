@@ -89,13 +89,13 @@ body {
 }
 
 .accordion {
-  li.severity-2 {
+  li.severity-2 > a {
     background-color: #fbb
   }
-  li.severity-1 {
+  li.severity-1 > a {
     background-color: #ffc
   }
-  li.severity-0 {
+  li.severity-0 > a {
     background-color: #dfd
   }
 }

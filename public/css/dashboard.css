@@ -411,11 +411,11 @@ body {
     display: block;
     padding-bottom: 0; }
 
-.accordion li.severity-2 {
+.accordion li.severity-2 > a {
   background-color: #fbb; }
-.accordion li.severity-1 {
+.accordion li.severity-1 > a {
   background-color: #ffc; }
-.accordion li.severity-0 {
+.accordion li.severity-0 > a {
   background-color: #dfd; }
 
 /*# sourceMappingURL=dashboard.css.map */
