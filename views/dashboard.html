@@ -20,14 +20,7 @@
       <ul class="submenu">
         <li>
           <% var exceptions_count = hit._source.exceptions ? hit._source.exceptions.length : 0; %>
-          <%= exceptions_count %> exception<%= exceptions_count != 1 ? "s" : "" %><br/>
-          <% var duplicate_count = hit._source.duplicate_ids ? hit._source.duplicate_ids.length : 0; %>
-          <%= duplicate_count %> duplicate ID<%= duplicate_count != 1? "s" : "" %><br/>
-          <% var missing_date_count = hit._source.missing_dates ? hit._source.missing_dates.length : 0; %>
-          <%= missing_date_count  %> missing date<%= missing_date_count != 1 ? "s" : "" %><br/>
-          <% var http_error_count = hit._source.http_errors ? hit._source.http_errors.length : 0; %>
-          <%= http_error_count %> http error<%= http_error_count != 1 ? "s" : "" %><br/>
-          <%= hit._source.report_count %> report<%= hit._source.report_count != 1 ? "s" : "" %><br/>
+          <h5><%= exceptions_count %> exception<%= exceptions_count != 1 ? "s" : "" %></h5>
           <% if (exceptions_count > 0) { %>
             <ul class="accordion">
               <% for (var j = 0; j < hit._source.exceptions.length; j++) { %>
@@ -45,6 +38,34 @@
               <% } %>
             </ul>
           <% } %>
+          <% var duplicate_count = hit._source.duplicate_ids ? hit._source.duplicate_ids.length : 0; %>
+          <h5><%= duplicate_count %> duplicate ID<%= duplicate_count != 1? "s" : "" %></h5>
+          <% if (duplicate_count > 0) { %>
+            <% for (var j = 0; j < hit._source.duplicate_ids.length; j++) { %>
+              <%= hit._source.duplicate_ids[j] %><br/>
+            <% } %>
+          <% } %>
+          <% var missing_date_count = hit._source.missing_dates ? hit._source.missing_dates.length : 0; %>
+          <h5><%= missing_date_count  %> missing date<%= missing_date_count != 1 ? "s" : "" %></h5>
+          <% if (missing_date_count > 0) { %>
+            <% for (var j = 0; j < hit._source.missing_dates.length; j++) { %>
+              <% var missing_date = hit._source.missing_dates[j]; %>
+              <% if (missing_date.url) { %>
+                <span class="report-id"><%= missing_date.report_id %></span>, <a href="<%= missing_date.url %>"><%= missing_date.title %></a><br/>
+              <% } else { %>
+                <span class="report-id"><%= missing_date.report_id %></span>, <%= missing_date.title %><br/>
+              <% } %>
+            <% } %>
+          <% } %>
+          <% var http_error_count = hit._source.http_errors ? hit._source.http_errors.length : 0; %>
+          <h5><%= http_error_count %> http error<%= http_error_count != 1 ? "s" : "" %></h5>
+          <% if (http_error_count > 0) { %>
+            <% for (var j = 0; j < hit._source.http_errors.length; j++) { %>
+              <% var http_error = hit._source.http_errors[j]; %>
+              Error code <%= http_error.status_code %> from <a href="<%= http_error.url %>"><%= http_error.url %></a><br/>
+            <% } %>
+          <% } %>
+          <h5><%= hit._source.report_count %> report<%= hit._source.report_count != 1 ? "s" : "" %></h5>
         </li>
       </ul>
     </li>

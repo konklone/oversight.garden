@@ -8,6 +8,10 @@ body {
   @include outer-container;
 }
 
+.report-id {
+  font-family: monospace,monospace;
+}
+
 /* From refills.bourbon.io/components */
 .accordion {
   $base-border-color: gainsboro !default;
@@ -35,11 +39,11 @@ body {
     padding: 0;
   }
 
-  li {
+  > li, ul.submenu > li {
     border-bottom: $accordion-menu-border;
     list-style: none;
 
-    > a {
+    > a.js-accordion-trigger {
       color: $accordion-menu-color;
       display: block;
       padding: $accordion-menu-list-padding;

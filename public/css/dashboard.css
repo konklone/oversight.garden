@@ -371,6 +371,9 @@ body {
     content: "";
     display: table; }
 
+.report-id {
+  font-family: monospace,monospace; }
+
 /* From refills.bourbon.io/components */
 .accordion {
   background-color: #f6f6f6;
@@ -380,17 +383,17 @@ body {
   .accordion ul {
     margin: 0;
     padding: 0; }
-  .accordion li {
+  .accordion > li, .accordion ul.submenu > li {
     border-bottom: 1px solid gainsboro;
     list-style: none; }
-    .accordion li > a {
+    .accordion > li > a.js-accordion-trigger, .accordion ul.submenu > li > a.js-accordion-trigger {
       color: #333;
       display: block;
       padding: 0.75em 0em;
       text-decoration: none; }
-    .accordion li:last-child {
+    .accordion > li:last-child, .accordion ul.submenu > li:last-child {
       border: 0; }
-    .accordion li:focus, .accordion li:hover {
+    .accordion > li:focus, .accordion > li:hover, .accordion ul.submenu > li:focus, .accordion ul.submenu > li:hover {
       background-color: #fbfbfb; }
   .accordion ul.submenu {
     display: none; }
