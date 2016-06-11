@@ -10,7 +10,7 @@ namespace :elasticsearch do
   #   only - only one mapping, please
   #   force - delete the mapping first (okay...)
   #   index - which index to initialize
-  desc "Initialize ES mappings"
+  desc "Initialize ES report mapping"
   task init: :environment do
     single = ENV['only'] || nil
     force = ENV['force'] || false
@@ -50,8 +50,6 @@ namespace :elasticsearch do
       change_alias Environment.config['elasticsearch']['index_read'], index
       change_alias Environment.config['elasticsearch']['index_write'], index
     end
-
-    initialize_dashboard
   end
 
   def create_index(index)
@@ -75,7 +73,8 @@ namespace :elasticsearch do
     end
   end
 
-  def initialize_dashboard
+  desc "Initialize ES index and mapping for dashboard"
+  task init_dashboard: :environment do
     index = Environment.config['elasticsearch']['index_dashboard']
     create_index index
     mapping_raw = File.read("config/dashboard_scraper_info.json")
