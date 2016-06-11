@@ -25,6 +25,8 @@
           <%= duplicate_count %> duplicate ID<%= duplicate_count != 1? "s" : "" %><br/>
           <% var missing_date_count = hit._source.missing_dates ? hit._source.missing_dates.length : 0; %>
           <%= missing_date_count  %> missing date<%= missing_date_count != 1 ? "s" : "" %><br/>
+          <% var http_error_count = hit._source.http_errors ? hit._source.http_errors.length : 0; %>
+          <%= http_error_count %> http error<%= http_error_count != 1 ? "s" : "" %><br/>
           <%= hit._source.report_count %> report<%= hit._source.report_count != 1 ? "s" : "" %><br/>
           <% if (exceptions_count > 0) { %>
             <ul class="accordion">

@@ -62,6 +62,21 @@
             },
             "additionalProperties": false
           }
+        },
+        "http_errors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "status_code": {
+                "type": "integer"
+              },
+              "url": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
         }
       },
       "additionalProperties": false

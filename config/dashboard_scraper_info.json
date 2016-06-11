@@ -54,6 +54,19 @@
             "index": "not_analyzed"
           }
         }
+      },
+      "http_errors": {
+        "type": "nested",
+        "properties": {
+          "status_code": {
+            "type": "integer",
+            "index": "not_analyzed"
+          },
+          "url": {
+            "type": "string",
+            "index": "not_analyzed"
+          }
+        }
       }
     }
   }

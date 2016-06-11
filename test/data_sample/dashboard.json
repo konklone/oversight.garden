@@ -17,7 +17,13 @@
       {
         "report_id": "sample-report",
         "title": "Sample report",
-        "url": "https://www.amtrakoig.com/sample.html"
+        "url": "https://www.amtrakoig.gov/sample.html"
+      }
+    ],
+    "http_errors": [
+      {
+        "status_code": 500,
+        "url": "https://www.amtrakoig.gov/example.pdf"
       }
     ],
     "report_count": 50
