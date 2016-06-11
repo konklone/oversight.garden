@@ -190,7 +190,7 @@ module.exports = function(app) {
     if (config.dashboard && config.dashboard.secret) {
       if (req.query.secret == config.dashboard.secret) {
         async.forEachOfLimit(req.body, 5, function(scraper_info, slug, done) {
-          scraper_info.timestamp = Date.now();
+          scraper_info.timestamp = new Date().toISOString();
           es.index({
             index: config.elasticsearch.index_dashboard,
             type: 'scraper_info',

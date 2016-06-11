@@ -70,7 +70,7 @@
       },
       "timestamp": {
         "type": "date",
-        "format": "epoch_millis"
+        "format": "date_time"
       }
     }
   }
