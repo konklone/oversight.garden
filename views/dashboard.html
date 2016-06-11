@@ -33,7 +33,8 @@
           <% if (http_error_count) { %>
             <%= http_error_count %> HTTP error<%= http_error_count != 1 ? "s" : "" %>,
           <% } %>
-          <%= hit._source.report_count %> report<%= hit._source.report_count != 1 ? "s" : "" %>
+          <%= hit._source.report_count %> report<%= hit._source.report_count != 1 ? "s" : "" %>,
+          <%= helpers.format_time_ago(hit._source.timestamp) %>
         </span>
       </a>
       <ul class="submenu">

@@ -4,6 +4,7 @@
 
 var querystring = require("querystring");
 var numeral = require("numeral");
+var moment = require("moment");
 var es = require("./boot").es;
 var config = require("../config/config");
 
@@ -152,6 +153,10 @@ module.exports = {
       }
     }
     return value;
+  },
+
+  format_time_ago: function(timestamp) {
+    return moment(timestamp).fromNow();
   },
 
   inspector_info: function(slug) {
