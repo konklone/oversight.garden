@@ -38,6 +38,30 @@
         "report_count": {
           "type": "integer",
           "minimum": 0
+        },
+        "duplicate_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "missing_dates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "report_id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
         }
       },
       "additionalProperties": false

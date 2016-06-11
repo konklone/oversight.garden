@@ -10,6 +10,16 @@
         "traceback": "Traceback goes here\nTraceback goes here\nTraceback goes here"
       }
     ],
+    "duplicate_ids": [
+      "semiannual-report-to-congress"
+    ],
+    "missing_dates": [
+      {
+        "report_id": "sample-report",
+        "title": "Sample report",
+        "url": "https://www.amtrakoig.com/sample.html"
+      }
+    ],
     "report_count": 50
   }
 }
