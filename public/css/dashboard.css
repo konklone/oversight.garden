@@ -405,4 +405,11 @@ body {
     display: block;
     padding-bottom: 0; }
 
+.accordion li.severity-2 {
+  background-color: #fbb; }
+.accordion li.severity-1 {
+  background-color: #ffc; }
+.accordion li.severity-0 {
+  background-color: #dfd; }
+
 /*# sourceMappingURL=dashboard.css.map */

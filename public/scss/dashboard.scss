@@ -79,3 +79,15 @@ body {
     padding-bottom: 0;
   }
 }
+
+.accordion {
+  li.severity-2 {
+    background-color: #fbb
+  }
+  li.severity-1 {
+    background-color: #ffc
+  }
+  li.severity-0 {
+    background-color: #dfd
+  }
+}
