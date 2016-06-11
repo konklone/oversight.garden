@@ -12,6 +12,10 @@ body {
   font-family: monospace,monospace;
 }
 
+.short-summary {
+  float: right;
+}
+
 /* From refills.bourbon.io/components */
 .accordion {
   $base-border-color: gainsboro !default;

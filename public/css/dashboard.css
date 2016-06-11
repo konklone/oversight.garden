@@ -374,6 +374,9 @@ body {
 .report-id {
   font-family: monospace,monospace; }
 
+.short-summary {
+  float: right; }
+
 /* From refills.bourbon.io/components */
 .accordion {
   background-color: #f6f6f6;

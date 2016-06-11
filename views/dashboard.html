@@ -13,13 +13,31 @@
 <ul class="accordion">
   <% for (var i = 0; i < results.hits.hits.length; i++) { %>
     <% var hit = results.hits.hits[i]; %>
+          <% var exceptions_count = hit._source.exceptions ? hit._source.exceptions.length : 0; %>
+          <% var duplicate_count = hit._source.duplicate_ids ? hit._source.duplicate_ids.length : 0; %>
+          <% var missing_date_count = hit._source.missing_dates ? hit._source.missing_dates.length : 0; %>
+          <% var http_error_count = hit._source.http_errors ? hit._source.http_errors.length : 0; %>
     <li class="severity-<%= hit._source.severity %>">
       <a href="javascript:void(0)" class="js-accordion-trigger">
         <%= hit._id %>
+        <span class="short-summary">
+          <% if (exceptions_count) { %>
+            <%= exceptions_count %> exception<%= exceptions_count != 1 ? "s" : "" %>,
+          <% } %>
+          <% if (duplicate_count) { %>
+            <%= duplicate_count %> duplicate ID<%= duplicate_count != 1? "s" : "" %>,
+          <% } %>
+          <% if (missing_date_count) { %>
+            <%= missing_date_count  %> missing date<%= missing_date_count != 1 ? "s" : "" %>,
+          <% } %>
+          <% if (http_error_count) { %>
+            <%= http_error_count %> HTTP error<%= http_error_count != 1 ? "s" : "" %>,
+          <% } %>
+          <%= hit._source.report_count %> report<%= hit._source.report_count != 1 ? "s" : "" %>
+        </span>
       </a>
       <ul class="submenu">
         <li>
-          <% var exceptions_count = hit._source.exceptions ? hit._source.exceptions.length : 0; %>
           <h5><%= exceptions_count %> exception<%= exceptions_count != 1 ? "s" : "" %></h5>
           <% if (exceptions_count > 0) { %>
             <ul class="accordion">
@@ -38,14 +56,12 @@
               <% } %>
             </ul>
           <% } %>
-          <% var duplicate_count = hit._source.duplicate_ids ? hit._source.duplicate_ids.length : 0; %>
           <h5><%= duplicate_count %> duplicate ID<%= duplicate_count != 1? "s" : "" %></h5>
           <% if (duplicate_count > 0) { %>
             <% for (var j = 0; j < hit._source.duplicate_ids.length; j++) { %>
               <%= hit._source.duplicate_ids[j] %><br/>
             <% } %>
           <% } %>
-          <% var missing_date_count = hit._source.missing_dates ? hit._source.missing_dates.length : 0; %>
           <h5><%= missing_date_count  %> missing date<%= missing_date_count != 1 ? "s" : "" %></h5>
           <% if (missing_date_count > 0) { %>
             <% for (var j = 0; j < hit._source.missing_dates.length; j++) { %>
@@ -57,8 +73,7 @@
               <% } %>
             <% } %>
           <% } %>
-          <% var http_error_count = hit._source.http_errors ? hit._source.http_errors.length : 0; %>
-          <h5><%= http_error_count %> http error<%= http_error_count != 1 ? "s" : "" %></h5>
+          <h5><%= http_error_count %> HTTP error<%= http_error_count != 1 ? "s" : "" %></h5>
           <% if (http_error_count > 0) { %>
             <% for (var j = 0; j < hit._source.http_errors.length; j++) { %>
               <% var http_error = hit._source.http_errors[j]; %>
