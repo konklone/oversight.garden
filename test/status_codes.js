@@ -1,160 +1,160 @@
 "use strict";
 
-var assert = require('assert');
+var test = require('tape');
 var request = require('request');
 
 var server = require('./server');
 
-describe('homepage', function() {
-  it('is OK', function(done) {
+test('homepage', function(t) {
+  t.test('is OK', function(t) {
     var baseURL = server.getBaseURL();
     request(baseURL, function(error, response, body) {
-      assert.ifError(error);
-      assert.equal(200, response.statusCode);
-      done();
+      t.ifError(error);
+      t.equal(200, response.statusCode);
+      t.end();
     });
   });
 });
 
-describe('reports page, all', function() {
-  it('is OK', function(done) {
+test('reports page, all', function(t) {
+  t.test('is OK', function(t) {
     var baseURL = server.getBaseURL();
     request(baseURL + '/reports', function(error, response, body) {
-      assert.ifError(error);
-      assert.equal(200, response.statusCode);
-      done();
+      t.ifError(error);
+      t.equal(200, response.statusCode);
+      t.end();
     });
   });
 });
 
-describe('reports page, search results', function() {
-  it('is OK', function(done) {
+test('reports page, search results', function(t) {
+  t.test('is OK', function(t) {
     var baseURL = server.getBaseURL();
     request(baseURL + '/reports?query=audit', function(error, response, body) {
-      assert.ifError(error);
-      assert.equal(200, response.statusCode);
-      done();
+      t.ifError(error);
+      t.equal(200, response.statusCode);
+      t.end();
     });
   });
 });
 
-describe('reports page, one inspector filter', function() {
-  it('is OK', function(done) {
+test('reports page, one inspector filter', function(t) {
+  t.test('is OK', function(t) {
     var baseURL = server.getBaseURL();
     request(baseURL + '/reports?inspector=nasa', function(error, response, body) {
-      assert.ifError(error);
-      assert.equal(200, response.statusCode);
-      done();
+      t.ifError(error);
+      t.equal(200, response.statusCode);
+      t.end();
     });
   });
 });
 
-describe('reports page, two inspector filter', function() {
-  it('is OK', function(done) {
+test('reports page, two inspector filter', function(t) {
+  t.test('is OK', function(t) {
     var baseURL = server.getBaseURL();
     request(baseURL + '/reports?inspector=nasa&inspector=nsa', function(error, response, body) {
-      assert.ifError(error);
-      assert.equal(200, response.statusCode);
-      done();
+      t.ifError(error);
+      t.equal(200, response.statusCode);
+      t.end();
     });
   });
 });
 
-describe('featured reports page', function() {
-  it('is OK', function(done) {
+test('featured reports page', function(t) {
+  t.test('is OK', function(t) {
     var baseURL = server.getBaseURL();
     request(baseURL + '/reports/featured', function(error, response, body) {
-      assert.ifError(error);
-      assert.equal(200, response.statusCode);
-      done();
+      t.ifError(error);
+      t.equal(200, response.statusCode);
+      t.end();
     });
   });
 });
 
-describe('unreleased reports page', function() {
-  it('is OK', function(done) {
+test('unreleased reports page', function(t) {
+  t.test('is OK', function(t) {
     var baseURL = server.getBaseURL();
     request(baseURL + '/reports/unreleased', function(error, response, body) {
-      assert.ifError(error);
-      assert.equal(200, response.statusCode);
-      done();
+      t.ifError(error);
+      t.equal(200, response.statusCode);
+      t.end();
     });
   });
 });
 
-describe('reports ATOM feed, all', function() {
-  it('is OK', function(done) {
+test('reports ATOM feed, all', function(t) {
+  t.test('is OK', function(t) {
     var baseURL = server.getBaseURL();
     request(baseURL + '/reports.xml', function(error, response, body) {
-      assert.ifError(error);
-      assert.equal(200, response.statusCode);
-      done();
+      t.ifError(error);
+      t.equal(200, response.statusCode);
+      t.end();
     });
   });
 });
 
-describe('reports ATOM feed, search results', function() {
-  it('is OK', function(done) {
+test('reports ATOM feed, search results', function(t) {
+  t.test('is OK', function(t) {
     var baseURL = server.getBaseURL();
     request(baseURL + '/reports.xml?query=audit', function(error, response, body) {
-      assert.ifError(error);
-      assert.equal(200, response.statusCode);
-      done();
+      t.ifError(error);
+      t.equal(200, response.statusCode);
+      t.end();
     });
   });
 });
 
-describe('reports ATOM feed, one inspector filter', function() {
-  it('is OK', function(done) {
+test('reports ATOM feed, one inspector filter', function(t) {
+  t.test('is OK', function(t) {
     var baseURL = server.getBaseURL();
     request(baseURL + '/reports.xml?inspector=nasa', function(error, response, body) {
-      assert.ifError(error);
-      assert.equal(200, response.statusCode);
-      done();
+      t.ifError(error);
+      t.equal(200, response.statusCode);
+      t.end();
     });
   });
 });
 
-describe('reports ATOM feed, two inspector filter', function() {
-  it('is OK', function(done) {
+test('reports ATOM feed, two inspector filter', function(t) {
+  t.test('is OK', function(t) {
     var baseURL = server.getBaseURL();
     request(baseURL + '/reports.xml?inspector=nasa&inspector=nsa', function(error, response, body) {
-      assert.ifError(error);
-      assert.equal(200, response.statusCode);
-      done();
+      t.ifError(error);
+      t.equal(200, response.statusCode);
+      t.end();
     });
   });
 });
 
-describe('inspectors page', function() {
-  it('is OK', function(done) {
+test('inspectors page', function(t) {
+  t.test('is OK', function(t) {
     var baseURL = server.getBaseURL();
     request(baseURL + '/inspectors', function(error, response, body) {
-      assert.ifError(error);
-      assert.equal(200, response.statusCode);
-      done();
+      t.ifError(error);
+      t.equal(200, response.statusCode);
+      t.end();
     });
   });
 });
 
-describe('inspector page', function() {
-  it('is OK', function(done) {
+test('inspector page', function(t) {
+  t.test('is OK', function(t) {
     var baseURL = server.getBaseURL();
     request(baseURL + '/inspectors/denali', function(error, response, body) {
-      assert.ifError(error);
-      assert.equal(200, response.statusCode);
-      done();
+      t.ifError(error);
+      t.equal(200, response.statusCode);
+      t.end();
     });
   });
 });
 
-describe('report page', function() {
-  it('is OK', function(done) {
+test('report page', function(t) {
+  t.test('is OK', function(t) {
     var baseURL = server.getBaseURL();
     request(baseURL + '/reports/denali/DCOIG-15-013-M', function(error, response, body) {
-      assert.ifError(error);
-      assert.equal(200, response.statusCode);
-      done();
+      t.ifError(error);
+      t.equal(200, response.statusCode);
+      t.end();
     });
   });
 });
