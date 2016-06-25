@@ -1,19 +1,19 @@
 "use strict";
 
-var assert = require('assert');
+var test = require('tape');
 
 var client = require('./client').client;
 var server = require('./server');
 
-describe('homepage', function() {
-  it('has a title', function(done) {
+test('homepage', function(t) {
+  t.test('has a title', function(t) {
     var baseURL = server.getBaseURL();
-    assert.notEqual(baseURL, undefined);
+    t.notEqual(baseURL, undefined);
     client
       .url(baseURL)
       // .getTitle(function(err, title) {
-      //   assert.equal(title, 'Oversight | Collecting the oversight community\'s work in one place.');
+      //   t.equal(title, 'Oversight | Collecting the oversight community\'s work in one place.');
       // })
-      .call(done);
+      .call(t.end);
   });
 });

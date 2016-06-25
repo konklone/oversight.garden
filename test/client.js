@@ -1,5 +1,6 @@
 "use strict";
 
+var test = require('tape');
 var webdriverio = require('webdriverio');
 var options = {
   desiredCapabilities: {
@@ -9,20 +10,16 @@ var options = {
 };
 var client = webdriverio.remote(options);
 
-before(function(done) {
+test('start client', function(t) {
   client.init().then(function(result) {
-    done();
+    t.end();
   }, function(error) {
-    done(error);
+    t.end(error);
   });
 });
 
-after(function(done) {
-  client.end().then(function(result) {
-    done();
-  }, function(error) {
-    done(error);
-  });
+test.onFinish(function() {
+  client.end();
 });
 
 exports.client = client;
