@@ -18,6 +18,10 @@
         "report_id": "sample-report",
         "title": "Sample report",
         "url": "https://www.amtrakoig.gov/sample.html"
+      },
+      {
+        "report_id": "sample-report-2",
+        "title": "Sample report 2"
       }
     ],
     "http_errors": [
