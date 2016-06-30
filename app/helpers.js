@@ -69,7 +69,7 @@ function updateReportCounts() {
   });
 }
 
-setInterval(updateReportCounts, 1000 * 60 * 60);
+setInterval(updateReportCounts, 1000 * 60 * 60).unref();
 updateReportCounts();
 
 
