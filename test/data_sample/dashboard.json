@@ -1,0 +1,35 @@
+{
+  "amtrak": {
+    "severity": 2,
+    "exceptions": [
+      {
+        "class_name": "ValueError",
+        "filename": "inspectors/amtrak.py",
+        "line_num": "10",
+        "function": "run",
+        "traceback": "Traceback goes here\nTraceback goes here\nTraceback goes here"
+      }
+    ],
+    "duplicate_ids": [
+      "semiannual-report-to-congress"
+    ],
+    "missing_dates": [
+      {
+        "report_id": "sample-report",
+        "title": "Sample report",
+        "url": "https://www.amtrakoig.gov/sample.html"
+      },
+      {
+        "report_id": "sample-report-2",
+        "title": "Sample report 2"
+      }
+    ],
+    "http_errors": [
+      {
+        "status_code": 500,
+        "url": "https://www.amtrakoig.gov/example.pdf"
+      }
+    ],
+    "report_count": 50
+  }
+}

@@ -6,9 +6,13 @@ elasticsearch:
   port: 9200
   index_read: oversight_test_read
   index_write: oversight_test_write
+  index_dashboard: dashboard_test
 
 http:
   port: 3000
 
 sitemap:
   directory: test/sitemap
+
+dashboard:
+  secret: "test"

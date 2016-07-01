@@ -10,7 +10,7 @@ namespace :elasticsearch do
   #   only - only one mapping, please
   #   force - delete the mapping first (okay...)
   #   index - which index to initialize
-  desc "Initialize ES mappings"
+  desc "Initialize ES report mapping"
   task init: :environment do
     single = ENV['only'] || nil
     force = ENV['force'] || false
@@ -24,23 +24,7 @@ namespace :elasticsearch do
 
     index_settings = JSON.parse(File.read('config/index.json'))
 
-    if force
-      if Environment.client.indices.exists index: index
-        Environment.client.indices.delete index: index
-        puts "Deleted index"
-      end
-      Environment.client.indices.create index: index
-      Environment.client.cluster.health wait_for_status: 'yellow'
-      puts "Created index"
-    else
-      if Environment.client.indices.exists index: index
-        puts "Index already exists"
-      else
-        Environment.client.indices.create index: index
-        Environment.client.cluster.health wait_for_status: 'yellow'
-        puts "Created index"
-      end
-    end
+    create_index index
 
     Environment.client.indices.close index: index
     puts "Closed index"
@@ -66,6 +50,37 @@ namespace :elasticsearch do
       change_alias Environment.config['elasticsearch']['index_read'], index
       change_alias Environment.config['elasticsearch']['index_write'], index
     end
+  end
+
+  def create_index(index)
+    force = ENV['force'] || false
+    if force
+      if Environment.client.indices.exists index: index
+        Environment.client.indices.delete index: index
+        puts "Deleted index '#{index}'"
+      end
+      Environment.client.indices.create index: index
+      Environment.client.cluster.health wait_for_status: 'yellow'
+      puts "Created index '#{index}'"
+    else
+      if Environment.client.indices.exists index: index
+        puts "Index '#{index}' already exists"
+      else
+        Environment.client.indices.create index: index
+        Environment.client.cluster.health wait_for_status: 'yellow'
+        puts "Created index '#{index}'"
+      end
+    end
+  end
+
+  desc "Initialize ES index and mapping for dashboard"
+  task init_dashboard: :environment do
+    index = Environment.config['elasticsearch']['index_dashboard']
+    create_index index
+    mapping_raw = File.read("config/dashboard_scraper_info.json")
+    mapping_config = JSON.parse(mapping_raw)
+    Environment.client.indices.put_mapping index: index, type: "scraper_info", body: mapping_config
+    puts "Created scraper_info"
   end
 
   desc "List all indices and their aliases"

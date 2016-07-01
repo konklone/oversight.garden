@@ -689,6 +689,11 @@
       "from": "https://registry.npmjs.org/minimist/-/minimist-1.2.0.tgz",
       "resolved": "https://registry.npmjs.org/minimist/-/minimist-1.2.0.tgz"
     },
+    "moment": {
+      "version": "2.13.0",
+      "from": "moment@>=2.13.0 <3.0.0",
+      "resolved": "https://registry.npmjs.org/moment/-/moment-2.13.0.tgz"
+    },
     "ms": {
       "version": "0.7.1",
       "from": "https://registry.npmjs.org/ms/-/ms-0.7.1.tgz",

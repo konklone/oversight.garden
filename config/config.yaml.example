@@ -13,6 +13,7 @@ elasticsearch:
   port: 9200
   index_read: oversight_read
   index_write: oversight_write
+  index_dashboard: dashboard
 
 # http server exposed by the app
 http:
@@ -27,3 +28,7 @@ sitemap:
   yahoo_app_id:
   ping_ask: false
   ping_yandex: false
+
+# upload endpoint to collect errors from scrapers
+dashboard:
+  secret: ""

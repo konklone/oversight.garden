@@ -1,0 +1,77 @@
+{
+  "scraper_info": {
+    "properties": {
+      "severity": {
+        "type": "integer",
+        "null_value": 0
+      },
+      "exceptions": {
+        "type": "nested",
+        "properties": {
+          "class_name": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "filename": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "line_num": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "function": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "traceback": {
+            "type": "string",
+            "index": "not_analyzed"
+          }
+        }
+      },
+      "report_count": {
+        "type": "integer",
+        "null_value": 0
+      },
+      "duplicate_ids": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "missing_dates": {
+        "type": "nested",
+        "properties": {
+          "report_id": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "title": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "url": {
+            "type": "string",
+            "index": "not_analyzed"
+          }
+        }
+      },
+      "http_errors": {
+        "type": "nested",
+        "properties": {
+          "status_code": {
+            "type": "integer",
+            "index": "not_analyzed"
+          },
+          "url": {
+            "type": "string",
+            "index": "not_analyzed"
+          }
+        }
+      },
+      "timestamp": {
+        "type": "date",
+        "format": "date_time"
+      }
+    }
+  }
+}

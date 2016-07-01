@@ -1,0 +1,86 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Oversight.garden Dashboard Scraper Logging",
+  "type": "object",
+  "patternProperties": {
+    "^[a-z]+$": {
+      "type": "object",
+      "properties": {
+        "severity": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2
+        },
+        "exceptions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "class_name": {
+                "type": "string"
+              },
+              "filename": {
+                "type": "string"
+              },
+              "line_num": {
+                "type": "string"
+              },
+              "function": {
+                "type": "string"
+              },
+              "traceback": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "report_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "duplicate_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "missing_dates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "report_id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "http_errors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "status_code": {
+                "type": "integer"
+              },
+              "url": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
