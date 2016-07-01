@@ -15,7 +15,9 @@ the scrapers.
 
 1. Run `rake elasticsearch:init_dashboard` to create the index. Later, if you
 need to re-create the index to make schema changes, you can do so with
-`rake elasticsearch:init_dashboard force=true`.
+`rake elasticsearch:init_dashboard force=true`. If it isn't set already, you
+will need to specify an index name for this in `config/config.yaml`. See the
+example configuration file for details.
 
 1. In the `inspectors-general` directory, add a `dashboard` section to
 `admin.yml`, following the structure shown in `admin.yml.example`. In the
