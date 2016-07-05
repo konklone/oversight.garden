@@ -12,7 +12,6 @@ namespace :elasticsearch do
   #   index - which index to initialize
   desc "Initialize ES report mapping"
   task init: :environment do
-    single = ENV['only'] || nil
     force = ENV['force'] || false
     also_alias = ENV['alias'] || false
     index = ENV['index']
@@ -20,30 +19,10 @@ namespace :elasticsearch do
       raise "Missing required argument 'index'"
     end
 
-    mappings = single ? [single] : Dir.glob('config/mappings/*.json').map {|dir| File.basename dir, File.extname(dir)}
-
     index_settings = JSON.parse(File.read('config/index.json'))
+    mapping_config = JSON.parse(File.read("config/mappings/reports.json"))
 
-    create_index index
-
-    Environment.client.indices.close index: index
-    puts "Closed index"
-
-    begin
-      Environment.client.indices.put_settings index: index, body: index_settings
-      puts "Configured index"
-    ensure
-      Environment.client.indices.open index: index
-      puts "Opened index"
-    end
-
-    mappings.each do |mapping|
-      mapping_raw = File.read("config/mappings/#{mapping}.json")
-      mapping_config = JSON.parse(mapping_raw)
-
-      Environment.client.indices.put_mapping index: index, type: mapping, body: mapping_config
-      puts "Created #{mapping}"
-    end
+    create_index index, { reports: mapping_config }, index_settings
 
     # Optionally, alias the new index to both read and write.
     if also_alias
@@ -52,21 +31,29 @@ namespace :elasticsearch do
     end
   end
 
-  def create_index(index)
+  def create_index(index, mappings = {}, settings = {})
     force = ENV['force'] || false
     if force
       if Environment.client.indices.exists index: index
         Environment.client.indices.delete index: index
         puts "Deleted index '#{index}'"
       end
-      Environment.client.indices.create index: index
+      Environment.client.indices.create index: index,
+        body: {
+          mappings: mappings,
+          settings: settings
+      }
       Environment.client.cluster.health wait_for_status: 'yellow'
       puts "Created index '#{index}'"
     else
       if Environment.client.indices.exists index: index
         puts "Index '#{index}' already exists"
       else
-        Environment.client.indices.create index: index
+        Environment.client.indices.create index: index,
+          body: {
+            mappings: mappings,
+            settings: settings
+        }
         Environment.client.cluster.health wait_for_status: 'yellow'
         puts "Created index '#{index}'"
       end
@@ -76,10 +63,8 @@ namespace :elasticsearch do
   desc "Initialize ES index and mapping for dashboard"
   task init_dashboard: :environment do
     index = Environment.config['elasticsearch']['index_dashboard']
-    create_index index
-    mapping_raw = File.read("config/dashboard_scraper_info.json")
-    mapping_config = JSON.parse(mapping_raw)
-    Environment.client.indices.put_mapping index: index, type: "scraper_info", body: mapping_config
+    mapping_config = JSON.parse(File.read("config/dashboard_scraper_info.json"))
+    create_index index, {scraper_info: mapping_config}
     puts "Created scraper_info"
   end
 
