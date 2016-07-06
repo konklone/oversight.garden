@@ -56,11 +56,12 @@ namespace :aws do
       }]
     })
 
+    puts "Waiting for instance to start"
+    ec2.client.wait_until(:instance_status_ok, instance_id: instance[0].id)
+
     volume.attach_to_instance({instance_id: instance[0].id, device: device_name})
     puts "Attached volume to instance"
 
-    puts "Waiting for instance to start"
-    ec2.client.wait_until(:instance_status_ok, instance_id: instance[0].id)
     puts "Instance #{instance[0].id} is running at #{instance.public_ip_address}"
   end
 end
