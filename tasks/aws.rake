@@ -65,6 +65,6 @@ namespace :aws do
     volume.attach_to_instance({instance_id: instance[0].id, device: device_name})
     puts "Attached volume to instance"
 
-    puts "Instance #{instance[0].id} is running at #{instance.public_ip_address}"
+    puts "Instance #{instance[0].id} is running at #{instance[0].public_ip_address}"
   end
 end
