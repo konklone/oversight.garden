@@ -15,7 +15,10 @@ namespace :aws do
 
   desc "Create scraper instance"
   task create_scraper_instance: :environment do
-    if ec2.instances({filters: [{name: "tag:role", values: ["scraper"]}]}).count > 0 then
+    if ec2.instances({filters: [
+      {name: "tag:role", values: ["scraper"]},
+      {name: "instance-state-name", values: ["pending", "running", "shutting-down", "stopping", "stopped"]}
+    ]}).count > 0 then
       raise "There is already a scraper instance, bailing out"
     end
 
