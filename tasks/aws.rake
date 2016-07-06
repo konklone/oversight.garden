@@ -52,6 +52,11 @@ namespace :aws do
     })
     puts "Created instance #{instance[0].id}"
 
+    # Using the instance ID immediately after it is created can cause API
+    # errors, and wait_until(:instance_exists... wouldn't work due to
+    # https://github.com/aws/aws-sdk-ruby/issues/859
+    sleep 15
+
     instance.batch_create_tags({
       tags: [{
         key: 'role',
