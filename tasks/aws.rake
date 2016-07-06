@@ -12,7 +12,7 @@ namespace :aws do
   # Ubuntu Server 14.04 LTS (HVM), instance store, 20160627
   ami = 'ami-fc42fbeb'
 
-  s3 = Aws::S3::Resource.new(region: region)
+  ec2 = Aws::EC2::Resource.new(region: region)
 
   desc "Create scraper instance"
   task create_scraper_instance: :environment do
