@@ -47,7 +47,7 @@ namespace :aws do
         arn: iam_instance_profile
       }
     })
-    puts "Created instance #{instance.id}"
+    puts "Created instance #{instance[0].id}"
 
     instance.create_tags({
       tags: [{
@@ -56,11 +56,11 @@ namespace :aws do
       }]
     })
 
-    volume.attach_to_instance({instance_id: instance.id, device: device_name})
+    volume.attach_to_instance({instance_id: instance[0].id, device: device_name})
     puts "Attached volume to instance"
 
     puts "Waiting for instance to start"
-    ec2.client.wait_until(:instance_status_ok, instance_id: instance.id)
-    puts "Instance #{instance.id} is running at #{instance.public_ip_address}"
+    ec2.client.wait_until(:instance_status_ok, instance_id: instance[0].id)
+    puts "Instance #{instance[0].id} is running at #{instance.public_ip_address}"
   end
 end
