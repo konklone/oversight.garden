@@ -4,7 +4,6 @@ namespace :aws do
   region = 'us-east-1'
   availability_zone = 'us-east-1b'
   key_name = 'erickey'
-  security_group_ids = ['sg-21433658']
   instance_type = 't2.small'
   iam_instance_profile = 'arn:aws:iam::786276019377:instance-profile/oversight'
   device_name = '/dev/xvdf'
@@ -35,7 +34,6 @@ namespace :aws do
       min_count: 1,
       max_count: 1,
       key_name: key_name,
-      security_group_ids: security_group_ids,
       user_data: Base64.encode64(script),
       instance_type: instance_type,
       placement: {
