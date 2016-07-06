@@ -11,25 +11,25 @@ apt-get update
 apt-get install -y awscli git libxml2-dev libxslt1-dev nodejs npm python-dev python3-pip rubygems xpdf zlib1g-dev
 
 cd /home/ubuntu
-sudo -u ubuntu 'git clone https://github.com/unitedstates/inspectors-general.git'
+sudo -u ubuntu git clone https://github.com/unitedstates/inspectors-general.git
 # uncomment in the event of catastrophic github failure
-# sudo -u ubuntu 'git clone https://davidsherenowitsa.party/git/inspectors-general.git'
+# sudo -u ubuntu git clone https://davidsherenowitsa.party/git/inspectors-general.git
 cd inspectors-general/
 pip3 install -r requirements.txt
 
 cd /home/ubuntu
-sudo -u ubuntu 'git clone https://github.com/konklone/oversight.garden.git'
-# sudo -u ubuntu 'git clone https://davidsherenowitsa.party/git/oversight.garden.git'
+sudo -u ubuntu git clone https://github.com/konklone/oversight.garden.git
+# sudo -u ubuntu git clone https://davidsherenowitsa.party/git/oversight.garden.git
 cd oversight.garden
 gem install bundler
 bundle install
-sudo -u ubuntu 'npm install'
+sudo -u ubuntu npm install
 
 mount -a
 ln -s /mnt/data /home/ubuntu/inspectors-general/data
 ln -s /mnt/data /home/ubuntu/oversight.garden/data
 
-sudo -u ubuntu 'cp config/config.yaml.example config/config.yaml'
+sudo -u ubuntu cp config/config.yaml.example config/config.yaml
 # TODO: more config
 sed -i 's/127.0.0.1/search-oversight-iu2rwt666hmlxrbn2slw6zlgou.us-east-1.es.amazonaws.com/' config/config.yaml
 sed -i 's/9200/80/' config/config.yaml
