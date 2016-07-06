@@ -49,7 +49,7 @@ namespace :aws do
     })
     puts "Created instance #{instance[0].id}"
 
-    instance.create_tags({
+    instance.batch_create_tags({
       tags: [{
         key: 'role',
         value: 'scraper'
