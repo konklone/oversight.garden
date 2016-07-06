@@ -9,3 +9,5 @@ gem 'listen', '~> 2.8'
 gem 'sass'
 gem 'bourbon'
 gem 'neat'
+
+gem 'aws-sdk', '~> 2'
