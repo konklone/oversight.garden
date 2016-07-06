@@ -60,7 +60,7 @@ namespace :aws do
     })
 
     puts "Waiting for instance to start"
-    ec2.client.wait_until(:instance_status_ok, instance_id: instance[0].id)
+    ec2.client.wait_until(:instance_status_ok, {instance_ids: [instance[0].id]})
 
     volume.attach_to_instance({instance_id: instance[0].id, device: device_name})
     puts "Attached volume to instance"
