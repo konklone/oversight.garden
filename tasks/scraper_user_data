@@ -5,7 +5,7 @@ echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDeU5tdzfd94DgooUP8JhvDxb0+Cf97cu/zZl
 
 mkdir /mnt/data
 chown ubuntu:ubuntu /mnt/data
-echo "/dev/xvdf\t/mnt/data\text4\tdefaults,nofail,nobootwait\t0\t2" | tee -a /etc/fstab
+echo "/dev/xvdf	/mnt/data	ext4	defaults,nofail,nobootwait	0	2" | tee -a /etc/fstab
 
 apt-get update
 apt-get install -y awscli git libxml2-dev libxslt1-dev nodejs npm python-dev python3-pip rubygems xpdf zlib1g-dev
