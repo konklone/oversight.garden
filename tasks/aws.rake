@@ -34,7 +34,7 @@ namespace :aws do
       image_id: ami,
       min_count: 1,
       max_count: 1,
-      key_name: erickey,
+      key_name: key_name,
       security_group_ids: security_group_ids,
       user_data: Base64.encode64(script),
       instance_type: instance_type,
