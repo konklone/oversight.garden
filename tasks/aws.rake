@@ -8,8 +8,8 @@ namespace :aws do
   iam_instance_profile = 'arn:aws:iam::786276019377:instance-profile/oversight'
   device_name = '/dev/xvdf'
 
-  # Ubuntu Server 14.04 LTS (HVM), instance store, 20160627
-  ami = 'ami-fc42fbeb'
+  # Ubuntu Server 16.04 LTS (HVM), EBS-backed, 20160627
+  ami = 'ami-ddf13fb0'
 
   ec2 = Aws::EC2::Resource.new(region: region)
 
