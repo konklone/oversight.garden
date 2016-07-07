@@ -2,7 +2,9 @@
 ## Gets loaded once, upon app boot or during a rake task.
 
 require 'bundler/setup'
+require 'aws-sdk'
 require 'elasticsearch/persistence/model'
+require 'faraday_middleware/aws_signers_v4'
 require 'yaml'
 
 class Environment
@@ -34,7 +36,14 @@ class Environment
 
     log = ENV['log'] || false
     endpoint = "http://#{Environment.config['elasticsearch']['host']}:#{Environment.config['elasticsearch']['port']}"
-    @elasticsearch_client = Elasticsearch::Client.new url: endpoint, log: log
+    @elasticsearch_client = Elasticsearch::Client.new url: endpoint, log: log do |f|
+      if Environment.config['aws'] then
+        f.request :aws_signers_v4,
+                  credentials: Aws::InstanceProfileCredentials.new,
+                  service_name: 'es',
+                  region: Environment.config['aws']['region']
+      end
+    end
   end
 
   def self.client

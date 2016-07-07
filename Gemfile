@@ -11,3 +11,4 @@ gem 'bourbon'
 gem 'neat'
 
 gem 'aws-sdk', '~> 2'
+gem 'faraday_middleware-aws-signers-v4'
