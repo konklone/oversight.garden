@@ -26,8 +26,8 @@ bundle install
 sudo -u ubuntu npm install
 
 mount -a
-ln -s /mnt/data /home/ubuntu/inspectors-general/data
-ln -s /mnt/data /home/ubuntu/oversight.garden/data
+ln -s /mnt/data/inspectors-general /home/ubuntu/inspectors-general/data
+ln -s /mnt/data/inspectors-general /home/ubuntu/oversight.garden/data
 
 sudo -u ubuntu cp config/config.yaml.example config/config.yaml
 # TODO: more config
