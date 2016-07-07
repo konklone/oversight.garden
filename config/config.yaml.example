@@ -30,5 +30,5 @@ sitemap:
   ping_yandex: false
 
 # upload endpoint to collect errors from scrapers
-dashboard:
-  secret: ""
+#dashboard:
+#  secret: ""
