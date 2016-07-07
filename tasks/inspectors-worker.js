@@ -2,7 +2,8 @@
 
 "use strict";
 
-var elasticsearch = require("elasticsearch"),
+var AWS = require("aws-sdk"),
+    elasticsearch = require("elasticsearch"),
     fs = require('fs'),
     path = require('path'),
     yaml = require('js-yaml');
@@ -45,25 +46,42 @@ function loadReport(details, config, done) {
 
   // Actually load into Elasticsearch
   console.log("\tIndexing into Elasticsearch...");
-  var es = new elasticsearch.Client({
+  var credentials = null;
+  var esConfig = {
     apiVersion: "1.7",
     host: {
       host: config.elasticsearch.host,
       port: config.elasticsearch.port
     }
-  });
-  es.index({
-    index: config.elasticsearch.index_write,
-    type: 'reports',
-    id: inspector + '-' + report_id,
-    body: data
-  }, function(err) {
-    if (err) {
-      done(err);
-    } else {
-      done(null);
-    }
-  });
+  };
+  if (config.aws) {
+    esConfig.connectionClass = require('http-aws-es');
+    credentials = new AWS.EC2MetadataCredentials();
+    esConfig.amazonES = {
+      region: config.aws.region,
+      credentials: credentials
+    };
+  }
+  var es = new elasticsearch.Client(esConfig);
+  function callback() {
+    es.index({
+      index: config.elasticsearch.index_write,
+      type: 'reports',
+      id: inspector + '-' + report_id,
+      body: data
+    }, function(err) {
+      if (err) {
+	done(err);
+      } else {
+	done(null);
+      }
+    });
+  }
+  if (credentials) {
+    credentials.refresh(callback);
+  } else {
+    callback();
+  }
 }
 
 module.exports = loadReport;

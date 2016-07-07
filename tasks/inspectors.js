@@ -133,15 +133,15 @@ function run(options) {
       workerFarm.end(farm);
 
       console.log("Refreshing index.");
-      es.indices.refresh(function(err) {
-        if (err) console.log("Error: " + err);
+	boot.refreshCredentials(function(){
+	  es.indices.refresh(function(err) {
+	    if (err) console.log("Error: " + err);
 
-        console.log("All done.");
-      });
+	    console.log("All done.");
+	  });
+	});
     });
   });
 }
 
-boot.refreshCredentials(function(){
-  run(require('minimist')(process.argv.slice(2)));
-});
+run(require('minimist')(process.argv.slice(2)));
