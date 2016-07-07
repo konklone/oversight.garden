@@ -159,14 +159,16 @@ module.exports = function(app) {
   });
 
   app.get('/reports/:inspector/:report_id', function(req, res) {
-    get(req.params.inspector, req.params.report_id).then(function(result) {
-      res.render("report.html", {
-        report: result._source
+    boot.refreshCredentials(function() {
+      get(req.params.inspector, req.params.report_id).then(function(result) {
+        res.render("report.html", {
+          report: result._source
+        });
+      }, function(err) {
+        console.log("Nooooo!\n\n" + err);
+        res.status(500);
+        res.render("report.html", {report: null});
       });
-    }, function(err) {
-      console.log("Nooooo!\n\n" + err);
-      res.status(500);
-      res.render("report.html", {report: null});
     });
   });
 
@@ -295,12 +297,10 @@ function parse_search_query(request_query, size) {
 }
 
 function get(inspector, report_id) {
-  boot.refreshCredentials(function() {
-    return es.get({
-      index: config.elasticsearch.index_read,
-      type: 'reports',
-      id: inspector + '-' + report_id
-    });
+  return es.get({
+    index: config.elasticsearch.index_read,
+    type: 'reports',
+    id: inspector + '-' + report_id
   });
 }
 
