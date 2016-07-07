@@ -30,10 +30,11 @@ ln -s /mnt/data/inspectors-general /home/ubuntu/inspectors-general/data
 ln -s /mnt/data/inspectors-general /home/ubuntu/oversight.garden/data
 
 sudo -u ubuntu cp config/config.yaml.example config/config.yaml
-# TODO: more config
 sed -i 's/127.0.0.1/search-oversight-iu2rwt666hmlxrbn2slw6zlgou.us-east-1.es.amazonaws.com/' config/config.yaml
 sed -i 's/9200/80/' config/config.yaml
 echo "aws:" >> config/config.yaml
 echo "  region: us-east-1" >> config/config.yaml
+aws s3 cp s3://oversight-secrets/secrets.sh /home/ubuntu/
+sudo -u ubuntu bash /home/ubuntu/secrets.sh
 
 echo "0 */3 * * * ubuntu cd /home/ubuntu/inspectors-general; /usr/bin/python3 /home/ubuntu/inspectors-general/igs; cd /home/ubuntu/oversight.garden; nodejs tasks/inspectors.js --since 1900" | crontab -
