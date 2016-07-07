@@ -8,7 +8,7 @@ chown ubuntu:ubuntu /mnt/data
 echo "/dev/xvdf	/mnt/data	ext4	defaults,nofail,nobootwait	0	2" | tee -a /etc/fstab
 
 apt-get update
-apt-get install -y awscli git libxml2-dev libxslt1-dev nodejs npm python-dev python3-pip rubygems xpdf zlib1g-dev
+apt-get install -y awscli git libxml2-dev libxslt1-dev nodejs npm python-dev python3-pip rubygems xpdf zlib1g-dev ruby-dev
 
 cd /home/ubuntu
 sudo -u ubuntu git clone https://github.com/unitedstates/inspectors-general.git
