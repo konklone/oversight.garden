@@ -142,4 +142,6 @@ function run(options) {
   });
 }
 
-run(require('minimist')(process.argv.slice(2)));
+boot.refreshCredentials(function(){
+  run(require('minimist')(process.argv.slice(2)));
+});

@@ -5,7 +5,8 @@
 var querystring = require("querystring");
 var numeral = require("numeral");
 var moment = require("moment");
-var es = require("./boot").es;
+var boot = require("./boot");
+var es = boot.es;
 var config = require("../config/config");
 
 
@@ -33,39 +34,41 @@ var counts = {
 };
 
 function updateReportCounts() {
-  es.count({
-    index: config.elasticsearch.index_read,
-    type: "reports"
-  }).then(function(result) {
-    counts.reports = result.count;
-  }, function(err) {
-    console.log("Nooooo! " + err);
-    counts.reports = null;
-  });
+  boot.refreshCredentials(function(){
+    es.count({
+      index: config.elasticsearch.index_read,
+      type: "reports"
+    }).then(function(result) {
+      counts.reports = result.count;
+    }, function(err) {
+      console.log("Nooooo! " + err);
+      counts.reports = null;
+    });
 
-  es.search({
-    index: config.elasticsearch.index_read,
-    type: "reports",
-    searchType: "count",
-    body: {
-      aggregations: {
-        inspector_agg: {
-          terms: {
-            field: "inspector",
-            size: 0
-          }
-        }
+    es.search({
+      index: config.elasticsearch.index_read,
+      type: "reports",
+      searchType: "count",
+      body: {
+	aggregations: {
+	  inspector_agg: {
+	    terms: {
+	      field: "inspector",
+	      size: 0
+	    }
+	  }
+	}
       }
-    }
-  }).then(function(result) {
-    var buckets = result.aggregations.inspector_agg.buckets;
-    counts.inspectors = {};
-    for (var i = 0; i < buckets.length; i++) {
-      counts.inspectors[buckets[i].key] = buckets[i].doc_count;
-    }
-  }, function(err) {
-    console.log("Nooooo! " + err);
-    counts.inspectors = null;
+    }).then(function(result) {
+      var buckets = result.aggregations.inspector_agg.buckets;
+      counts.inspectors = {};
+      for (var i = 0; i < buckets.length; i++) {
+	counts.inspectors[buckets[i].key] = buckets[i].doc_count;
+      }
+    }, function(err) {
+      console.log("Nooooo! " + err);
+      counts.inspectors = null;
+    });
   });
 }
 
