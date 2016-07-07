@@ -2,8 +2,7 @@
 
 // boilerplate includes
 var config = require("../config/config"),
-    boot = require("./boot"),
-    es = boot.es,
+    es = require("./boot").es,
     helpers = require("./helpers"),
     fs = require("fs"),
     async = require("async");
@@ -26,20 +25,18 @@ module.exports = function(app) {
   app.get('/reports', function(req, res) {
     var query_obj = parse_search_query(req.query, HTML_SIZE);
 
-    boot.refreshCredentials(function() {
-      search(query_obj).then(function(results) {
-	res.render("reports.html", {
-	  results: results,
-	  query_obj: query_obj,
-	});
-      }, function(err) {
-	console.log("Noooo!\n\n" + err);
+    search(query_obj).then(function(results) {
+      res.render("reports.html", {
+        results: results,
+        query_obj: query_obj,
+      });
+    }, function(err) {
+      console.log("Noooo!\n\n" + err);
 
-	res.status(500);
-	res.render("reports.html", {
-	  results: null,
-	  query_obj: {},
-	});
+      res.status(500);
+      res.render("reports.html", {
+        results: null,
+        query_obj: {},
       });
     });
   });
@@ -48,20 +45,18 @@ module.exports = function(app) {
     var query_obj = parse_search_query(req.query, HTML_SIZE);
     query_obj.featured = true;
 
-    boot.refreshCredentials(function() {
-      search(query_obj).then(function(results) {
-	res.render("reports.html", {
-	  results: results,
-	  query_obj: query_obj,
-	});
-      }, function(err) {
-	console.log("Noooo!\n\n" + err);
+    search(query_obj).then(function(results) {
+      res.render("reports.html", {
+        results: results,
+        query_obj: query_obj,
+      });
+    }, function(err) {
+      console.log("Noooo!\n\n" + err);
 
-	res.status(500);
-	res.render("reports.html", {
-	  results: null,
-	  query_obj: {},
-	});
+      res.status(500);
+      res.render("reports.html", {
+        results: null,
+        query_obj: {},
       });
     });
   });
@@ -70,20 +65,18 @@ module.exports = function(app) {
     var query_obj = parse_search_query(req.query, HTML_SIZE);
     query_obj.unreleased = true;
 
-    boot.refreshCredentials(function() {
-      search(query_obj).then(function(results) {
-	res.render("reports.html", {
-	  results: results,
-	  query_obj: query_obj,
-	});
-      }, function(err) {
-	console.log("Noooo!\n\n" + err);
+    search(query_obj).then(function(results) {
+      res.render("reports.html", {
+        results: results,
+        query_obj: query_obj,
+      });
+    }, function(err) {
+      console.log("Noooo!\n\n" + err);
 
-	res.status(500);
-	res.render("reports.html", {
-	  results: null,
-	  query_obj: {},
-	});
+      res.status(500);
+      res.render("reports.html", {
+        results: null,
+        query_obj: {},
       });
     });
   });
@@ -91,21 +84,19 @@ module.exports = function(app) {
   app.get('/reports.xml', function(req, res) {
     var query_obj = parse_search_query(req.query, XML_SIZE);
 
-    boot.refreshCredentials(function() {
-      search(query_obj).then(function(results) {
-	res.type("atom");
-	res.render("reports.xml.ejs", {
-	  results: results,
-	  query_obj: query_obj,
-	  self_url: req.url
-	});
-      }, function(err) {
-	console.log("Noooo!\n\n" + err);
-
-	res.status(500);
-	res.type("text");
-	res.send("Server error");
+    search(query_obj).then(function(results) {
+      res.type("atom");
+      res.render("reports.xml.ejs", {
+        results: results,
+        query_obj: query_obj,
+        self_url: req.url
       });
+    }, function(err) {
+      console.log("Noooo!\n\n" + err);
+
+      res.status(500);
+      res.type("text");
+      res.send("Server error");
     });
   });
 
@@ -133,23 +124,21 @@ module.exports = function(app) {
         published_on_end: null,
         size: HTML_SIZE
       };
-      boot.refreshCredentials(function() {
-	search(query_obj).then(function(results) {
-	  res.render("inspector.html", {
-	    inspector: req.params.inspector,
-	    metadata: metadata,
-	    inspectorReportCount: inspectorReportCount,
-	    results: results
-	  });
-	}, function(err) {
-	  console.log("Noooo!\n\n" + err);
-	  res.render("inspector.html", {
-	    inspector: req.params.inspector,
-	    metadata: metadata,
-	    inspectorReportCount: inspectorReportCount,
-	    results: []
-	  });
-	});
+      search(query_obj).then(function(results) {
+        res.render("inspector.html", {
+          inspector: req.params.inspector,
+          metadata: metadata,
+          inspectorReportCount: inspectorReportCount,
+          results: results
+        });
+      }, function(err) {
+        console.log("Noooo!\n\n" + err);
+        res.render("inspector.html", {
+          inspector: req.params.inspector,
+          metadata: metadata,
+          inspectorReportCount: inspectorReportCount,
+          results: []
+        });
       });
 
     } else {
@@ -171,31 +160,29 @@ module.exports = function(app) {
   });
 
   app.get('/dashboard', function(req, res) {
-    boot.refreshCredentials(function() {
-      es.search({
-	index: config.elasticsearch.index_dashboard,
-	type: 'scraper_info',
-	body: {
-	  "size": 100,
-	  "query": {
-	    "match_all": {}
-	  },
-	  "sort": [
-	    {
-	      "severity": "desc",
-	    },
-	    {
-	      "_uid": "asc"
-	    }
-	  ]
-	}
-      }).then(function(results) {
-	res.render("dashboard.html", {results: results});
-      }, function(err) {
-	console.log("Nooooo!\n\n" + err);
-	res.status(500);
-	res.render("dashboard.html", {results: null});
-      });
+    es.search({
+      index: config.elasticsearch.index_dashboard,
+      type: 'scraper_info',
+      body: {
+        "size": 100,
+        "query": {
+          "match_all": {}
+        },
+        "sort": [
+          {
+            "severity": "desc",
+          },
+          {
+            "_uid": "asc"
+          }
+        ]
+      }
+    }).then(function(results) {
+      res.render("dashboard.html", {results: results});
+    }, function(err) {
+      console.log("Nooooo!\n\n" + err);
+      res.status(500);
+      res.render("dashboard.html", {results: null});
     });
   });
 
@@ -204,14 +191,12 @@ module.exports = function(app) {
       if (req.query.secret == config.dashboard.secret) {
         async.forEachOfLimit(req.body, 5, function(scraper_info, slug, done) {
           scraper_info.timestamp = new Date().toISOString();
-          boot.refreshCredentials(function() {
-	    es.index({
-	      index: config.elasticsearch.index_dashboard,
-	      type: 'scraper_info',
-	      id: slug,
-	      body: scraper_info
-	    }, done);
-          });
+          es.index({
+            index: config.elasticsearch.index_dashboard,
+            type: 'scraper_info',
+            id: slug,
+            body: scraper_info
+          }, done);
         }, function(err) {
           if (err) {
             console.log("Noooo!\n\n" + err);
@@ -295,12 +280,10 @@ function parse_search_query(request_query, size) {
 }
 
 function get(inspector, report_id) {
-  boot.refreshCredentials(function() {
-    return es.get({
-      index: config.elasticsearch.index_read,
-      type: 'reports',
-      id: inspector + '-' + report_id
-    });
+  return es.get({
+    index: config.elasticsearch.index_read,
+    type: 'reports',
+    id: inspector + '-' + report_id
   });
 }
 

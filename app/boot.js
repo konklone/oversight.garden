@@ -6,7 +6,6 @@ var config = require("../config/config"),
     fs = require("fs"),
     yaml = require('js-yaml');
 
-var credentials = null;
 var esConfig = {
   apiVersion: "1.7",
   host: {
@@ -18,21 +17,13 @@ var esConfig = {
 
 if (config.aws) {
   esConfig.connectionClass = require('http-aws-es');
-  credentials = new AWS.EC2MetadataCredentials();
   esConfig.amazonES = {
     region: config.aws.region,
-    credentials: credentials
+    credentials: new AWS.EC2MetadataCredentials()
   };
 }
 
 module.exports = {
-  es: new elasticsearch.Client(esConfig),
-  refreshCredentials: function(callback) {
-    if (credentials) {
-      credentials.refresh(callback);
-    } else {
-      callback();
-    }
-  }
+  es: new elasticsearch.Client(esConfig)
 };
 
