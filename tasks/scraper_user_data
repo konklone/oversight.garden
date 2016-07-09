@@ -8,22 +8,67 @@ chown ubuntu:ubuntu /mnt/data
 echo "/dev/xvdf	/mnt/data	ext4	defaults,nofail	0	2" | tee -a /etc/fstab
 
 apt-get update
-apt-get install -y awscli git libxml2-dev libxslt1-dev nodejs npm python-dev python3-pip rubygems xpdf zlib1g-dev ruby-dev
+apt-get install -y awscli git libxml2-dev libxslt1-dev xpdf python3-pip make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils
+pip3 install virtualenvwrapper
+
+sudo -u ubuntu git clone https://github.com/sstephenson/rbenv.git /home/ubuntu/.rbenv
+sudo -u ubuntu git clone https://github.com/sstephenson/ruby-build.git /home/ubuntu/.rbenv/plugins/ruby-build
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' | sudo -u ubuntu tee -a /home/ubuntu/.bashrc
+echo 'eval "$(rbenv init -)"' | sudo -u ubuntu tee -a /home/ubuntu/.bashrc
+
+sudo -u ubuntu git clone https://github.com/yyuu/pyenv.git /home/ubuntu/.pyenv
+sudo -u ubuntu git clone https://github.com/yyuu/pyenv-virtualenvwrapper.git /home/ubuntu/.pyenv/plugins/pyenv-virtualenvwrapper
+
+sudo -u ubuntu bash << 'END'
+export PYENV_ROOT=$HOME/.pyenv
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+pyenv install 3.4.5
+pyenv global 3.4.5
+pyenv virtualenvwrapper
+mkvirtualenv inspectors
+END
+
+echo 'export PYENV_ROOT=$HOME/.pyenv' | sudo -u ubuntu tee -a /home/ubuntu/.bashrc
+echo 'export PATH=$PYENV_ROOT/bin:$PATH' | sudo -u ubuntu tee -a /home/ubuntu/.bashrc
+echo 'eval "$(pyenv init -)"' | sudo -u ubuntu tee -a /home/ubuntu/.bashrc
+echo 'pyenv virtualenvwrapper' | sudo -u ubuntu tee -a /home/ubuntu/.bashrc
+
+echo 'export NODE_ENV=production' | sudo -u ubuntu tee -a /home/ubuntu/.bashrc
+sudo -u ubuntu curl https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | sudo -u ubuntu bash
 
 cd /home/ubuntu
 sudo -u ubuntu git clone https://github.com/unitedstates/inspectors-general.git
-# uncomment in the event of catastrophic github failure
-# sudo -u ubuntu git clone https://davidsherenowitsa.party/git/inspectors-general.git
-cd inspectors-general/
-pip3 install -r requirements.txt
+cd inspectors-general
+sudo -u ubuntu bash << 'END'
+export PYENV_ROOT=$HOME/.pyenv
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+pyenv virtualenvwrapper
+workon inspectors
+pip install -r requirements.txt
+END
 
 cd /home/ubuntu
 sudo -u ubuntu git clone https://github.com/konklone/oversight.garden.git
-# sudo -u ubuntu git clone https://davidsherenowitsa.party/git/oversight.garden.git
 cd oversight.garden
+
+sudo -u ubuntu bash <<'END'
+export PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH
+rbenv install 2.2.5
+rbenv global 2.2.5
 gem install bundler
+rbenv rehash
 bundle install
-sudo -u ubuntu npm install
+END
+
+sudo -u ubuntu bash <<'END'
+export NVM_DIR=$HOME/.nvm
+source $NVM_DIR/nvm.sh
+nvm install 4.4.7
+nvm alias default 4.4.7
+npm install --production
+END
 
 mount -a
 ln -s /mnt/data/inspectors-general /home/ubuntu/inspectors-general/data
@@ -37,4 +82,4 @@ echo "  region: us-east-1" >> config/config.yaml
 sudo -u ubuntu aws s3 cp s3://oversight-secrets/secrets.sh /home/ubuntu/
 sudo -u ubuntu bash /home/ubuntu/secrets.sh
 
-echo "0 */3 * * * ubuntu cd /home/ubuntu/inspectors-general; /usr/bin/python3 /home/ubuntu/inspectors-general/igs; cd /home/ubuntu/oversight.garden; nodejs tasks/inspectors.js --since 1900" | crontab -
+echo '0 */3 * * * ubuntu cd $HOME/inspectors-general; export PYENV_ROOT=$HOME/.pyenv; export PATH="$PYENV_ROOT/bin:$PATH"; pyenv virtualenvwrapper; workon inspectors; python igs; cd $HOME/oversight.garden; export NVM_DIR=$HOME/.nvm; source $NVM_DIR/nvm.sh; node tasks/inspectors.js --since 1900' | crontab -
