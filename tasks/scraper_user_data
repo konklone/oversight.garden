@@ -13,7 +13,7 @@ pip3 install virtualenvwrapper
 
 sudo -u ubuntu git clone https://github.com/sstephenson/rbenv.git /home/ubuntu/.rbenv
 sudo -u ubuntu git clone https://github.com/sstephenson/ruby-build.git /home/ubuntu/.rbenv/plugins/ruby-build
-echo 'export PATH="$HOME/.rbenv/bin:$PATH"' | sudo -u ubuntu tee -a /home/ubuntu/.bashrc
+echo 'export PATH=$HOME/.rbenv/bin:$PATH' | sudo -u ubuntu tee -a /home/ubuntu/.bashrc
 echo 'eval "$(rbenv init -)"' | sudo -u ubuntu tee -a /home/ubuntu/.bashrc
 
 sudo -u ubuntu git clone https://github.com/yyuu/pyenv.git /home/ubuntu/.pyenv
@@ -21,7 +21,7 @@ sudo -u ubuntu git clone https://github.com/yyuu/pyenv-virtualenvwrapper.git /ho
 
 sudo -u ubuntu bash << 'END'
 export PYENV_ROOT=$HOME/.pyenv
-export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH=$PYENV_ROOT/bin:$PATH
 eval "$(pyenv init -)"
 pyenv install 3.4.5
 pyenv global 3.4.5
@@ -42,7 +42,7 @@ sudo -u ubuntu git clone https://github.com/unitedstates/inspectors-general.git
 cd inspectors-general
 sudo -u ubuntu bash << 'END'
 export PYENV_ROOT=$HOME/.pyenv
-export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH=$PYENV_ROOT/bin:$PATH
 eval "$(pyenv init -)"
 pyenv virtualenvwrapper
 workon inspectors
@@ -77,9 +77,9 @@ ln -s /mnt/data/inspectors-general /home/ubuntu/oversight.garden/data
 sudo -u ubuntu cp config/config.yaml.example config/config.yaml
 sed -i 's/127.0.0.1/search-oversight-iu2rwt666hmlxrbn2slw6zlgou.us-east-1.es.amazonaws.com/' config/config.yaml
 sed -i 's/9200/80/' config/config.yaml
-echo "aws:" >> config/config.yaml
-echo "  region: us-east-1" >> config/config.yaml
+echo 'aws:' >> config/config.yaml
+echo '  region: us-east-1' >> config/config.yaml
 sudo -u ubuntu aws s3 cp s3://oversight-secrets/secrets.sh /home/ubuntu/
 sudo -u ubuntu bash /home/ubuntu/secrets.sh
 
-echo '0 */3 * * * cd $HOME/inspectors-general; export PYENV_ROOT=$HOME/.pyenv; export PATH="$PYENV_ROOT/bin:$PATH"; pyenv virtualenvwrapper; workon inspectors; python igs; cd $HOME/oversight.garden; export NVM_DIR=$HOME/.nvm; source $NVM_DIR/nvm.sh; node tasks/inspectors.js --since 1900' | crontab -u ubuntu -
+echo '0 */3 * * * cd $HOME/inspectors-general; export PYENV_ROOT=$HOME/.pyenv; export PATH=$PYENV_ROOT/bin:$PATH; eval "$(pyenv init -)"; pyenv virtualenvwrapper; workon inspectors; python igs; cd $HOME/oversight.garden; export NVM_DIR=$HOME/.nvm; source $NVM_DIR/nvm.sh; node tasks/inspectors.js --since 1900' | crontab -u ubuntu -
