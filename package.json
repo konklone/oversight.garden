@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/konklone/oversight",
   "dependencies": {
-    "async": "^1.5.2",
+    "async": "^2.0.0",
     "aws-sdk": "^2.4.5",
     "body-parser": "^1.14.2",
     "ejs": "^2.3.4",
