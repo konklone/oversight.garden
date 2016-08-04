@@ -9,3 +9,6 @@ gem 'listen', '~> 2.8'
 gem 'sass'
 gem 'bourbon'
 gem 'neat'
+
+gem 'aws-sdk', '~> 2'
+gem 'faraday_middleware-aws-signers-v4'

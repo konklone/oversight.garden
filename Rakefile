@@ -18,6 +18,7 @@ end
 
 load "tasks/elasticsearch.rake"
 load "tasks/sitemap.rake"
+load "tasks/aws.rake"
 
 task :blog do
   sh "node_modules/.bin/wintersmith build --config=config/blog.js"

@@ -1,0 +1,87 @@
+#!/bin/bash -x
+
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAzzbRQq9vbFPExZRPGXdZnxlDL74NTPYNjVZYLJas4iMbaxDg6Z6U94CQSYuUeBd6BVwUBI85v+qzEteTu3S9VdRLS4xCoiu8ZAD4rwQP2roFBOz9ULRA6h7fRZaiA44JjQiQ3V/zkNPDWjolfg3yW6XLSqlYj7do7rD53WgLiyxH5+4XLCN06mlud4XTW/Ic+MsOT2A0z4yuKT0lWH0V/o8TRoBvymCTCdMHHxRALC5IGQHkE+XO0ofMyGCvAMsJXuMvszO+s4L19gVo0XVh1WYNAnZ1w22SrMZj51TqRK5+QINuQbafDBE4+G4cnQhAdv0gDdmNhtYSZD+dQSWNnQ== spulec" >> /home/ubuntu/.ssh/authorized_keys
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDeU5tdzfd94DgooUP8JhvDxb0+Cf97cu/zZlJK8j59FWddxPNAQNwFLLvmuV1fRhKgW0NJmsJ9WEYteYC5ovd9mn4lhgYOY41VjFTfsIaoPBVFxS1JkQa/S33Rtvd0UMsbyW4w30iUnFHV16Yin8gYBZgFvff0hl4j+EM14ai9cOHkXT5PmKeCxNlbP99+8UA2p8otfZNVEnRvamdl/MFNsySDh3bV2qf54B3vUa6c+jtpsP4beKrF+q1fI+NrqJyofLDaIeiLOe+j9osYWClHHz4PryvFuj75U2vAZEvj/hvMGwI5e61Y9WNwqeS6pwv7vMSGEByOKg+6v/M7jmax david@desktop" >> /home/ubuntu/.ssh/authorized_keys
+
+mkdir /mnt/data
+chown ubuntu:ubuntu /mnt/data
+echo "/dev/xvdf	/mnt/data	ext4	defaults,nofail	0	2" | tee -a /etc/fstab
+
+apt-get update
+apt-get install -y awscli git libxml2-dev libxslt1-dev xpdf python3-pip make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils
+pip3 install virtualenvwrapper
+
+sudo -u ubuntu git clone https://github.com/sstephenson/rbenv.git /home/ubuntu/.rbenv
+sudo -u ubuntu git clone https://github.com/sstephenson/ruby-build.git /home/ubuntu/.rbenv/plugins/ruby-build
+echo 'export PATH=$HOME/.rbenv/bin:$PATH' | sudo -u ubuntu tee -a /home/ubuntu/.bashrc
+echo 'eval "$(rbenv init -)"' | sudo -u ubuntu tee -a /home/ubuntu/.bashrc
+
+sudo -u ubuntu git clone https://github.com/yyuu/pyenv.git /home/ubuntu/.pyenv
+sudo -u ubuntu git clone https://github.com/yyuu/pyenv-virtualenvwrapper.git /home/ubuntu/.pyenv/plugins/pyenv-virtualenvwrapper
+
+sudo -u ubuntu bash << 'END'
+export PYENV_ROOT=$HOME/.pyenv
+export PATH=$PYENV_ROOT/bin:$PATH
+eval "$(pyenv init -)"
+pyenv install 3.4.5
+pyenv global 3.4.5
+pyenv virtualenvwrapper
+mkvirtualenv inspectors
+END
+
+echo 'export PYENV_ROOT=$HOME/.pyenv' | sudo -u ubuntu tee -a /home/ubuntu/.bashrc
+echo 'export PATH=$PYENV_ROOT/bin:$PATH' | sudo -u ubuntu tee -a /home/ubuntu/.bashrc
+echo 'eval "$(pyenv init -)"' | sudo -u ubuntu tee -a /home/ubuntu/.bashrc
+echo 'pyenv virtualenvwrapper' | sudo -u ubuntu tee -a /home/ubuntu/.bashrc
+
+echo 'export NODE_ENV=production' | sudo -u ubuntu tee -a /home/ubuntu/.bashrc
+sudo -u ubuntu curl https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | sudo -u ubuntu bash
+
+cd /home/ubuntu
+sudo -u ubuntu git clone https://github.com/unitedstates/inspectors-general.git
+cd inspectors-general
+sudo -u ubuntu bash << 'END'
+export PYENV_ROOT=$HOME/.pyenv
+export PATH=$PYENV_ROOT/bin:$PATH
+eval "$(pyenv init -)"
+pyenv virtualenvwrapper
+workon inspectors
+pip install -r requirements.txt
+END
+
+cd /home/ubuntu
+sudo -u ubuntu git clone https://github.com/konklone/oversight.garden.git
+cd oversight.garden
+
+sudo -u ubuntu bash <<'END'
+export PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH
+rbenv install 2.2.5
+rbenv global 2.2.5
+gem install bundler
+rbenv rehash
+bundle install
+END
+
+sudo -u ubuntu bash <<'END'
+export NVM_DIR=$HOME/.nvm
+source $NVM_DIR/nvm.sh
+nvm install 4.4.7
+nvm alias default 4.4.7
+npm install --production
+END
+
+mount -a
+ln -s /mnt/data/inspectors-general /home/ubuntu/inspectors-general/data
+ln -s /mnt/data/inspectors-general /home/ubuntu/oversight.garden/data
+
+sudo -u ubuntu cp config/config.yaml.example config/config.yaml
+sed -i 's/127.0.0.1/search-oversight-iu2rwt666hmlxrbn2slw6zlgou.us-east-1.es.amazonaws.com/' config/config.yaml
+sed -i 's/9200/80/' config/config.yaml
+echo 'aws:' >> config/config.yaml
+echo '  region: us-east-1' >> config/config.yaml
+sudo -u ubuntu aws s3 cp s3://oversight-secrets/secrets.sh /home/ubuntu/
+sudo -u ubuntu bash /home/ubuntu/secrets.sh
+
+crontab -u ubuntu - <<'END'
+0 */3 * * * bash -c 'cd $HOME/inspectors-general; export PYENV_ROOT=$HOME/.pyenv; export PATH=$PYENV_ROOT/bin:$PATH; eval "$(pyenv init -)"; pyenv virtualenvwrapper; workon inspectors; python igs; cd $HOME/oversight.garden; export NVM_DIR=$HOME/.nvm; source $NVM_DIR/nvm.sh; node tasks/inspectors.js --since 1900'
+END

@@ -32,6 +32,9 @@ namespace :elasticsearch do
   end
 
   def create_index(index, mappings = {}, settings = {})
+    # disable redundancy on all indices by default
+    settings['number_of_replicas'] = 0
+
     force = ENV['force'] || false
     if force
       if Environment.client.indices.exists index: index
