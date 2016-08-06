@@ -16,7 +16,7 @@ sudo -u ubuntu curl https://raw.githubusercontent.com/creationix/nvm/v0.31.2/ins
 
 mkdir -p /home/ubuntu/oversight/current
 mkdir -p /home/ubuntu/oversight/shared/log
-mkdir -p /home/ubuntu/oversight/shared/sitemap # TODO: sitemap rake task is busted, need to do it on scraper instance w/ volume mounted and copy output to web server
+mkdir -p /home/ubuntu/oversight/shared/sitemap
 cd /home/ubuntu/oversight/current
 sudo -u ubuntu git clone https://github.com/konklone/oversight.garden.git .
 
@@ -149,3 +149,7 @@ server {
 END
 
 service nginx restart
+
+crontab -u ubuntu - <<'END'
+30 0 * * 1 bash -c 'aws s3 sync s3://oversight-sitemap $HOME/oversight/shared/sitemap'
+END
