@@ -1,5 +1,4 @@
 require_relative 'lets_encrypt_route53'
-require_relative 'ssl_checker'
 
 namespace :letsencrypt do
   le = LetsEncryptRoute53.new.tap do |config|
@@ -26,7 +25,7 @@ namespace :letsencrypt do
   desc 'Renew the Let\'s Encrypt certificate if the current one expires in '\
        '30 days'
   task :renew do
-    expires_in = SslChecker.new(config.domains[0]).expires_in
+    expires_in = le.expires_in
     if expires_in > 30.days
       days = expires_in.to_i / 1.day
       puts "Current certificate is valid, and expires in #{days} days. "\

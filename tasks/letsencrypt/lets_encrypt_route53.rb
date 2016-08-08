@@ -153,6 +153,14 @@ class LetsEncryptRoute53
     )
   end
 
+  def expires_in(reference_time: Time.now)
+    require_attrs! :path_cert
+
+    raw = File.read path_cert
+    certificate = OpenSSL::X509::Certificate.new raw
+    certificate.not_after - reference_time
+  end
+
   def fetch_files!
     require_attrs! :s3_bucket, :s3_key_cert, :s3_key_chain, :s3_key_key,\
                    :kms_key_id, :path_key, :path_cert, :path_chain
