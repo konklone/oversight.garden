@@ -1,4 +1,3 @@
-
 source 'https://rubygems.org'
 
 gem 'elasticsearch-persistence'
@@ -12,3 +11,5 @@ gem 'neat'
 
 gem 'aws-sdk', '~> 2'
 gem 'faraday_middleware-aws-signers-v4'
+gem 'acme-client'
+gem 'openssl'
