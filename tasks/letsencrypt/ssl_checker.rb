@@ -1,8 +1,9 @@
-require "net/http"
+require 'net/http'
 
+# Connects to a website, gets the server's certificate, and checks its validity
+# period
 class SslChecker
-
-  def initialize(host:)
+  def initialize(host)
     @host = host
   end
 
@@ -30,14 +31,14 @@ class SslChecker
 
     cert = nil
 
-    http.verify_callback = lambda { |verify_ok, store_context|
+    http.verify_callback = lambda { |_verify_ok, store_context|
       cert = store_context.current_cert.dup
       true
     }
 
     req = Net::HTTP::Head.new('/')
 
-    res = http.start { http.request(req) }
+    http.start { http.request(req) }
 
     cert
   end
