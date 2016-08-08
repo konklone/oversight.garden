@@ -45,7 +45,7 @@ class LetsEncryptRoute53
   def private_key
     @private_key ||=
       say 'preparing the private key' do
-        key = fetch_and_decrypt_key
+        key = load_key
         if key
           mark_key_as_registered
           key
@@ -223,17 +223,12 @@ class LetsEncryptRoute53
     @key_already_registered = true
   end
 
-  def fetch_and_decrypt_key
-    require_attrs! :kms_key_id, :s3_bucket, :s3_key_key
+  def load_key
+    require_attrs! :path_key
 
-    say 'fetching key from S3' do
-      plaintext_key = s3_encryption.get_object(
-        bucket: s3_bucket,
-        key: s3_key_key
-      ).body.read
-      OpenSSL::PKey::RSA.new(plaintext_key)
-    end
-  rescue Aws::S3::Errors::NoSuchKey
+    plaintext_key = File.read(path_key)
+    OpenSSL::PKey::RSA.new(plaintext_key)
+  rescue Error::ENOENT
     nil
   end
 
