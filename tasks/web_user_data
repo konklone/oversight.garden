@@ -153,4 +153,5 @@ service nginx restart
 
 crontab -u ubuntu - <<'END'
 30 0 * * 1 bash -c 'aws s3 sync s3://oversight-sitemap $HOME/oversight/shared/sitemap'
+46 11 * * * bash -c 'cd $HOME/oversight/current; export PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH; rake letsencrypt:renew'
 END

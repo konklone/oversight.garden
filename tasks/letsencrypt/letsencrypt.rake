@@ -23,9 +23,9 @@ namespace :letsencrypt do
     le.fetch_files!
   end
 
-  desc 'Refresh the Let\'s Encrypt certificate if the current one expires in '\
+  desc 'Renew the Let\'s Encrypt certificate if the current one expires in '\
        '30 days'
-  task :check do
+  task :renew do
     expires_in = SslChecker.new(config.domains[0]).expires_in
     if expires_in > 30.days
       days = expires_in.to_i / 1.day
