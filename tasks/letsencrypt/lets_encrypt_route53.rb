@@ -153,6 +153,32 @@ class LetsEncryptRoute53
     )
   end
 
+  def fetch_files!
+    require_attrs! :s3_bucket, :s3_key_cert, :s3_key_chain, :s3_key_key,\
+                   :kms_key_id, :path_key, :path_cert, :path_chain
+    File.write(
+      path_key,
+      s3_encryption.get_object(
+        bucket: s3_bucket,
+        key: s3_key_key
+      ).body.read
+    )
+    File.write(
+      path_cert,
+      s3.get_object(
+        bucket: s3_bucket,
+        key: s3_key_cert
+      ).body.read
+    )
+    File.write(
+      path_chain,
+      s3.get_object(
+        bucket: s3_bucket,
+        key: s3_key_chain
+      ).body.read
+    )
+  end
+
   def remove_dns_verification_record(challenge)
     require_attrs! :hosted_zone_id, :domain
 

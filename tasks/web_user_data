@@ -27,6 +27,7 @@ rbenv global 2.2.5
 gem install bundler
 rbenv rehash
 bundle install
+rake letsencrypt:fetch
 END
 
 sudo -u ubuntu bash <<'END'
