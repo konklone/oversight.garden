@@ -108,7 +108,7 @@ server {
 # redirect www->bare
 server {
   server_name www.oversight.garden;
-  include ../ssl.rules;
+  include ssl.rules;
 
   location / {
     rewrite ^ https://oversight.garden$request_uri permanent;
@@ -117,7 +117,7 @@ server {
 
 server {
   server_name oversight.garden;
-  include ../ssl.rules;
+  include ssl.rules;
 
   location / {
     proxy_pass http://main_oversight;
