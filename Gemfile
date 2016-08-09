@@ -9,6 +9,6 @@ gem 'sass'
 gem 'bourbon'
 gem 'neat'
 
-gem 'aws-sdk', '~> 2'
+gem 'aws-sdk', '>= 2.4.3'
 gem 'faraday_middleware-aws-signers-v4'
 gem 'acme-client'
