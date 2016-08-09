@@ -10,6 +10,7 @@ class LetsEncryptRoute53
 
   attr_accessor :endpoint,           # STAGING or PRODUCTION
                 :domains,            # Domains we're obtaining a certificate for
+                :region,             # AWS region
                 :s3_bucket,          # Where should we store the LE key/cert
                 :s3_key_key,         # name for private key
                 :s3_key_cert,        # name for leaf certificate
@@ -256,27 +257,40 @@ class LetsEncryptRoute53
   end
 
   def acme
+    require_attrs! :region
+
     @acme = Acme::Client.new(private_key: private_key, endpoint: endpoint)
   end
 
   def iam
-    @iam = Aws::IAM::Client.new
+    require_attrs! :region
+
+    @iam = Aws::IAM::Client.new(region: region)
   end
 
   def kms
-    @kms = Aws::KMS::Client.new
+    require_attrs! :region
+
+    @kms = Aws::KMS::Client.new(region: region)
   end
 
   def route53
-    @route53 = Aws::Route53::Client.new
+    require_attrs! :region
+
+    @route53 = Aws::Route53::Client.new(region: region)
   end
 
   def s3
-    @s3 = Aws::S3::Client.new
+    require_attrs! :region
+
+    @s3 = Aws::S3::Client.new(region: region)
   end
 
   def s3_encryption
+    require_attrs! :region
+
     @s3 = Aws::S3::Encryption::Client.new(
+      region: region,
       kms_key_id: kms_key_id,
       kms_client: kms
     )

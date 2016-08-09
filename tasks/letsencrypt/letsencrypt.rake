@@ -5,6 +5,7 @@ namespace :letsencrypt do
     config.endpoint           = LetsEncryptRoute53::STAGING
     config.domains            = ['staging.oversight.garden',
                                  'www.staging.oversight.garden']
+    config.region             = 'us-east-1'
     config.s3_bucket          = 'oversight-secrets'
     config.s3_key_key         = 'letsencrypt.key.pem'
     config.s3_key_cert        = 'letsencrypt.cert.pem'
