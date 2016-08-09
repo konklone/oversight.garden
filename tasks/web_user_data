@@ -48,7 +48,7 @@ END
 sudo -u ubuntu cp config/config.yaml.example ../shared/config.yaml
 sed -i 's/127.0.0.1/search-oversight-iu2rwt666hmlxrbn2slw6zlgou.us-east-1.es.amazonaws.com/' ../shared/config.yaml
 sed -i 's/9200/80/' ../shared/config.yaml
-sed -i 's_  # directory: /path/to/sitemaps_  directory: /home/unitedstates/oversight/shared/sitemap_' config/config.yaml
+sed -i 's_  # directory: /path/to/sitemaps_  directory: /home/unitedstates/oversight/shared/sitemap_' ../shared/config.yaml
 echo 'aws:' >> ../shared/config.yaml
 echo '  region: us-east-1' >> ../shared/config.yaml
 sudo -u ubuntu aws s3 cp s3://oversight-secrets/secrets.sh /home/ubuntu/
