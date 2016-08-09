@@ -5,13 +5,15 @@ namespace :aws do
   availability_zone = 'us-east-1b'
   key_name = 'erickey'
   instance_type = 't2.small'
-  iam_instance_profile = 'arn:aws:iam::786276019377:instance-profile/oversight'
+  scraper_iam_instance_profile = 'arn:aws:iam::786276019377:instance-profile/oversight'
+  web_iam_instance_profile = 'arn:aws:iam::786276019377:instance-profile/oversight-web'
   device_name = '/dev/xvdf'
 
   # Ubuntu Server 16.04 LTS (HVM), EBS-backed, 20160627
   ami = 'ami-ddf13fb0'
 
   ec2 = Aws::EC2::Resource.new(region: region)
+  autoscaling = Aws::AutoScaling::Resource.new(region: region)
 
   desc "Create scraper instance"
   task create_scraper_instance: :environment do
@@ -47,7 +49,7 @@ namespace :aws do
         associate_public_ip_address: true
       }],
       iam_instance_profile: {
-        arn: iam_instance_profile
+        arn: scraper_iam_instance_profile
       }
     })
     puts "Created instance #{instance[0].id}"
@@ -72,5 +74,49 @@ namespace :aws do
 
     instance2 = ec2.instances({instance_ids: [instance[0].id]})
     puts "Instance #{instance2.entries[0].id} is running at #{instance2.entries[0].public_dns_name}, #{instance2.entries[0].public_ip_address}"
+  end
+
+  desc "Create web tier auto-scaling group"
+  task create_web_asg: :environment do
+    script = File.read('tasks/web_user_data')
+
+    time = DateTime.now
+    lc_name = time.strftime('web-config-%Y%m%d-%H%M%S')
+    asg_name = time.strftime('web-asg-%Y%m%d-%H%M%S')
+
+    launch_config = autoscaling.create_launch_configuration({
+      launch_configuration_name: lc_name,
+      image_id: ami,
+      key_name: key_name,
+      user_data: script,
+      instance_type: instance_type,
+      iam_instance_profile: {
+        arn: web_iam_instance_profile
+      },
+      associate_public_ip_address: true
+    })
+    puts "Created launch configuration #{lc_name}"
+
+    group = autoscaling.create_group({
+      auto_scaling_group_name: asg_name,
+      launch_configuration_name: lc_name,
+      min_size: 1,
+      max_size: 1,
+      availability_zones: [availability_zone],
+      health_check_type: "EC2",
+      health_check_grace_period: 60,
+      tags: [
+        key: 'role',
+        value: 'web',
+        propagate_at_launch: true
+      ]
+    })
+    puts "Created autoscaling group #{asg_name}"
+
+    puts "Waiting for autoscaling group to be in service"
+    group.wait_until_in_service
+
+    instance = group.instances[0]
+    puts "Instance #{instance.id} is running at #{instance.public_dns_name}, #{instance.public_ip_address}"
   end
 end
