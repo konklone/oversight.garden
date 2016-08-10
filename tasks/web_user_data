@@ -107,6 +107,15 @@ server {
   }
 }
 
+server {
+  listen 80;
+  server_name oversight.garden;
+  server_name www.oversight.garden;
+  location / {
+    rewrite ^ https://oversight.garden$request_uri permanent;
+  }
+}
+
 # redirect www->bare
 server {
   server_name www.staging.oversight.garden;
@@ -118,7 +127,18 @@ server {
 }
 
 server {
+  server_name www.oversight.garden;
+  include ssl.rules;
+
+  location / {
+    rewrite ^ https://oversight.garden$request_uri permanent;
+  }
+}
+
+# the server proper
+server {
   server_name staging.oversight.garden;
+  server_name oversight.garden;
   include ssl.rules;
 
   location / {
