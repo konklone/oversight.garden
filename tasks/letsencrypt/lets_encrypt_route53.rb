@@ -51,7 +51,7 @@ class LetsEncryptRoute53
           mark_key_as_registered
           key
         else
-          puts 'Doesn\'t seem to exist in S3, creating a new one.'
+          puts 'Doesn\'t seem to exist on disk, creating a new one.'
           generate_and_upload_key
         end
       end
@@ -157,9 +157,11 @@ class LetsEncryptRoute53
   def expires_in(reference_time: Time.now)
     require_attrs! :path_cert
 
-    raw = File.read path_cert
-    certificate = OpenSSL::X509::Certificate.new raw
-    certificate.not_after - reference_time
+    if File.file? path_cert
+      raw = File.read path_cert
+      certificate = OpenSSL::X509::Certificate.new raw
+      certificate.not_after - reference_time
+    end
   end
 
   def fetch_files!
@@ -235,10 +237,10 @@ class LetsEncryptRoute53
   def load_key
     require_attrs! :path_key
 
-    plaintext_key = File.read(path_key)
-    OpenSSL::PKey::RSA.new(plaintext_key)
-  rescue Error::ENOENT
-    nil
+    if File.file? path_key
+      plaintext_key = File.read(path_key)
+      OpenSSL::PKey::RSA.new(plaintext_key)
+    end
   end
 
   def generate_and_upload_key
@@ -312,7 +314,7 @@ class LetsEncryptRoute53
       print ' ' * @indent_level
       start = Time.now
       result = yield
-      puts '=> %0.2fs'.format((Time.now - start).to_f)
+      puts sprintf('=> %0.2fs', (Time.now - start).to_f)
     end
     @indent_level -= 2
     result

@@ -27,7 +27,7 @@ namespace :letsencrypt do
        '30 days'
   task :renew do
     expires_in = le.expires_in
-    if expires_in > 30.days
+    if !expires_in.nil? && expires_in > 30.days
       days = expires_in.to_i / 1.day
       puts "Current certificate is valid, and expires in #{days} days. "\
            'Not updating.'
