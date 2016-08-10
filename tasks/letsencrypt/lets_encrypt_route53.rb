@@ -31,16 +31,20 @@ class LetsEncryptRoute53
     require_attrs! :domains
 
     register_key if key_needs_registered?
+    challenges = {}
     domains.each do |domain|
       _auth, challenge = obtain_authorization(domain)
       set_dns_record(domain, challenge)
       request_dns_verification(challenge)
+      challenges[domain] = challenge
     end
     csr = generate_certificate_signing_request
     certificate = request_certificate(csr)
     write_certificate(certificate)
     upload_certificate(certificate)
-    remove_dns_verification_record(challenge)
+    challenges.each do |domain, challenge|
+      remove_dns_verification_record(challenge, domain)
+    end
   end
 
   def private_key
@@ -190,8 +194,8 @@ class LetsEncryptRoute53
     )
   end
 
-  def remove_dns_verification_record(challenge)
-    require_attrs! :hosted_zone_id, :domain
+  def remove_dns_verification_record(challenge, domain)
+    require_attrs! :hosted_zone_id
 
     change = {
       hosted_zone_id: hosted_zone_id,
