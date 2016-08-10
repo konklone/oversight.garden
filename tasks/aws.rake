@@ -90,7 +90,7 @@ namespace :aws do
       image_id: ami,
       key_name: key_name,
       security_groups: ["web-sg"],
-      user_data: Base64.encode(script),
+      user_data: Base64.encode64(script),
       instance_type: instance_type,
       iam_instance_profile: web_iam_instance_profile,
       associate_public_ip_address: true
