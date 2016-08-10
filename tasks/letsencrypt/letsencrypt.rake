@@ -24,7 +24,7 @@ namespace :letsencrypt do
     config.hosted_zone_id     = 'Z373JK35FYSEGP'
   end
 
-  desc 'Fetch key and certificates from S3'
+  desc 'Fetch keys and certificates from S3'
   task :fetch do
     le.fetch_files!
   end

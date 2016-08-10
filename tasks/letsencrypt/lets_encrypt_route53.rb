@@ -151,7 +151,7 @@ class LetsEncryptRoute53
 
   def upload_certificate(certificate)
     require_attrs! :s3_bucket, :s3_key_privkey, :s3_key_cert, :s3_key_chain,\
-                   :s3_key_fullchain
+                   :s3_key_fullchain, :kms_key_id
 
     s3_encryption.put_object(
       bucket: s3_bucket,
@@ -326,9 +326,9 @@ class LetsEncryptRoute53
   end
 
   def s3_encryption
-    require_attrs! :region
+    require_attrs! :region, :kms_key_id
 
-    @s3 = Aws::S3::Encryption::Client.new(
+    @s3_encryption = Aws::S3::Encryption::Client.new(
       region: region,
       kms_key_id: kms_key_id,
       kms_client: kms
