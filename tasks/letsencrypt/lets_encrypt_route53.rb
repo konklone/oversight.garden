@@ -201,7 +201,7 @@ class LetsEncryptRoute53
       path_privkey,
       s3_encryption.get_object(
         bucket: s3_bucket,
-        key: s3_privkey
+        key: s3_key_privkey
       ).body.read
     )
     File.write(
