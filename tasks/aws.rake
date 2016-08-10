@@ -9,6 +9,7 @@ namespace :aws do
   web_iam_instance_profile = 'arn:aws:iam::786276019377:instance-profile/oversight-web'
   device_name = '/dev/xvdf'
   subnet = 'subnet-ae40b184'
+  web_security_group = 'sg-72ba4108'
 
   # Ubuntu Server 16.04 LTS (HVM), EBS-backed, 20160627
   ami = 'ami-ddf13fb0'
@@ -89,7 +90,7 @@ namespace :aws do
       launch_configuration_name: lc_name,
       image_id: ami,
       key_name: key_name,
-      security_groups: ["web-sg"],
+      security_groups: [web_security_group],
       user_data: Base64.encode64(script),
       instance_type: instance_type,
       iam_instance_profile: web_iam_instance_profile,
