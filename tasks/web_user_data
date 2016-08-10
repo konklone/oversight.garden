@@ -56,6 +56,8 @@ sudo -u ubuntu bash /home/ubuntu/secrets.sh ../shared/config.yaml
 sudo -u ubuntu ln -s ../shared/config.yaml config/config.yaml
 
 sudo -u ubuntu bash <<'END'
+export NVM_DIR=/home/ubuntu/.nvm
+source $NVM_DIR/nvm.sh
 export NODE_ENV=production
 forever -l /home/ubuntu/oversight/forever.log -a start app.js
 END
