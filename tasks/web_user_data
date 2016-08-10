@@ -64,7 +64,7 @@ END
 
 # Create nginx config
 cat >/etc/nginx/ssl.rules <<'END'
-ssl_certificate /home/ubuntu/letsencrypt.chain.pem;
+ssl_certificate /home/ubuntu/letsencrypt.fullchain.pem;
 ssl_certificate_key /home/ubuntu/letsencrypt.key.pem;
 
 # always use http/2 over 443

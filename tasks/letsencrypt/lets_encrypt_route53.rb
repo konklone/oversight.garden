@@ -12,12 +12,16 @@ class LetsEncryptRoute53
                 :domains,            # Domains we're obtaining a certificate for
                 :region,             # AWS region
                 :s3_bucket,          # Where should we store the LE key/cert
-                :s3_key_key,         # name for private key
+                :s3_key_acct,        # name for account key
+                :s3_key_privkey,     # name for private key
                 :s3_key_cert,        # name for leaf certificate
                 :s3_key_chain,       # name for certificate chain
-                :path_key,           # local file path for private key
+                :s3_key_fullchain,   # name for concatenated certificate chain
+                :path_acct,          # local file path for account key
+                :path_privkey,       # local file path for private key
                 :path_cert,          # local file path for for certificate
                 :path_chain,         # local file path for certificate chain
+                :path_fullchain,     # local file path for concatenated certificate chain
                 :kms_key_id,         # Which KMS key to encrypt the LE pkey?
                 :contact_email,      # LE Registration email
                 :hosted_zone_id,     # Route 53 Zone for domain
@@ -137,15 +141,23 @@ class LetsEncryptRoute53
   end
 
   def write_certificate(certificate)
-    require_attrs! :path_cert, :path_chain
+    require_attrs! :path_privkey, :path_cert, :path_chain, :path_fullchain
 
+    File.write(path_privkey, certificate.request.private_key.to_pem)
     File.write(path_cert, certificate.to_pem)
     File.write(path_chain, certificate.chain_to_pem)
+    File.write(path_fullchain, certificate.fullchain_to_pem)
   end
 
   def upload_certificate(certificate)
-    require_attrs! :s3_bucket, :s3_key_cert, :s3_key_chain
+    require_attrs! :s3_bucket, :s3_key_privkey, :s3_key_cert, :s3_key_chain,\
+                   :s3_key_fullchain
 
+    s3_encryption.put_object(
+      bucket: s3_bucket,
+      key: s3_key_privkey,
+      body: certificate.request.private_key.to_pem
+    )
     s3.put_object(
       bucket: s3_bucket,
       key: s3_key_cert,
@@ -155,6 +167,11 @@ class LetsEncryptRoute53
       bucket: s3_bucket,
       key: s3_key_chain,
       body: certificate.chain_to_pem
+    )
+    s3.put_object(
+      bucket: s3_bucket,
+      key: s3_key_fullchain,
+      body: certificate.fullchain_to_pem
     )
   end
 
@@ -169,13 +186,22 @@ class LetsEncryptRoute53
   end
 
   def fetch_files!
-    require_attrs! :s3_bucket, :s3_key_cert, :s3_key_chain, :s3_key_key,\
-                   :kms_key_id, :path_key, :path_cert, :path_chain
+    require_attrs! :s3_bucket, :s3_key_cert, :s3_key_chain,\
+                   :s3_key_fullchain, :s3_key_acct, :s3_key_privkey,\
+                   :kms_key_id, :path_acct, :path_privkey, :path_cert,\
+                   :path_chain, :path_fullchain
     File.write(
-      path_key,
+      path_acct,
       s3_encryption.get_object(
         bucket: s3_bucket,
-        key: s3_key_key
+        key: s3_key_acct
+      ).body.read
+    )
+    File.write(
+      path_privkey,
+      s3_encryption.get_object(
+        bucket: s3_bucket,
+        key: s3_privkey
       ).body.read
     )
     File.write(
@@ -190,6 +216,13 @@ class LetsEncryptRoute53
       s3.get_object(
         bucket: s3_bucket,
         key: s3_key_chain
+      ).body.read
+    )
+    File.write(
+      path_fullchain,
+      s3.get_object(
+        bucket: s3_bucket,
+        key: s3_key_fullchain
       ).body.read
     )
   end
@@ -239,23 +272,23 @@ class LetsEncryptRoute53
   end
 
   def load_key
-    require_attrs! :path_key
+    require_attrs! :path_acct
 
-    if File.file? path_key
-      plaintext_key = File.read(path_key)
+    if File.file? path_acct
+      plaintext_key = File.read(path_acct)
       OpenSSL::PKey::RSA.new(plaintext_key)
     end
   end
 
   def generate_and_upload_key
-    require_attrs! :s3_bucket, :s3_key_key, :kms_key_id, :path_key
+    require_attrs! :s3_bucket, :s3_key_acct, :kms_key_id, :path_acct
 
     say 'generating a new key and uploading to S3' do
       private_key = OpenSSL::PKey::RSA.new(4096)
-      File.write(path_key, private_key.to_pem)
+      File.write(path_acct, private_key.to_pem)
       s3_encryption.put_object(
         bucket: s3_bucket,
-        key: s3_key_key,
+        key: s3_key_acct,
         body: private_key.to_pem
       )
       private_key
