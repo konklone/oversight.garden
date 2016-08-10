@@ -80,7 +80,6 @@ namespace :aws do
   desc "Create web tier auto-scaling group"
   task create_web_asg: :environment do
     script = File.read('tasks/web_user_data')
-    script_encoded = Base64.encode64 script
 
     time = DateTime.now
     lc_name = time.strftime('web-config-%Y%m%d-%H%M%S')
@@ -90,7 +89,8 @@ namespace :aws do
       launch_configuration_name: lc_name,
       image_id: ami,
       key_name: key_name,
-      user_data: script_encoded,
+      security_groups: ["web-sg"],
+      user_data: Base64.encode(script),
       instance_type: instance_type,
       iam_instance_profile: web_iam_instance_profile,
       associate_public_ip_address: true
