@@ -100,25 +100,25 @@ upstream main_oversight {
 # redirect http->https
 server {
   listen 80;
-  server_name oversight.garden;
-  server_name www.oversight.garden;
+  server_name staging.oversight.garden;
+  server_name www.staging.oversight.garden;
   location / {
-    rewrite ^ https://oversight.garden$request_uri permanent;
+    rewrite ^ https://staging.oversight.garden$request_uri permanent;
   }
 }
 
 # redirect www->bare
 server {
-  server_name www.oversight.garden;
+  server_name www.staging.oversight.garden;
   include ssl.rules;
 
   location / {
-    rewrite ^ https://oversight.garden$request_uri permanent;
+    rewrite ^ https://staging.oversight.garden$request_uri permanent;
   }
 }
 
 server {
-  server_name oversight.garden;
+  server_name staging.oversight.garden;
   include ssl.rules;
 
   location / {
