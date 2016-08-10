@@ -3,7 +3,9 @@ require_relative 'lets_encrypt_route53'
 namespace :letsencrypt do
   le = LetsEncryptRoute53.new.tap do |config|
     config.endpoint           = LetsEncryptRoute53::PRODUCTION
-    config.domains            = ['staging.oversight.garden',
+    config.domains            = ['oversight.garden',
+                                 'www.oversight.garden',
+                                 'staging.oversight.garden',
                                  'www.staging.oversight.garden']
     config.region             = 'us-east-1'
     config.s3_bucket          = 'oversight-secrets'
