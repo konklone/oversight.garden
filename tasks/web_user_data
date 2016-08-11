@@ -17,6 +17,7 @@ sudo -u ubuntu curl https://raw.githubusercontent.com/creationix/nvm/v0.31.2/ins
 sudo -u ubuntu mkdir -p /home/ubuntu/oversight/current
 sudo -u ubuntu mkdir -p /home/ubuntu/oversight/shared/log
 sudo -u ubuntu mkdir -p /home/ubuntu/oversight/shared/sitemap
+sudo -u ubuntu aws s3 sync s3://oversight-sitemap /home/ubuntu/oversight/shared/sitemap
 cd /home/ubuntu/oversight/current
 sudo -u ubuntu git clone https://github.com/konklone/oversight.garden.git .
 
