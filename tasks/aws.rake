@@ -17,6 +17,21 @@ namespace :aws do
   ec2 = Aws::EC2::Resource.new(region: region)
   autoscaling = Aws::AutoScaling::Resource.new(region: region)
 
+  desc "List running EC2 instances"
+  task list_instances: :environment do
+    ec2.instances.each do |instance|
+      if instance.state.name == "running"
+        role = ""
+        instance.tags.each do |tag|
+          if tag.key == "role"
+            role = tag.value
+          end
+        end
+        puts "#{role}\t#{instance.public_ip_address}\t#{instance.public_dns_name}\t#{instance.id}"
+      end
+    end
+  end
+
   desc "Create scraper instance"
   task create_scraper_instance: :environment do
     if ec2.instances({filters: [
