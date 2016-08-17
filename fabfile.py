@@ -10,8 +10,8 @@ branch = "master"
 repo = "git@github.com:konklone/oversight.git"
 
 username = "unitedstates"
-home = "/home/unitedstates/oversight"
-logs = "/home/unitedstates/oversight"
+home = "$HOME/oversight"
+logs = "$HOME/oversight"
 shared_path = "%s/shared" % home
 versions_path = "%s/versions" % home
 now = time.strftime("%Y%m%d%H%M%S")

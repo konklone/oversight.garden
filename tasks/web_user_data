@@ -1,0 +1,180 @@
+#!/bin/bash -x
+
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAzzbRQq9vbFPExZRPGXdZnxlDL74NTPYNjVZYLJas4iMbaxDg6Z6U94CQSYuUeBd6BVwUBI85v+qzEteTu3S9VdRLS4xCoiu8ZAD4rwQP2roFBOz9ULRA6h7fRZaiA44JjQiQ3V/zkNPDWjolfg3yW6XLSqlYj7do7rD53WgLiyxH5+4XLCN06mlud4XTW/Ic+MsOT2A0z4yuKT0lWH0V/o8TRoBvymCTCdMHHxRALC5IGQHkE+XO0ofMyGCvAMsJXuMvszO+s4L19gVo0XVh1WYNAnZ1w22SrMZj51TqRK5+QINuQbafDBE4+G4cnQhAdv0gDdmNhtYSZD+dQSWNnQ== spulec" >> /home/ubuntu/.ssh/authorized_keys
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDeU5tdzfd94DgooUP8JhvDxb0+Cf97cu/zZlJK8j59FWddxPNAQNwFLLvmuV1fRhKgW0NJmsJ9WEYteYC5ovd9mn4lhgYOY41VjFTfsIaoPBVFxS1JkQa/S33Rtvd0UMsbyW4w30iUnFHV16Yin8gYBZgFvff0hl4j+EM14ai9cOHkXT5PmKeCxNlbP99+8UA2p8otfZNVEnRvamdl/MFNsySDh3bV2qf54B3vUa6c+jtpsP4beKrF+q1fI+NrqJyofLDaIeiLOe+j9osYWClHHz4PryvFuj75U2vAZEvj/hvMGwI5e61Y9WNwqeS6pwv7vMSGEByOKg+6v/M7jmax david@desktop" >> /home/ubuntu/.ssh/authorized_keys
+
+apt-get update
+apt-get install -y awscli git nginx autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev
+
+sudo -u ubuntu git clone https://github.com/sstephenson/rbenv.git /home/ubuntu/.rbenv
+sudo -u ubuntu git clone https://github.com/sstephenson/ruby-build.git /home/ubuntu/.rbenv/plugins/ruby-build
+echo 'export PATH=$HOME/.rbenv/bin:$PATH' | sudo -u ubuntu tee -a /home/ubuntu/.bashrc
+echo 'eval "$(rbenv init -)"' | sudo -u ubuntu tee -a /home/ubuntu/.bashrc
+
+echo 'export NODE_ENV=production' | sudo -u ubuntu tee -a /home/ubuntu/.bashrc
+sudo -u ubuntu curl https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | sudo -u ubuntu bash
+
+sudo -u ubuntu mkdir -p /home/ubuntu/oversight/current
+sudo -u ubuntu mkdir -p /home/ubuntu/oversight/shared/log
+sudo -u ubuntu mkdir -p /home/ubuntu/oversight/shared/sitemap
+sudo -u ubuntu aws s3 sync s3://oversight-sitemap /home/ubuntu/oversight/shared/sitemap
+cd /home/ubuntu/oversight/current
+sudo -u ubuntu git clone https://github.com/konklone/oversight.garden.git .
+
+sudo -u ubuntu bash <<'END'
+export PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH
+rbenv install 2.2.5
+rbenv global 2.2.5
+gem install bundler
+rbenv rehash
+bundle install
+rake letsencrypt:fetch
+END
+
+sudo -u ubuntu bash <<'END'
+export NVM_DIR=$HOME/.nvm
+source $NVM_DIR/nvm.sh
+nvm install 4.4.7
+nvm alias default 4.4.7
+npm install --production
+./node_modules/.bin/wintersmith build --config=config/blog.js
+END
+
+bash <<'END'
+export NVM_DIR=/home/ubuntu/.nvm
+source $NVM_DIR/nvm.sh
+npm install -g forever
+END
+
+sudo -u ubuntu cp config/config.yaml.example ../shared/config.yaml
+sed -i 's/127.0.0.1/search-oversight-iu2rwt666hmlxrbn2slw6zlgou.us-east-1.es.amazonaws.com/' ../shared/config.yaml
+sed -i 's/9200/80/' ../shared/config.yaml
+sed -i 's_  # directory: /path/to/sitemaps_  directory: /home/ubuntu/oversight/shared/sitemap_' ../shared/config.yaml
+echo 'aws:' >> ../shared/config.yaml
+echo '  region: us-east-1' >> ../shared/config.yaml
+sudo -u ubuntu aws s3 cp s3://oversight-secrets/secrets.sh /home/ubuntu/
+sudo -u ubuntu bash /home/ubuntu/secrets.sh ../shared/config.yaml
+sudo -u ubuntu ln -s /home/ubuntu/oversight/shared/config.yaml config/config.yaml
+
+sudo -u ubuntu bash <<'END'
+export NVM_DIR=/home/ubuntu/.nvm
+source $NVM_DIR/nvm.sh
+export NODE_ENV=production
+forever -l /home/ubuntu/oversight/forever.log -a start app.js
+END
+
+# Create nginx config
+cat >/etc/nginx/ssl.rules <<'END'
+ssl_certificate /home/ubuntu/letsencrypt.fullchain.pem;
+ssl_certificate_key /home/ubuntu/letsencrypt.privkey.pem;
+
+# always use http/2 over 443
+listen 443 ssl http2;
+
+# This requires strong forward secrecy (ECDHE) for all connections.
+# However, it blocks IE8+XP and Android 2.3.
+ssl_ciphers 'kEECDH+ECDSA+AES128 kEECDH+ECDSA+AES256 kEECDH+AES128 kEECDH+AES256 +SHA !aNULL !eNULL !LOW !MD5 !EXP !DSS !PSK !SRP !kECDH !CAMELLIA !RC4 !SEED';
+
+# cut out SSLv3
+ssl_protocols TLSv1.2 TLSv1.1 TLSv1;
+
+ssl_session_cache   shared:SSL:10m;
+ssl_session_timeout 10m;
+keepalive_timeout   70;
+
+# force SSL with HSTS
+add_header Strict-Transport-Security 'max-age=31536000; includeSubDomains; preload';
+
+# OCSP stapling
+ssl_stapling on;
+ssl_stapling_verify on;
+
+resolver 8.8.8.8 8.8.4.4 valid=86400;
+resolver_timeout 10;
+END
+cat >/etc/nginx/sites-enabled/default <<'END'
+upstream main_oversight {
+  server 127.0.0.1:3000;
+  keepalive 64;
+}
+
+# redirect http->https
+server {
+  listen 80;
+  server_name staging.oversight.garden;
+  server_name www.staging.oversight.garden;
+  location / {
+    rewrite ^ https://staging.oversight.garden$request_uri permanent;
+  }
+}
+
+server {
+  listen 80;
+  server_name oversight.garden;
+  server_name www.oversight.garden;
+  location / {
+    rewrite ^ https://oversight.garden$request_uri permanent;
+  }
+}
+
+# redirect www->bare
+server {
+  server_name www.staging.oversight.garden;
+  include ssl.rules;
+
+  location / {
+    rewrite ^ https://staging.oversight.garden$request_uri permanent;
+  }
+}
+
+server {
+  server_name www.oversight.garden;
+  include ssl.rules;
+
+  location / {
+    rewrite ^ https://oversight.garden$request_uri permanent;
+  }
+}
+
+# the server proper
+server {
+  server_name staging.oversight.garden;
+  server_name oversight.garden;
+  include ssl.rules;
+
+  location / {
+    proxy_pass http://main_oversight;
+    proxy_http_version 1.1;
+    proxy_redirect off;
+
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forawrded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto https;
+    proxy_max_temp_file_size 0;
+
+    proxy_connect_timeout 10;
+    proxy_send_timeout    30;
+    proxy_read_timeout    30;
+
+    access_log /home/ubuntu/oversight/shared/log/oversight_access.log;
+    error_log /home/ubuntu/oversight/shared/log/oversight_error.log;
+
+    location /favicon.ico {
+      root /home/ubuntu/oversight/current/public;
+      access_log off;
+    }
+
+    location /robots.txt {
+      root /home/ubuntu/oversight/current/public;
+    }
+  }
+}
+END
+
+service nginx restart
+
+crontab -u ubuntu - <<'END'
+30 0 * * 1 bash -c 'aws s3 sync s3://oversight-sitemap $HOME/oversight/shared/sitemap'
+46 11 * * * bash -c 'cd $HOME/oversight/current; export PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH; rake letsencrypt:renew'
+END

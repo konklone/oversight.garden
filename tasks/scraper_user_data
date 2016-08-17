@@ -86,4 +86,5 @@ sudo -u ubuntu bash /home/ubuntu/secrets.sh /home/ubuntu/oversight.garden/config
 
 crontab -u ubuntu - <<'END'
 0 */3 * * * bash -c 'cd $HOME/inspectors-general; export PYENV_ROOT=$HOME/.pyenv; export PATH=$PYENV_ROOT/bin:$PATH; eval "$(pyenv init -)"; pyenv virtualenvwrapper; workon inspectors; python igs; cd $HOME/oversight.garden; export NVM_DIR=$HOME/.nvm; source $NVM_DIR/nvm.sh; node tasks/inspectors.js --since 1900'
+30 23 * * 0 bash -c 'cd $HOME/oversight.garden; export PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH; rake sitemap:generate && aws s3 sync $HOME/oversight.garden/public/sitemap s3://oversight-sitemap'
 END
