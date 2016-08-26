@@ -7,6 +7,7 @@
 <link rel="stylesheet" type="text/css" href="/css/dashboard.css" />
 <link rel="shortcut icon" href="/favicon.png" />
 <script src="/scripts/jquery.min.js"></script>
+<script src="/scripts/dashboard.js"></script>
 </head>
 <body>
 <h1>Oversight Dashboard</h1>
@@ -91,13 +92,5 @@
 <% } else { %>
   Error loading data!
 <% } %>
-
-<script>
-  $(".js-accordion-trigger").bind("click", function(e) {
-    $(jQuery(this).parent().find(".submenu")[0]).slideToggle("fast");
-    jQuery(this).parent().toggleClass("is-expanded");
-    e.preventDefault();
-  });
-</script>
 </body>
 </html>
