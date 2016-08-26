@@ -20,7 +20,7 @@
             <% var missing_date_count = hit._source.missing_dates ? hit._source.missing_dates.length : 0; %>
             <% var http_error_count = hit._source.http_errors ? hit._source.http_errors.length : 0; %>
       <li class="severity-<%= hit._source.severity %>">
-        <a href="javascript:void(0)" class="js-accordion-trigger">
+        <a href="#" class="js-accordion-trigger">
           <%= hit._id %>
           <span class="short-summary">
             <% if (exceptions_count) { %>
@@ -47,7 +47,7 @@
                 <% for (var j = 0; j < hit._source.exceptions.length; j++) { %>
                   <% var exception = hit._source.exceptions[j]; %>
                   <li>
-                    <a href="javascript:void(0)" class="js-accordion-trigger">
+                    <a href="#" class="js-accordion-trigger">
                       <%= exception.class_name %> thrown in <%= exception.function %> at <%= exception.filename %>:<%= exception.line_num %>
                     </a>
                     <ul class="submenu">
