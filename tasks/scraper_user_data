@@ -8,7 +8,7 @@ chown ubuntu:ubuntu /mnt/data
 echo "/dev/xvdf	/mnt/data	ext4	defaults,nofail	0	2" | tee -a /etc/fstab
 
 apt-get update
-apt-get install -y awscli git libxml2-dev libxslt1-dev xpdf python3-pip make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils
+apt-get install -y awscli git libxml2-dev libxslt1-dev xpdf python3-pip make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils python3-yaml
 pip3 install virtualenvwrapper
 
 sudo -u ubuntu git clone https://github.com/sstephenson/rbenv.git /home/ubuntu/.rbenv
@@ -81,8 +81,8 @@ echo 'reports:' >> config/config.yaml
 echo '  data: /mnt/data/reports' >> config/config.yaml
 echo 'aws:' >> config/config.yaml
 echo '  region: us-east-1' >> config/config.yaml
-sudo -u ubuntu aws s3 cp s3://oversight-secrets/secrets.sh /home/ubuntu/
-sudo -u ubuntu bash /home/ubuntu/secrets.sh /home/ubuntu/oversight.garden/config/config.yaml /home/ubuntu/inspectors-general/admin.yml
+sudo -u ubuntu aws s3 cp s3://oversight-secrets/secrets.py /home/ubuntu/
+sudo -u ubuntu python3 /home/ubuntu/secrets.py /home/ubuntu/oversight.garden/config/config.yaml /home/ubuntu/inspectors-general/admin.yml
 
 crontab -u ubuntu - <<'END'
 0 */3 * * * bash -c 'cd $HOME/inspectors-general; export PYENV_ROOT=$HOME/.pyenv; export PATH=$PYENV_ROOT/bin:$PATH; eval "$(pyenv init -)"; pyenv virtualenvwrapper; workon inspectors; python igs; cd $HOME/oversight.garden; export NVM_DIR=$HOME/.nvm; source $NVM_DIR/nvm.sh; node tasks/inspectors.js --since 1900'

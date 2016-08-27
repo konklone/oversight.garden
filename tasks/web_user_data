@@ -4,7 +4,7 @@ echo "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAzzbRQq9vbFPExZRPGXdZnxlDL74NTPYNjVZYLJ
 echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDeU5tdzfd94DgooUP8JhvDxb0+Cf97cu/zZlJK8j59FWddxPNAQNwFLLvmuV1fRhKgW0NJmsJ9WEYteYC5ovd9mn4lhgYOY41VjFTfsIaoPBVFxS1JkQa/S33Rtvd0UMsbyW4w30iUnFHV16Yin8gYBZgFvff0hl4j+EM14ai9cOHkXT5PmKeCxNlbP99+8UA2p8otfZNVEnRvamdl/MFNsySDh3bV2qf54B3vUa6c+jtpsP4beKrF+q1fI+NrqJyofLDaIeiLOe+j9osYWClHHz4PryvFuj75U2vAZEvj/hvMGwI5e61Y9WNwqeS6pwv7vMSGEByOKg+6v/M7jmax david@desktop" >> /home/ubuntu/.ssh/authorized_keys
 
 apt-get update
-apt-get install -y awscli git nginx autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev
+apt-get install -y awscli git nginx autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev python3-yaml
 
 sudo -u ubuntu git clone https://github.com/sstephenson/rbenv.git /home/ubuntu/.rbenv
 sudo -u ubuntu git clone https://github.com/sstephenson/ruby-build.git /home/ubuntu/.rbenv/plugins/ruby-build
@@ -52,8 +52,8 @@ sed -i 's/9200/80/' ../shared/config.yaml
 sed -i 's_  # directory: /path/to/sitemaps_  directory: /home/ubuntu/oversight/shared/sitemap_' ../shared/config.yaml
 echo 'aws:' >> ../shared/config.yaml
 echo '  region: us-east-1' >> ../shared/config.yaml
-sudo -u ubuntu aws s3 cp s3://oversight-secrets/secrets.sh /home/ubuntu/
-sudo -u ubuntu bash /home/ubuntu/secrets.sh ../shared/config.yaml
+sudo -u ubuntu aws s3 cp s3://oversight-secrets/secrets.py /home/ubuntu/
+sudo -u ubuntu python3 /home/ubuntu/secrets.py ../shared/config.yaml
 sudo -u ubuntu ln -s /home/ubuntu/oversight/shared/config.yaml config/config.yaml
 
 sudo -u ubuntu bash <<'END'
