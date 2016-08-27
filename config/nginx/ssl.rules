@@ -1,0 +1,26 @@
+ssl_certificate /home/ubuntu/letsencrypt.fullchain.pem;
+ssl_certificate_key /home/ubuntu/letsencrypt.privkey.pem;
+
+# always use http/2 over 443
+listen 443 ssl http2;
+
+# This requires strong forward secrecy (ECDHE) for all connections.
+# However, it blocks IE8+XP and Android 2.3.
+ssl_ciphers 'kEECDH+ECDSA+AES128 kEECDH+ECDSA+AES256 kEECDH+AES128 kEECDH+AES256 +SHA !aNULL !eNULL !LOW !MD5 !EXP !DSS !PSK !SRP !kECDH !CAMELLIA !RC4 !SEED';
+
+# cut out SSLv3
+ssl_protocols TLSv1.2 TLSv1.1 TLSv1;
+
+ssl_session_cache   shared:SSL:10m;
+ssl_session_timeout 10m;
+keepalive_timeout   70;
+
+# force SSL with HSTS
+add_header Strict-Transport-Security 'max-age=31536000; includeSubDomains; preload';
+
+# OCSP stapling
+ssl_stapling on;
+ssl_stapling_verify on;
+
+resolver 8.8.8.8 8.8.4.4 valid=86400;
+resolver_timeout 10;
