@@ -224,13 +224,16 @@ module.exports = function(app) {
  * that can be passed to the search function.
  */
 function parse_search_query(request_query, size) {
-  var search_query;
-  if (request_query.query)
-    search_query = request_query.query;
-  else
+  var search_query, original_search_query;
+  if (Array.isArray(request_query.query)) {
+    search_query = original_search_query = request_query.query[0];
+  } else {
+    search_query = original_search_query = request_query.query;
+  }
+  if (!search_query) {
     search_query = "*";
-
-  var original_search_query = request_query.query || "";
+    original_search_query = "";
+  }
 
   var inspector;
   if (request_query.inspector) {

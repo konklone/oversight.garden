@@ -60,6 +60,17 @@ test('reports page, two inspector filter', function(t) {
   });
 });
 
+test('reports page, double query string', function(t) {
+  t.test('is OK', function(t) {
+    var baseURL = server.getBaseURL();
+    request(baseURL + '/reports?page=18&query=&inspector=education?page=18&query=&inspector=education', function(error, response, body) {
+      t.ifError(error);
+      t.equal(200, response.statusCode);
+      t.end();
+    });
+  });
+});
+
 test('featured reports page', function(t) {
   t.test('is OK', function(t) {
     var baseURL = server.getBaseURL();
@@ -119,6 +130,17 @@ test('reports ATOM feed, two inspector filter', function(t) {
   t.test('is OK', function(t) {
     var baseURL = server.getBaseURL();
     request(baseURL + '/reports.xml?inspector=nasa&inspector=nsa', function(error, response, body) {
+      t.ifError(error);
+      t.equal(200, response.statusCode);
+      t.end();
+    });
+  });
+});
+
+test('reports ATOM feed, double query string', function(t) {
+  t.test('is OK', function(t) {
+    var baseURL = server.getBaseURL();
+    request(baseURL + '/reports.xml?page=18&query=&inspector=education?page=18&query=&inspector=education', function(error, response, body) {
       t.ifError(error);
       t.equal(200, response.statusCode);
       t.end();
