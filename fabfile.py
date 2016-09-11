@@ -1,15 +1,26 @@
+import boto3
 import time
+import yaml
 from fabric.api import run, execute, env
 
-environment = "production"
+config = yaml.load(open("config/config.yaml"))
 
-env.use_ssh_config = True
-env.hosts = ["unitedstates"]
+ec2 = boto3.resource("ec2", region_name=config["aws"]["region"])
+web_instances = ec2.instances.filter(
+  Filters=[
+    {
+      "Name": "tag:role",
+      "Values": ["web"]
+    }
+  ]
+)
+env.hosts = [instance.public_dns_name for instance in web_instances]
+env.user = "ubuntu"
 
 branch = "master"
-repo = "git@github.com:konklone/oversight.git"
+repo = "https://github.com/konklone/oversight.git"
 
-username = "unitedstates"
+environment = "production"
 home = "$HOME/oversight"
 logs = "$HOME/oversight"
 shared_path = "%s/shared" % home
@@ -29,16 +40,17 @@ def checkout():
 def links():
   run("ln -s %s/config.yaml %s/config/config.yaml" % (shared_path, version_path))
 
-# install node (and ruby?) dependencies
+# install node and ruby dependencies
 def dependencies():
-  run("cd %s && NODE_ENV=%s npm install --no-spin --no-progress" % (version_path, environment))
+  run("cd %s && export NODE_ENV=%s && export NVM_DIR=$HOME/.nvm && source $NVM_DIR/nvm.sh && npm install --no-spin --no-progress" % (version_path, environment))
+  run("cd %s && PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH bundle install" % version_path)
 
 # create new index, switch write alias, update documents, switch read alias
 def reindex():
-  run("cd %s && rake elasticsearch:init index=%s" % (version_path, index_name))
-  run("cd %s && rake elasticsearch:alias_write index=%s" % (version_path, index_name))
-  run("cd %s && NODE_ENV=%s tasks/inspectors.js --since=1" % (version_path, environment))
-  run("cd %s && rake elasticsearch:alias_read index=%s" % (version_path, index_name))
+  run("cd %s && PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH rake elasticsearch:init index=%s" % (version_path, index_name))
+  run("cd %s && PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH rake elasticsearch:alias_write index=%s" % (version_path, index_name))
+  run("cd %s && export NODE_ENV=%s && export NVM_DIR=$HOME/.nvm && source $NVM_DIR/nvm.sh && tasks/inspectors.js --since=1" % (version_path, environment))
+  run("cd %s && PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH rake elasticsearch:alias_read index=%s" % (version_path, index_name))
 
 # TODO: why cp instead of ln?
 def make_current():
@@ -57,28 +69,28 @@ def cleanup():
 ## can be run on their own
 
 def list_indices():
-  run("cd %s && rake elasticsearch:list" % current_path)
+  run("cd %s && PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH rake elasticsearch:list" % current_path)
 
-def blog():
-  run("cd %s && rake blog" % current_path)
+def blog(path=current_path):
+  run("cd %s && export NODE_ENV=%s && export NVM_DIR=$HOME/.nvm && source $NVM_DIR/nvm.sh && PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH rake blog" % (path, environment))
 
 def delete_index(index):
-  run("cd %s && rake elasticsearch:delete index=%s" % (current_path, index))
+  run("cd %s && PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH rake elasticsearch:delete index=%s" % (current_path, index))
 
 def start():
-  run("cd %s && NODE_ENV=%s forever -l %s/forever.log -a start app.js" % (current_path, environment, logs))
+  run("cd %s && export NODE_ENV=%s && export NVM_DIR=$HOME/.nvm && source $NVM_DIR/nvm.sh && forever -l %s/forever.log -a start app.js" % (current_path, environment, logs))
 
 def stop():
-  run("forever stop app.js")
+  run("cd %s && export NODE_ENV=%s && export NVM_DIR=$HOME/.nvm && source $NVM_DIR/nvm.sh && forever stop app.js" % environment)
 
 def restart():
-  run("forever restart app.js")
+  run("cd %s && export NODE_ENV=%s && export NVM_DIR=$HOME/.nvm && source $NVM_DIR/nvm.sh && forever restart app.js" % (current_path, environment))
 
 def deploy():
   execute(checkout)
   execute(links)
   execute(dependencies)
-  execute(blog)
+  execute(blog, version_path)
   execute(make_current)
   execute(restart)
   execute(cleanup)
@@ -87,7 +99,7 @@ def deploy_reindex():
   execute(checkout)
   execute(links)
   execute(dependencies)
-  execute(blog)
+  execute(blog, version_path)
   execute(reindex)
   execute(make_current)
   execute(restart)
@@ -97,7 +109,7 @@ def deploy_cold():
   execute(checkout)
   execute(links)
   execute(dependencies)
-  execute(blog)
+  execute(blog, version_path)
   execute(make_current)
   execute(start)
 
@@ -105,7 +117,7 @@ def deploy_cold_reindex():
   execute(checkout)
   execute(links)
   execute(dependencies)
-  execute(blog)
+  execute(blog, version_path)
   execute(reindex)
   execute(make_current)
   execute(start)
