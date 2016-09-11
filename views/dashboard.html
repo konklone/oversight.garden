@@ -80,7 +80,11 @@
             <% if (http_error_count > 0) { %>
               <% for (var j = 0; j < hit._source.http_errors.length; j++) { %>
                 <% var http_error = hit._source.http_errors[j]; %>
-                Error code <%= http_error.status_code %> from <a href="<%= http_error.url %>"><%= http_error.url %></a><br/>
+                <% if (http_error.status_code) { %>
+                  Error code <%= http_error.status_code %> from <a href="<%= http_error.url %>"><%= http_error.url %></a><br/>
+                <% } else { %>
+                  <%= http_error.exception_name %> from <a href="<%= http_error.url %>"><%= http_error.url %></a><br/>
+                <% } %>
               <% } %>
             <% } %>
             <h5><%= hit._source.report_count %> report<%= hit._source.report_count != 1 ? "s" : "" %></h5>

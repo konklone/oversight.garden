@@ -65,6 +65,10 @@
           "url": {
             "type": "string",
             "index": "not_analyzed"
+          },
+          "exception_name": {
+            "type": "string",
+            "index": "not_analyzed"
           }
         }
       },

@@ -28,6 +28,10 @@
       {
         "status_code": 500,
         "url": "https://www.amtrakoig.gov/example.pdf"
+      },
+      {
+        "exception_name": "requests.packages.urllib3.exceptions.SSLError",
+        "url": "https://www.justice.gov/example"
       }
     ],
     "report_count": 50

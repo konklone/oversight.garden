@@ -73,6 +73,9 @@
               },
               "url": {
                 "type": "string"
+              },
+              "exception_name": {
+                "type": "string"
               }
             },
             "additionalProperties": false
