@@ -1,5 +1,18 @@
 [
     {
+        "active": false,
+        "agencies": ["Committee for Purchase From People Who Are Blind or Severely Disabled"],
+        "established_year": 2015,
+        "homepage_url": null,
+        "hotline": [
+        ],
+        "name": "Committee for Purchase From People Who Are Blind or Severely Disabled, Office of Inspector General",
+        "publishes_reports": false,
+        "short_name": "AbilityOne",
+        "slug": "abilityone",
+        "statutory_reference": "5 U.S.C. App. 3 \u00A7 8G(b)"
+    },
+    {
         "active": true,
         "agencies": ["Department of Agriculture"],
         "established_year": 1978,
@@ -181,6 +194,19 @@
         "short_name": "Army",
         "slug": "army",
         "statutory_reference": "10 U.S.C. \u00A7 3020(a)"
+    },
+    {
+        "active": false,
+        "agencies": ["U.S. Commission on Civil Rights"],
+        "established_year": 2011,
+        "homepage_url": "http://www.usccr.gov/OIG/index.php",
+        "hotline": [
+        ],
+        "name": "U.S. Commission on Civil Rights, Office of Inspector General",
+        "publishes_reports": true,
+        "short_name": "U.S. Commission on Civil Rights",
+        "slug": "ccr",
+        "statutory_reference": "Pub. L. No. 112-55, Title IV"
     },
     {
         "active": true,
@@ -668,7 +694,7 @@
     },
     {
         "active": true,
-        "agencies": ["Environmental Protection Agency"],
+        "agencies": ["Environmental Protection Agency", "Chemical Safety and Hazard Investigation Board"],
         "established_year": 1978,
         "homepage_url": "http://www.epa.gov/oig",
         "hotline": [

@@ -11,12 +11,14 @@ var request = require("request");
 var inspectors = require("../config/inspectors.json");
 
 var urls = {
+    abilityone: "http://www.abilityone.gov/images/commission_logo.png",
     agriculture: "https://upload.wikimedia.org/wikipedia/commons/0/0e/USDA_logo.svg",
     airforce: "https://upload.wikimedia.org/wikipedia/commons/6/69/USAF_logo.png",
     amtrak: "https://pbs.twimg.com/profile_images/460870025516048384/qb-Dz6jD.jpeg",
     architect: "https://upload.wikimedia.org/wikipedia/commons/a/a5/US-ArchitectOfTheCapitol-2010Logo.svg",
     archives: "https://upload.wikimedia.org/wikipedia/commons/f/f4/NARA_Logo_created_2010.svg",
     army: "https://upload.wikimedia.org/wikipedia/commons/1/19/Emblem_of_the_United_States_Department_of_the_Army.svg",
+    ccr: "http://www.usccr.gov/images/seal_usccr.png",
     cftc: "https://upload.wikimedia.org/wikipedia/commons/a/a9/US-CFTC-Seal.svg",
     cia: "https://upload.wikimedia.org/wikipedia/commons/2/23/CIA.svg",
     cncs: "https://upload.wikimedia.org/wikipedia/en/4/41/Cncs-logo_1.jpg",
