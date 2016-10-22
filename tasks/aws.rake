@@ -11,8 +11,8 @@ namespace :aws do
   subnet = 'subnet-ae40b184'
   web_security_group = 'sg-72ba4108'
 
-  # Ubuntu Server 16.04 LTS (HVM), EBS-backed, 20160627
-  ami = 'ami-ddf13fb0'
+  # Ubuntu Server 16.04 LTS (HVM), EBS-backed, 20161020
+  ami = 'ami-40d28157'
 
   ec2 = Aws::EC2::Resource.new(region: region)
   autoscaling = Aws::AutoScaling::Resource.new(region: region)
