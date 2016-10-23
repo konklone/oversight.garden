@@ -6,6 +6,10 @@ echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDeU5tdzfd94DgooUP8JhvDxb0+Cf97cu/zZl
 apt-get update
 apt-get install -y awscli git nginx autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev python3-yaml
 
+sed -i 's/APT::Periodic::Download-Upgradeable-Packages "0";/APT::Periodic::Download-Upgradeable-Packages "1";/' /etc/apt/apt.conf.d/10periodic
+sed -i 's/APT::Periodic::AutocleanInterval "0";/APT::Periodic::AutocleanInterval "7";/' /etc/apt/apt.conf.d/10periodic
+echo 'APT::Periodic::Unattended-Upgrade "1";' >> /etc/apt/apt.conf.d/10periodic
+
 sudo -u ubuntu git clone https://github.com/sstephenson/rbenv.git /home/ubuntu/.rbenv
 sudo -u ubuntu git clone https://github.com/sstephenson/ruby-build.git /home/ubuntu/.rbenv/plugins/ruby-build
 echo 'export PATH=$HOME/.rbenv/bin:$PATH' | sudo -u ubuntu tee -a /home/ubuntu/.bashrc
