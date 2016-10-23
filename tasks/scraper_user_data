@@ -49,6 +49,8 @@ workon inspectors
 pip install -r requirements.txt
 END
 
+sudo -u ubuntu cp admin.yml.example admin.yml
+
 cd /home/ubuntu
 sudo -u ubuntu git clone https://github.com/konklone/oversight.garden.git
 cd oversight.garden
