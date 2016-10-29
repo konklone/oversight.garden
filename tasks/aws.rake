@@ -10,12 +10,14 @@ namespace :aws do
   device_name = '/dev/xvdf'
   subnet = 'subnet-ae40b184'
   web_security_group = 'sg-72ba4108'
+  route53_zone = 'Z373JK35FYSEGP'
 
   # Ubuntu Server 16.04 LTS (HVM), EBS-backed, 20161020
   ami = 'ami-40d28157'
 
   ec2 = Aws::EC2::Resource.new(region: region)
   autoscaling = Aws::AutoScaling::Resource.new(region: region)
+  route53 = Aws::Route53::Client.new(region: region)
 
   desc "List running EC2 instances"
   task list_instances: :environment do
@@ -137,5 +139,41 @@ namespace :aws do
 
     instance = ec2.instances({instance_ids: [group.instances[0].instance_id]})
     puts "Instance #{instance.entries[0].id} is running at #{instance.entries[0].public_dns_name}, #{instance.entries[0].public_ip_address}"
+
+    route53.change_resource_record_sets({
+      hosted_zone_id: route53_zone,
+      change_batch: {
+        comment: "Automatic staging subdomain update for new web server",
+        changes: [
+          {
+            action: "UPSERT",
+            resource_record_set: {
+              name: "staging.oversight.garden",
+              type: "A",
+              ttl: 300,
+              resource_records: [
+                {
+                  value: instance.entries[0].public_ip_address
+                }
+              ]
+            }
+          },
+          {
+            action: "UPSERT",
+            resource_record_set: {
+              name: "www.staging.oversight.garden",
+              type: "A",
+              ttl: 300,
+              resource_records: [
+                {
+                  value: instance.entries[0].public_ip_address
+                }
+              ]
+            }
+          }
+        ]
+      }
+    })
+    puts "DNS record for staging.oversight.garden updated"
   end
 end
