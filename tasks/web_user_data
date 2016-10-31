@@ -16,7 +16,7 @@ echo 'export PATH=$HOME/.rbenv/bin:$PATH' | sudo -u ubuntu tee -a /home/ubuntu/.
 echo 'eval "$(rbenv init -)"' | sudo -u ubuntu tee -a /home/ubuntu/.bashrc
 
 echo 'export NODE_ENV=production' | sudo -u ubuntu tee -a /home/ubuntu/.bashrc
-sudo -u ubuntu curl https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | sudo -u ubuntu bash
+sudo -u ubuntu curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | sudo -u ubuntu bash
 
 sudo -u ubuntu mkdir -p /home/ubuntu/oversight/current
 sudo -u ubuntu mkdir -p /home/ubuntu/oversight/shared/log

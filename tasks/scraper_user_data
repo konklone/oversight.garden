@@ -39,7 +39,7 @@ echo 'eval "$(pyenv init -)"' | sudo -u ubuntu tee -a /home/ubuntu/.bashrc
 echo 'pyenv virtualenvwrapper' | sudo -u ubuntu tee -a /home/ubuntu/.bashrc
 
 echo 'export NODE_ENV=production' | sudo -u ubuntu tee -a /home/ubuntu/.bashrc
-sudo -u ubuntu curl https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | sudo -u ubuntu bash
+sudo -u ubuntu curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | sudo -u ubuntu bash
 
 cd /home/ubuntu
 sudo -u ubuntu git clone https://github.com/unitedstates/inspectors-general.git
