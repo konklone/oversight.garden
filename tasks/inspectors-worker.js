@@ -53,7 +53,7 @@ function loadReport(details, config, done) {
       port: config.elasticsearch.port
     }
   };
-  if (config.aws) {
+  if (config.aws && config.elasticsearch.host != "127.0.0.1") {
     esConfig.connectionClass = require('http-aws-es');
     esConfig.amazonES = {
       region: config.aws.region,

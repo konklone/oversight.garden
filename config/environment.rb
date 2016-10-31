@@ -37,7 +37,7 @@ class Environment
     log = ENV['log'] || false
     endpoint = "http://#{Environment.config['elasticsearch']['host']}:#{Environment.config['elasticsearch']['port']}"
     @elasticsearch_client = Elasticsearch::Client.new url: endpoint, log: log do |f|
-      if Environment.config['aws'] then
+      if Environment.config['aws'] && (Environment.config['elasticsearch']['host'] != '127.0.0.1') then
         f.request :aws_signers_v4,
                   credentials: Aws::InstanceProfileCredentials.new,
                   service_name: 'es',
