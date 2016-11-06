@@ -1,4 +1,16 @@
 require 'aws-sdk'
+require 'net/http'
+require 'net/https'
+
+class HTTPWithIP < Net::HTTP
+  def ip_address
+    io = @socket
+    while defined? io.io
+      io = io.io
+    end
+    io.peeraddr[3]
+  end
+end
 
 namespace :aws do
   region = 'us-east-1'
@@ -174,6 +186,81 @@ namespace :aws do
         ]
       }
     })
+
     puts "DNS record for staging.oversight.garden updated"
+  end
+
+  desc "Promote staging web server to main domain"
+  task promote: :environment do
+    puts "Fetching DNS configuration"
+
+    staging_ip = route53.test_dns_answer({
+      hosted_zone_id: route53_zone,
+      record_name: "staging.oversight.garden",
+      record_type: "A",
+    }).record_data[0]
+    main_ip = route53.test_dns_answer({
+      hosted_zone_id: route53_zone,
+      record_name: "oversight.garden",
+      record_type: "A",
+    }).record_data[0]
+
+    if staging_ip == main_ip then
+      raise "Nothing to promote, staging.oversight.garden and oversight.garden already point to the same server"
+    end
+
+    puts "Checking health of staging.oversight.garden (#{staging_ip})"
+
+    HTTPWithIP.start("staging.oversight.garden", 443,
+                     :use_ssl => true,
+                     :verify_mode => OpenSSL::SSL::VERIFY_PEER) do |http|
+      if http.ip_address != staging_ip then
+        raise "DNS cache is stale, connected to #{http.ip_address} instead of #{staging_ip}"
+      end
+      request = Net::HTTP::Get.new("/reports")
+      response = http.request(request)
+      if response.code != "200" then
+        raise "Server in staging is not healthy, got a status code of #{response.code}"
+      end
+    end
+
+    puts "Promoting #{staging_ip} to oversight.garden"
+
+    route53.change_resource_record_sets({
+      hosted_zone_id: route53_zone,
+      change_batch: {
+        comment: "Automatic promotion of web server from staging to main domain",
+        changes: [
+          {
+            action: "UPSERT",
+            resource_record_set: {
+              name: "oversight.garden",
+              type: "A",
+              ttl: 300,
+              resource_records: [
+                {
+                  value: staging_ip
+                }
+              ]
+            }
+          },
+          {
+            action: "UPSERT",
+            resource_record_set: {
+              name: "www.oversight.garden",
+              type: "A",
+              ttl: 300,
+              resource_records: [
+                {
+                  value: staging_ip
+                }
+              ]
+            }
+          }
+        ]
+      }
+    })
+
+    puts "DNS record for oversight.garden updated"
   end
 end
