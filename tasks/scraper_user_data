@@ -16,9 +16,9 @@ sed -i 's/APT::Periodic::AutocleanInterval "0";/APT::Periodic::AutocleanInterval
 echo 'APT::Periodic::Unattended-Upgrade "1";' >> /etc/apt/apt.conf.d/10periodic
 
 sudo -u ubuntu gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-sudo -u ubuntu curl -O https://raw.githubusercontent.com/rvm/rvm/master/binscripts/rvm-installer
-sudo -u ubuntu curl -O https://raw.githubusercontent.com/rvm/rvm/master/binscripts/rvm-installer.asc
-sudo -u ubuntu gpg --verify rvm-installer.asc && sudo -u ubuntu bash rvm-installer stable --ignore-dotfiles
+sudo -u ubuntu wget https://raw.githubusercontent.com/rvm/rvm/master/binscripts/rvm-installer -O /home/ubuntu/rvm-installer
+sudo -u ubuntu wget https://raw.githubusercontent.com/rvm/rvm/master/binscripts/rvm-installer.asc -O /home/ubuntu/rvm-installer.asc
+sudo -u ubuntu gpg --verify /home/ubuntu/rvm-installer.asc && sudo -u ubuntu bash /home/ubuntu/rvm-installer stable --ignore-dotfiles
 echo 'source $HOME/.rvm/scripts/rvm' | sudo -u ubuntu tee -a /home/ubuntu/.bashrc
 
 sudo -u ubuntu git clone https://github.com/yyuu/pyenv.git /home/ubuntu/.pyenv
