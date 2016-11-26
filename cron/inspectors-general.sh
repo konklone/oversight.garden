@@ -4,9 +4,8 @@
 cd $HOME/inspectors-general
 source $HOME/.virtualenvs/inspectors/bin/activate
 
-# set up rbenv
-export PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH
-eval "$(rbenv init -)"
+# set up rvm
+source $HOME/.rvm/scripts/rvm
 
 # get latest IG reports from all 'safe' scrapers
 ./igs --safe > $HOME/oversight/shared/log/igs-cron.log 2>&1

@@ -10,10 +10,11 @@ sed -i 's/APT::Periodic::Download-Upgradeable-Packages "0";/APT::Periodic::Downl
 sed -i 's/APT::Periodic::AutocleanInterval "0";/APT::Periodic::AutocleanInterval "7";/' /etc/apt/apt.conf.d/10periodic
 echo 'APT::Periodic::Unattended-Upgrade "1";' >> /etc/apt/apt.conf.d/10periodic
 
-sudo -u ubuntu git clone https://github.com/sstephenson/rbenv.git /home/ubuntu/.rbenv
-sudo -u ubuntu git clone https://github.com/sstephenson/ruby-build.git /home/ubuntu/.rbenv/plugins/ruby-build
-echo 'export PATH=$HOME/.rbenv/bin:$PATH' | sudo -u ubuntu tee -a /home/ubuntu/.bashrc
-echo 'eval "$(rbenv init -)"' | sudo -u ubuntu tee -a /home/ubuntu/.bashrc
+sudo -u ubuntu gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+sudo -u ubuntu curl -O https://raw.githubusercontent.com/rvm/rvm/master/binscripts/rvm-installer
+sudo -u ubuntu curl -O https://raw.githubusercontent.com/rvm/rvm/master/binscripts/rvm-installer.asc
+sudo -u ubuntu gpg --verify rvm-installer.asc && sudo -u ubuntu bash rvm-installer stable --ignore-dotfiles
+echo 'source $HOME/.rvm/scripts/rvm' | sudo -u ubuntu tee -a /home/ubuntu/.bashrc
 
 echo 'export NODE_ENV=production' | sudo -u ubuntu tee -a /home/ubuntu/.bashrc
 sudo -u ubuntu curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | sudo -u ubuntu bash
@@ -26,11 +27,10 @@ cd /home/ubuntu/oversight/current
 sudo -u ubuntu git clone https://github.com/konklone/oversight.garden.git .
 
 sudo -u ubuntu bash <<'END'
-export PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH
-rbenv install 2.3.3
-rbenv global 2.3.3
+source $HOME/.rvm/scripts/rvm
+rvm install 2.3.3
+rvm use 2.3.3 --default
 gem install bundler
-rbenv rehash
 bundle install
 rake letsencrypt:fetch
 END
@@ -74,5 +74,5 @@ service nginx restart
 
 crontab -u ubuntu - <<'END'
 30 0 * * 1 bash -c 'aws s3 sync s3://oversight-sitemap $HOME/oversight/shared/sitemap'
-46 11 * * * bash -c 'cd $HOME/oversight/current; export PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH; rake letsencrypt:renew'
+46 11 * * * bash -c 'cd $HOME/oversight/current; source $HOME/.rvm/scripts/rvm; rake letsencrypt:renew'
 END
