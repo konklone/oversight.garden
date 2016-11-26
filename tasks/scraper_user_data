@@ -8,7 +8,7 @@ chown ubuntu:ubuntu /mnt/data
 echo "/dev/xvdf	/mnt/data	ext4	defaults,nofail	0	2" | tee -a /etc/fstab
 
 apt-get update
-apt-get install -y awscli git libxml2-dev libxslt1-dev xpdf python3-pip make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils python3-yaml
+apt-get install -y awscli git libxml2-dev libxslt1-dev xpdf python3-pip make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils python3-yaml qpdf
 pip3 install virtualenvwrapper
 
 sed -i 's/APT::Periodic::Download-Upgradeable-Packages "0";/APT::Periodic::Download-Upgradeable-Packages "1";/' /etc/apt/apt.conf.d/10periodic
