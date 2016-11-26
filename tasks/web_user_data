@@ -27,8 +27,8 @@ sudo -u ubuntu git clone https://github.com/konklone/oversight.garden.git .
 
 sudo -u ubuntu bash <<'END'
 export PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH
-rbenv install 2.2.5
-rbenv global 2.2.5
+rbenv install 2.3.3
+rbenv global 2.3.3
 gem install bundler
 rbenv rehash
 bundle install
