@@ -336,7 +336,7 @@ class LetsEncryptRoute53
   end
 
   def require_attrs!(*attrs)
-    unless attrs.all? { |a| send(a).present? }
+    if attrs.any? { |a| send(a).nil? || send(a).empty? }
       raise "#{attrs.inspect} are required"
     end
   end
