@@ -24,8 +24,8 @@ namespace :aws do
   web_security_group = 'sg-72ba4108'
   route53_zone = 'Z373JK35FYSEGP'
 
-  # Ubuntu Server 16.04 LTS (HVM), EBS-backed, 20161020
-  ami = 'ami-40d28157'
+  # Ubuntu Server 16.04 LTS (HVM), EBS-backed, 20161115
+  ami = 'ami-45b69e52'
 
   ec2 = Aws::EC2::Resource.new(region: region)
   autoscaling = Aws::AutoScaling::Resource.new(region: region)
