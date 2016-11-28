@@ -4,16 +4,17 @@ echo "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAzzbRQq9vbFPExZRPGXdZnxlDL74NTPYNjVZYLJ
 echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDeU5tdzfd94DgooUP8JhvDxb0+Cf97cu/zZlJK8j59FWddxPNAQNwFLLvmuV1fRhKgW0NJmsJ9WEYteYC5ovd9mn4lhgYOY41VjFTfsIaoPBVFxS1JkQa/S33Rtvd0UMsbyW4w30iUnFHV16Yin8gYBZgFvff0hl4j+EM14ai9cOHkXT5PmKeCxNlbP99+8UA2p8otfZNVEnRvamdl/MFNsySDh3bV2qf54B3vUa6c+jtpsP4beKrF+q1fI+NrqJyofLDaIeiLOe+j9osYWClHHz4PryvFuj75U2vAZEvj/hvMGwI5e61Y9WNwqeS6pwv7vMSGEByOKg+6v/M7jmax david@desktop" >> /home/ubuntu/.ssh/authorized_keys
 
 apt-get update
-apt-get install -y awscli git nginx autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev python3-yaml
+apt-get install -y awscli git nginx autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev python3-yaml libsqlite3-dev sqlite3 libgmp-dev libtool pkg-config
 
 sed -i 's/APT::Periodic::Download-Upgradeable-Packages "0";/APT::Periodic::Download-Upgradeable-Packages "1";/' /etc/apt/apt.conf.d/10periodic
 sed -i 's/APT::Periodic::AutocleanInterval "0";/APT::Periodic::AutocleanInterval "7";/' /etc/apt/apt.conf.d/10periodic
 echo 'APT::Periodic::Unattended-Upgrade "1";' >> /etc/apt/apt.conf.d/10periodic
 
-sudo -u ubuntu git clone https://github.com/sstephenson/rbenv.git /home/ubuntu/.rbenv
-sudo -u ubuntu git clone https://github.com/sstephenson/ruby-build.git /home/ubuntu/.rbenv/plugins/ruby-build
-echo 'export PATH=$HOME/.rbenv/bin:$PATH' | sudo -u ubuntu tee -a /home/ubuntu/.bashrc
-echo 'eval "$(rbenv init -)"' | sudo -u ubuntu tee -a /home/ubuntu/.bashrc
+sudo -u ubuntu gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+sudo -u ubuntu wget https://raw.githubusercontent.com/rvm/rvm/master/binscripts/rvm-installer -O /home/ubuntu/rvm-installer
+sudo -u ubuntu wget https://raw.githubusercontent.com/rvm/rvm/master/binscripts/rvm-installer.asc -O /home/ubuntu/rvm-installer.asc
+sudo -u ubuntu gpg --verify /home/ubuntu/rvm-installer.asc && sudo -u ubuntu bash /home/ubuntu/rvm-installer stable --ignore-dotfiles
+echo 'source $HOME/.rvm/scripts/rvm' | sudo -u ubuntu tee -a /home/ubuntu/.bashrc
 
 echo 'export NODE_ENV=production' | sudo -u ubuntu tee -a /home/ubuntu/.bashrc
 sudo -u ubuntu curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | sudo -u ubuntu bash
@@ -26,11 +27,10 @@ cd /home/ubuntu/oversight/current
 sudo -u ubuntu git clone https://github.com/konklone/oversight.garden.git .
 
 sudo -u ubuntu bash <<'END'
-export PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH
-rbenv install 2.2.5
-rbenv global 2.2.5
+source $HOME/.rvm/scripts/rvm
+rvm install 2.3.3
+rvm use 2.3.3 --default
 gem install bundler
-rbenv rehash
 bundle install
 rake letsencrypt:fetch
 END
@@ -74,5 +74,5 @@ service nginx restart
 
 crontab -u ubuntu - <<'END'
 30 0 * * 1 bash -c 'aws s3 sync s3://oversight-sitemap $HOME/oversight/shared/sitemap'
-46 11 * * * bash -c 'cd $HOME/oversight/current; export PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH; rake letsencrypt:renew'
+46 11 * * * bash -c 'cd $HOME/oversight/current; source $HOME/.rvm/scripts/rvm; rake letsencrypt:renew'
 END

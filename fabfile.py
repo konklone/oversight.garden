@@ -43,14 +43,14 @@ def links():
 # install node and ruby dependencies
 def dependencies():
   run("cd %s && export NODE_ENV=%s && export NVM_DIR=$HOME/.nvm && source $NVM_DIR/nvm.sh && npm install --no-spin --no-progress" % (version_path, environment))
-  run("cd %s && PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH bundle install" % version_path)
+  run("cd %s && source $HOME/.rvm/scripts/rvm && bundle install" % version_path)
 
 # create new index, switch write alias, update documents, switch read alias
 def reindex():
-  run("cd %s && PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH rake elasticsearch:init index=%s" % (version_path, index_name))
-  run("cd %s && PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH rake elasticsearch:alias_write index=%s" % (version_path, index_name))
+  run("cd %s && source $HOME/.rvm/scripts/rvm && rake elasticsearch:init index=%s" % (version_path, index_name))
+  run("cd %s && source $HOME/.rvm/scripts/rvm && rake elasticsearch:alias_write index=%s" % (version_path, index_name))
   run("cd %s && export NODE_ENV=%s && export NVM_DIR=$HOME/.nvm && source $NVM_DIR/nvm.sh && tasks/inspectors.js --since=1" % (version_path, environment))
-  run("cd %s && PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH rake elasticsearch:alias_read index=%s" % (version_path, index_name))
+  run("cd %s && source $HOME/.rvm/scripts/rvm && rake elasticsearch:alias_read index=%s" % (version_path, index_name))
 
 # TODO: why cp instead of ln?
 def make_current():
@@ -69,13 +69,13 @@ def cleanup():
 ## can be run on their own
 
 def list_indices():
-  run("cd %s && PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH rake elasticsearch:list" % current_path)
+  run("cd %s && source $HOME/.rvm/scripts/rvm && rake elasticsearch:list" % current_path)
 
 def blog(path=current_path):
-  run("cd %s && export NODE_ENV=%s && export NVM_DIR=$HOME/.nvm && source $NVM_DIR/nvm.sh && PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH rake blog" % (path, environment))
+  run("cd %s && export NODE_ENV=%s && export NVM_DIR=$HOME/.nvm && source $NVM_DIR/nvm.sh && source $HOME/.rvm/scripts/rvm && rake blog" % (path, environment))
 
 def delete_index(index):
-  run("cd %s && PATH=$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH rake elasticsearch:delete index=%s" % (current_path, index))
+  run("cd %s && source $HOME/.rvm/scripts/rvm && rake elasticsearch:delete index=%s" % (current_path, index))
 
 def start():
   run("cd %s && export NODE_ENV=%s && export NVM_DIR=$HOME/.nvm && source $NVM_DIR/nvm.sh && forever -l %s/forever.log -a start app.js" % (current_path, environment, logs))
