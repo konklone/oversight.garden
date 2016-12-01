@@ -66,6 +66,7 @@ rvm install 2.3.3
 rvm use 2.3.3 --default
 gem install bundler
 bundle install
+rake letsencrypt_scrapers:fetch
 END
 
 sudo -u ubuntu bash <<'END'
@@ -74,6 +75,12 @@ source $NVM_DIR/nvm.sh
 nvm install lts/boron
 nvm alias default lts/boron
 npm install --production
+END
+
+bash <<'END'
+export NVM_DIR=/home/ubuntu/.nvm
+source $NVM_DIR/nvm.sh
+npm install -g forever
 END
 
 mount -a
@@ -90,7 +97,16 @@ echo '  region: us-east-1' >> config/config.yaml
 sudo -u ubuntu aws s3 cp s3://oversight-secrets/secrets.py /home/ubuntu/
 sudo -u ubuntu python3 /home/ubuntu/secrets.py /home/ubuntu/oversight.garden/config/config.yaml /home/ubuntu/inspectors-general/admin.yml
 
+sudo -u ubuntu bash <<'END'
+export NVM_DIR=/home/ubuntu/.nvm
+source $NVM_DIR/nvm.sh
+export NODE_ENV=production
+cd /home/ubuntu/oversight.garden
+forever -l /home/ubuntu/webhook.log -a start tasks/webhook.js
+END
+
 crontab -u ubuntu - <<'END'
 0 */3 * * * bash -c 'cd $HOME/inspectors-general; export PYENV_ROOT=$HOME/.pyenv; export PATH=$PYENV_ROOT/bin:$PATH; eval "$(pyenv init -)"; pyenv virtualenvwrapper; workon inspectors; python igs; cd $HOME/oversight.garden; export NVM_DIR=$HOME/.nvm; source $NVM_DIR/nvm.sh; node tasks/inspectors.js --since 1900'
 30 23 * * 0 bash -c 'cd $HOME/oversight.garden; source $HOME/.rvm/scripts/rvm; rake sitemap:generate && aws s3 sync $HOME/oversight.garden/public/sitemap s3://oversight-sitemap'
+16 4 * * * bash -c 'cd $HOME/oversight.garden; source $HOME/.rvm/scripts/rvm; rake letsencrypt_scrapers:renew'
 END
