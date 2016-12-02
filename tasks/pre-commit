@@ -29,6 +29,7 @@ ruby -c config/environment.rb >/dev/null
 ruby -c tasks/elasticsearch.rake >/dev/null
 ruby -c tasks/sitemap.rake >/dev/null
 ruby -c tasks/aws.rake >/dev/null
+ruby -c tasks/ubuntu_cloud_images.rb >/dev/null
 ruby -c tasks/letsencrypt/letsencrypt.rake >/dev/null
 ruby -c tasks/letsencrypt/letsencrypt_scrapers.rake >/dev/null
 ruby -c tasks/letsencrypt/lets_encrypt_route53.rb >/dev/null

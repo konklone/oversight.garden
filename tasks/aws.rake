@@ -1,6 +1,7 @@
 require 'aws-sdk'
 require 'net/http'
 require 'net/https'
+require_relative 'ubuntu_cloud_images'
 
 class HTTPWithIP < Net::HTTP
   def ip_address
@@ -24,8 +25,9 @@ namespace :aws do
   web_security_group = 'sg-72ba4108'
   route53_zone = 'Z373JK35FYSEGP'
 
-  # Ubuntu Server 16.04 LTS (HVM), EBS-backed, 20161115
-  ami = 'ami-45b69e52'
+  ami_release = 'xenial'
+  ami_virtualization = 'hvm'
+  ami_disk = 'ebs-ssd'
 
   ec2 = Aws::EC2::Resource.new(region: region)
   autoscaling = Aws::AutoScaling::Resource.new(region: region)
@@ -66,7 +68,7 @@ namespace :aws do
 
     script = File.read('tasks/scraper_user_data')
     instance = ec2.create_instances({
-      image_id: ami,
+      image_id: find_ami(ami_release, region, ami_virtualization, ami_disk),
       min_count: 1,
       max_count: 1,
       key_name: key_name,
@@ -141,7 +143,7 @@ namespace :aws do
 
     launch_config = autoscaling.create_launch_configuration({
       launch_configuration_name: lc_name,
-      image_id: ami,
+      image_id: find_ami(ami_release, region, ami_virtualization, ami_disk),
       key_name: key_name,
       security_groups: [web_security_group],
       user_data: Base64.encode64(script),
