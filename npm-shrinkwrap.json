@@ -207,9 +207,9 @@
       }
     },
     "ejs": {
-      "version": "2.5.3",
-      "from": "ejs@2.5.3",
-      "resolved": "https://registry.npmjs.org/ejs/-/ejs-2.5.3.tgz"
+      "version": "2.5.5",
+      "from": "ejs@2.5.5",
+      "resolved": "https://registry.npmjs.org/ejs/-/ejs-2.5.5.tgz"
     },
     "elasticsearch": {
       "version": "12.0.0",
