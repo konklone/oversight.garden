@@ -718,9 +718,9 @@
       "resolved": "https://registry.npmjs.org/moment/-/moment-2.17.0.tgz"
     },
     "numeral": {
-      "version": "1.5.3",
-      "from": "numeral@>=1.5.3 <2.0.0",
-      "resolved": "https://registry.npmjs.org/numeral/-/numeral-1.5.3.tgz"
+      "version": "2.0.1",
+      "from": "numeral@>=2.0.1 <3.0.0",
+      "resolved": "https://registry.npmjs.org/numeral/-/numeral-2.0.1.tgz"
     },
     "wintersmith": {
       "version": "2.3.3",
