@@ -44,7 +44,7 @@
     "minimist": "^1.2.0",
     "moment": "^2.17.0",
     "numeral": "^2.0.1",
-    "wintersmith": "^2.3.3",
+    "wintersmith": "^2.3.6",
     "wintersmith-ejs": "^0.1.4",
     "worker-farm": "^1.3.1"
   },
