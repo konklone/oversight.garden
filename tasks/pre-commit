@@ -24,6 +24,10 @@ else # Running locally
     git diff-index --check --cached $against
 fi
 
+if grep --quiet http: npm-shrinkwrap.json; then
+  echo "Error: insecure HTTP URL found in npm-shrinkwrap.json"
+  exit 1
+fi
 ruby -c Gemfile >/dev/null
 ruby -c config/environment.rb >/dev/null
 ruby -c tasks/elasticsearch.rake >/dev/null
