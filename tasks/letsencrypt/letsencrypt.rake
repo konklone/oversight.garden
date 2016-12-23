@@ -1,3 +1,6 @@
+require 'active_support'
+require 'active_support/core_ext'
+
 require_relative 'lets_encrypt_route53'
 
 namespace :letsencrypt do
