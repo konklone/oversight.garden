@@ -28,8 +28,8 @@ sudo -u ubuntu git clone https://github.com/konklone/oversight.garden.git .
 
 sudo -u ubuntu bash <<'END'
 source $HOME/.rvm/scripts/rvm
-rvm install 2.3.3
-rvm use 2.3.3 --default
+rvm install 2.4.0
+rvm use 2.4.0 --default
 gem install bundler
 bundle install
 rake letsencrypt:fetch
