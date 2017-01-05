@@ -3,7 +3,7 @@
 
 require 'bundler/setup'
 require 'aws-sdk'
-require 'elasticsearch/persistence/model'
+require 'elasticsearch'
 require 'faraday_middleware/aws_signers_v4'
 require 'yaml'
 
@@ -52,23 +52,3 @@ class Environment
 end
 
 Environment.init_client!
-
-
-## Models for easy introspection.
-
-class Report
-  include Elasticsearch::Persistence::Model
-  index_name Environment.config['elasticsearch']['index_read']
-  document_type "reports"
-
-  attribute :title, String
-  attribute :inspector, String
-  attribute :agency, String
-  attribute :featured, Hash
-  attribute :is_featured, Boolean
-  attribute :report_id, String
-  attribute :pdf, Hash
-  attribute :type, String
-  attribute :url, String
-  attribute :year, Fixnum
-end

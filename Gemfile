@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'elasticsearch-persistence'
-gem 'activemodel', '~> 4.0'
+gem 'elasticsearch', '~> 2'
 gem 'big_sitemap'
 
 gem 'listen', '~> 2.8'

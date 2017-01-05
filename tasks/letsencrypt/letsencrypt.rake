@@ -1,6 +1,3 @@
-require 'active_support'
-require 'active_support/core_ext'
-
 require_relative 'lets_encrypt_route53'
 
 namespace :letsencrypt do
@@ -36,8 +33,8 @@ namespace :letsencrypt do
        '30 days'
   task :renew do
     expires_in = le.expires_in
-    if !expires_in.nil? && expires_in > 30.days
-      days = expires_in.to_i / 1.day
+    if !expires_in.nil? && expires_in > 30 * 24 * 60 * 60
+      days = expires_in.to_i / 24 / 60 / 60
       puts "Current certificate is valid, and expires in #{days} days. "\
            'Not updating.'
     else

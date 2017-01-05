@@ -62,8 +62,8 @@ cd oversight.garden
 
 sudo -u ubuntu bash <<'END'
 source $HOME/.rvm/scripts/rvm
-rvm install 2.3.3
-rvm use 2.3.3 --default
+rvm install 2.4.0
+rvm use 2.4.0 --default
 gem install bundler
 bundle install
 rake letsencrypt_scrapers:fetch
