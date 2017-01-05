@@ -105,6 +105,9 @@ namespace :aws do
     volume.attach_to_instance({instance_id: instance[0].id, device: device_name})
     puts "Attached volume to instance"
 
+    instance2 = ec2.instances({instance_ids: [instance[0].id]})
+    puts "Instance #{instance2.entries[0].id} is running at #{instance2.entries[0].public_dns_name}, #{instance2.entries[0].public_ip_address}"
+
     route53.change_resource_record_sets({
       hosted_zone_id: route53_zone,
       change_batch: {
@@ -118,7 +121,7 @@ namespace :aws do
               ttl: 300,
               resource_records: [
                 {
-                  value: instance[0].public_ip_address
+                  value: instance2.entries[0].public_ip_address
                 }
               ]
             }
@@ -128,9 +131,6 @@ namespace :aws do
     })
 
     puts "DNS record for scrapers.oversight.garden updated"
-
-    instance2 = ec2.instances({instance_ids: [instance[0].id]})
-    puts "Instance #{instance2.entries[0].id} is running at #{instance2.entries[0].public_dns_name}, #{instance2.entries[0].public_ip_address}"
   end
 
   desc "Create web tier auto-scaling group"
