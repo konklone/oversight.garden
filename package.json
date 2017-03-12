@@ -32,11 +32,11 @@
   "dependencies": {
     "async": "^2.0.0",
     "aws-sdk": "^2.4.5",
-    "body-parser": "^1.14.2",
+    "body-parser": "^1.17.1",
     "ejs": "^2.5.5",
     "elasticsearch": "^12.0.0",
     "errorhandler": "^1.4.3",
-    "express": "^4.14.0",
+    "express": "^4.15.2",
     "glob": "^7.0.5",
     "http-aws-es": "github:tphummel/http-aws-es",
     "js-yaml": "^3.5.2",
