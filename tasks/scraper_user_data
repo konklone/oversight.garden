@@ -108,5 +108,5 @@ END
 crontab -u ubuntu - <<'END'
 0 */3 * * * bash -c 'cd $HOME/inspectors-general; export PYENV_ROOT=$HOME/.pyenv; export PATH=$PYENV_ROOT/bin:$PATH; eval "$(pyenv init -)"; pyenv virtualenvwrapper; workon inspectors; python igs; cd $HOME/oversight.garden; export NVM_DIR=$HOME/.nvm; source $NVM_DIR/nvm.sh; node tasks/inspectors.js --since=2016'
 30 23 * * 0 bash -c 'cd $HOME/oversight.garden; source $HOME/.rvm/scripts/rvm; rake sitemap:generate && aws s3 sync $HOME/oversight.garden/public/sitemap s3://oversight-sitemap'
-16 4 * * * bash -c 'cd $HOME/oversight.garden; source $HOME/.rvm/scripts/rvm; rake letsencrypt_scrapers:renew'
+16 4 * * * bash -c 'cd $HOME/oversight.garden; source $HOME/.rvm/scripts/rvm; rake letsencrypt_scrapers:renew; forever restartall'
 END
