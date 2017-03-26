@@ -296,8 +296,8 @@ function search(query_obj) {
     "from": from,
     "size": query_obj.size,
     "query": {
-      "filtered": {
-        "query": {
+      "bool": {
+        "must": {
           "query_string": {
             "query": query_obj.query,
             "default_operator": "AND",
@@ -318,7 +318,8 @@ function search(query_obj) {
       "pre_tags": ["<b>"],
       "post_tags": ["</b>"],
       "fields": {
-        "*": {}
+        "text": {},
+        "summary": {}
       },
       "order": "score",
       "fragment_size": 500
@@ -337,8 +338,7 @@ function search(query_obj) {
     } else if (query_obj.inspector.length > 1) {
       filters.push({
         "terms": {
-          "inspector": query_obj.inspector,
-          "execution": "or"
+          "inspector": query_obj.inspector
         }
       });
     }
@@ -380,9 +380,9 @@ function search(query_obj) {
   }
 
   if (filters.length == 1) {
-    body.query.filtered.filter = filters[0];
+    body.query.bool.filter = filters[0];
   } else if (filters.length > 1) {
-    body.query.filtered.filter = {
+    body.query.bool.filter = {
       "bool": {
         "must": filters
       }

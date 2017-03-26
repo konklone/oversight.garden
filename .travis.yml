@@ -1,9 +1,15 @@
 language: node_js
 node_js:
   - "6"
-services:
-  - elasticsearch
+sudo: required
+addons:
+  apt:
+    packages:
+      - oracle-java8-set-default
 before_install:
+  - curl -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.1.1.deb
+  - sudo dpkg -i --force-confnew elasticsearch-5.1.1.deb
+  - sudo service elasticsearch start
   - npm config set spin false
   - rvm install 2.4.1
 install:
@@ -16,6 +22,5 @@ script:
   - bash tasks/tests
   - rake sitemap:generate config=test/config.yaml
   - "rm npm-shrinkwrap.json && npm install >/dev/null 2>/dev/null && npm uninstall --save wintersmith >/dev/null 2>/dev/null && npm shrinkwrap 2>/dev/null && node_modules/.bin/nsp check"
-sudo: false
 notifications:
   email: false

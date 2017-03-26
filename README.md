@@ -13,7 +13,7 @@ Elasticsearch is used for text search and as a primary datastore.
 #### Installing dependencies
 
 * Install [Node](https://nodejs.org/) version 6 or higher.
-* Install [Elasticsearch](https://elastic.co) version 2.1 or higher.
+* Install [Elasticsearch](https://elastic.co) version 5.1 or higher.
 * Install [Ruby](https://www.ruby-lang.org/en/) 2.3 or higher.
 * Then install Ruby dependencies:
 

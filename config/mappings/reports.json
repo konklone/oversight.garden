@@ -2,16 +2,16 @@
   "reports": {
     "properties": {
       "agency": {
-        "type": "string",
-        "index": "not_analyzed"
+        "type": "keyword",
+        "index": true
       },
       "agency_name": {
-        "type": "string",
-        "index": "not_analyzed"
+        "type": "keyword",
+        "index": true
       },
       "audit_id": {
-        "type": "string",
-        "index": "not_analyzed"
+        "type": "keyword",
+        "index": true
       },
       "author": {
         "type": "string"
@@ -20,38 +20,38 @@
         "type": "string"
       },
       "congress_id": {
-        "type": "string",
-        "index": "not_analyzed"
+        "type": "keyword",
+        "index": true
       },
       "estimated_date": {
         "type": "boolean",
         "null_value": false
       },
       "file_type": {
-        "type": "string",
-        "index": "not_analyzed"
+        "type": "keyword",
+        "index": true
       },
       "inspector": {
-        "type": "string",
-        "index": "not_analyzed"
+        "type": "keyword",
+        "index": true
       },
       "inspector_url": {
-        "type": "string",
-        "index": "not_analyzed"
+        "type": "keyword",
+        "index": true
       },
       "is_featured": {
         "type": "boolean",
-        "index": "not_analyzed"
+        "index": true
       },
       "featured": {
         "properties": {
           "author": {
-            "type": "string",
-            "index": "not_analyzed"
+            "type": "keyword",
+            "index": true
           },
           "author_link": {
-            "type": "string",
-            "index": "not_analyzed"
+            "type": "keyword",
+            "index": true
           },
           "description": {
             "type": "string"
@@ -59,17 +59,20 @@
         }
       },
       "landing_url": {
-        "type": "string",
-        "index": "not_analyzed"
+        "type": "keyword",
+        "index": true
       },
       "language": {
-        "type": "string"
+        "type": "text",
+        "index": true
       },
       "location": {
-        "type": "string"
+        "type": "text",
+        "index": true
       },
       "office": {
-        "type": "string"
+        "type": "text",
+        "index": true
       },
       "pdf": {
         "properties": {
@@ -103,45 +106,49 @@
         "format": "date"
       },
       "report_id": {
-        "type": "string",
-        "index": "not_analyzed"
+        "type": "keyword",
+        "index": true
       },
       "response_url": {
-        "type": "string",
-        "index": "not_analyzed"
+        "type": "keyword",
+        "index": true
       },
       "source": {
-        "type": "string",
-        "index": "not_analyzed"
+        "type": "keyword",
+        "index": true
       },
       "state": {
-        "type": "string"
+        "type": "text",
+        "index": true
       },
       "sub_type": {
-        "type": "string",
-        "index": "not_analyzed"
+        "type": "keyword",
+        "index": true
       },
       "subtopic": {
-        "type": "string"
+        "type": "text",
+        "index": true
       },
       "summary": {
-        "type": "string",
+        "type": "text",
+        "index": true,
         "term_vector": "with_positions_offsets"
       },
       "summary_only": {
         "type": "boolean"
       },
       "summary_url": {
-        "type": "string",
-        "index": "not_analyzed"
+        "type": "keyword",
+        "index": true
       },
       "text": {
-        "type": "string",
+        "type": "text",
+        "index": true,
         "term_vector": "with_positions_offsets"
       },
       "text_url": {
-        "type": "string",
-        "index": "not_analyzed"
+        "type": "keyword",
+        "index": true
       },
       "title": {
         "type": "string"
@@ -150,29 +157,29 @@
         "type": "string"
       },
       "type": {
-        "type": "string",
-        "index": "not_analyzed"
+        "type": "keyword",
+        "index": true
       },
       "unreleased": {
         "type": "boolean",
         "null_value": false
       },
       "url": {
-        "type": "string",
-        "index": "not_analyzed"
+        "type": "keyword",
+        "index": true
       },
       "urls": {
         "properties": {
           "file_type": {
-            "type": "string",
-            "index": "not_analyzed"
+            "type": "keyword",
+            "index": true
           },
           "indexed": {
             "type": "boolean"
           },
           "url": {
-            "type": "string",
-            "index": "not_analyzed"
+            "type": "keyword",
+            "index": true
           }
         }
       },

@@ -47,7 +47,7 @@ function loadReport(details, config, done) {
   // Actually load into Elasticsearch
   console.log("\tIndexing into Elasticsearch...");
   var esConfig = {
-    apiVersion: "1.7",
+    apiVersion: "5.0",
     host: {
       host: config.elasticsearch.host,
       port: config.elasticsearch.port

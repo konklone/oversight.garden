@@ -46,13 +46,12 @@ function updateReportCounts() {
   es.search({
     index: config.elasticsearch.index_read,
     type: "reports",
-    searchType: "count",
     body: {
+      size: 0,
       aggregations: {
         inspector_agg: {
           terms: {
-            field: "inspector",
-            size: 0
+            field: "inspector"
           }
         }
       }

@@ -88,7 +88,7 @@ ln -s /mnt/data/inspectors-general /home/ubuntu/inspectors-general/data
 ln -s /mnt/data/inspectors-general /home/ubuntu/oversight.garden/data
 
 sudo -u ubuntu cp config/config.yaml.example config/config.yaml
-sed -i 's/127.0.0.1/search-oversight-iu2rwt666hmlxrbn2slw6zlgou.us-east-1.es.amazonaws.com/' config/config.yaml
+sed -i 's/127.0.0.1/search-oversight-es5-yzl5kwxtb7wkzvireuc2n7juuu.us-east-1.es.amazonaws.com/' config/config.yaml
 sed -i 's/9200/80/' config/config.yaml
 echo 'reports:' >> config/config.yaml
 echo '  data: /mnt/data/reports' >> config/config.yaml
