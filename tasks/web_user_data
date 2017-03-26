@@ -76,3 +76,6 @@ crontab -u ubuntu - <<'END'
 30 0 * * 1 bash -c 'aws s3 sync s3://oversight-sitemap $HOME/oversight/shared/sitemap'
 46 11 * * * bash -c 'cd $HOME/oversight/current; source $HOME/.rvm/scripts/rvm; rake letsencrypt:renew'
 END
+crontab - <<'END'
+46 12 * * * service nginx reload
+END
