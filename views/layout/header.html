@@ -54,8 +54,8 @@
   <link rel="canonical" href="https://oversight.garden/blog<%= page.url %>" />
 <% } %>
 
-<% if (req && req.originalUrl.startsWith("/reports")) { -%>
-  <link rel="alternate" type="application/atom+xml" title="Search Results" href="<%= req.originalUrl.replace("/reports", "/reports.xml") %>" />
+<% if (typeof(query_obj) != "undefined") { -%>
+  <link rel="alternate" type="application/atom+xml" title="Search Results" href="/reports.xml?<%= helpers.format_qs(query_obj, {page: 1}) %>" />
 <% } -%>
 
 <meta name="twitter:card" content="summary" />
