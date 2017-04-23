@@ -77,5 +77,5 @@ crontab -u ubuntu - <<'END'
 46 11 * * * bash -c 'cd $HOME/oversight/current; source $HOME/.rvm/scripts/rvm; rake letsencrypt:renew'
 END
 crontab - <<'END'
-46 12 * * * service nginx reload
+46 12 * * * /usr/sbin/service nginx reload
 END
