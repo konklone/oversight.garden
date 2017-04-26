@@ -54,7 +54,7 @@
   <link rel="canonical" href="https://oversight.garden/blog<%= page.url %>" />
 <% } %>
 
-<% if (typeof(query_obj) != "undefined") { -%>
+<% if (typeof(query_obj) != "undefined" && query_obj.length) { -%>
   <link rel="alternate" type="application/atom+xml" title="Search Results" href="/reports.xml?<%= helpers.format_qs(query_obj, {page: 1}) %>" />
 <% } -%>
 
