@@ -142,4 +142,9 @@ namespace :elasticsearch do
     Environment.client.cluster.health wait_for_status: 'yellow'
     puts "Deleted index #{index}"
   end
+
+  desc "Set the Kibana index back to zero replicas"
+  task fix_kibana: :environment do
+    Environment.client.indices.put_settings index: '.kibana', body: { index: { number_of_replicas: 0 } }
+  end
 end
