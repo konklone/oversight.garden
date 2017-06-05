@@ -1,5 +1,7 @@
 ## Oversight.garden
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/konklone/oversight.garden.svg)](https://greenkeeper.io/)
+
 Collecting the oversight community's work in one place.
 
 A small website at [oversight.garden](https://oversight.garden).
