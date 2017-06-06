@@ -1,26 +1,35 @@
 language: node_js
 node_js:
-  - "6"
+- '6'
 sudo: required
 addons:
   apt:
     packages:
-      - oracle-java8-set-default
+    - oracle-java8-set-default
 before_install:
-  - curl -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.1.1.deb
-  - sudo dpkg -i --force-confnew elasticsearch-5.1.1.deb
-  - sudo service elasticsearch start
-  - npm config set spin false
-  - rvm install 2.4.1
+- curl -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.1.1.deb
+- sudo dpkg -i --force-confnew elasticsearch-5.1.1.deb
+- sudo service elasticsearch start
+- npm install -g npm@4
+- npm install -g greenkeeper-lockfile@1
+- npm config set spin false
+- rvm install 2.4.1
 install:
-  - npm install
-  - bundle install --jobs=3 --retry=3 --deployment
+- npm install
+- bundle install --jobs=3 --retry=3 --deployment
 before_script:
-  - phantomjs --webdriver=4444 &
+- phantomjs --webdriver=4444 &
+- greenkeeper-lockfile-update
 script:
-  - bash tasks/pre-commit
-  - bash tasks/tests
-  - rake sitemap:generate config=test/config.yaml
-  - "rm npm-shrinkwrap.json && npm install >/dev/null 2>/dev/null && npm uninstall --save wintersmith >/dev/null 2>/dev/null && npm shrinkwrap 2>/dev/null && node_modules/.bin/nsp check"
+- bash tasks/pre-commit
+- bash tasks/tests
+- rake sitemap:generate config=test/config.yaml
+- greenkeeper-lockfile-upload
+- rm npm-shrinkwrap.json && npm install >/dev/null 2>/dev/null && npm uninstall --save
+  wintersmith >/dev/null 2>/dev/null && npm shrinkwrap 2>/dev/null && node_modules/.bin/nsp
+  check
 notifications:
   email: false
+env:
+  global:
+    secure: B/PY1kIs+hWun4PuaCrDbpPODxB8OGH8+fLXHV34t3ABbfg73FYdGvW0iak8kLFI9HmHVRsJ7XAq5v5BZPn46FGLtmBlPFTXBMmeYO12aa/WM/rfEZ6+jNNzT/nuwbfk9A+TMPE3t4ulOjvhqDn065J4q836TyXoQj227iQQoFs=
