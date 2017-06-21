@@ -54,11 +54,10 @@ function loadReport(details, config, done) {
     }
   };
   if (config.aws && config.elasticsearch.host != "127.0.0.1") {
+    AWS.config.update({
+      region: config.aws.region
+    });
     esConfig.connectionClass = require('http-aws-es');
-    esConfig.amazonES = {
-      region: config.aws.region,
-      credentials: new AWS.EC2MetadataCredentials()
-    };
   }
 
   var es = new elasticsearch.Client(esConfig);
