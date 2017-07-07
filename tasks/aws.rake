@@ -23,7 +23,6 @@ Module.new do
   @ami_disk = 'ebs-ssd'
 
   @ec2 = Aws::EC2::Resource.new(region: @region)
-  @autoscaling = Aws::AutoScaling::Resource.new(region: @region)
   @route53 = Aws::Route53::Client.new(region: @region)
 
   class HTTPWithIP < Net::HTTP
@@ -137,50 +136,45 @@ Module.new do
       puts "DNS record for scrapers.oversight.garden updated"
     end
 
-    desc "Create web tier auto-scaling group"
-    task create_web_asg: :environment do
+    desc "Create web instance"
+    task create_web_instance: :environment do
       script = File.read('tasks/web_user_data')
-
-      time = DateTime.now
-      lc_name = time.strftime('web-config-%Y%m%d-%H%M%S')
-      asg_name = time.strftime('web-asg-%Y%m%d-%H%M%S')
-
-      launch_config = @autoscaling.create_launch_configuration({
-        launch_configuration_name: lc_name,
+      instance = @ec2.create_instances({
         image_id: find_ami(@ami_release, @region, @ami_virtualization, @ami_disk),
+        min_count: 1,
+        max_count: 1,
         key_name: @key_name,
-        security_groups: [@web_security_group],
         user_data: Base64.encode64(script),
         instance_type: @instance_type,
-        iam_instance_profile: @web_iam_instance_profile,
-        associate_public_ip_address: true
+        placement: {
+          availability_zone: @availability_zone,
+        },
+        network_interfaces: [{
+          device_index: 0,
+          associate_public_ip_address: true,
+          subnet_id: @subnet,
+          groups: [@web_security_group]
+        }],
+        iam_instance_profile: {
+          arn: @web_iam_instance_profile
+        }
       })
-      puts "Created launch configuration #{lc_name}"
-
-      group = @autoscaling.create_group({
-        auto_scaling_group_name: asg_name,
-        launch_configuration_name: lc_name,
-        min_size: 1,
-        max_size: 1,
-        availability_zones: [@availability_zone],
-        health_check_type: "EC2",
-        health_check_grace_period: 60,
-        vpc_zone_identifier: @subnet,
-        tags: [
-          key: 'role',
-          value: 'web',
-          propagate_at_launch: true
-        ]
-      })
-      puts "Created autoscaling group #{asg_name}"
+      puts "Created instance #{instance[0].id}"
 
       sleep 15
 
-      puts "Waiting for autoscaling group to be in service"
-      group.wait_until_in_service
+      instance.batch_create_tags({
+        tags: [{
+          key: 'role',
+          value: 'web',
+        }]
+      })
 
-      instance = @ec2.instances({instance_ids: [group.instances[0].instance_id]})
-      puts "Instance #{instance.entries[0].id} is running at #{instance.entries[0].public_dns_name}, #{instance.entries[0].public_ip_address}"
+      puts "Waiting for instance to pass status checks"
+      @ec2.client.wait_until(:instance_status_ok, {instance_ids: [instance[0].id]})
+
+      instance2 = @ec2.instances({instance_ids: [instance[0].id]})
+      puts "Instance #{instance2.entries[0].id} is running at #{instance2.entries[0].public_dns_name}, #{instance2.entries[0].public_ip_address}"
 
       @route53.change_resource_record_sets({
         hosted_zone_id: @route53_zone,
@@ -195,7 +189,7 @@ Module.new do
                 ttl: 300,
                 resource_records: [
                   {
-                    value: instance.entries[0].public_ip_address
+                    value: instance2.entries[0].public_ip_address
                   }
                 ]
               }
@@ -208,7 +202,7 @@ Module.new do
                 ttl: 300,
                 resource_records: [
                   {
-                    value: instance.entries[0].public_ip_address
+                    value: instance2.entries[0].public_ip_address
                   }
                 ]
               }

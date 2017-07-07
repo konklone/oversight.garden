@@ -10,7 +10,7 @@ before_install:
 - curl -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.1.1.deb
 - sudo dpkg -i --force-confnew elasticsearch-5.1.1.deb
 - sudo service elasticsearch start
-- npm install -g npm@4
+- npm install -g npm@5
 - npm install -g greenkeeper-lockfile@1
 - npm config set spin false
 - rvm install 2.4.1
