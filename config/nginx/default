@@ -6,6 +6,7 @@ upstream main_oversight {
 # redirect http->https
 server {
   listen 80;
+  listen [::]:80;
   server_name staging.oversight.garden;
   server_name www.staging.oversight.garden;
   location / {
@@ -15,6 +16,7 @@ server {
 
 server {
   listen 80;
+  listen [::]:80;
   server_name oversight.garden;
   server_name www.oversight.garden;
   location / {

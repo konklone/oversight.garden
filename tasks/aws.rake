@@ -23,6 +23,7 @@ Module.new do
   @ami_disk = 'ebs-ssd'
 
   @ec2 = Aws::EC2::Resource.new(region: @region)
+  @ec2_client = Aws::EC2::Client.new(region: @region)
   @route53 = Aws::Route53::Client.new(region: @region)
 
   class HTTPWithIP < Net::HTTP
@@ -33,6 +34,11 @@ Module.new do
       end
       io.peeraddr[3]
     end
+  end
+
+  def self.get_ipv6_address(instance_id)
+    response = @ec2_client.describe_instances({instance_ids: [instance_id]})
+    response.reservations[0].instances[0].network_interfaces[0].ipv_6_addresses[0].ipv_6_address
   end
 
   namespace :aws do
@@ -46,7 +52,7 @@ Module.new do
               role = tag.value
             end
           end
-          puts "#{role}\t#{instance.public_ip_address}\t#{instance.public_dns_name}\t#{instance.id}"
+          puts "#{role}\t#{instance.public_ip_address}\t#{get_ipv6_address instance.id}\t#{instance.public_dns_name}\t#{instance.id}"
         end
       end
     end
@@ -82,7 +88,8 @@ Module.new do
         },
         network_interfaces: [{
           device_index: 0,
-          associate_public_ip_address: true
+          associate_public_ip_address: true,
+          ipv_6_address_count: 1
         }],
         iam_instance_profile: {
           arn: @scraper_iam_instance_profile
@@ -109,7 +116,8 @@ Module.new do
       puts "Attached volume to instance"
 
       instance2 = @ec2.instances({instance_ids: [instance[0].id]})
-      puts "Instance #{instance2.entries[0].id} is running at #{instance2.entries[0].public_dns_name}, #{instance2.entries[0].public_ip_address}"
+      ipv6_address = get_ipv6_address instance[0].id
+      puts "Instance #{instance2.entries[0].id} is running at #{instance2.entries[0].public_dns_name}, #{instance2.entries[0].public_ip_address}, #{ipv6_address}"
 
       @route53.change_resource_record_sets({
         hosted_zone_id: @route53_zone,
@@ -125,6 +133,19 @@ Module.new do
                 resource_records: [
                   {
                     value: instance2.entries[0].public_ip_address
+                  }
+                ]
+              }
+            },
+            {
+              action: "UPSERT",
+              resource_record_set: {
+                name: "scrapers.oversight.garden",
+                type: "AAAA",
+                ttl: 300,
+                resource_records: [
+                  {
+                    value: ipv6_address
                   }
                 ]
               }
@@ -152,6 +173,7 @@ Module.new do
         network_interfaces: [{
           device_index: 0,
           associate_public_ip_address: true,
+          ipv_6_address_count: 1,
           subnet_id: @subnet,
           groups: [@web_security_group]
         }],
@@ -174,7 +196,8 @@ Module.new do
       @ec2.client.wait_until(:instance_status_ok, {instance_ids: [instance[0].id]})
 
       instance2 = @ec2.instances({instance_ids: [instance[0].id]})
-      puts "Instance #{instance2.entries[0].id} is running at #{instance2.entries[0].public_dns_name}, #{instance2.entries[0].public_ip_address}"
+      ipv6_address = get_ipv6_address instance[0].id
+      puts "Instance #{instance2.entries[0].id} is running at #{instance2.entries[0].public_dns_name}, #{instance2.entries[0].public_ip_address}, #{ipv6_address}"
 
       @route53.change_resource_record_sets({
         hosted_zone_id: @route53_zone,
@@ -197,12 +220,38 @@ Module.new do
             {
               action: "UPSERT",
               resource_record_set: {
+                name: "staging.oversight.garden",
+                type: "AAAA",
+                ttl: 300,
+                resource_records: [
+                  {
+                    value: ipv6_address
+                  }
+                ]
+              }
+            },
+            {
+              action: "UPSERT",
+              resource_record_set: {
                 name: "www.staging.oversight.garden",
                 type: "A",
                 ttl: 300,
                 resource_records: [
                   {
                     value: instance2.entries[0].public_ip_address
+                  }
+                ]
+              }
+            },
+            {
+              action: "UPSERT",
+              resource_record_set: {
+                name: "www.staging.oversight.garden",
+                type: "AAAA",
+                ttl: 300,
+                resource_records: [
+                  {
+                    value: ipv6_address
                   }
                 ]
               }
@@ -222,6 +271,11 @@ Module.new do
         hosted_zone_id: @route53_zone,
         record_name: "staging.oversight.garden",
         record_type: "A",
+      }).record_data[0]
+      staging_ipv6 = @route53.test_dns_answer({
+        hosted_zone_id: @route53_zone,
+        record_name: "staging.oversight.garden",
+        record_type: "AAAA",
       }).record_data[0]
       main_ip = @route53.test_dns_answer({
         hosted_zone_id: @route53_zone,
@@ -271,12 +325,38 @@ Module.new do
             {
               action: "UPSERT",
               resource_record_set: {
+                name: "oversight.garden",
+                type: "AAAA",
+                ttl: 300,
+                resource_records: [
+                  {
+                    value: staging_ipv6
+                  }
+                ]
+              }
+            },
+            {
+              action: "UPSERT",
+              resource_record_set: {
                 name: "www.oversight.garden",
                 type: "A",
                 ttl: 300,
                 resource_records: [
                   {
                     value: staging_ip
+                  }
+                ]
+              }
+            },
+            {
+              action: "UPSERT",
+              resource_record_set: {
+                name: "www.oversight.garden",
+                type: "AAAA",
+                ttl: 300,
+                resource_records: [
+                  {
+                    value: staging_ipv6
                   }
                 ]
               }

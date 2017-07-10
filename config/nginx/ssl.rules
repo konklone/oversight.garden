@@ -3,6 +3,7 @@ ssl_certificate_key /home/ubuntu/letsencrypt.privkey.pem;
 
 # always use http/2 over 443
 listen 443 ssl http2;
+listen [::]:443 ssl http2;
 
 # This requires strong forward secrecy (ECDHE) for all connections.
 # However, it blocks IE8+XP and Android 2.3.
