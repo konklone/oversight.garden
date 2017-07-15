@@ -1053,6 +1053,18 @@
     },
     {
         "active": true,
+        "agencies": [],
+        "established_year": 1921,
+        "homepage_url": "https://www.gao.gov/",
+        "hotline": [],
+        "name": "Government Accountability Office",
+        "publishes_reports": true,
+        "short_name": "Government Accountability Office (GAO Reports)",
+        "slug": "gaoreports",
+        "statutory_reference": "31 U.S.C \u00A7 702(a)"
+    },
+    {
+        "active": true,
         "agencies": ["Government Publishing Office"],
         "established_year": 1988,
         "homepage_url": "http://www.gpo.gov/oig/",

@@ -46,6 +46,7 @@ var urls = {
     fmc: "https://upload.wikimedia.org/wikipedia/commons/a/a0/FederalMaritimeCommissionSeal.jpg",
     ftc: "https://upload.wikimedia.org/wikipedia/commons/4/43/US-FederalTradeCommission-Seal.svg",
     gao: "https://upload.wikimedia.org/wikipedia/commons/3/37/US-GovernmentAccountabilityOffice-Logo.svg",
+    gaoreports: "https://upload.wikimedia.org/wikipedia/commons/3/37/US-GovernmentAccountabilityOffice-Logo.svg",
     gpo: "https://upload.wikimedia.org/wikipedia/commons/6/6a/US-GovernmentPrintingOffice-Logo.svg",
     gsa: "https://upload.wikimedia.org/wikipedia/commons/8/89/US-GeneralServicesAdministration-Logo.svg",
     house: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Seal_of_the_United_States_House_of_Representatives.svg",
