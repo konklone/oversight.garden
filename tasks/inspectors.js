@@ -31,7 +31,7 @@ function loadReportProxy(details, done) {
   farm(details, config, function(err) {
     if (err) {
       console.log("\tEr what!!");
-      console.log("\t" + err);
+      console.log("\t%j", err.response);
       process.exit(1);
     }
 
