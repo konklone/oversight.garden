@@ -65,6 +65,7 @@ sudo -u ubuntu bash <<'END'
 source $HOME/.rvm/scripts/rvm
 rvm install 2.4.1
 rvm use 2.4.1 --default
+gem update --system
 gem install bundler
 bundle install
 rake letsencrypt_scrapers:fetch
