@@ -43,8 +43,8 @@ END
 sudo -u ubuntu bash <<'END'
 export NVM_DIR=$HOME/.nvm
 source $NVM_DIR/nvm.sh
-nvm install lts/boron
-nvm alias default lts/boron
+nvm install lts/carbon
+nvm alias default lts/carbon
 npm install --production
 ./node_modules/.bin/wintersmith build --config=config/blog.js
 END
