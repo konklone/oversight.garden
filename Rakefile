@@ -21,8 +21,3 @@ load "tasks/sitemap.rake"
 load "tasks/aws.rake"
 load "tasks/letsencrypt/letsencrypt.rake"
 load "tasks/letsencrypt/letsencrypt_scrapers.rake"
-
-task :blog do
-  sh "node_modules/.bin/wintersmith build --config=config/blog.js"
-end
-

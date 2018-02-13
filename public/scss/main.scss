@@ -313,26 +313,3 @@ body {
   .inspector-info {display: inline-block;}
   .inspector-link {display: block;}
 }
-
-/** blog ***/
-
-article {
-  padding: 10px;
-
-  h1, h6 {display: block;}
-  h1 {
-    font-size: $header-size;
-    line-height: $header-height;
-  }
-  h2 {
-    margin-top: 20px;
-    font-size: $subheader-size;
-    line-heigt: $subheader-height;
-  }
-  h6 {
-    margin-top: 8px;
-    font-style: italic;
-    font-size: $metadata-size;
-    line-height: $metadata-height;
-  }
-}

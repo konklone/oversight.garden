@@ -858,22 +858,4 @@ body pre {
 .inspectors .inspector-link {
   display: block; }
 
-/** blog ***/
-article {
-  padding: 10px; }
-  article h1, article h6 {
-    display: block; }
-  article h1 {
-    font-size: 24px;
-    line-height: 31px; }
-  article h2 {
-    margin-top: 20px;
-    font-size: 20px;
-    line-heigt: 24px; }
-  article h6 {
-    margin-top: 8px;
-    font-style: italic;
-    font-size: 16px;
-    line-height: 18px; }
-
 /*# sourceMappingURL=main.css.map */

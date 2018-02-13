@@ -48,11 +48,7 @@
 <link rel="vcs-git" href="https://github.com/konklone/oversight.garden" title="code for oversight.garden" />
 
 <link rel="shortcut icon" href="/favicon.png" />
-<% if (req) { %>
-  <link rel="canonical" href="https://oversight.garden<%= req.originalUrl %>" />
-<% } else { %>
-  <link rel="canonical" href="https://oversight.garden/blog<%= page.url %>" />
-<% } %>
+<link rel="canonical" href="https://oversight.garden<%= req.originalUrl %>" />
 
 <% if (typeof(query_obj) != "undefined" && query_obj.length) { -%>
   <link rel="alternate" type="application/atom+xml" title="Search Results" href="/reports.xml?<%= helpers.format_qs(query_obj, {page: 1}) %>" />

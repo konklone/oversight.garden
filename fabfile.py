@@ -71,9 +71,6 @@ def cleanup():
 def list_indices():
   run("cd %s && source $HOME/.rvm/scripts/rvm && rake elasticsearch:list" % current_path)
 
-def blog(path=current_path):
-  run("cd %s && export NODE_ENV=%s && export NVM_DIR=$HOME/.nvm && source $NVM_DIR/nvm.sh && source $HOME/.rvm/scripts/rvm && rake blog" % (path, environment))
-
 def delete_index(index):
   run("cd %s && source $HOME/.rvm/scripts/rvm && rake elasticsearch:delete index=%s" % (current_path, index))
 
@@ -90,7 +87,6 @@ def deploy():
   execute(checkout)
   execute(links)
   execute(dependencies)
-  execute(blog, version_path)
   execute(make_current)
   execute(restart)
   execute(cleanup)
@@ -99,7 +95,6 @@ def deploy_reindex():
   execute(checkout)
   execute(links)
   execute(dependencies)
-  execute(blog, version_path)
   execute(reindex)
   execute(make_current)
   execute(restart)
@@ -109,7 +104,6 @@ def deploy_cold():
   execute(checkout)
   execute(links)
   execute(dependencies)
-  execute(blog, version_path)
   execute(make_current)
   execute(start)
 
@@ -117,7 +111,6 @@ def deploy_cold_reindex():
   execute(checkout)
   execute(links)
   execute(dependencies)
-  execute(blog, version_path)
   execute(reindex)
   execute(make_current)
   execute(start)

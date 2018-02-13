@@ -46,7 +46,6 @@ source $NVM_DIR/nvm.sh
 nvm install lts/carbon
 nvm alias default lts/carbon
 npm install --production
-./node_modules/.bin/wintersmith build --config=config/blog.js
 END
 
 bash <<'END'

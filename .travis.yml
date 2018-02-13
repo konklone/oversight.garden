@@ -25,9 +25,7 @@ script:
 - bash tasks/tests
 - rake sitemap:generate config=test/config.yaml
 - greenkeeper-lockfile-upload
-- rm npm-shrinkwrap.json && npm install >/dev/null 2>/dev/null && npm uninstall --save
-  wintersmith >/dev/null 2>/dev/null && npm shrinkwrap 2>/dev/null && node_modules/.bin/nsp
-  check
+- node_modules/.bin/nsp check
 notifications:
   email: false
 env:
