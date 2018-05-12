@@ -10,4 +10,4 @@ gem 'neat'
 
 gem 'aws-sdk', '>= 2.5.7'
 gem 'faraday_middleware-aws-signers-v4'
-gem 'acme-client'
+gem 'acme-client', '>= 2.0.0'

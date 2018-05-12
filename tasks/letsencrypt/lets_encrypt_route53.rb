@@ -5,8 +5,8 @@ require 'openssl'
 # Container class with logic to request and save certificates, using Route 53
 # to respond to dns-01 challenges
 class LetsEncryptRoute53
-  STAGING    = 'https://acme-staging.api.letsencrypt.org/'.freeze
-  PRODUCTION = 'https://acme-v01.api.letsencrypt.org/'.freeze
+  STAGING    = 'https://acme-staging-v02.api.letsencrypt.org/directory'.freeze
+  PRODUCTION = 'https://acme-v02.api.letsencrypt.org/directory'.freeze
 
   attr_accessor :endpoint,           # STAGING or PRODUCTION
                 :domains,            # Domains we're obtaining a certificate for
@@ -35,19 +35,21 @@ class LetsEncryptRoute53
     require_attrs! :domains
 
     register_key if key_needs_registered?
-    challenges = {}
-    domains.each do |domain|
-      _auth, challenge = obtain_authorization(domain)
+    order = acme.new_order(identifiers: domains)
+    order.authorizations.each do |authorization|
+      domain = authorization.domain
+      challenge = authorization.dns
       set_dns_record(domain, challenge)
       request_dns_verification(challenge)
-      challenges[domain] = challenge
     end
     csr = generate_certificate_signing_request
-    certificate = request_certificate(csr)
-    write_certificate(certificate)
-    upload_certificate(certificate)
-    challenges.each do |domain, challenge|
-      remove_dns_verification_record(challenge, domain)
+    request_certificate(order, csr)
+    write_certificate(order, csr)
+    upload_certificate(order, csr)
+    order.authorizations.each do |authorization|
+      domain = authorization.domain
+      challenge = authorization.dns
+      remove_dns_verification_record(domain, challenge)
     end
   end
 
@@ -69,17 +71,7 @@ class LetsEncryptRoute53
     require_attrs! :contact_email
 
     say 'registering key with LetEncrypt' do
-      registration = acme.register(contact: "mailto:#{contact_email}")
-      registration.agree_terms
-    end
-  end
-
-  def obtain_authorization(domain)
-    say "obtaining authorization for #{domain}" do
-      authorization = acme.authorize(domain: domain)
-      challenge = authorization.dns01
-
-      [authorization, challenge]
+      acme.new_account(contact: "mailto:#{contact_email}", terms_of_service_agreed: true)
     end
   end
 
@@ -119,12 +111,15 @@ class LetsEncryptRoute53
 
   def request_dns_verification(challenge)
     say 'requesting verification' do
-      challenge.request_verification
+      challenge.request_validation
       loop do
         print '.'
-        status = challenge.verify_status
-        break if status == 'valid'
-        sleep 1
+        challenge.reload
+        break if challenge.status != 'pending'
+        sleep 2
+      end
+      if challenge.status != 'valid' then
+        throw "Challenge status is #{challenge.status}"
       end
     end
   end
@@ -134,44 +129,50 @@ class LetsEncryptRoute53
     Acme::Client::CertificateRequest.new(names: domains)
   end
 
-  def request_certificate(csr)
+  def request_certificate(order, csr)
     say 'requesting certificate' do
-      acme.new_certificate(csr)
+      order.finalize(csr: csr)
+      sleep(1) while order.status == 'processing'
     end
   end
 
-  def write_certificate(certificate)
+  def write_certificate(order, csr)
     require_attrs! :path_privkey, :path_cert, :path_chain, :path_fullchain
 
-    File.write(path_privkey, certificate.request.private_key.to_pem)
-    File.write(path_cert, certificate.to_pem)
-    File.write(path_chain, certificate.chain_to_pem)
-    File.write(path_fullchain, certificate.fullchain_to_pem)
+    File.write(path_privkey, csr.private_key.to_pem)
+    fullchain = order.certificate
+    cert, chain = fullchain.split(/(?<=-----END CERTIFICATE-----)/, 2).map(&:strip)
+    File.write(path_cert, cert)
+    File.write(path_chain, chain)
+    File.write(path_fullchain, fullchain)
   end
 
-  def upload_certificate(certificate)
+  def upload_certificate(order, csr)
     require_attrs! :s3_bucket, :s3_key_privkey, :s3_key_cert, :s3_key_chain,\
                    :s3_key_fullchain, :kms_key_id
+
+    fullchain = order.certificate
+    cert, chain = fullchain.split(/(?<=-----END CERTIFICATE-----)/, 2).map(&:strip)
 
     s3_encryption.put_object(
       bucket: s3_bucket,
       key: s3_key_privkey,
-      body: certificate.request.private_key.to_pem
+      body: csr.private_key.to_pem
     )
     s3.put_object(
       bucket: s3_bucket,
       key: s3_key_cert,
-      body: certificate.to_pem
+      body: cert
     )
     s3.put_object(
       bucket: s3_bucket,
       key: s3_key_chain,
-      body: certificate.chain_to_pem
+      body: chain
     )
     s3.put_object(
       bucket: s3_bucket,
       key: s3_key_fullchain,
-      body: certificate.fullchain_to_pem
+      body: fullchain
     )
   end
 
@@ -227,7 +228,7 @@ class LetsEncryptRoute53
     )
   end
 
-  def remove_dns_verification_record(challenge, domain)
+  def remove_dns_verification_record(domain, challenge)
     require_attrs! :hosted_zone_id
 
     change = {
@@ -298,7 +299,7 @@ class LetsEncryptRoute53
   def acme
     require_attrs! :region
 
-    @acme = Acme::Client.new(private_key: private_key, endpoint: endpoint)
+    @acme = Acme::Client.new(private_key: private_key, directory: endpoint)
   end
 
   def iam
