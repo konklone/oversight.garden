@@ -34,11 +34,11 @@
     "aws-sdk": "^2.192.0",
     "body-parser": "^1.17.1",
     "ejs": "^2.5.5",
-    "elasticsearch": "^13.1.1",
+    "elasticsearch": "^13.2.0",
     "errorhandler": "^1.4.3",
     "express": "^4.15.3",
     "glob": "^7.0.5",
-    "http-aws-es": "^3.1.0",
+    "http-aws-es": "^4.0.0",
     "js-yaml": "^3.5.2",
     "method-override": "^2.3.5",
     "minimist": "^1.2.0",
@@ -50,12 +50,12 @@
     "faucet": "0.0.1",
     "intercept-stdout": "^0.1.2",
     "jshint": "^2.9.3",
-    "nsp": "^2.2.0",
+    "nsp": "^3.2.1",
     "request": "^2.67.0",
     "tape": "^4.6.0",
     "tv4": "^1.2.7",
     "webdriverio": "^4.0.4",
     "xmldom": "^0.1.22",
-    "xpath": "0.0.24"
+    "xpath": "0.0.27"
   }
 }
