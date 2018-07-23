@@ -159,6 +159,13 @@ module.exports = function(app) {
     });
   });
 
+  app.get('/report/:inspector/:report_id', function(req, res) {
+    res.redirect(301, "/reports/" +
+                      encodeURIComponent(req.params.inspector) +
+                      "/" +
+                      encodeURIComponent(req.params.report_id));
+  });
+
   app.get('/dashboard', function(req, res) {
     es.search({
       index: config.elasticsearch.index_dashboard,

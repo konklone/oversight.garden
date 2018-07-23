@@ -50,7 +50,7 @@ namespace :sitemap do
             next if report_id == "." or report_id == ".."
             next if not File.directory?(File.join(data_dir, inspector, year, report_id))
             next if not File.exist?(File.join(data_dir, inspector, year, report_id, "report.json"))
-            add "/report/" + inspector + "/" + CGI.escape(report_id), change_frequency: "monthly"
+            add "/reports/" + inspector + "/" + CGI.escape(report_id), change_frequency: "monthly"
           end
         end
       end
