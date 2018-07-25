@@ -14,7 +14,10 @@ sed -i 's/APT::Periodic::Download-Upgradeable-Packages "0";/APT::Periodic::Downl
 sed -i 's/APT::Periodic::AutocleanInterval "0";/APT::Periodic::AutocleanInterval "7";/' /etc/apt/apt.conf.d/10periodic
 echo 'APT::Periodic::Unattended-Upgrade "1";' >> /etc/apt/apt.conf.d/10periodic
 
-sudo -u ubuntu gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+sudo -u ubuntu mkdir -p /home/ubuntu/oversight/current
+sudo -u ubuntu git clone https://github.com/konklone/oversight.garden.git /home/ubuntu/oversight/current
+
+sudo -u ubuntu gpg --import /home/ubuntu/oversight/current/tasks/mpapis.asc
 sudo -u ubuntu wget https://raw.githubusercontent.com/rvm/rvm/master/binscripts/rvm-installer -O /home/ubuntu/rvm-installer
 sudo -u ubuntu wget https://raw.githubusercontent.com/rvm/rvm/master/binscripts/rvm-installer.asc -O /home/ubuntu/rvm-installer.asc
 sudo -u ubuntu gpg --verify /home/ubuntu/rvm-installer.asc && sudo -u ubuntu bash /home/ubuntu/rvm-installer stable --ignore-dotfiles
@@ -23,12 +26,11 @@ echo 'source $HOME/.rvm/scripts/rvm' | sudo -u ubuntu tee -a /home/ubuntu/.bashr
 echo 'export NODE_ENV=production' | sudo -u ubuntu tee -a /home/ubuntu/.bashrc
 sudo -u ubuntu curl https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | sudo -u ubuntu bash
 
-sudo -u ubuntu mkdir -p /home/ubuntu/oversight/current
 sudo -u ubuntu mkdir -p /home/ubuntu/oversight/shared/log
 sudo -u ubuntu mkdir -p /home/ubuntu/oversight/shared/sitemap
 sudo -u ubuntu aws s3 sync s3://oversight-sitemap /home/ubuntu/oversight/shared/sitemap
+
 cd /home/ubuntu/oversight/current
-sudo -u ubuntu git clone https://github.com/konklone/oversight.garden.git .
 
 sudo -u ubuntu bash <<'END'
 source $HOME/.rvm/scripts/rvm
