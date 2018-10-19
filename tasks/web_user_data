@@ -34,8 +34,8 @@ cd /home/ubuntu/oversight/current
 
 sudo -u ubuntu bash <<'END'
 source $HOME/.rvm/scripts/rvm
-rvm install 2.4.3
-rvm use 2.4.3 --default
+rvm install 2.4.5
+rvm use 2.4.5 --default
 gem update --system
 gem install bundler
 bundle install

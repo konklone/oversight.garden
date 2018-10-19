@@ -13,7 +13,7 @@ before_install:
 - npm install -g npm@5
 - npm install -g greenkeeper-lockfile@1
 - npm config set spin false
-- rvm install 2.4.3
+- rvm install 2.4.5
 install:
 - npm install
 - bundle install --jobs=3 --retry=3 --deployment
