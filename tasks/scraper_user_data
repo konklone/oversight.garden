@@ -74,8 +74,8 @@ END
 sudo -u ubuntu bash <<'END'
 export NVM_DIR=$HOME/.nvm
 source $NVM_DIR/nvm.sh
-nvm install lts/carbon
-nvm alias default lts/carbon
+nvm install lts/dubnium
+nvm alias default lts/dubnium
 npm install --production
 END
 
