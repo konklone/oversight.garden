@@ -14,10 +14,10 @@
         "index": true
       },
       "author": {
-        "type": "string"
+        "type": "text"
       },
       "categories": {
-        "type": "string"
+        "type": "text"
       },
       "congress_id": {
         "type": "keyword",
@@ -54,7 +54,7 @@
             "index": true
           },
           "description": {
-            "type": "string"
+            "type": "text"
           }
         }
       },
@@ -77,14 +77,14 @@
       "pdf": {
         "properties": {
           "author": {
-            "type": "string"
+            "type": "text"
           },
           "creation_date": {
             "type": "date",
             "format": "date"
           },
           "keywords": {
-            "type": "string"
+            "type": "text"
           },
           "modification_date": {
             "type": "date",
@@ -94,12 +94,12 @@
             "type": "short"
           },
           "title": {
-            "type": "string"
+            "type": "text"
           }
         }
       },
       "program_area": {
-        "type": "string"
+        "type": "text"
       },
       "published_on": {
         "type": "date",
@@ -151,10 +151,10 @@
         "index": true
       },
       "title": {
-        "type": "string"
+        "type": "text"
       },
       "topic": {
-        "type": "string"
+        "type": "text"
       },
       "type": {
         "type": "keyword",
