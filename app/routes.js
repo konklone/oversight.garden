@@ -149,8 +149,16 @@ module.exports = function(app) {
 
   app.get('/reports/:inspector/:report_id', function(req, res) {
     get(req.params.inspector, req.params.report_id).then(function(result) {
+
+      var noindex = noindexed(result._source);
+
+      // It's in a <meta> tag as well, but just to be thorough.
+      if (noindex)
+        res.set("X-Robots-Tag", "noindex");
+
       res.render("report.html", {
-        report: result._source
+        report: result._source,
+        noindex: noindex
       });
     }, function(err) {
       console.log("Nooooo!\n\n" + err);
@@ -226,6 +234,13 @@ module.exports = function(app) {
   });
 
 };
+
+/*
+ * Boolean answer for whether this report should be noindex'd.
+ */
+function noindexed(report) {
+  return !!(helpers.noindex[report.inspector + "-" + report.report_id]);
+}
 
 /* Parses query string parameters from a search request, and returns an object
  * that can be passed to the search function.

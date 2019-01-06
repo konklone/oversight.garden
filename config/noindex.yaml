@@ -1,0 +1,28 @@
+
+# This is a list of reports for which we've received polite requests to have them
+# removed from search indexes. We still want these reports to be visible to our users
+# and come up in response to search requests within oversight.garden, but we are
+# sympathetic to the impact of people's names attached to negative events in their past
+# being indexed in popular search engines indefinitely.
+#
+# We implement this using the "noindex" <meta> tag in the HTML rendering of individual
+# reports. It is ultimately up to consuming crawlers to honor this tag, but major search
+# engines (like Google) do honor it.
+#
+# To send a polite request to have a report added to this list, send an email
+# to eric+oversight@konklone.com. Please include a rationale for the removal request.
+
+
+# Developer notes:
+#
+# IDs are only unique within an inspector, so include both below. This array is
+# transformed on app boot into an object, indexed by [inspector]-[id], for fast lookup.
+- inspector: dot
+  id: "28958"
+- inspector: dot
+  id: governmentattic.org-14docs-DOT-OIGweeklyRpts_2011-2014.pdf
+
+
+# Debugging:
+# - inspector: gsa
+#   id: "A180071_1"

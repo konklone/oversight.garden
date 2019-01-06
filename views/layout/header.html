@@ -19,6 +19,10 @@
     <meta name="og:title" content="<%= helpers.inspector_info(report.inspector).name %> | <%= report.agency_name %> | <%= report.title %>" />
     <meta name="description" content="<%= report.title %>" />
     <meta name="og:description" content="<%= report.title %>" />
+
+    <% if ( (typeof(noindex) != "undefined") && noindex) { %>
+        <meta name="robots" content="noindex">
+    <% } %>
 <% } else { %>
     <title>
         Oversight | Collecting the oversight community's work in one place.

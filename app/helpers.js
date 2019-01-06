@@ -7,11 +7,21 @@ var numeral = require("numeral");
 var moment = require("moment");
 var es = require("./boot").es;
 var config = require("../config/config");
+var yaml = require("js-yaml");
+var fs = require("fs");
 
 
 /**********************************************************************
   Helper setup code - initializes on app boot.
 ***********************************************************************/
+
+var noindex_path = "config/noindex.yaml";
+var noindex_list = yaml.safeLoad(fs.readFileSync(noindex_path));
+var noindex = {};
+for (var i=0; i<noindex_list.length; i++) {
+  var obj = noindex_list[i];
+  noindex[obj.inspector + "-" + obj.id] = obj;
+}
 
 var inspector_list = require("../config/inspectors");
 var inspectorMetadata = {};
@@ -190,6 +200,9 @@ module.exports = {
   counts: counts,
 
   // Return cached inspector metadata,
-  inspector_list: inspector_list
+  inspector_list: inspector_list,
+
+  // Make available indexed list of reports to noindex.
+  noindex: noindex
 
 };
