@@ -20,7 +20,6 @@ Elasticsearch is used for text search and as a primary datastore.
 * Then install Ruby dependencies:
 
 ```
-gem install bundler
 bundle install
 ```
 
