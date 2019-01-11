@@ -19,6 +19,7 @@ Module.new do
   @route53_zone = 'Z373JK35FYSEGP'
 
   @ami_release = 'xenial'
+  @ami_architecture = 'amd64'
   @ami_virtualization = 'hvm'
   @ami_disk = 'ebs-ssd'
 
@@ -77,7 +78,7 @@ Module.new do
 
       script = File.read('tasks/scraper_user_data')
       instance = @ec2.create_instances({
-        image_id: find_ami(@ami_release, @region, @ami_virtualization, @ami_disk),
+        image_id: find_ami(@ami_release, @region, @ami_architecture, @ami_virtualization, @ami_disk),
         min_count: 1,
         max_count: 1,
         key_name: @key_name,
@@ -161,7 +162,7 @@ Module.new do
     task create_web_instance: :environment do
       script = File.read('tasks/web_user_data')
       instance = @ec2.create_instances({
-        image_id: find_ami(@ami_release, @region, @ami_virtualization, @ami_disk),
+        image_id: find_ami(@ami_release, @region, @ami_architecture, @ami_virtualization, @ami_disk),
         min_count: 1,
         max_count: 1,
         key_name: @key_name,
