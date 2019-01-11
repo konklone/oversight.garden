@@ -19,6 +19,7 @@ echo 'APT::Periodic::Unattended-Upgrade "1";' >> /etc/apt/apt.conf.d/10periodic
 sudo -u ubuntu git clone https://github.com/konklone/oversight.garden.git /home/ubuntu/oversight.garden
 
 sudo -u ubuntu gpg --import /home/ubuntu/oversight.garden/tasks/mpapis.asc
+sudo -u ubuntu gpg --import /home/ubuntu/oversight.garden/tasks/pkuczynski.asc
 sudo -u ubuntu wget https://raw.githubusercontent.com/rvm/rvm/master/binscripts/rvm-installer -O /home/ubuntu/rvm-installer
 sudo -u ubuntu wget https://raw.githubusercontent.com/rvm/rvm/master/binscripts/rvm-installer.asc -O /home/ubuntu/rvm-installer.asc
 sudo -u ubuntu gpg --verify /home/ubuntu/rvm-installer.asc && sudo -u ubuntu bash /home/ubuntu/rvm-installer stable --ignore-dotfiles
