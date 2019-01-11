@@ -40,7 +40,7 @@ class Environment
       if Environment.config['aws'] && (Environment.config['elasticsearch']['host'] != '127.0.0.1') then
         f.request :aws_sigv4,
                   credentials: Aws::InstanceProfileCredentials.new,
-                  service_name: 'es',
+                  service: 'es',
                   region: Environment.config['aws']['region']
       end
     end
