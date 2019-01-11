@@ -4,7 +4,7 @@
 require 'bundler/setup'
 require 'aws-sdk'
 require 'elasticsearch'
-require 'faraday_middleware/aws_signers_v4'
+require 'faraday_middleware/aws_sigv4'
 require 'yaml'
 
 class Environment
