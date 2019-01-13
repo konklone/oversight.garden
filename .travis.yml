@@ -16,6 +16,7 @@ before_install:
 - rvm install 2.6.0
 install:
 - npm install
+- bundle update --bundler
 - bundle install --jobs=3 --retry=3 --deployment
 before_script:
 - phantomjs --webdriver=4444 &
