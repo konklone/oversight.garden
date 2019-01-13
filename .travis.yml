@@ -17,7 +17,7 @@ before_install:
 install:
 - npm install
 - gem uninstall bundler
-- gem install bundler -v 2
+- gem install bundler -v 2.0.1
 - bundle install --jobs=3 --retry=3 --deployment
 before_script:
 - phantomjs --webdriver=4444 &
@@ -25,7 +25,7 @@ before_script:
 script:
 - bash tasks/pre-commit
 - bash tasks/tests
-- rake sitemap:generate config=test/config.yaml
+- bundle exec rake sitemap:generate config=test/config.yaml
 - greenkeeper-lockfile-upload
 notifications:
   email: false
