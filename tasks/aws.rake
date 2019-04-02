@@ -452,7 +452,7 @@ Module.new do
           update_security_group(@scraper_security_group)
           ssh(instances[0])
         else
-          print "Couldn't find a running scraper instance"
+          puts "Couldn't find a running scraper instance"
         end
       end
 
@@ -464,7 +464,7 @@ Module.new do
           update_security_group(@web_security_group)
           ssh(instances[0])
         else
-          print "Couldn't find a running staging web instance"
+          puts "Couldn't find a running staging web instance"
         end
       end
 
@@ -476,7 +476,7 @@ Module.new do
           update_security_group(@web_security_group)
           ssh(instances[0])
         else
-          print "Couldn't find a running production web instance"
+          puts "Couldn't find a running production web instance"
         end
       end
     end
