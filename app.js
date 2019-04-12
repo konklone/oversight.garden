@@ -26,7 +26,11 @@ app.enable('trust proxy')
   });
 
 if (config && config.sitemap && config.sitemap.directory) {
-  app.use('/sitemap', express.static(config.sitemap.directory));
+  app.use('/sitemap', express.static(config.sitemap.directory, {
+    setHeaders: function (res, path, stat) {
+      res.set("X-Robots-Tag", "noindex");
+    }
+  }));
 }
 
 app.use(express.static(__dirname + '/public'));
