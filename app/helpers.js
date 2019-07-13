@@ -53,7 +53,7 @@ function updateReportCounts() {
     counts.reports = null;
   });
 
-  fetch_aggregated_counts()
+  fetch_aggregated_counts();
 }
 
 function fetch_aggregated_counts(after) {
