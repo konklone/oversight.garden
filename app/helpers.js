@@ -53,24 +53,47 @@ function updateReportCounts() {
     counts.reports = null;
   });
 
-  es.search({
-    index: config.elasticsearch.index_read,
-    type: "reports",
-    body: {
-      size: 0,
-      aggregations: {
-        inspector_agg: {
-          terms: {
-            field: "inspector"
-          }
+  fetch_aggregated_counts()
+}
+
+function fetch_aggregated_counts(after) {
+  var body = {
+    size: 0,
+    aggregations: {
+      inspector_agg: {
+        composite: {
+          size: 10,
+          sources: [
+            {
+              inspector: {
+                terms: {
+                  field: "inspector"
+                }
+              }
+            }
+          ]
         }
       }
     }
+  };
+  if (after) {
+    body.aggregations.inspector_agg.composite.after = after;
+  }
+  es.search({
+    index: config.elasticsearch.index_read,
+    type: "reports",
+    body: body
   }).then(function(result) {
     var buckets = result.aggregations.inspector_agg.buckets;
-    counts.inspectors = {};
+    if (!counts.inspectors) {
+      counts.inspectors = {};
+    }
     for (var i = 0; i < buckets.length; i++) {
-      counts.inspectors[buckets[i].key] = buckets[i].doc_count;
+      counts.inspectors[buckets[i].key.inspector] = buckets[i].doc_count;
+    }
+    var after_key = result.aggregations.inspector_agg.after_key;
+    if (after_key) {
+      fetch_aggregated_counts(after_key);
     }
   }, function(err) {
     console.log("Nooooo! " + err);
