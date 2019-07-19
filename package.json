@@ -39,7 +39,7 @@
     "express": "^4.15.3",
     "glob": "^7.0.5",
     "http-aws-es": "^6.0.0",
-    "js-yaml": "^3.5.2",
+    "js-yaml": "^3.13.1",
     "method-override": "^2.3.5",
     "minimist": "^1.2.0",
     "moment": "^2.20.1",
@@ -49,7 +49,7 @@
   "devDependencies": {
     "faucet": "0.0.1",
     "intercept-stdout": "^0.1.2",
-    "jshint": "^2.9.3",
+    "jshint": "^2.10.2",
     "request": "^2.86.0",
     "tape": "^4.6.0",
     "tv4": "^1.2.7",
