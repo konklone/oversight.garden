@@ -39,7 +39,7 @@ Module.new do
 
   def self.get_ipv6_address(instance_id)
     response = @ec2_client.describe_instances({instance_ids: [instance_id]})
-    response.reservations[0].instances[0].network_interfaces[0].ipv_6_addresses[0].ipv_6_address
+    response.reservations.first.instances.first.network_interfaces.first.ipv_6_addresses.first.ipv_6_address
   end
 
   namespace :aws do
@@ -71,7 +71,7 @@ Module.new do
       if volumes.count != 1 then
         raise "Expected one scraper volume but found #{volumes.count}"
       end
-      volume = volumes.entries[0]
+      volume = volumes.entries.first
       if volume.attachments.length > 0 then
         raise "Scraper volume is already attached to an instance"
       end
@@ -96,7 +96,7 @@ Module.new do
           arn: @scraper_iam_instance_profile
         }
       })
-      puts "Created instance #{instance[0].id}"
+      puts "Created instance #{instance.first.id}"
 
       # Using the instance ID immediately after it is created can cause API
       # errors, and wait_until(:instance_exists... wouldn't work due to
@@ -111,14 +111,14 @@ Module.new do
       })
 
       puts "Waiting for instance to pass status checks"
-      @ec2.client.wait_until(:instance_status_ok, {instance_ids: [instance[0].id]})
+      @ec2.client.wait_until(:instance_status_ok, {instance_ids: [instance.first.id]})
 
-      volume.attach_to_instance({instance_id: instance[0].id, device: @device_name})
+      volume.attach_to_instance({instance_id: instance.first.id, device: @device_name})
       puts "Attached volume to instance"
 
-      instance2 = @ec2.instances({instance_ids: [instance[0].id]})
-      ipv6_address = get_ipv6_address instance[0].id
-      puts "Instance #{instance2.entries[0].id} is running at #{instance2.entries[0].public_dns_name}, #{instance2.entries[0].public_ip_address}, #{ipv6_address}"
+      instance2 = @ec2.instances({instance_ids: [instance.first.id]})
+      ipv6_address = get_ipv6_address instance.first.id
+      puts "Instance #{instance2.entries.first.id} is running at #{instance2.entries.first.public_dns_name}, #{instance2.entries.first.public_ip_address}, #{ipv6_address}"
 
       @route53.change_resource_record_sets({
         hosted_zone_id: @route53_zone,
@@ -133,7 +133,7 @@ Module.new do
                 ttl: 300,
                 resource_records: [
                   {
-                    value: instance2.entries[0].public_ip_address
+                    value: instance2.entries.first.public_ip_address
                   }
                 ]
               }
@@ -182,7 +182,7 @@ Module.new do
           arn: @web_iam_instance_profile
         }
       })
-      puts "Created instance #{instance[0].id}"
+      puts "Created instance #{instance.first.id}"
 
       sleep 15
 
@@ -194,11 +194,11 @@ Module.new do
       })
 
       puts "Waiting for instance to pass status checks"
-      @ec2.client.wait_until(:instance_status_ok, {instance_ids: [instance[0].id]})
+      @ec2.client.wait_until(:instance_status_ok, {instance_ids: [instance.first.id]})
 
-      instance2 = @ec2.instances({instance_ids: [instance[0].id]})
-      ipv6_address = get_ipv6_address instance[0].id
-      puts "Instance #{instance2.entries[0].id} is running at #{instance2.entries[0].public_dns_name}, #{instance2.entries[0].public_ip_address}, #{ipv6_address}"
+      instance2 = @ec2.instances({instance_ids: [instance.first.id]})
+      ipv6_address = get_ipv6_address instance.first.id
+      puts "Instance #{instance2.entries.first.id} is running at #{instance2.entries.first.public_dns_name}, #{instance2.entries.first.public_ip_address}, #{ipv6_address}"
 
       @route53.change_resource_record_sets({
         hosted_zone_id: @route53_zone,
@@ -213,7 +213,7 @@ Module.new do
                 ttl: 300,
                 resource_records: [
                   {
-                    value: instance2.entries[0].public_ip_address
+                    value: instance2.entries.first.public_ip_address
                   }
                 ]
               }
@@ -239,7 +239,7 @@ Module.new do
                 ttl: 300,
                 resource_records: [
                   {
-                    value: instance2.entries[0].public_ip_address
+                    value: instance2.entries.first.public_ip_address
                   }
                 ]
               }
@@ -272,17 +272,17 @@ Module.new do
         hosted_zone_id: @route53_zone,
         record_name: "staging.oversight.garden",
         record_type: "A",
-      }).record_data[0]
+      }).record_data.first
       staging_ipv6 = @route53.test_dns_answer({
         hosted_zone_id: @route53_zone,
         record_name: "staging.oversight.garden",
         record_type: "AAAA",
-      }).record_data[0]
+      }).record_data.first
       main_ip = @route53.test_dns_answer({
         hosted_zone_id: @route53_zone,
         record_name: "oversight.garden",
         record_type: "A",
-      }).record_data[0]
+      }).record_data.first
 
       if staging_ip == main_ip then
         raise "Nothing to promote, staging.oversight.garden and oversight.garden already point to the same server"
@@ -434,7 +434,7 @@ Module.new do
           hosted_zone_id: @route53_zone,
           record_name: dns,
           record_type: "A",
-        }).record_data[0]
+        }).record_data.first
 
         instances_out = []
         instances_in.each do |instance|
@@ -450,7 +450,7 @@ Module.new do
         instances = get_instances_with_role("scraper")
         if instances.length > 0
           update_security_group(@scraper_security_group)
-          ssh(instances[0])
+          ssh(instances.first)
         else
           puts "Couldn't find a running scraper instance"
         end
@@ -462,7 +462,7 @@ Module.new do
         instances = filter_instances_by_dns_record(instances, "staging.oversight.garden")
         if instances.length > 0
           update_security_group(@web_security_group)
-          ssh(instances[0])
+          ssh(instances.first)
         else
           puts "Couldn't find a running staging web instance"
         end
@@ -474,7 +474,7 @@ Module.new do
         instances = filter_instances_by_dns_record(instances, "oversight.garden")
         if instances.length > 0
           update_security_group(@web_security_group)
-          ssh(instances[0])
+          ssh(instances.first)
         else
           puts "Couldn't find a running production web instance"
         end
