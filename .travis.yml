@@ -2,10 +2,7 @@ language: node_js
 node_js:
 - '10'
 sudo: required
-addons:
-  apt:
-    packages:
-    - oracle-java9-set-default
+jdk: oraclejdk9
 before_install:
 - curl -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.5.4.deb
 - sudo dpkg -i --force-confnew elasticsearch-6.5.4.deb
