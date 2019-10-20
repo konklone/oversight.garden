@@ -13,8 +13,8 @@ before_install:
 - yes | rvm install 2.6.5
 install:
 - npm install
-- gem uninstall bundler
-- gem install bundler -v 2.0.1
+# - gem uninstall bundler
+# - gem install bundler -v 2.0.1
 - bundle install --jobs=3 --retry=3 --deployment
 before_script:
 - phantomjs --webdriver=4444 &
