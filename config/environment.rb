@@ -39,7 +39,7 @@ class Environment
     @elasticsearch_client = Elasticsearch::Client.new url: endpoint, log: log do |f|
       if Environment.config['aws'] && (Environment.config['elasticsearch']['host'] != '127.0.0.1') then
         f.request :aws_sigv4,
-                  credentials: Aws::InstanceProfileCredentials.new,
+                  credentials_provider: Aws::InstanceProfileCredentials.new,
                   service: 'es',
                   region: Environment.config['aws']['region']
       end
